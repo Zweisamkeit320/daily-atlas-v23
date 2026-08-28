@@ -1,0 +1,48 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://api.open-meteo.com; font-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Permissions-Policy: accelerometer=(), autoplay=(self), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/diagnostics.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=0, must-revalidate
+
+/catalog-data/manifest.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/catalog-data/manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+/catalog-data/selection.*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/catalog-data/selection-data.*.json
+  Cache-Control: public, max-age=31536000, immutable
+
+/catalog-data/search.*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/catalog-data/details/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/audio/german/*.mp3
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/medical/*.webp
+  Cache-Control: public, max-age=31536000, immutable

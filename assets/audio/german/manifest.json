@@ -1,0 +1,4037 @@
+{
+  "schemaVersion": 1,
+  "assetSnapshotAt": "2026-08-24",
+  "voice": {
+    "engine": "Piper 1.6.0",
+    "model": "de_DE-eva_k-x_low",
+    "language": "de-DE",
+    "speakerCount": 1,
+    "speakerPresentation": "female",
+    "quality": "x_low",
+    "sampleRate": 16000,
+    "modelSha256": "E88CF290FBFB768BF111330D2E8A46E376B0D85E3423A28BFEBBC863A260DAD8",
+    "configSha256": "EF14B3DCB279AB4B18422A7A132877BEE7A148821BD91152FB7AE9C4B3D79625",
+    "modelCard": "https://huggingface.co/rhasspy/piper-voices/blob/main/de/de_DE/eva_k/x_low/MODEL_CARD",
+    "modelRepository": "https://huggingface.co/rhasspy/piper-voices/tree/main/de/de_DE/eva_k/x_low",
+    "speakerEvidence": "https://www.isca-archive.org/interspeech_2019/chen19f_interspeech.pdf",
+    "datasetLicense": "M-AILABS BSD-style data license; local notice retained in LICENSE-M-AILABS.txt"
+  },
+  "encoding": {
+    "container": "MPEG audio layer III",
+    "bitRateKbps": 48,
+    "channels": 1,
+    "sourceSampleRate": 16000
+  },
+  "durationBasis": "durationMs is computed from pre-encoding PCM sample count and is not the exact decoded MP3 playback duration",
+  "phonemeNormalization": "Unicode NFC (joins decomposed IPA marks such as c + cedilla before ID lookup)",
+  "source": {
+    "lessons": "../../../data/raw/german500.json",
+    "lessonsSha256": "18D2B0471E46B013CAFB8B3E20A02B65593A2B70C4F4C56D3E9484C36C9AB0A4",
+    "field": "exampleGerman"
+  },
+  "count": 500,
+  "totalBytes": 10330632,
+  "totalDurationMs": 1677712,
+  "items": [
+    {
+      "id": "de-feierabend",
+      "path": "assets/audio/german/de-feierabend.mp3",
+      "textSha256": "BB3EAD88F362D82F65DD3305932C9F6CA2DD87DCE46B0AB8CF326AF2669101DD",
+      "sha256": "1A3B42D7D0A186093426928957BC71BCD0CF91025373E3166BCB55EF1ACBCB62",
+      "bytes": 23112,
+      "durationMs": 3760
+    },
+    {
+      "id": "de-fernweh",
+      "path": "assets/audio/german/de-fernweh.mp3",
+      "textSha256": "9741529219D432AEAE9D3E86BE4C74270C9F4AD6E29A999BD94A17BD2E1D11D8",
+      "sha256": "7D1701EE1AA59D61F1B008DA46805B5BFC9E3D225F3A207D3982D4B62E13878C",
+      "bytes": 16848,
+      "durationMs": 2720
+    },
+    {
+      "id": "de-gemuetlich",
+      "path": "assets/audio/german/de-gemuetlich.mp3",
+      "textSha256": "1A90B72FCF228E23CE0546615CBEE46CC767738E5D4BBAF33FA80993773843EA",
+      "sha256": "71AE169193C152B145EB5A77F95632E689C86DD3BB8300989CBC9295E66F0A74",
+      "bytes": 15768,
+      "durationMs": 2528
+    },
+    {
+      "id": "de-zuverlaessig",
+      "path": "assets/audio/german/de-zuverlaessig.mp3",
+      "textSha256": "F0DFE682C96D4FEF071FB34FAF83DB7ED364C6A5C3CABF35D85B34009A4FEEF8",
+      "sha256": "24967E1A97E8DD1C1E57187B92DFE3F55C42F19AADAEF690272C1EBD6C64DEBA",
+      "bytes": 22896,
+      "durationMs": 3712
+    },
+    {
+      "id": "de-neugierig",
+      "path": "assets/audio/german/de-neugierig.mp3",
+      "textSha256": "703F2AC802AE3FB51FEC67333690B6D33820B383B353CE3F71FF1350078344E4",
+      "sha256": "525054A9BDF4E16DA37E813AA40A04AA92BA2CB23597B3527585A8F318AF2AEC",
+      "bytes": 17712,
+      "durationMs": 2880
+    },
+    {
+      "id": "de-achtsam",
+      "path": "assets/audio/german/de-achtsam.mp3",
+      "textSha256": "51636A5B796C163F9FB4C6530D09BEF3EE295A0950E309D3579EBD2869798722",
+      "sha256": "9D4D7AAC144F9A28F40ED3396B792B01B1856A5FD06CC2E9B1CE302CC6E85982",
+      "bytes": 17280,
+      "durationMs": 2800
+    },
+    {
+      "id": "de-eigentlich",
+      "path": "assets/audio/german/de-eigentlich.mp3",
+      "textSha256": "13BB87150A51AAD6265CCEBDE063B462AAA6266D58BE49627B3F73EDC2DC85E4",
+      "sha256": "480CA6288DA34C1BC6BD1B65B8C82BED2E7A6154506A2C77341123FA2987EF8B",
+      "bytes": 14256,
+      "durationMs": 2304
+    },
+    {
+      "id": "de-immerhin",
+      "path": "assets/audio/german/de-immerhin.mp3",
+      "textSha256": "4B3BAF6433623A5F9FD613F02E8BC2769B06E6369236985C305BD6BA9342826A",
+      "sha256": "E9B01F08973A6A51394EBE4946FDE52A0FC4CF25ED49C76E63EB5719D205BC2F",
+      "bytes": 18792,
+      "durationMs": 3056
+    },
+    {
+      "id": "de-doch",
+      "path": "assets/audio/german/de-doch.mp3",
+      "textSha256": "93E84D69CF7257E2AD0C7D869C466A4BB23758FDAC8872F5B51E6F597EA5601A",
+      "sha256": "7C1BAAEC36D0DF6F582454D9810EB5CAC98D7EDAACA17638C61CD67A01C07BA4",
+      "bytes": 23544,
+      "durationMs": 3824
+    },
+    {
+      "id": "de-wahrscheinlich",
+      "path": "assets/audio/german/de-wahrscheinlich.mp3",
+      "textSha256": "FADBCCDF7DFD684210F902D09BA79FEF92AC0CDB0592DCBCF5B13F5A052F9B56",
+      "sha256": "AD2252F93799F15299D28C06B68B7C1BEA8C122B2C6300BDA6A1DABE1F8939AF",
+      "bytes": 20304,
+      "durationMs": 3312
+    },
+    {
+      "id": "de-guten-morgen",
+      "path": "assets/audio/german/de-guten-morgen.mp3",
+      "textSha256": "F878830B7669EB521F61667C97B20B07D7069C4902EBFCA61D7901BD29F129F4",
+      "sha256": "99394E670C000213346595886D63E592BCAEBE64680503EC59641193C0122091",
+      "bytes": 16848,
+      "durationMs": 2720
+    },
+    {
+      "id": "de-wie-geht-es",
+      "path": "assets/audio/german/de-wie-geht-es.mp3",
+      "textSha256": "D8AAF52610C9DAD0D10DE91A3A36F662B4410CE1326A945DE356BCBD0E126AFB",
+      "sha256": "1B66D43FDC9DAEF6A434A021D101B0CD5888C5DD517F54D507C74CDED5A5A953",
+      "bytes": 15984,
+      "durationMs": 2592
+    },
+    {
+      "id": "de-ich-haette-gern",
+      "path": "assets/audio/german/de-ich-haette-gern.mp3",
+      "textSha256": "3F04FF06546BA58417DFB712B814ED48C6354B22690FC74C8232F66BFF6C022E",
+      "sha256": "C838D6BE11675AD6FAD43579776F8F349E61CDC04BB18967C39DE7660346713C",
+      "bytes": 17064,
+      "durationMs": 2768
+    },
+    {
+      "id": "de-koennten-sie-helfen",
+      "path": "assets/audio/german/de-koennten-sie-helfen.mp3",
+      "textSha256": "C9DFBF3AB4CF6EAC40228FDF0F7025E103733EB82CE4AB41429497C037A8F205",
+      "sha256": "0916E526ADE71BA1896CC7E092EC9D8304B77EA7EE2295EEA1D07E214C4CB7A2",
+      "bytes": 20304,
+      "durationMs": 3296
+    },
+    {
+      "id": "de-weg-bahnhof",
+      "path": "assets/audio/german/de-weg-bahnhof.mp3",
+      "textSha256": "2ACC56EEE624BB57F1C897FBA33F3816F05E426E2590A574DD51F1929FBE92B8",
+      "sha256": "E3993ED4487A60FC4BCF2466811A835D7C796AC279A50BE974769B845843DDA3",
+      "bytes": 14040,
+      "durationMs": 2256
+    },
+    {
+      "id": "de-nicht-verstanden",
+      "path": "assets/audio/german/de-nicht-verstanden.mp3",
+      "textSha256": "5560CCA12FDE9F166EAD66F99EE19810C583169652C3B6D6B96A67334AF6B9D2",
+      "sha256": "A7AC76AF5A20945465C85216C732B15F98615946D6E5DAB47E9A27CEF2C59155",
+      "bytes": 16416,
+      "durationMs": 2656
+    },
+    {
+      "id": "de-bitte-wiederholen",
+      "path": "assets/audio/german/de-bitte-wiederholen.mp3",
+      "textSha256": "D602914A8279C2B40CBD40351D02DDFDD20A0BA73D30EC200E7CFED8EE406ACB",
+      "sha256": "6B7E7C3E6BA72C7658A8F293BD1973582159BA56BF7A1F5D884939CAF344CDD4",
+      "bytes": 14472,
+      "durationMs": 2336
+    },
+    {
+      "id": "de-was-bedeutet",
+      "path": "assets/audio/german/de-was-bedeutet.mp3",
+      "textSha256": "E706C2B4EC114AFAA8173DE4E8731214498534436D1466B99BC3C662F09037EA",
+      "sha256": "CD7C469AC848006F9A99ACFA4EA3C79165F1E33D3333F223D4CA9390A24201E8",
+      "bytes": 13824,
+      "durationMs": 2208
+    },
+    {
+      "id": "de-lerne-noch",
+      "path": "assets/audio/german/de-lerne-noch.mp3",
+      "textSha256": "F270117B5EA378352ED462914F3F291BD7A315902EA7612D721A6E955761585E",
+      "sha256": "A3AD8F422495A9518BE5BC85686D5C1D797CA4C4B16B0876163797237EC8089F",
+      "bytes": 21168,
+      "durationMs": 3456
+    },
+    {
+      "id": "de-klingt-gut",
+      "path": "assets/audio/german/de-klingt-gut.mp3",
+      "textSha256": "D7B4A5F2A01695A5BAC26FABDE35D7D0FE41784575B144874954590B09A81E0B",
+      "sha256": "8F0813C15F64520A088CBC378FE7C5E4C2A208D2C0533F2D8798A2346EFD3869",
+      "bytes": 17064,
+      "durationMs": 2752
+    },
+    {
+      "id": "de-kommt-darauf-an",
+      "path": "assets/audio/german/de-kommt-darauf-an.mp3",
+      "textSha256": "D31FFA50B8EA49D808CB6C48A92CC7C437F5201E8C3F327DC320D4C70DD71114",
+      "sha256": "175602A509890744D18EE30B116FA28AE3A94181509A3FE9D61FB2937752EAF9",
+      "bytes": 16848,
+      "durationMs": 2736
+    },
+    {
+      "id": "de-keine-sorge",
+      "path": "assets/audio/german/de-keine-sorge.mp3",
+      "textSha256": "D2070E42B5D59EA5533C1F8D7C99058290B0B3E0D0BDC3EB13F05FF8A1527D0D",
+      "sha256": "4605A25CFA2EA7E1ED0A73923CCDABD59D7559B5A4E59B53A7B7A6045FE1A8E1",
+      "bytes": 17712,
+      "durationMs": 2848
+    },
+    {
+      "id": "de-einverstanden",
+      "path": "assets/audio/german/de-einverstanden.mp3",
+      "textSha256": "2577C8A71028D45922BD5D411DABB9A505F20169BDEB8DE6BB43FE45743FDC68",
+      "sha256": "26F6D6712444B02F29DEC3ED532FB667C4EA2F305EC1D8CF40A6EA886981C77F",
+      "bytes": 27216,
+      "durationMs": 4464
+    },
+    {
+      "id": "de-anderer-meinung",
+      "path": "assets/audio/german/de-anderer-meinung.mp3",
+      "textSha256": "BC6A9A653D6878F6053C8B7004EC25C38F2D0F60612239D427779A4307F9B5B6",
+      "sha256": "0B5ED612E29A32BB88716F33EB01FCF85653FAB59357429FA740AB84CB0BEEEC",
+      "bytes": 21816,
+      "durationMs": 3552
+    },
+    {
+      "id": "de-lass-uns",
+      "path": "assets/audio/german/de-lass-uns.mp3",
+      "textSha256": "9B2CB80D1FBA295FB7B2E74290A0D1E58B64B9E677B441F60F8C114D7D7177DB",
+      "sha256": "D42B794906F33E11C377F5A8761E9562E450972D9719D9973DC1CBCB88D9C682",
+      "bytes": 15552,
+      "durationMs": 2496
+    },
+    {
+      "id": "de-freue-darauf",
+      "path": "assets/audio/german/de-freue-darauf.mp3",
+      "textSha256": "D0520A1DC511F9FBF097989FD53FD2B17B7CE968ED485C223B5695EAD88F6BF1",
+      "sha256": "AA53FB8F98C7892A803F8CA6469793B97C58631BF1C71FE0B1585D4CC2743F92",
+      "bytes": 22896,
+      "durationMs": 3712
+    },
+    {
+      "id": "de-vielen-dank",
+      "path": "assets/audio/german/de-vielen-dank.mp3",
+      "textSha256": "58B0F5DAF0C924939D12760C05D42373DB363D586641ACE8CA775E8EA38B03B0",
+      "sha256": "130032E1CDA327EEA25835A52291B0D186147A85CA5598EE025B85DAC44448C9",
+      "bytes": 15336,
+      "durationMs": 2480
+    },
+    {
+      "id": "de-gute-besserung",
+      "path": "assets/audio/german/de-gute-besserung.mp3",
+      "textSha256": "2DB477C73E10A927FAAB022C4E722C020FB6BE08DFF077FF1807A8C4BB4A0E73",
+      "sha256": "ED827399C23A03F00D947ED9872B94AB218BA16653815C1CC30C1292B8EA303F",
+      "bytes": 20304,
+      "durationMs": 3296
+    },
+    {
+      "id": "de-bis-bald",
+      "path": "assets/audio/german/de-bis-bald.mp3",
+      "textSha256": "AACF27DB4A68501891A2D07AE9CD94944934CF5497D99CAC402CD85AEEFECB72",
+      "sha256": "2B4AE897CAC3D383068B5117C6CCF77DB796BDEF5BD58E7B135273B4CA01B2AC",
+      "bytes": 16632,
+      "durationMs": 2672
+    },
+    {
+      "id": "de-zeit-lassen",
+      "path": "assets/audio/german/de-zeit-lassen.mp3",
+      "textSha256": "F8B35C3FB3B9FD4C8D64EA969FC6C9FFC4B000F34CC8DAA31F47D82337F83EF1",
+      "sha256": "EDE6B5A9630B297AAE722643045BC5682A4D3C173DE091C4EF0F95EC46960D7B",
+      "bytes": 22032,
+      "durationMs": 3600
+    },
+    {
+      "id": "de-grammar-nouns",
+      "path": "assets/audio/german/de-grammar-nouns.mp3",
+      "textSha256": "EB4E6AAE4B479219641ED7F10432AD5833B20154FCC2DD3D25B550E5CA5B2C7F",
+      "sha256": "82A1270EB421C873CFBE4CAC7CF85546612FAEF73CD68CC1A79626ED10B0DECF",
+      "bytes": 10368,
+      "durationMs": 1632
+    },
+    {
+      "id": "de-grammar-gender",
+      "path": "assets/audio/german/de-grammar-gender.mp3",
+      "textSha256": "AF5760885397DB4D14DB1BB86F824C63B47218A4744DCBA5EBBAF6D3A3F1E3AD",
+      "sha256": "2A585E9B627CD7F2F290504BBCB882F79134DF0FFB3260AFD9D4FA5B0EE9A2E9",
+      "bytes": 23544,
+      "durationMs": 3824
+    },
+    {
+      "id": "de-grammar-v2",
+      "path": "assets/audio/german/de-grammar-v2.mp3",
+      "textSha256": "430E1D4DCD4FA246A157CFE4F45B228F74F93A68BA4BE4976DCF755520AE55C1",
+      "sha256": "4D205AECF33FA75BA653B4A8FB2A15ACFAF6FBA423A5D03E78208AD188A1EDE1",
+      "bytes": 12528,
+      "durationMs": 2016
+    },
+    {
+      "id": "de-grammar-yes-no",
+      "path": "assets/audio/german/de-grammar-yes-no.mp3",
+      "textSha256": "8AE475A4E5EB53E422A5F31E74CB00D9E3129E92F0A4EF4BB0E03A65F88E7277",
+      "sha256": "12C7E30AEDB5DEC4D4F18712C71096CAA7F7D81A117AF1E30A3FC99E36E6717F",
+      "bytes": 7128,
+      "durationMs": 1104
+    },
+    {
+      "id": "de-grammar-w-question",
+      "path": "assets/audio/german/de-grammar-w-question.mp3",
+      "textSha256": "145B15C29B6804276ECFE2A8A0C8465711D425B8A37B58A1776670F9F294E2D5",
+      "sha256": "B4A761BBD895A4A4279717D2A6EC887D6B4DFAAE52629BB4FDD33940AED1F02A",
+      "bytes": 12744,
+      "durationMs": 2048
+    },
+    {
+      "id": "de-grammar-present",
+      "path": "assets/audio/german/de-grammar-present.mp3",
+      "textSha256": "D5DC5CA86A8539C5A3E060265670B5FB8B2FFE44FF6BCA84D86C7B6D4ED0A5BD",
+      "sha256": "9E376A13FC0701436FC5BFC177A66C33777C935ED277B428560D81F1A857D807",
+      "bytes": 17496,
+      "durationMs": 2816
+    },
+    {
+      "id": "de-grammar-sein-haben",
+      "path": "assets/audio/german/de-grammar-sein-haben.mp3",
+      "textSha256": "339BB420B1B28E72F0010B256FEC3DA82B93D1099512ECFC8E24B70682F9C05E",
+      "sha256": "75CC52759F546BC7BD75C5F727FA788D821BAA399EA4DD4272C6C57901F12198",
+      "bytes": 23760,
+      "durationMs": 3872
+    },
+    {
+      "id": "de-grammar-modal",
+      "path": "assets/audio/german/de-grammar-modal.mp3",
+      "textSha256": "AC52F13028FDBD8BD540FF1AF35000615C2403FAA6B40C399284B0F6E3BC8FFD",
+      "sha256": "F4118382EA4F21F434CBCF2B332071E6DC805091C7C069F50E20A72226DB5011",
+      "bytes": 12744,
+      "durationMs": 2032
+    },
+    {
+      "id": "de-grammar-separable",
+      "path": "assets/audio/german/de-grammar-separable.mp3",
+      "textSha256": "AEDCD2986EABAC9DA204AA7BEC6CCF8B5D14635111D573A1B7FC2D01D2C73570",
+      "sha256": "C1D718048A4D0FB7718D9CFC94687586558A41B1097C09C2D369EBD99E6458DE",
+      "bytes": 12312,
+      "durationMs": 1968
+    },
+    {
+      "id": "de-grammar-negation",
+      "path": "assets/audio/german/de-grammar-negation.mp3",
+      "textSha256": "6B674A362BA46ABE889F127C643462279803EF8A1F0C48032F7DC9D1CF624ED7",
+      "sha256": "4DF40760079D36B0CD548F2AD913712AD30F020277B8759CC52008D2677EB286",
+      "bytes": 22248,
+      "durationMs": 3632
+    },
+    {
+      "id": "de-grammar-accusative",
+      "path": "assets/audio/german/de-grammar-accusative.mp3",
+      "textSha256": "2668FC1D75F683FF0AD207943A26079334F6EF53196D6C39A41DB3AF9C726E7F",
+      "sha256": "250D72232EB0EF6C43420892A1FAEB011AAEA544DA927C3EB7D298AC7A94CF9C",
+      "bytes": 9720,
+      "durationMs": 1536
+    },
+    {
+      "id": "de-grammar-dative",
+      "path": "assets/audio/german/de-grammar-dative.mp3",
+      "textSha256": "7D0D5D57D597AC0DEFB655B2CBB8EA58B4B8FE3F61B4EEFC5745E33B0D68FB67",
+      "sha256": "BD31F43AEF32B7C83802F9AC91814283EF53AD2D792AE51BAC8BBCC78FFA8A57",
+      "bytes": 11232,
+      "durationMs": 1792
+    },
+    {
+      "id": "de-grammar-two-way",
+      "path": "assets/audio/german/de-grammar-two-way.mp3",
+      "textSha256": "1E5FB5A3AF6ECEF1D84E83896EE5700DF6702DF09599FBA3C0326B54A7271952",
+      "sha256": "64DE66A8E34E3DCFFF00171E65500EC8FCD54269D585F85DA419AF2E6F920282",
+      "bytes": 24840,
+      "durationMs": 4064
+    },
+    {
+      "id": "de-grammar-perfect",
+      "path": "assets/audio/german/de-grammar-perfect.mp3",
+      "textSha256": "20D5F671B8FFB9F40D00F5DBFEECE0FDE2949751EF0C90CBF04EC605E446B0EA",
+      "sha256": "A67E2CF891F22295A177779C6D00135F351CCF15986E31881B6CBA353C445C7B",
+      "bytes": 12528,
+      "durationMs": 2000
+    },
+    {
+      "id": "de-grammar-preterite",
+      "path": "assets/audio/german/de-grammar-preterite.mp3",
+      "textSha256": "DEE9A0170E4C649B2041171E41620457B16523CBE53A7D8F8AFB0E609EBDF843",
+      "sha256": "39A559B9C434EB96A1308026236BC51837E967EDCDA228AF3C623D6449304D41",
+      "bytes": 18576,
+      "durationMs": 2992
+    },
+    {
+      "id": "de-grammar-subordinate",
+      "path": "assets/audio/german/de-grammar-subordinate.mp3",
+      "textSha256": "DE8D06242400287EF77BCD9954B0045734CBCC94FBAE5A795FF9555A8D1F1C8B",
+      "sha256": "31E122E2D17F6C263254062836F856197CC0C094C9764F1E45E8F2D239ADB118",
+      "bytes": 17064,
+      "durationMs": 2768
+    },
+    {
+      "id": "de-grammar-wuerde",
+      "path": "assets/audio/german/de-grammar-wuerde.mp3",
+      "textSha256": "CC0BEEFEA07EFD26AA4012F3C47C56EF45C5939FD2D8E11467013E6072A0F267",
+      "sha256": "74A4C9C2EA2784B549340D3668A40831DD25BE81B90E326EA421F24683BA6D88",
+      "bytes": 12528,
+      "durationMs": 2016
+    },
+    {
+      "id": "de-grammar-comparative",
+      "path": "assets/audio/german/de-grammar-comparative.mp3",
+      "textSha256": "223C5A1B3ED06E7ED37C9EE2A724AC40019B53D8CEDBB3F6B1A3655FFC37184A",
+      "sha256": "15B9214FC6B54BF42E5B358E8D4AF3BF5CD1359D8BCCC2EAF91EFBFF7E7A8405",
+      "bytes": 13824,
+      "durationMs": 2224
+    },
+    {
+      "id": "de-grammar-tmp",
+      "path": "assets/audio/german/de-grammar-tmp.mp3",
+      "textSha256": "0AACB1FF5FE072A9F5593274E4A8EA71BE813728E9EC928B68C0FA81248EFD89",
+      "sha256": "7E235329F80B3343EDDAAFB53E063D0E53E540F4F047A4582D85D768F0F8B7FC",
+      "bytes": 19440,
+      "durationMs": 3168
+    },
+    {
+      "id": "de-grammar-relative",
+      "path": "assets/audio/german/de-grammar-relative.mp3",
+      "textSha256": "2ACEBCEEC1A9A847EC9588891F85E4988A73E6692C24B1356200FF9A7B0E00F4",
+      "sha256": "A9894AF5D7CDB51F896CED8E53D850B09B5472529F9490B95306E86858812809",
+      "bytes": 16200,
+      "durationMs": 2624
+    },
+    {
+      "id": "de-termin",
+      "path": "assets/audio/german/de-termin.mp3",
+      "textSha256": "5912B9A1651AE2D1CD3BAF2F0EA5ADA083799855C63BEB7E5B6BE4F1C030F1E6",
+      "sha256": "873CCC3F8A3FE9AEB40F7A0B74732ABFBD8B1A464D42797159AD46D0F6F4C193",
+      "bytes": 19872,
+      "durationMs": 3232
+    },
+    {
+      "id": "de-wohnung",
+      "path": "assets/audio/german/de-wohnung.mp3",
+      "textSha256": "E47D15E844DDF663EEFC3D6CBCE287B848A3018C63C150CE6FCE03E3A5FADEDE",
+      "sha256": "2808F82C619BBB32F6578C0D58A6FC5653BD5B0A094B3BB47416717E5D8B4FC6",
+      "bytes": 18576,
+      "durationMs": 3024
+    },
+    {
+      "id": "de-fahrplan",
+      "path": "assets/audio/german/de-fahrplan.mp3",
+      "textSha256": "8307207C64EB02ED4E159AE6062AE190E4274DFB9FC25ACA26195CDAA1C2A9F6",
+      "sha256": "74122638CA5E6B836FC2FFCBA69D78C8A35CA5FF817AD14183C20E811D8C193E",
+      "bytes": 14256,
+      "durationMs": 2288
+    },
+    {
+      "id": "de-quittung",
+      "path": "assets/audio/german/de-quittung.mp3",
+      "textSha256": "B2AB05401D541B9EB7CD5FA74CB79DB63D362FBB312D27C9119EDB093A01EC1A",
+      "sha256": "F123718C74BE09EC6BB3815738857A355725D501F582FBF0AF1EA7B3DB565C43",
+      "bytes": 15120,
+      "durationMs": 2432
+    },
+    {
+      "id": "de-schluessel",
+      "path": "assets/audio/german/de-schluessel.mp3",
+      "textSha256": "00819DBC5DDD8C2B8C8CBC86091AF7FA6B834B78214A17A21E83A54B967F3D1C",
+      "sha256": "65C4E9B80C6EB6597562AB54504C215B0AE7A91081C324507C4F2D383CE4F89A",
+      "bytes": 14904,
+      "durationMs": 2400
+    },
+    {
+      "id": "de-wetter",
+      "path": "assets/audio/german/de-wetter.mp3",
+      "textSha256": "31B79E465D1F60C9A24BF697C650A6BB6D18186B2EA56C8E2464A1800FDC038C",
+      "sha256": "6E7AEDB46D36849CA6A213EF48559D915C1F7E338136C3569BDB1A364BA966CE",
+      "bytes": 21168,
+      "durationMs": 3424
+    },
+    {
+      "id": "de-nachbar",
+      "path": "assets/audio/german/de-nachbar.mp3",
+      "textSha256": "44ED60BC1474C0F76AC52B94B5419C81E4B279F65992FA4FE8F5FEB3B387627C",
+      "sha256": "08576646E5D426D4CD97F5F91D26B54B5A7148E5646A72B273E3D8B84AE7DE9D",
+      "bytes": 18576,
+      "durationMs": 2992
+    },
+    {
+      "id": "de-pause",
+      "path": "assets/audio/german/de-pause.mp3",
+      "textSha256": "9FD86FDE4D996FD46956631E6A5D606086C73EDBA4CB559A7CA0A3C58E5BDF22",
+      "sha256": "E1ED037D3B6FD2091B7B4E9E9B226ADB03AE49FCF123AE7B39D11429033EAE34",
+      "bytes": 20952,
+      "durationMs": 3408
+    },
+    {
+      "id": "de-fruehstueck",
+      "path": "assets/audio/german/de-fruehstueck.mp3",
+      "textSha256": "A23269C5D5E5BD6DC39596D3F7FA61DC543DD1FBEC5365B4B8199E23AC052AB6",
+      "sha256": "79ED0BFF6222865FA673ECB7C762344C835187E363FFB5998B7BEDE76E5D59C1",
+      "bytes": 14472,
+      "durationMs": 2336
+    },
+    {
+      "id": "de-einkauf",
+      "path": "assets/audio/german/de-einkauf.mp3",
+      "textSha256": "6CF43DF61581EC59EED26A15ACE5F3FBD7594C80FA0380450FC61251B6B1C77A",
+      "sha256": "164F34882CFC266E00ECBB6653AAB71714CC9D2883E7E73BC309B4770325D418",
+      "bytes": 22032,
+      "durationMs": 3568
+    },
+    {
+      "id": "de-haltestelle",
+      "path": "assets/audio/german/de-haltestelle.mp3",
+      "textSha256": "89332468DF6E7041B5AFF137D57801944B58C954311408717ECC3C055E8A6C98",
+      "sha256": "B99963E4F059D5AABAF4C25A3F5055D6B34AFBB7FB7320774BB5B6D6A96A760E",
+      "bytes": 22032,
+      "durationMs": 3600
+    },
+    {
+      "id": "de-eingang",
+      "path": "assets/audio/german/de-eingang.mp3",
+      "textSha256": "26C5C6D429BD3316587F0F5247387AD4C287B8EE4D5C46D300C347AEF9CE3AE4",
+      "sha256": "D965F03586B696E4058449DBDC3BF559A982F417C79031E90CC78FB5DC800B67",
+      "bytes": 20520,
+      "durationMs": 3328
+    },
+    {
+      "id": "de-geschenk",
+      "path": "assets/audio/german/de-geschenk.mp3",
+      "textSha256": "BD9B76BA9DE6DF0666679BD6BE5C783800E9AE57F84BA8BFCBDA796A5F41F8E2",
+      "sha256": "0490CEA8AA829507385ECE31E7BA2F9A1ACA0AD8E83C7B1F7D295D43E796AE5D",
+      "bytes": 19008,
+      "durationMs": 3072
+    },
+    {
+      "id": "de-geburtstag",
+      "path": "assets/audio/german/de-geburtstag.mp3",
+      "textSha256": "4FC1807F3EEC31DC16089F0AE837785C2693B85949DC57A76EF1F6580EBE6AFE",
+      "sha256": "D3EF22395269ADAFAEC9DBD9274FE7BEE3949CAE5B0BDEFBA94E876001B86C5F",
+      "bytes": 14904,
+      "durationMs": 2400
+    },
+    {
+      "id": "de-rechnung-basic",
+      "path": "assets/audio/german/de-rechnung-basic.mp3",
+      "textSha256": "C67CD26BDDB22A3AEAC77EBA4FCB2A18BF5D7F33F6B51C1FECC37CC7331FC168",
+      "sha256": "A0963B53BC445107EAB919FDF65440E59D35DBAD57234209D312A3AA061BE72A",
+      "bytes": 18576,
+      "durationMs": 3008
+    },
+    {
+      "id": "de-wo-ist-toilette",
+      "path": "assets/audio/german/de-wo-ist-toilette.mp3",
+      "textSha256": "745583DC3307F3D9555177EC53E8D3C5B4037335D000C4BA93C89C266B865BEB",
+      "sha256": "F8A077D7AA9C0BBA184BEAFCDBBDDA96CEBF433A04F49E90141C6FF02C79D355",
+      "bytes": 14256,
+      "durationMs": 2304
+    },
+    {
+      "id": "de-wie-spaet",
+      "path": "assets/audio/german/de-wie-spaet.mp3",
+      "textSha256": "4B570C84349F872FD4D4E3D4582E30964D975BB39FDCC3FB737114578A7ECBF0",
+      "sha256": "926CB89BD3DCA9F1894E4B690A372D627A482C32906F94DE2D5EA948DF2EBDC7",
+      "bytes": 14040,
+      "durationMs": 2240
+    },
+    {
+      "id": "de-ich-brauche",
+      "path": "assets/audio/german/de-ich-brauche.mp3",
+      "textSha256": "46018067E8D78214221A37FC2C08E0FA0C7A8181BA337CB77DF232F471633238",
+      "sha256": "57B3FC72A1C80A81AD346A5E5A68295E429823D99EFB9D79D05A9431040E770C",
+      "bytes": 16848,
+      "durationMs": 2720
+    },
+    {
+      "id": "de-darf-ich",
+      "path": "assets/audio/german/de-darf-ich.mp3",
+      "textSha256": "F6DF6699D454051F437B28CE17CF811128E143CFB7AD8C8DDA9F781C7DD68787",
+      "sha256": "03623F070D977F9FB428A87BE7ADD3AAE2C8683E11A65BBAF137EC00C9326446",
+      "bytes": 13392,
+      "durationMs": 2128
+    },
+    {
+      "id": "de-koennen-wir",
+      "path": "assets/audio/german/de-koennen-wir.mp3",
+      "textSha256": "A4F39FA95F1D9D70EC6E6D178C232B2AF9E5F5532C59D36B0E1418398BEF2AFF",
+      "sha256": "58865BB4C8C72323B2D6BB72AA76ECC043A00BFF14558C0292E3D50A79C52318",
+      "bytes": 14472,
+      "durationMs": 2336
+    },
+    {
+      "id": "de-einen-moment",
+      "path": "assets/audio/german/de-einen-moment.mp3",
+      "textSha256": "2E8C80F279A9DEC2D2AF356538E7B3EE7BE9B29B1907CFF4CCD52EA9BFD60E58",
+      "sha256": "48EE3B2DC38723E6187F488F3E5A0CFBCE59039BC60E7331BB03C05994A602F2",
+      "bytes": 20088,
+      "durationMs": 3264
+    },
+    {
+      "id": "de-weiss-nicht",
+      "path": "assets/audio/german/de-weiss-nicht.mp3",
+      "textSha256": "DFD125FA2BE9D1C1EE92F971369B28B4BA4D4E7B2019BDAA14E3625293809B49",
+      "sha256": "A1F04B223BD4ECA476DED8EC9E2A729D3C6E47571D9ABF3F90911AB7B725E388",
+      "bytes": 24408,
+      "durationMs": 3968
+    },
+    {
+      "id": "de-bitte-langsam",
+      "path": "assets/audio/german/de-bitte-langsam.mp3",
+      "textSha256": "9437867623E41EAA6D2EA15CB6AB5540E7FB49491DE7D97235356AEAB3245DAC",
+      "sha256": "B4E9588677AA34127685AB940E8D7BCB70840B72FA3FEBF8F9B0D329A68C570B",
+      "bytes": 26352,
+      "durationMs": 4320
+    },
+    {
+      "id": "de-was-kostet",
+      "path": "assets/audio/german/de-was-kostet.mp3",
+      "textSha256": "93183E84C0FB6C1F1D93AD286C194899AFF0E5231013136F3D62345A0BF0D60D",
+      "sha256": "915FF9109C3F16D43801D8634BC7E946A551158AE4442FC04EB8C2EF636FC38A",
+      "bytes": 15984,
+      "durationMs": 2592
+    },
+    {
+      "id": "de-gleich-da",
+      "path": "assets/audio/german/de-gleich-da.mp3",
+      "textSha256": "EA6843E22C592D2823CA657356DAAC1D2597B084E6674BDD5D2F63D5EE901192",
+      "sha256": "33C425CA0F63670A271A9B8CD324CA90DC4398D2D92D38B754DC9E9804AEC35C",
+      "bytes": 19656,
+      "durationMs": 3200
+    },
+    {
+      "id": "de-grammar-plural",
+      "path": "assets/audio/german/de-grammar-plural.mp3",
+      "textSha256": "85298A0476E68AFF6988755C2C0C0DF1A35D83B3ADB5B8171FDBC916BAB61D64",
+      "sha256": "61CF1DF2DD6984C8A45EE00035336D53D420F8983EAD793AB958B40F01EE3153",
+      "bytes": 25272,
+      "durationMs": 4128
+    },
+    {
+      "id": "de-grammar-acc-pronouns",
+      "path": "assets/audio/german/de-grammar-acc-pronouns.mp3",
+      "textSha256": "7D6B5DA3D60926523D18556AC7D325C680664FC715A87C56B19258E40CAF9B8F",
+      "sha256": "6EF53425AC337C98E0F2CBEE756F2EE4ED297B5E49C27BE9504CBCC6C0D96E05",
+      "bytes": 11448,
+      "durationMs": 1824
+    },
+    {
+      "id": "de-grammar-possessive",
+      "path": "assets/audio/german/de-grammar-possessive.mp3",
+      "textSha256": "8841F64072610BB11E071BE92C531322FE946F0A7F2760FEB6D134F709EF1898",
+      "sha256": "DC009F33E8653B53C929E17B064CE8EBC7ECE056A89023410D9C920521E88E2B",
+      "bytes": 12960,
+      "durationMs": 2064
+    },
+    {
+      "id": "de-grammar-imperative-sie",
+      "path": "assets/audio/german/de-grammar-imperative-sie.mp3",
+      "textSha256": "8FACDFA867045B1F48B5D632BF3D31584DB319ED75BCE09F061CBA3DDB07894C",
+      "sha256": "CABAF25EA395F02123E09CF4A97287EBE04B0B98C70F516EFDF4BB368D4875B6",
+      "bytes": 16848,
+      "durationMs": 2720
+    },
+    {
+      "id": "de-grammar-es-gibt",
+      "path": "assets/audio/german/de-grammar-es-gibt.mp3",
+      "textSha256": "F859D2AB82EB126B028AB48B897C837A5CA39F3FBB564B2C4C5BA2B77F01257B",
+      "sha256": "847D53E6011994E5A72D29485C0CBF4F69F5628386943921813E0AC6A1AE8BFA",
+      "bytes": 18360,
+      "durationMs": 2960
+    },
+    {
+      "id": "de-grammar-gern",
+      "path": "assets/audio/german/de-grammar-gern.mp3",
+      "textSha256": "24FC6AEA4B26B09B94B91A4910CA83456E27E5E12F3FD3EC3D3FF1BC1189061C",
+      "sha256": "6D9AA0122418971E6E161EC645E80BD4EA30F3FC97D7A77A2AAB6BA8DEF5F762",
+      "bytes": 16200,
+      "durationMs": 2608
+    },
+    {
+      "id": "de-grammar-inversion",
+      "path": "assets/audio/german/de-grammar-inversion.mp3",
+      "textSha256": "AC929B12662F922290AC6B40A274C8542C6175367281D35F3563ADEBD0E250B9",
+      "sha256": "65A28ABFE5EBB07FE37F6977E86743DB7D719AEF2EE9A9E167C963E1CDA7C0AD",
+      "bytes": 16848,
+      "durationMs": 2736
+    },
+    {
+      "id": "de-gewohnheit",
+      "path": "assets/audio/german/de-gewohnheit.mp3",
+      "textSha256": "200D3094C5365DC5C1B551EFF005D7C043C15091A12462CA4BFC277DB5A7B394",
+      "sha256": "3913ABDD55CF5206CCC961763D6C4ED6F4A35ED6F91F38A76470B5F311A274E7",
+      "bytes": 28728,
+      "durationMs": 4688
+    },
+    {
+      "id": "de-verspaetung",
+      "path": "assets/audio/german/de-verspaetung.mp3",
+      "textSha256": "EBBC9CF7B17F70BDC1503E15A5C7FDE47F1CA7DAC8775A9DC047DD0475F3FC29",
+      "sha256": "BDC2DAADC88E2A44885DA0D69E3FA240C484B38B817779427131F7CEEBBBB667",
+      "bytes": 17928,
+      "durationMs": 2896
+    },
+    {
+      "id": "de-erfahrung",
+      "path": "assets/audio/german/de-erfahrung.mp3",
+      "textSha256": "B91C6F08403A1FA356D97F1E11046F58388F317FAC2ACB789CA9EAE060EB1D38",
+      "sha256": "970490911840D9AB844E9104BEDDC9AF0F814506098047DFF54FCB6BA4F1342C",
+      "bytes": 20088,
+      "durationMs": 3248
+    },
+    {
+      "id": "de-umweg",
+      "path": "assets/audio/german/de-umweg.mp3",
+      "textSha256": "2A5C0FF2B9A59D2D3D7875A1BC8E502E4DFA6C57F111EA9324A05433B9A4FCD4",
+      "sha256": "9978B3D1320DCF11BDB32B742DC9963AD06070B953E80396361000454556084F",
+      "bytes": 19656,
+      "durationMs": 3184
+    },
+    {
+      "id": "de-aussicht",
+      "path": "assets/audio/german/de-aussicht.mp3",
+      "textSha256": "AA8A189D6299C89FDB884880650ED4750997E0F97A3E9EADB49E672E69C01326",
+      "sha256": "33AAD13D41D99E8620A4B20C9D88205F0C8AB249B25AEA8FF09D9CA4B872023A",
+      "bytes": 19440,
+      "durationMs": 3168
+    },
+    {
+      "id": "de-nachricht",
+      "path": "assets/audio/german/de-nachricht.mp3",
+      "textSha256": "BECA377B0BD4A8FDD2D5F6DDB0384DF11549A034E96F7490438AFBF298D8443F",
+      "sha256": "3B536E62770FF035620D97D1991D00B5E13FC36BA3AE7CBA9B8FC6E0989D2D54",
+      "bytes": 23544,
+      "durationMs": 3840
+    },
+    {
+      "id": "de-vorschlag",
+      "path": "assets/audio/german/de-vorschlag.mp3",
+      "textSha256": "17CBBBA0212F8A16C17300D469C58BF0B8367C40813C469D3C8168F1D0541454",
+      "sha256": "EB9D07E47AC1414349E5D2988A5654F8D063105F5BEA665920A18CACDA0F2F7E",
+      "bytes": 17064,
+      "durationMs": 2768
+    },
+    {
+      "id": "de-unterkunft",
+      "path": "assets/audio/german/de-unterkunft.mp3",
+      "textSha256": "D0A017AF2E3F8643C662623917C0A747ECC18975DFC45435D93E50CABA008FA6",
+      "sha256": "B0F83D96B50AF09F259E378B4C5438CAE728776104CDBEECBA171DE6B513E753",
+      "bytes": 23760,
+      "durationMs": 3888
+    },
+    {
+      "id": "de-abfahrt",
+      "path": "assets/audio/german/de-abfahrt.mp3",
+      "textSha256": "7ECA7E65B0D7315E394EFA1C75C0B167C177F1840763ED01AC034F2EF32608C1",
+      "sha256": "7B40A483B53123CECEF801CC89353FA4737B51A4914342BB56EF386172FB4471",
+      "bytes": 17712,
+      "durationMs": 2864
+    },
+    {
+      "id": "de-rueckfahrt",
+      "path": "assets/audio/german/de-rueckfahrt.mp3",
+      "textSha256": "FAFE55926F05C4EDD68500E0D9DD6D1CFF8FD7459A645761AD8816E010EDB57E",
+      "sha256": "7589BC970F98A9149AF63C71E32C225513AF2753B747996EB11F82162F5B929C",
+      "bytes": 16848,
+      "durationMs": 2736
+    },
+    {
+      "id": "de-unterschied",
+      "path": "assets/audio/german/de-unterschied.mp3",
+      "textSha256": "5D1CD0F09E8A9A5F043D782A2EADAE27EE78CBADE2A2F8FFDCD26C9D5B25C4DB",
+      "sha256": "08A1979FB3A9B7B62DF5037BE8668D5CDFD5F2B05BF04E7F863936E2BFBC59AF",
+      "bytes": 20952,
+      "durationMs": 3392
+    },
+    {
+      "id": "de-gelegenheit",
+      "path": "assets/audio/german/de-gelegenheit.mp3",
+      "textSha256": "2A1C9867689E6FBBD7280AF9BA856D22BBE4FCC65FC1A4D01B29354ADC1EC063",
+      "sha256": "8C8ADF5FF494F90F572F625A3DAA8D29644D69D3CD14A67F52EDD93577E7D383",
+      "bytes": 26352,
+      "durationMs": 4320
+    },
+    {
+      "id": "de-umgebung",
+      "path": "assets/audio/german/de-umgebung.mp3",
+      "textSha256": "605F4A5F25BDB3F02BDB78CB24E37E78BB25AC039EC92CD3ED99C108B941D43A",
+      "sha256": "482A2424775F5017FBA3B1FA66444E5424B2197B0505097DAB06EC78A7D775D9",
+      "bytes": 20736,
+      "durationMs": 3360
+    },
+    {
+      "id": "de-verantwortung",
+      "path": "assets/audio/german/de-verantwortung.mp3",
+      "textSha256": "F0C81191F1A3736A38249073ED19D274893ACDF875BB1D44FD35E07B7900EC9C",
+      "sha256": "6DCDDD510E3717AEE9D2DEAD39D12169CFE946D88F3C3034F0EA7E0285C63CBD",
+      "bytes": 24192,
+      "durationMs": 3952
+    },
+    {
+      "id": "de-melde-mich",
+      "path": "assets/audio/german/de-melde-mich.mp3",
+      "textSha256": "AD29159B197317E90EE6698C24FED15B55AF53D538696D192A981F1E797470FA",
+      "sha256": "E38A73C14B2CDCB5843A6F15681A49B8A2B97AB5553FBCBA27D9FCABA24187F2",
+      "bytes": 20520,
+      "durationMs": 3328
+    },
+    {
+      "id": "de-passt-gut",
+      "path": "assets/audio/german/de-passt-gut.mp3",
+      "textSha256": "C326124544DD61241BE78580E1FA956EE14AB07DDCFF6A994EBE3B87BAF80C02",
+      "sha256": "15877442C57A3F22104CB96770179E92A329F8280C8AC56B5EC965968039704C",
+      "bytes": 15120,
+      "durationMs": 2432
+    },
+    {
+      "id": "de-schaffe-nicht",
+      "path": "assets/audio/german/de-schaffe-nicht.mp3",
+      "textSha256": "B4ED245F76ED51CB914B40ACF8FD0DAB33D340554C42B2F359DFC8683744F792",
+      "sha256": "92F584C11B5B5BB327030BEAE2D863D837DD94DC5AC5035A5C0F9863730175FA",
+      "bytes": 16632,
+      "durationMs": 2688
+    },
+    {
+      "id": "de-termin-verschieben",
+      "path": "assets/audio/german/de-termin-verschieben.mp3",
+      "textSha256": "3C218648C27AE5C2B810772DB8300EF53B07AF2A8A4AE174BADCAD2AE4C54840",
+      "sha256": "CD9981EFDCF069E54A6218F7C08ED6C88C9C9DDE98CA838576B2A8340865FDDB",
+      "bytes": 18576,
+      "durationMs": 3024
+    },
+    {
+      "id": "de-unterwegs",
+      "path": "assets/audio/german/de-unterwegs.mp3",
+      "textSha256": "0D8B77057B597B988E614E6641BDE54146CC387FC0351EAC2E5EE2EC662515AE",
+      "sha256": "61A084449A43035F6B14B3A51A76A9FD63901A85B868047A2EBA626D7CD30DD0",
+      "bytes": 21600,
+      "durationMs": 3504
+    },
+    {
+      "id": "de-tut-mir-leid",
+      "path": "assets/audio/german/de-tut-mir-leid.mp3",
+      "textSha256": "53D5A0D2903A1C2CA9E94C991E4B96A7725E8E98BA489DFAFF3CC681E602ADFB",
+      "sha256": "AD1604BFD71AB90862C494BAED13AE826DFBBEAAE80E574F66EB3E19EC9456A0",
+      "bytes": 23544,
+      "durationMs": 3840
+    },
+    {
+      "id": "de-kuemmere-darum",
+      "path": "assets/audio/german/de-kuemmere-darum.mp3",
+      "textSha256": "DF878C694868D893161D4D6F9987D125D969E92E97E59D25AC1B7814B57CE252",
+      "sha256": "521D8CC8C82AE29CB0765D19EBB92C226FA2806AA8663BB638C024FF28E6CAE3",
+      "bytes": 15336,
+      "durationMs": 2480
+    },
+    {
+      "id": "de-bekannt-vor",
+      "path": "assets/audio/german/de-bekannt-vor.mp3",
+      "textSha256": "B92A6A41046B42B606A34CF1532AF5453EAB76951DDD9C85DF44C41C12423A91",
+      "sha256": "E5AB44BCAC0A60200C30A4F9EC94C7D268C406EC06EEB0C31BFCF9938935F317",
+      "bytes": 28080,
+      "durationMs": 4592
+    },
+    {
+      "id": "de-geirrt",
+      "path": "assets/audio/german/de-geirrt.mp3",
+      "textSha256": "4DF7FE43FDEADDE61B5AA42F1F701956BD130BADE65DE2B63F7369AD116D2E07",
+      "sha256": "C9AB435B641CDE16D45DB6B16A77C8FCD3392C4EBBF2BEA5DC13EC5348504BD7",
+      "bytes": 13176,
+      "durationMs": 2096
+    },
+    {
+      "id": "de-wie-waere",
+      "path": "assets/audio/german/de-wie-waere.mp3",
+      "textSha256": "4811EA9035BE56FF250809F373203BC3FE79601C1C38F25D7BCBD9712BC6D6BA",
+      "sha256": "38ED0CFA4C59FD397313D9AD19411C34507AC203E88945F900D0039230714A6E",
+      "bytes": 16416,
+      "durationMs": 2656
+    },
+    {
+      "id": "de-so-weit-gut",
+      "path": "assets/audio/german/de-so-weit-gut.mp3",
+      "textSha256": "3A40598EB2F41CA4908396E0D05607E63363B4604ADBB3B75586AE663AD5D11F",
+      "sha256": "BC83F4A27BB561BB5F1D6DB54DA4C0EFB7F599356FA43096A7EEC56A3C8E0E06",
+      "bytes": 17280,
+      "durationMs": 2800
+    },
+    {
+      "id": "de-bin-dafuer",
+      "path": "assets/audio/german/de-bin-dafuer.mp3",
+      "textSha256": "BEE608A227A3310129592C38743B765232240F713BA306534C1DA04C1496019D",
+      "sha256": "3E01DAD18029F824137696E4B6ADC2D001DEA69D11CDB7D8CBFAC9A46E4EED49",
+      "bytes": 17712,
+      "durationMs": 2848
+    },
+    {
+      "id": "de-grammar-reflexive",
+      "path": "assets/audio/german/de-grammar-reflexive.mp3",
+      "textSha256": "93133BCCEE33AF9710BADA0A0A474A4C84A253A631D48E556119D7D60132E6DE",
+      "sha256": "C63444AB7C76A48BA06D7671EEEB3F95EAEBD9DCA3036583EA9614E8B83DD732",
+      "bytes": 14904,
+      "durationMs": 2400
+    },
+    {
+      "id": "de-grammar-weil",
+      "path": "assets/audio/german/de-grammar-weil.mp3",
+      "textSha256": "527FC9087E49B64426C16E6B18123EB5CE8F22375D25ACF5C1A2F992CEBFE019",
+      "sha256": "3B25FDEF8DE3BF5A483FF4EE9AE7AC50EEB0901625F86BCE564D85C47FBA2B4C",
+      "bytes": 19440,
+      "durationMs": 3136
+    },
+    {
+      "id": "de-grammar-wenn",
+      "path": "assets/audio/german/de-grammar-wenn.mp3",
+      "textSha256": "87C74FA4719D012C4FBC27A47D10634869381804496BE186F67497DE5516FB72",
+      "sha256": "AB54B784D7F3527CA4D5A58399A9324430069900463E397798479B334A0403E5",
+      "bytes": 16416,
+      "durationMs": 2640
+    },
+    {
+      "id": "de-grammar-infinitiv-zu",
+      "path": "assets/audio/german/de-grammar-infinitiv-zu.mp3",
+      "textSha256": "EB218757803B47FDD1C31AABBF44F6342712D76B13DC986BC74907B28E01F7A7",
+      "sha256": "4EE40B13B3AAE35F8C5B391D750ABFB110CB7EEBB834222B18CF03933DC56DAC",
+      "bytes": 20952,
+      "durationMs": 3392
+    },
+    {
+      "id": "de-grammar-adjective-indefinite",
+      "path": "assets/audio/german/de-grammar-adjective-indefinite.mp3",
+      "textSha256": "119476263739DC29F7D8E3AE7818512CF507E173E812A47D30AED9FDDB2CC14E",
+      "sha256": "8C7594F764CB60BEE466CEA1547C2140C103A30017EBEE16EF8F1E5749244B40",
+      "bytes": 19656,
+      "durationMs": 3200
+    },
+    {
+      "id": "de-grammar-verbs-prepositions",
+      "path": "assets/audio/german/de-grammar-verbs-prepositions.mp3",
+      "textSha256": "3D87BD552F7F18C89C80FFD2C777B4DA31E9855B26FEC31F545BB71FD10FFFCA",
+      "sha256": "B822383AD74F2FF058BF8BD6206ED1BD520A139982240EAD69221DF3D7A7CD13",
+      "bytes": 15984,
+      "durationMs": 2592
+    },
+    {
+      "id": "de-grammar-past-modal",
+      "path": "assets/audio/german/de-grammar-past-modal.mp3",
+      "textSha256": "C3AEE7C89A923CFB3360740DA3BC32DBD3CEBDCB321FB3C869B2BAD5490FD64E",
+      "sha256": "791A1051D48FB61A2AD69891C31ABB9B30BFC84D9BB5F9F029A2F7033E8FADA5",
+      "bytes": 15768,
+      "durationMs": 2544
+    },
+    {
+      "id": "de-herausforderung",
+      "path": "assets/audio/german/de-herausforderung.mp3",
+      "textSha256": "A61864C2124204BE1C45983E264765B0C3913A03AA7CD82694DACF2810271764",
+      "sha256": "64A2C02FDD13911EB66CD67B2B1FCC23CF000EFD7E12B99263473B1D12455A98",
+      "bytes": 22896,
+      "durationMs": 3744
+    },
+    {
+      "id": "de-voraussetzung",
+      "path": "assets/audio/german/de-voraussetzung.mp3",
+      "textSha256": "6BAA64D54EA098D957FFBBE58FAE51670B38C7A47270598861FB59111D27B059",
+      "sha256": "6FA93C7A0B75512292EEB478627F378FFDB50E71B6AE54B4A0B46B2BC24EB2DA",
+      "bytes": 26784,
+      "durationMs": 4368
+    },
+    {
+      "id": "de-ruecksicht",
+      "path": "assets/audio/german/de-ruecksicht.mp3",
+      "textSha256": "212B10F507C5FABE692A2162255010AA3990AF41E845ECCD7659E0B53ACFCAD1",
+      "sha256": "277400DC047C8D70FC61EA7BCA647B466B980C781F7BB5692A7C628BC72CD4FA",
+      "bytes": 24192,
+      "durationMs": 3936
+    },
+    {
+      "id": "de-erkenntnis",
+      "path": "assets/audio/german/de-erkenntnis.mp3",
+      "textSha256": "3A3593935C46FFA8FB1A74EDABAC0B57A1A3EA140A382719DC55ABAB37E9BFB3",
+      "sha256": "EC21FE0EF8424A52174011E2280582F888AC42451793284E6F40A1702248E69E",
+      "bytes": 21816,
+      "durationMs": 3536
+    },
+    {
+      "id": "de-zusammenhang",
+      "path": "assets/audio/german/de-zusammenhang.mp3",
+      "textSha256": "271A1D38EA405914DDCD2BCD628EDA4C11C7FBA2A85F11A1344ABCC733C67A76",
+      "sha256": "73CD52CB279E691F623723FE9A1E34357377D8392EC29E771EA5E10B6F45EB5E",
+      "bytes": 28512,
+      "durationMs": 4656
+    },
+    {
+      "id": "de-auswirkung",
+      "path": "assets/audio/german/de-auswirkung.mp3",
+      "textSha256": "C719D58E704FB93E77C407F472C3DA098733F612A4BCE946BF5F6742017D6CE0",
+      "sha256": "10898F1AE90CB9491B478A687A405D45D562B334A56502551193517F6999B6F5",
+      "bytes": 26352,
+      "durationMs": 4288
+    },
+    {
+      "id": "de-schwerpunkt",
+      "path": "assets/audio/german/de-schwerpunkt.mp3",
+      "textSha256": "9FA49052C72CCB9E40AFBF6DD03BFCECBA801045BFBE365524217B6AF2019A7B",
+      "sha256": "6457000CD88B929FCAE30C33D1A0DE488D4EDB13345D866F2F3096ACBC19D058",
+      "bytes": 23976,
+      "durationMs": 3904
+    },
+    {
+      "id": "de-fortschritt",
+      "path": "assets/audio/german/de-fortschritt.mp3",
+      "textSha256": "C1BB4E6BD8B84EFD4C1929C0496BC7319713A9F90E4E36952133AF354A206547",
+      "sha256": "B86AB2FF0DF87829C01980649DA5776C909F11913A7C981632A7FEAF7C0075B1",
+      "bytes": 21168,
+      "durationMs": 3456
+    },
+    {
+      "id": "de-aufwand",
+      "path": "assets/audio/german/de-aufwand.mp3",
+      "textSha256": "278B274F319D5F1A317CED5A979A6747676862689A7A4DCF38C1EB03830DE688",
+      "sha256": "FB299750082C7DD4E3A4A6D55ABA1DAD08824041A966439A1DCFFF579CA7B506",
+      "bytes": 23328,
+      "durationMs": 3808
+    },
+    {
+      "id": "de-zweifel",
+      "path": "assets/audio/german/de-zweifel.mp3",
+      "textSha256": "4F7E99FE55C4FF365B0D68CD0648361F69F1FB5862EEF101480A14A6F832E1C6",
+      "sha256": "A5EFF72B1349EA7E1191A77D4B0C69FF3CC90B716C222857C2E88DC474D43470",
+      "bytes": 21384,
+      "durationMs": 3488
+    },
+    {
+      "id": "de-beitrag",
+      "path": "assets/audio/german/de-beitrag.mp3",
+      "textSha256": "F3F16D81E08F553A8156BC9F39DFF5474E1DC8A1B4F0B9C655F22FF4D939BEA6",
+      "sha256": "00655B4C54C753300BCF5E1803C84D10F060EEBB4E4222C851148CD4780876EE",
+      "bytes": 23760,
+      "durationMs": 3856
+    },
+    {
+      "id": "de-eindruck",
+      "path": "assets/audio/german/de-eindruck.mp3",
+      "textSha256": "3F166F55140A76A1865C4713A8DC66A7E9519EEF7476867F4E07235FE4536A06",
+      "sha256": "222D5E8FB3DE6D3294FD07E2CD38E7D232A9E87899CCE664C3E6F6CE9A3E4FAD",
+      "bytes": 32184,
+      "durationMs": 5280
+    },
+    {
+      "id": "de-meiner-erfahrung",
+      "path": "assets/audio/german/de-meiner-erfahrung.mp3",
+      "textSha256": "864FEA36C7025966C5C2311E53FA3B1095296B215999974837D15985D741098F",
+      "sha256": "9A9EA2B474343C65C02DB3B05749D185FA4B6F799902DFE811338A0D6868513D",
+      "bytes": 22896,
+      "durationMs": 3712
+    },
+    {
+      "id": "de-einerseits-andererseits",
+      "path": "assets/audio/german/de-einerseits-andererseits.mp3",
+      "textSha256": "02F989E7B226C6AEFF1FFD5DBE45637B6400451E830189D1A42C03429310D4E2",
+      "sha256": "0BAF64246D3311B562A0CB3F6D517714E95DBC35D57E837ECBCEBCDA290BDEA9",
+      "bytes": 28944,
+      "durationMs": 4720
+    },
+    {
+      "id": "de-gehe-davon-aus",
+      "path": "assets/audio/german/de-gehe-davon-aus.mp3",
+      "textSha256": "6913E4B0EC48D2056D5441F941F2D25FC5379111E82D660833CE5FF6DA44B8B5",
+      "sha256": "1E02E5FCDE3BDA1ECA75D5B9520A0BB605B27D38ADEA1E93C0A7C5DC3247D8BA",
+      "bytes": 19656,
+      "durationMs": 3200
+    },
+    {
+      "id": "de-ueberzeugt-nicht",
+      "path": "assets/audio/german/de-ueberzeugt-nicht.mp3",
+      "textSha256": "9FAC1F4E01D2CCB4CC9BE1DFB53FAAC870A9F8F6AFD16D0EB0DB38E2B404CE5F",
+      "sha256": "AFBB0DD28FA5FDFE68E9DEEC44ED64EA0B75BD09C1C56275EE363A0574E7D03F",
+      "bytes": 21600,
+      "durationMs": 3520
+    },
+    {
+      "id": "de-darauf-hinaus",
+      "path": "assets/audio/german/de-darauf-hinaus.mp3",
+      "textSha256": "93AB77E53A8CEA09A58219842B695A14B26FCFF44965292807BCD2E9028B05A5",
+      "sha256": "59844DEA75CE56EB24FED804DEF16953D6C5D40643E2A0F166C9BAFF56054A23",
+      "bytes": 18144,
+      "durationMs": 2928
+    },
+    {
+      "id": "de-grossen-ganzen",
+      "path": "assets/audio/german/de-grossen-ganzen.mp3",
+      "textSha256": "465440CE246011572AD4E70C0F5A46B05F89A30CC24ABB6CE9DA51E845389D11",
+      "sha256": "B8BD793E697BB944BB1574F5691B245DB51E18F71D0F9802D7A4F1E2E0C74FF8",
+      "bytes": 24624,
+      "durationMs": 4032
+    },
+    {
+      "id": "de-lohnt-sich",
+      "path": "assets/audio/german/de-lohnt-sich.mp3",
+      "textSha256": "2D150FD23E71097B47B897EFF6667C0924C12E37D2051029659D6D346832C3AC",
+      "sha256": "563A0B1A27810B49AC6703CB97CDF028C3B2F86658A09E7E2996EC669FBDC468",
+      "bytes": 21168,
+      "durationMs": 3440
+    },
+    {
+      "id": "de-unter-umstaenden",
+      "path": "assets/audio/german/de-unter-umstaenden.mp3",
+      "textSha256": "E39D5A62EB8C99B41693F119BA85BADBFD425B6D2156CE07AE2CA209E0E949C5",
+      "sha256": "00318374145B710148E9CEC834A7984013732BA4A0A21356498E61ED2787CE87",
+      "bytes": 22464,
+      "durationMs": 3648
+    },
+    {
+      "id": "de-soweit-weiss",
+      "path": "assets/audio/german/de-soweit-weiss.mp3",
+      "textSha256": "384B1F3A05F61FEE8910A44739C77B295D50FFAA0263CE0C961FC17D8024FB3D",
+      "sha256": "73F70A5EE7A71959A5232F508DE69A05ECB1029B055C242286883447AC5323C9",
+      "bytes": 21168,
+      "durationMs": 3440
+    },
+    {
+      "id": "de-haengt-zusammen",
+      "path": "assets/audio/german/de-haengt-zusammen.mp3",
+      "textSha256": "FA2EBBB88DC48216A4E5E1FE2340981311A16E8B7F221CFFC8D2F48FB6E23875",
+      "sha256": "F8C31B200D043F0AE4A23A5C650036E6A8BC9ADF24616803E1319FBCDF247A9E",
+      "bytes": 25488,
+      "durationMs": 4144
+    },
+    {
+      "id": "de-etwas-anders",
+      "path": "assets/audio/german/de-etwas-anders.mp3",
+      "textSha256": "AC7D760EEE1F6EDBDD58578BFB23BDA35E4CEEC9A8BCB746337C8BA7DB598A98",
+      "sha256": "544EC94EE47BEBD84C3E61731A1876107C4ECE4966F0545E8F5AFF762A33E546",
+      "bytes": 24624,
+      "durationMs": 4032
+    },
+    {
+      "id": "de-ehrlich-sein",
+      "path": "assets/audio/german/de-ehrlich-sein.mp3",
+      "textSha256": "B127C31B514A146910F7DE32A4A5C235F82ED86C5261596081E7441533C68DC0",
+      "sha256": "7676980D1C8C4EB588092AF7D9468590D874C581E8E4093B8F1D93FDD906A108",
+      "bytes": 20952,
+      "durationMs": 3392
+    },
+    {
+      "id": "de-laesst-aendern",
+      "path": "assets/audio/german/de-laesst-aendern.mp3",
+      "textSha256": "29404EEC098AEED0CC739F48FFA6842A38EE1940167F8626BED855A6C2D50F02",
+      "sha256": "7507C6D530538F6728DBDEB3460CBE5B8F67389500E765465A9DA5B16E9D16B8",
+      "bytes": 21600,
+      "durationMs": 3504
+    },
+    {
+      "id": "de-grammar-obwohl",
+      "path": "assets/audio/german/de-grammar-obwohl.mp3",
+      "textSha256": "96C1B9442B631B6E8DA97A3A425D3D3F5BCFDA2895ADB90FF15DF60906682398",
+      "sha256": "1F18D1433D3665E563384B6F444CBF59BF3E95C476CACF2F75ECBFBBA8BF8932",
+      "bytes": 18576,
+      "durationMs": 2992
+    },
+    {
+      "id": "de-grammar-waehrend",
+      "path": "assets/audio/german/de-grammar-waehrend.mp3",
+      "textSha256": "EED0247262C0DFF7B0982F3733EA24A3DFCBDC40EDA4AFCA12755345F904890A",
+      "sha256": "45F7ACEDB0E92D9BB1F69B7A95E4B8DE830FD6BFC13712C16667CC91CD0C77FE",
+      "bytes": 17496,
+      "durationMs": 2816
+    },
+    {
+      "id": "de-grammar-nachdem",
+      "path": "assets/audio/german/de-grammar-nachdem.mp3",
+      "textSha256": "C0746C93E1C75F63310723E88216F1A5D7C7E1240D3BFBA3EA3013AF780353EE",
+      "sha256": "3F5BA42876FDCDB7EB6E4DC1C601E125D5E7AA6510BBB9A135884EBC548AC04F",
+      "bytes": 27648,
+      "durationMs": 4512
+    },
+    {
+      "id": "de-grammar-passive-present",
+      "path": "assets/audio/german/de-grammar-passive-present.mp3",
+      "textSha256": "E9D7A985A577009766D1240A28A4EEEEC5572077E44563302987AC8794CC246F",
+      "sha256": "2D063AB6B298AC5F646D18D2A79B18B905FA2B22C4A53D43B5AF368CFB73F282",
+      "bytes": 17496,
+      "durationMs": 2832
+    },
+    {
+      "id": "de-grammar-relative-dative",
+      "path": "assets/audio/german/de-grammar-relative-dative.mp3",
+      "textSha256": "BDBBF82F580C51D86C207B1A4420A4AAE022E81A773F2D25C3DC4B4D492B7002",
+      "sha256": "14D37BFBE30DF1FAA5EBF38751CA61A7A6FEB9C37A358A421AE9E93C2F1D5752",
+      "bytes": 22464,
+      "durationMs": 3648
+    },
+    {
+      "id": "de-grammar-konjunktiv-polite",
+      "path": "assets/audio/german/de-grammar-konjunktiv-polite.mp3",
+      "textSha256": "4B92B5035938D90A81A4929E56A01962251EBAE6251771CBF9344E253AA5DBFF",
+      "sha256": "1D130ED507849297E930A07EE9E512443215597127857E7755F45AA481DDF046",
+      "bytes": 19008,
+      "durationMs": 3088
+    },
+    {
+      "id": "de-grammar-damit-umzu",
+      "path": "assets/audio/german/de-grammar-damit-umzu.mp3",
+      "textSha256": "250B6B1F889FD3BD230F507458A7E2F93755CBB13494FDB9EF81949138AE5D5E",
+      "sha256": "D18AD5F10936A9EAFC1B8FEF3D1B84FCC1EB8C2069B5335311C451CCC86D1E61",
+      "bytes": 22464,
+      "durationMs": 3664
+    },
+    {
+      "id": "de-grammar-da-compounds",
+      "path": "assets/audio/german/de-grammar-da-compounds.mp3",
+      "textSha256": "B733631FED5A74A1AD8A7FB8F0D2E5B10BDE1B14DFBEB005401B1FF7173062A3",
+      "sha256": "39B267230C1FA3F93F4682D69D10A48C66B71C2BCFB35759A12E65FC556499E1",
+      "bytes": 22680,
+      "durationMs": 3680
+    },
+    {
+      "id": "de-grammar-adjective-definite",
+      "path": "assets/audio/german/de-grammar-adjective-definite.mp3",
+      "textSha256": "042D6D8C4F6DE025CDECB11D30610FD39B668C4A42C50A3A69F9525BAA24A7AA",
+      "sha256": "FE7A4B1A3077EF9EA4C02CAD42DF3703776D481A9A0991906F7474D602EBE9E5",
+      "bytes": 22032,
+      "durationMs": 3600
+    },
+    {
+      "id": "de-grammar-genitive-prepositions",
+      "path": "assets/audio/german/de-grammar-genitive-prepositions.mp3",
+      "textSha256": "05F875C39AABCAB5E481DF6E25DF9871FAE9177EB22F94E69E832B58D910B6CD",
+      "sha256": "43E298E30227CC18586DA35E00ECF9249DB69A33307639DE4B2D33C1534960C3",
+      "bytes": 17712,
+      "durationMs": 2848
+    },
+    {
+      "id": "de-grammar-indirect-question",
+      "path": "assets/audio/german/de-grammar-indirect-question.mp3",
+      "textSha256": "9DF9C126D2D8B2297DC2A141F37D2245D5F2D27D24B852D77B45C96C145D1570",
+      "sha256": "CFDF0858729C8E1583B58C3266990455808C9EF509AD491DD77E69BF5C489568",
+      "bytes": 18144,
+      "durationMs": 2944
+    },
+    {
+      "id": "de-nachvollziehbar",
+      "path": "assets/audio/german/de-nachvollziehbar.mp3",
+      "textSha256": "B7603E717531DF77B85A19D8F59C504BE43F9751FD9E815FC65A1E39267F4891",
+      "sha256": "A1C3C25FD62D9C8294D4E38C75E5F9BDF83CBD02C8AC24BCEAEEDBD67A089706",
+      "bytes": 23328,
+      "durationMs": 3792
+    },
+    {
+      "id": "de-zwiespaeltig",
+      "path": "assets/audio/german/de-zwiespaeltig.mp3",
+      "textSha256": "5618713A54B4AAC9BC32D9E38A78C64CCF340D136E9783C85E8777BC4EFF89DC",
+      "sha256": "3EE73CD780D0AF9CB92861FFD95EC12A497FEAF21B6F92CA5A81DBF4760521A8",
+      "bytes": 20736,
+      "durationMs": 3360
+    },
+    {
+      "id": "de-ausschlaggebend",
+      "path": "assets/audio/german/de-ausschlaggebend.mp3",
+      "textSha256": "76C050BCBA4CEBE275B0C8A0981AC269264B435739895C7AD38FA98ADE3F65D3",
+      "sha256": "6B2914D0C8FB46371869CF3C924B6274FB72E5036BDA23638D66ACEA1A7C576B",
+      "bytes": 25488,
+      "durationMs": 4160
+    },
+    {
+      "id": "de-verlaesslich",
+      "path": "assets/audio/german/de-verlaesslich.mp3",
+      "textSha256": "EBEA2F60648109F75E7AE8D85903ADE4B7C71B2190CAE1CCA6BB87C4C2793FA5",
+      "sha256": "F381EB1CA10A1F842231B33292ECDB22C22641C5EA362B3A994FCA7DB32A036B",
+      "bytes": 22680,
+      "durationMs": 3680
+    },
+    {
+      "id": "de-angemessen",
+      "path": "assets/audio/german/de-angemessen.mp3",
+      "textSha256": "F733A3BA8FFE9C3368E2A4DCA9A2D6C3881580A8637DDA9A3B142603A30F0DC6",
+      "sha256": "D12A4BB34FEC2C8D4217B95658E5FE1BC8DAB97719709652D3E2CEE84958F874",
+      "bytes": 24624,
+      "durationMs": 4016
+    },
+    {
+      "id": "de-unerlaesslich",
+      "path": "assets/audio/german/de-unerlaesslich.mp3",
+      "textSha256": "84D7BF8F72FC57443D064EAF6D4C0239B2BA899C16348B6045DF55D95C3D3600",
+      "sha256": "671FADC3B56DCD80394512404A8527C5064B989262300C52FA1D24E47446D93E",
+      "bytes": 23976,
+      "durationMs": 3904
+    },
+    {
+      "id": "de-vielschichtig",
+      "path": "assets/audio/german/de-vielschichtig.mp3",
+      "textSha256": "0C98167C5F84738CEB7CBE5EE3912B92B11B1A29065351148BC5325AA448B86A",
+      "sha256": "CE5C6266AD373BDD7EB219E14F738697D05A96E5BC1977531B44473C86FC8261",
+      "bytes": 31104,
+      "durationMs": 5104
+    },
+    {
+      "id": "de-umstritten",
+      "path": "assets/audio/german/de-umstritten.mp3",
+      "textSha256": "6FC72300AF2AE7BBEBE78447DF609A08FB3A196622CB727257924529DB1213B2",
+      "sha256": "6BC5FFA6D20010A5DEA3CAFA42A0ABB15E537863AFC036890C8235BFD1DBCC0E",
+      "bytes": 21168,
+      "durationMs": 3424
+    },
+    {
+      "id": "de-langfristig",
+      "path": "assets/audio/german/de-langfristig.mp3",
+      "textSha256": "80482A3EDFBA844C18E230A7948E86CF7854390FF4FE172A6AEEF4CBC741A799",
+      "sha256": "070FF97AC2A33EAE0CA0C6C72C42D88E4ABE146342FE9822E8E1718E44FECE22",
+      "bytes": 28296,
+      "durationMs": 4640
+    },
+    {
+      "id": "de-gegenwaertig",
+      "path": "assets/audio/german/de-gegenwaertig.mp3",
+      "textSha256": "E5B99A063DD677ADB3FF30B06598B901D5EF3CA187EB5F1A20B65C91E9B8B089",
+      "sha256": "5E9DD1A9835920353C968D0D31C4956006DA74E68E3B9B8D8BFE7473B0D7D0FE",
+      "bytes": 21168,
+      "durationMs": 3456
+    },
+    {
+      "id": "de-spielraum",
+      "path": "assets/audio/german/de-spielraum.mp3",
+      "textSha256": "39E872BAF871891D30F4413387B12FB8EF4C19E70D79D892692BA595E8DAEDE1",
+      "sha256": "D979E03B338567E9C3AAD13B9492F2DDD7EBC50D57CBED33B887B5A7C53BC771",
+      "bytes": 24624,
+      "durationMs": 4032
+    },
+    {
+      "id": "de-stellenwert",
+      "path": "assets/audio/german/de-stellenwert.mp3",
+      "textSha256": "EA9E294DD4061E91DB67EA8700420B1F35A3AE9290B6B61A55C0743034ACB2DB",
+      "sha256": "6C4C4BFD57A08899E47E6CF2AB1380F11E908716196D0AB186D26568593DF174",
+      "bytes": 27216,
+      "durationMs": 4432
+    },
+    {
+      "id": "de-wechselwirkung",
+      "path": "assets/audio/german/de-wechselwirkung.mp3",
+      "textSha256": "7619498C7E55AB0704384589E5D7690DFBE93924F8DAAF15281FEC31E2673C80",
+      "sha256": "385076BCEE15B489AC461FC0B68D15A331DF3C0F4BF6AD90F03862551BEBA32B",
+      "bytes": 26784,
+      "durationMs": 4384
+    },
+    {
+      "id": "de-tragweite",
+      "path": "assets/audio/german/de-tragweite.mp3",
+      "textSha256": "F11B8E2CD02F7D2E9ADDCECE9BA351925C03C1D5FE783D5069B3F86637F6CE96",
+      "sha256": "5A6543308870314528FCB092DCDF595FC7992BE40D689365A06C9A355D79CD0D",
+      "bytes": 20736,
+      "durationMs": 3376
+    },
+    {
+      "id": "de-einwand",
+      "path": "assets/audio/german/de-einwand.mp3",
+      "textSha256": "A7C6EE830349A31455508FB59E83507947B10D4ABDAEA89B429A571C5D7CF6FE",
+      "sha256": "C95BB13B88C97A7258E00B31F5FF273238356D0DA99DE47E0DFC403D4C850FA5",
+      "bytes": 23328,
+      "durationMs": 3792
+    },
+    {
+      "id": "de-abwaegung",
+      "path": "assets/audio/german/de-abwaegung.mp3",
+      "textSha256": "7D90245C3AE133EDE83742C0AD44C80B5CE2D31C549042E939C3B6E508FD779C",
+      "sha256": "8C38C87914603B7887CB5DB287D086208AB2A9A5329B349BBE8F03F8CE3CA188",
+      "bytes": 27000,
+      "durationMs": 4400
+    },
+    {
+      "id": "de-herangehensweise",
+      "path": "assets/audio/german/de-herangehensweise.mp3",
+      "textSha256": "7F340AA5D9E46D6226E31D6682A58C52A4E02E3EC2075DA6AF9636C2355AA4D4",
+      "sha256": "A05D800B30D70152A192F8C1D7BF09D369C277EB7D7CB73D18D9791D37AB9B9E",
+      "bytes": 22464,
+      "durationMs": 3648
+    },
+    {
+      "id": "de-rahmenbedingung",
+      "path": "assets/audio/german/de-rahmenbedingung.mp3",
+      "textSha256": "ECA162A585FD2379E03811E631F2665E12D42E55AD0F61D564B3DDC63E0DFC5E",
+      "sha256": "E81073670C76C36B7CEB7E28847043056CC741CEFF62F77BD937116E8E627F8A",
+      "bytes": 23760,
+      "durationMs": 3856
+    },
+    {
+      "id": "de-schlussfolgerung",
+      "path": "assets/audio/german/de-schlussfolgerung.mp3",
+      "textSha256": "ED62D2782D2DB62087E0A4C672F603D26633776919406EE1EC1E53E6D9043997",
+      "sha256": "A03B36312330C060CE2C9EEB58C3E132B1531056054C74F467F062BF6D6DA26E",
+      "bytes": 28944,
+      "durationMs": 4752
+    },
+    {
+      "id": "de-spricht-dafuer",
+      "path": "assets/audio/german/de-spricht-dafuer.mp3",
+      "textSha256": "D1DEC4267EC162D3BDA2A0DFD2390B1EFB1069EA19CC6FCEF174996B03117A79",
+      "sha256": "926A7337F0390A706081135A3DE279D44D0A686F6DF6FA8D63E3F09E04860C37",
+      "bytes": 28296,
+      "durationMs": 4640
+    },
+    {
+      "id": "de-nichtsdestotrotz",
+      "path": "assets/audio/german/de-nichtsdestotrotz.mp3",
+      "textSha256": "226849CC6480524A89A8E661AD1C972F46C288E9F534F54A8932FF17663B6ECD",
+      "sha256": "AFD302CFC7CDA23671F3B1E87B10404F703A416901A201998A5A1585C5264BAB",
+      "bytes": 34992,
+      "durationMs": 5728
+    },
+    {
+      "id": "de-greift-zu-kurz",
+      "path": "assets/audio/german/de-greift-zu-kurz.mp3",
+      "textSha256": "97D1014F03B98EAE8EB3F8E76F584D4DCB59DF9A8B4FDCD5AFAD9A2C74C68047",
+      "sha256": "AA01F5F92F233B28AB0F7271C142BBDEFAA562FB1B778E5A2B13BFD2F9B39885",
+      "bytes": 25272,
+      "durationMs": 4112
+    },
+    {
+      "id": "de-ausser-acht",
+      "path": "assets/audio/german/de-ausser-acht.mp3",
+      "textSha256": "E108203530DC0B37396E152C98B233EC342B0FFD05D853ABAE268F207AF7DB7D",
+      "sha256": "60E2BEE000453DA37211294BBA87CB107FB2AE3A2AF29E8C0C3D85CAD6FFF398",
+      "bytes": 28296,
+      "durationMs": 4624
+    },
+    {
+      "id": "de-unter-vorbehalt",
+      "path": "assets/audio/german/de-unter-vorbehalt.mp3",
+      "textSha256": "CFCE8C006D4960AB9170E1EA08CC133B0043FF2D1F02DB3FE16BD42EDBECBF5F",
+      "sha256": "C2B94BA3BC650B412FC279F6AE1E27CDB8B79E1D2AD30795C0B12C9E1634C5BA",
+      "bytes": 28944,
+      "durationMs": 4736
+    },
+    {
+      "id": "de-inwiefern",
+      "path": "assets/audio/german/de-inwiefern.mp3",
+      "textSha256": "81F99018F0C9466C1601105AF5DE6D0C63DA5CF13C6C8B401348CFFC1B30E28C",
+      "sha256": "7DE8BD1C871D343EFD7B6B55684B353114EB5FB727255E0E4106AE8C1B6398A3",
+      "bytes": 22896,
+      "durationMs": 3728
+    },
+    {
+      "id": "de-daraus-ableiten",
+      "path": "assets/audio/german/de-daraus-ableiten.mp3",
+      "textSha256": "010BDBE8E486AB3333A8DDF1632B4BCCE9BABFDAD99E32373FE94EA384CDE62D",
+      "sha256": "A26B0DB54AE2ABEEA7550ABD0C4DB10B1EB070A394FA72B0F9B4B6F32119204F",
+      "bytes": 20952,
+      "durationMs": 3408
+    },
+    {
+      "id": "de-im-hinblick",
+      "path": "assets/audio/german/de-im-hinblick.mp3",
+      "textSha256": "A1012B0985F459B59831306A2CF159D077FC05E7B4764D89BE806D667F80E013",
+      "sha256": "A168B557078E2712B632B90D8DFD6CB7EA61A0BBFCEE0E53EB2A500E1F232275",
+      "bytes": 30888,
+      "durationMs": 5056
+    },
+    {
+      "id": "de-im-gegensatz",
+      "path": "assets/audio/german/de-im-gegensatz.mp3",
+      "textSha256": "B6756FAEEEB202858B855746C55E6164A1AB2FDD9454F49E5E03807A912ADFE3",
+      "sha256": "0F7ECD4146F218B85CAB18FC7E489148E0450AC1AED4A46316160AB6D9D753B3",
+      "bytes": 31968,
+      "durationMs": 5232
+    },
+    {
+      "id": "de-ausser-frage",
+      "path": "assets/audio/german/de-ausser-frage.mp3",
+      "textSha256": "CC8864058277D9CC801A5BEABBB13DC47A215678293846536619F1616B6BFB2A",
+      "sha256": "545F0048FF45A33F523A2BBF6DD82356CA9CE88E26D8026BCCC6A522AB070CC6",
+      "bytes": 29376,
+      "durationMs": 4800
+    },
+    {
+      "id": "de-insofern-relevant",
+      "path": "assets/audio/german/de-insofern-relevant.mp3",
+      "textSha256": "C6DB160F2DD709A481559444CA45C598811C47AD2EFC07460632B6DE117F0F6C",
+      "sha256": "689AA6DFDDEA63AEC5390A6488C654462196CD08EBAA7B64E179AC3012D5870F",
+      "bytes": 27216,
+      "durationMs": 4448
+    },
+    {
+      "id": "de-entgegenzuhalten",
+      "path": "assets/audio/german/de-entgegenzuhalten.mp3",
+      "textSha256": "09A95FF703D74B1E1E70FBAB690F9693CF5D9C9319F6BDDFD82BA38B4BDF1353",
+      "sha256": "DC8AE2B198BC4E0A4716D46683497BA6D44E348364A57794E2D215AADFA27859",
+      "bytes": 25920,
+      "durationMs": 4240
+    },
+    {
+      "id": "de-naeherer-betrachtung",
+      "path": "assets/audio/german/de-naeherer-betrachtung.mp3",
+      "textSha256": "E95AE5AF7A5DA1B24F107F6401DE526849A636D5BFA042435703CCB04A98E4E4",
+      "sha256": "7241FDCF83C645855F28456A6AE44FE0ABE267299666C04C3713DDBA31F36CEE",
+      "bytes": 25056,
+      "durationMs": 4080
+    },
+    {
+      "id": "de-zeichnet-sich-ab",
+      "path": "assets/audio/german/de-zeichnet-sich-ab.mp3",
+      "textSha256": "8E04D200864F8D140FC979A8090BEEE9B9D71D8BFFFE56D4CF0B29037AEE3CAA",
+      "sha256": "40BC637419A6A5E30DD3BD70A9CD0FDF85A03A319A5AD4E2D2B4EE494168A399",
+      "bytes": 21384,
+      "durationMs": 3472
+    },
+    {
+      "id": "de-sofern",
+      "path": "assets/audio/german/de-sofern.mp3",
+      "textSha256": "8BF43E97B8BFBFDF65C05144D9D6D18A471BDBDC778ACA3B7602838106559B4E",
+      "sha256": "47C190D1F3743BF4E418D799B9EAF714AB62FB35A0600BA0ED3F51B01C6C6A44",
+      "bytes": 25056,
+      "durationMs": 4080
+    },
+    {
+      "id": "de-grammar-passive-alternatives",
+      "path": "assets/audio/german/de-grammar-passive-alternatives.mp3",
+      "textSha256": "33C4CA4F8E5616D29753C499905AA1336CF679A9512AB293BF6DD751F2B05753",
+      "sha256": "1DA8166C690C50F8D3917A84CFC0B6D9B5FB9C5E5545727A5A6072304E10787F",
+      "bytes": 20952,
+      "durationMs": 3392
+    },
+    {
+      "id": "de-grammar-modal-particles",
+      "path": "assets/audio/german/de-grammar-modal-particles.mp3",
+      "textSha256": "7912905B2F036F9F1AB2E21C5DCBB3528CB6361643E82151EFC48165AA6151F5",
+      "sha256": "D5BD4960FA59E397DE49B3CB5D3FE960A31E8E18C2F1C8B03D47EE60D1F44578",
+      "bytes": 20520,
+      "durationMs": 3344
+    },
+    {
+      "id": "de-grammar-nominalization",
+      "path": "assets/audio/german/de-grammar-nominalization.mp3",
+      "textSha256": "97A77CEEC5F48C9D260DB127E5EB6026CE784D0F487D31E6ABFD7C7A79F7DC60",
+      "sha256": "C79F274A36218F89A6BE568F213BDD497630EF3B63742BCB3D8ADA53E48C11CD",
+      "bytes": 27216,
+      "durationMs": 4432
+    },
+    {
+      "id": "de-grammar-participial-attribute",
+      "path": "assets/audio/german/de-grammar-participial-attribute.mp3",
+      "textSha256": "C6A5049F49AE702A06106A87F2A1D03FACEBE1EF8B1CC8A78B1E7B6B8874DFC4",
+      "sha256": "05337150A44DA6B13D7D1421939D9E40E6774C3307A79DB3F4A1C48A41E72387",
+      "bytes": 22032,
+      "durationMs": 3568
+    },
+    {
+      "id": "de-grammar-obgleich",
+      "path": "assets/audio/german/de-grammar-obgleich.mp3",
+      "textSha256": "92A3373E7D5C5CE436F29C250A3E3D859BBF79A834C775A27EA9BE376EEDE80B",
+      "sha256": "5AA4F18E53EC8388EC2ABCE0B9ADFAD4940D54EF79A287DDABB3FEF5FE43E607",
+      "bytes": 24408,
+      "durationMs": 3984
+    },
+    {
+      "id": "de-grammar-indem",
+      "path": "assets/audio/german/de-grammar-indem.mp3",
+      "textSha256": "5648B1E02B278B0DC10E52D8000978B6042FCBD11BCF90D43D358149B17A487A",
+      "sha256": "6DE8EE5700DC9976B4EDAFCA8D5ECCD301901FCEB605EAA963E2685A3548304C",
+      "bytes": 27648,
+      "durationMs": 4528
+    },
+    {
+      "id": "de-grammar-ohne-dass",
+      "path": "assets/audio/german/de-grammar-ohne-dass.mp3",
+      "textSha256": "089306E30AE2BC9BCCB187E795974CAD1D929043A0AED849B2E35B5FA0C9CFC8",
+      "sha256": "B659E4C34A34D59C78695AF5C305664B1ED86F99882DEBBFF46C7ADB40AB7CA7",
+      "bytes": 23760,
+      "durationMs": 3872
+    },
+    {
+      "id": "de-grammar-falls",
+      "path": "assets/audio/german/de-grammar-falls.mp3",
+      "textSha256": "E0254A6C5258CE6B4379D452E7873B6E330A32D053AFF1284EE5311033EFCA73",
+      "sha256": "47AF6BE5195D0599719091A670B412595AEB2A867728E8E347BABA00241C5D06",
+      "bytes": 25920,
+      "durationMs": 4224
+    },
+    {
+      "id": "de-grammar-konjunktiv-one",
+      "path": "assets/audio/german/de-grammar-konjunktiv-one.mp3",
+      "textSha256": "2E7AFF74A60E947C378CB5DC248E178A4AC5D703CDC560BFEAF46E638F18CC02",
+      "sha256": "7FA9F34ADD497D1B3B6834A703E50CBC875A8A28A68D8853E9B170CB0A844742",
+      "bytes": 28512,
+      "durationMs": 4656
+    },
+    {
+      "id": "de-grammar-konjunktiv-past",
+      "path": "assets/audio/german/de-grammar-konjunktiv-past.mp3",
+      "textSha256": "D4915140B1489A229B60E5990D45A369BA1354A834CD1342714B8AA96EC69A69",
+      "sha256": "A4348C03C2B07CA561C6E62B7596BBB0115EABD622E963EA46FF85FF54D9DCCF",
+      "bytes": 21600,
+      "durationMs": 3504
+    },
+    {
+      "id": "de-grammar-je-desto",
+      "path": "assets/audio/german/de-grammar-je-desto.mp3",
+      "textSha256": "E51374955A0AE1D08B8B5B65017339CE3902E7BD4B43C26ADB60FF79D1463226",
+      "sha256": "B7EA5C932AB8D1914533A7F19143E7AACAE2EA05A68EEB677C181926314F7E77",
+      "bytes": 24408,
+      "durationMs": 3968
+    },
+    {
+      "id": "de-grammar-n-declension",
+      "path": "assets/audio/german/de-grammar-n-declension.mp3",
+      "textSha256": "BEB8670E9F3A1B4121E965DF7DBBAEB7E6FA1B9E1E237A5529392FC011597F0D",
+      "sha256": "AB900280231882FEF972F9ED786E7B2AF36848EA25EF4E02DB3BE5B083E93487",
+      "bytes": 19872,
+      "durationMs": 3232
+    },
+    {
+      "id": "de-grammar-infinitive-comma",
+      "path": "assets/audio/german/de-grammar-infinitive-comma.mp3",
+      "textSha256": "67CF1F2867CCC3FD60B98968F367C117730603262215DFCA9D3B0A5F83ECF601",
+      "sha256": "A527F5D29EFEDF2BB21F1F9AE1FC2982C0DC7D13B26E3260E1E288F1EDE3F6D7",
+      "bytes": 20736,
+      "durationMs": 3376
+    },
+    {
+      "id": "de-grammar-placeholder-es",
+      "path": "assets/audio/german/de-grammar-placeholder-es.mp3",
+      "textSha256": "C5FE3C08F11A967BD2FD90F7BE5149E4AADB4057757E228740157BEA3DD0B9EB",
+      "sha256": "D2CF5CE0ED8F82C05C28ACE264A5F9FE3EDE53B8A40244D7E740D64C47300B5F",
+      "bytes": 22248,
+      "durationMs": 3632
+    },
+    {
+      "id": "de-grammar-verb-prefixes",
+      "path": "assets/audio/german/de-grammar-verb-prefixes.mp3",
+      "textSha256": "9689411F697C9375B03CE8455B0CDEAAE211720601748599D312D45EF3A5E99F",
+      "sha256": "1A8200584749BC3A95BE4FD4560D8022F13729624381B3D337C6CE776E005727",
+      "bytes": 29376,
+      "durationMs": 4816
+    },
+    {
+      "id": "de-v3-guten-tag-formell",
+      "path": "assets/audio/german/de-v3-guten-tag-formell.mp3",
+      "textSha256": "94B5B9C466E52B8AFE7E7F7655C6D679D4E225EE93B00FBE2012BE002A5D1EDB",
+      "sha256": "2D930843EA2E7E79F758CA18A2C0F8FE61EFB0075A77B34AAE458C57DE27E80C",
+      "bytes": 10584,
+      "durationMs": 1664
+    },
+    {
+      "id": "de-v3-auf-wiedersehen-formell",
+      "path": "assets/audio/german/de-v3-auf-wiedersehen-formell.mp3",
+      "textSha256": "90782080219A99CBA2FAD5EB2EBC0ACA5FB251ABACB86F57D58721BCD79B8460",
+      "sha256": "8115A2C10272C24693EB615FE6C913F6119003B256C635279EB0C421FA5D77DF",
+      "bytes": 14256,
+      "durationMs": 2304
+    },
+    {
+      "id": "de-v3-entschuldigung-frage",
+      "path": "assets/audio/german/de-v3-entschuldigung-frage.mp3",
+      "textSha256": "77BDD760F9A5E8CA044345B4CB48316C68231745EBDF3D2FB1AEB6071713E952",
+      "sha256": "D6AA55FC2078C21C13A42E19E3216FC3336A359EE0CB619F620B7F7465ECA3AB",
+      "bytes": 17280,
+      "durationMs": 2800
+    },
+    {
+      "id": "de-v3-bitte-sehr",
+      "path": "assets/audio/german/de-v3-bitte-sehr.mp3",
+      "textSha256": "16AA3447A368AF870CADFC04939FCFCB3253416E97B4DD02E6B75B19AC2899CF",
+      "sha256": "81FE599B712D2B79B71BDFDAFC2DE891BEAC93EA3CAA71D129EEFEE76963DAED",
+      "bytes": 20088,
+      "durationMs": 3264
+    },
+    {
+      "id": "de-v3-gern-geschehen",
+      "path": "assets/audio/german/de-v3-gern-geschehen.mp3",
+      "textSha256": "519DBBA008CF52263AF12ED831C2CAF2AB45A1FD86FBC6C848C05A17F0240518",
+      "sha256": "16E892117E858118090245528A1AF6ED43E36364D1C31D16F56E6265AAB4664D",
+      "bytes": 18576,
+      "durationMs": 3008
+    },
+    {
+      "id": "de-v3-ich-heisse",
+      "path": "assets/audio/german/de-v3-ich-heisse.mp3",
+      "textSha256": "375B356A8907581FF51EE5C796408E0EDD1D00628169913A759B7D6DA36DDF2B",
+      "sha256": "CF53EDDA27929286A082CC6B3E8FE60926D0150D0875D5A83B1963E37CE30089",
+      "bytes": 15984,
+      "durationMs": 2560
+    },
+    {
+      "id": "de-v3-woher-kommen-sie",
+      "path": "assets/audio/german/de-v3-woher-kommen-sie.mp3",
+      "textSha256": "8D85740CCE42FB8D2B5D86F4088113DB0E2042AF64E6CD3349E5887FF34CEA3A",
+      "sha256": "DF84C5AD87AC422FCC90C174B2396856265B144AC3512939840CC6B7AFD48B30",
+      "bytes": 24624,
+      "durationMs": 4016
+    },
+    {
+      "id": "de-v3-ich-komme-aus",
+      "path": "assets/audio/german/de-v3-ich-komme-aus.mp3",
+      "textSha256": "89B708548AC59CAB9856573775483D505089A4B7B656B71ECD1EC1E4D2BF7C76",
+      "sha256": "E03A7929342E7130BC91F21A974836D96F819DCDD1540B2D1738155E755FC657",
+      "bytes": 24408,
+      "durationMs": 3968
+    },
+    {
+      "id": "de-v3-sprechen-sie-englisch",
+      "path": "assets/audio/german/de-v3-sprechen-sie-englisch.mp3",
+      "textSha256": "469CE4B3A15789440CF834F2F5C07EFEC0166621F8AA4E834842E640D8B878F7",
+      "sha256": "CA7B7483F0BD2EBA0962765D14050C1AB29150446F5B00CD1871C108252E0218",
+      "bytes": 21168,
+      "durationMs": 3424
+    },
+    {
+      "id": "de-v3-ein-bisschen-deutsch",
+      "path": "assets/audio/german/de-v3-ein-bisschen-deutsch.mp3",
+      "textSha256": "F73C6B9986DC1ED87D5FC78E1F6A2CEFCD6619DE1D5229DE317F13536D7671BA",
+      "sha256": "6939C2E8B7B36FB5B281A66D7DBB831D785C731775F5A051CEA7CBBE374FCE7C",
+      "bytes": 27432,
+      "durationMs": 4496
+    },
+    {
+      "id": "de-v3-bitte-buchstabieren",
+      "path": "assets/audio/german/de-v3-bitte-buchstabieren.mp3",
+      "textSha256": "3FD255EFCC17252DFBF1E2F40BB6DCB5B8118C574270BE44B729102BC92481FC",
+      "sha256": "22D6B1DE28986A285F00FA7F759BF06958D6EFCDF6F243913F9B0DAC6B0CAA64",
+      "bytes": 17712,
+      "durationMs": 2880
+    },
+    {
+      "id": "de-v3-wie-schreibt-man",
+      "path": "assets/audio/german/de-v3-wie-schreibt-man.mp3",
+      "textSha256": "1090AB883727D29137F5D3D5A490AD5AA3BFDEC139EB980EC6190DD3A72CEBBE",
+      "sha256": "D5388D1E161EDAD245F3B49D757092780916B33A331D889DEAE676D053025DFB",
+      "bytes": 15120,
+      "durationMs": 2448
+    },
+    {
+      "id": "de-v3-ich-suche",
+      "path": "assets/audio/german/de-v3-ich-suche.mp3",
+      "textSha256": "8006A935FF5E2DAE6409A1DC7932753D25DF0B70BD244D68AEB6D804935F65C2",
+      "sha256": "B2B1B255D361E9B64DA273C4BD61F4FBDF29F31AEB4B3347FC9BDC3CFDF6CA90",
+      "bytes": 15336,
+      "durationMs": 2464
+    },
+    {
+      "id": "de-v3-moechte-bezahlen",
+      "path": "assets/audio/german/de-v3-moechte-bezahlen.mp3",
+      "textSha256": "6907427F64A1EBC128E792528CFCA2237572F1B191A10018514171A71142C270",
+      "sha256": "C3D7F2EB79562069E7AB395D0B96D873FA3F1D2F72F98F1D26BE77DDFD41AEC4",
+      "bytes": 13176,
+      "durationMs": 2096
+    },
+    {
+      "id": "de-v3-zahlen-bitte",
+      "path": "assets/audio/german/de-v3-zahlen-bitte.mp3",
+      "textSha256": "80BF6CCEFF6CC57EC97937EDF10B5380560B75FC0A78B61999FD37B216A1FADD",
+      "sha256": "D04C8ED6A9D3F4AECA1F400B4A5235EFA3F7DABA211AE40E98CDBBA474182528",
+      "bytes": 14256,
+      "durationMs": 2288
+    },
+    {
+      "id": "de-v3-haben-sie",
+      "path": "assets/audio/german/de-v3-haben-sie.mp3",
+      "textSha256": "96698F7836C284FF5291D50A29D6074D4AF4920A9FA109920D0A661CE4F2A5DF",
+      "sha256": "1DC646740F591294DE331520A819A3854515DB8245D49F9052B86D26D68E57CF",
+      "bytes": 16416,
+      "durationMs": 2640
+    },
+    {
+      "id": "de-v3-wo-kann-ich",
+      "path": "assets/audio/german/de-v3-wo-kann-ich.mp3",
+      "textSha256": "CAADE0B1AB1BE92040EDBC06FC0D7CA62D5446E50613B09D48908205A2B0F98B",
+      "sha256": "CEDC50AD1D84A858F17CFD99717907565FF1C680FD584FF2D026588D8321BDD9",
+      "bytes": 18360,
+      "durationMs": 2960
+    },
+    {
+      "id": "de-v3-kostet-zusammen",
+      "path": "assets/audio/german/de-v3-kostet-zusammen.mp3",
+      "textSha256": "2223A6FE71C246DF695E71320CBF8F8EDF1AF4EF878318A8458FF4ED8B66F090",
+      "sha256": "33E1E6DC046A210B9D469DDD83CDB4615D0DFCB3A86563A6E322816D04FE34B5",
+      "bytes": 18792,
+      "durationMs": 3056
+    },
+    {
+      "id": "de-v3-wann-oeffnet",
+      "path": "assets/audio/german/de-v3-wann-oeffnet.mp3",
+      "textSha256": "366407134C5E8C2BBCF0DE3C5ECF00A373A494BD55AB3268B975057DE827FFDA",
+      "sha256": "272A4A493909BEE0B779DCC8DBA189F40CB7A8A82B703650AF811D0A69C9FBBC",
+      "bytes": 18144,
+      "durationMs": 2944
+    },
+    {
+      "id": "de-v3-heute-passt",
+      "path": "assets/audio/german/de-v3-heute-passt.mp3",
+      "textSha256": "15293D2FE4D3AAE1971CC0B09DAA564C8183D8DDF20F02A6CE50106EDA8DC838",
+      "sha256": "888820E1174EB364E688E7A0AEC071640A1004F00EC72B07DD333D94C7A6257A",
+      "bytes": 19224,
+      "durationMs": 3104
+    },
+    {
+      "id": "de-v3-morgen-zeit",
+      "path": "assets/audio/german/de-v3-morgen-zeit.mp3",
+      "textSha256": "3EE8FB9433C69835B401F2B9B1F5092DA29E95E7024FF8B6371673E5DB7F3FC5",
+      "sha256": "1E9F65604687F1ED875CF6F8E7B19A20D56EDF1E0C994762A6E3AF49BC6E8B45",
+      "bytes": 14904,
+      "durationMs": 2384
+    },
+    {
+      "id": "de-v3-gleich-zurueck",
+      "path": "assets/audio/german/de-v3-gleich-zurueck.mp3",
+      "textSha256": "269375FEA2AE134314614B70BEBB07898DEF78A001DA24F9E4B6AF4844DB2859",
+      "sha256": "6DC517AF09E6846D58F35B329D9DF72252458384F321BE4148755D11D71CB62C",
+      "bytes": 18576,
+      "durationMs": 2992
+    },
+    {
+      "id": "de-v3-schoenen-tag",
+      "path": "assets/audio/german/de-v3-schoenen-tag.mp3",
+      "textSha256": "E0E50C30A8CB2AA9A6677FF2DF706053C0080766C663D3203FE98031AF0329B4",
+      "sha256": "5DACECAEC4435296D1DDAA911AFA8EDC7B5DD997CFB5E0B0CC0E9B09AE751232",
+      "bytes": 15768,
+      "durationMs": 2544
+    },
+    {
+      "id": "de-v3-gute-reise",
+      "path": "assets/audio/german/de-v3-gute-reise.mp3",
+      "textSha256": "FAA5A6D34AC683C2446542EE4E0124F2715C418F7D73434EF4A80286E6659B87",
+      "sha256": "7E645B25CF48F11AB678CE7C2BB7EE38A49B0D898A06E59FABF2181B70E6F500",
+      "bytes": 15768,
+      "durationMs": 2544
+    },
+    {
+      "id": "de-v3-zum-wohl",
+      "path": "assets/audio/german/de-v3-zum-wohl.mp3",
+      "textSha256": "BCCC1A6A48EC71DE9A5833EF890BE5D83EB5A593E0F90D4FCD15C86F3D9B1244",
+      "sha256": "360071A00D48798414905C68A23CEE837FAFB7A148A5621D384E82880AB17B2D",
+      "bytes": 17280,
+      "durationMs": 2800
+    },
+    {
+      "id": "de-v3-bahnsteig",
+      "path": "assets/audio/german/de-v3-bahnsteig.mp3",
+      "textSha256": "50CC604B8543858A57580F00C9E0F29AD9A7E2CD29FF5F36A1027872889F3B9A",
+      "sha256": "29355EA33FF14ABB2F0E6BBB75B0C188D7D50205B32CC046E32CC57298221A7D",
+      "bytes": 18360,
+      "durationMs": 2976
+    },
+    {
+      "id": "de-v3-fahrkarte-neu",
+      "path": "assets/audio/german/de-v3-fahrkarte-neu.mp3",
+      "textSha256": "B939F594E4D725196705B41B99FACA3A65D25A01F502C6AA5E119D8FFDE1AEEE",
+      "sha256": "F68073909D279325594B8A68623AEB9F93D1E821D0387D426B5A6086B46330EB",
+      "bytes": 15768,
+      "durationMs": 2528
+    },
+    {
+      "id": "de-v3-koffer",
+      "path": "assets/audio/german/de-v3-koffer.mp3",
+      "textSha256": "479AB391CC7F10C6CFD65BC8D3ADF104EE82A0C28F559E05C9185BFA1BB5DE8F",
+      "sha256": "C05BFA4A3B018B7D7F44E4159C37949311D1F8AB2AD56D0348B6B04D73A95F0E",
+      "bytes": 14040,
+      "durationMs": 2240
+    },
+    {
+      "id": "de-v3-stadtplan",
+      "path": "assets/audio/german/de-v3-stadtplan.mp3",
+      "textSha256": "79ACFF05D19B2E31853E522C221D48C1EF692E122A794D87D282F7BA8CE332F7",
+      "sha256": "705A7C66D7FA0FF3F769B061CD5FBF7D8F718C00857ECF1C3E700C1F89A1C438",
+      "bytes": 20304,
+      "durationMs": 3280
+    },
+    {
+      "id": "de-v3-baeckerei",
+      "path": "assets/audio/german/de-v3-baeckerei.mp3",
+      "textSha256": "5D19EA6066F893FD484959DAD768E55D1807A3B2EB32BB607B6016C053E13D25",
+      "sha256": "70959E01BDCC8194921275B8B35B167DC73D5E74390BA159C2FC155175FE1679",
+      "bytes": 15120,
+      "durationMs": 2432
+    },
+    {
+      "id": "de-v3-gemuese",
+      "path": "assets/audio/german/de-v3-gemuese.mp3",
+      "textSha256": "8944432E8C3A9EC0CEBB319870D00BCFE3B58C7FDB8B1FC70705886A3B51D30B",
+      "sha256": "16C407421D3AA230EC3686750EA369F57D6FB88E161745AC1438490DA7CF3499",
+      "bytes": 18144,
+      "durationMs": 2944
+    },
+    {
+      "id": "de-v3-flasche",
+      "path": "assets/audio/german/de-v3-flasche.mp3",
+      "textSha256": "BC7ED702E7D727DC1105B44E037A38C03BE92ECB4BB5743D46E45E5E7B2B3DAC",
+      "sha256": "CFAF47A27100A2E0C16AD82D9C0934489EA2F02BC4BEACC9B7725F2AF371DB17",
+      "bytes": 13392,
+      "durationMs": 2160
+    },
+    {
+      "id": "de-v3-regenschirm",
+      "path": "assets/audio/german/de-v3-regenschirm.mp3",
+      "textSha256": "509ADDE02A68CA5A68A79FAFF0EDCDF8A15CE973121730DF143FC0DB179C67E2",
+      "sha256": "BB8B9B0B8F350CB79578D0368730A83C7004151EB56174EFDFEEE03BEB769BE4",
+      "bytes": 13392,
+      "durationMs": 2128
+    },
+    {
+      "id": "de-v3-jacke",
+      "path": "assets/audio/german/de-v3-jacke.mp3",
+      "textSha256": "25ECAB5B9C629144C8D6943802F1D78208AAD46088CA5E2EF5A3A2A6DD84FB5B",
+      "sha256": "E5516E3F4E54C4EA73E509AD64F99FD423E008CEE47344D9FB246DFBA22BB561",
+      "bytes": 17496,
+      "durationMs": 2816
+    },
+    {
+      "id": "de-v3-apotheke",
+      "path": "assets/audio/german/de-v3-apotheke.mp3",
+      "textSha256": "47486FCAFBF7670B0C37D8F1536F2C311B10486D00712721603F5DFFFF0D7982",
+      "sha256": "4D03B25C57FCC93B083CFBBE0FACA6F37DC54830482657F7D6C1E91B03223C36",
+      "bytes": 16632,
+      "durationMs": 2688
+    },
+    {
+      "id": "de-v3-rathaus",
+      "path": "assets/audio/german/de-v3-rathaus.mp3",
+      "textSha256": "A693B7F1B737E01087255FCE747ADBB5CC9DA2E84361AD7838F8623962B8F799",
+      "sha256": "C3051C726CEB24A52D835751110762BE79E0C452F9B966C063BFB0D7EC152098",
+      "bytes": 14472,
+      "durationMs": 2336
+    },
+    {
+      "id": "de-v3-bruecke",
+      "path": "assets/audio/german/de-v3-bruecke.mp3",
+      "textSha256": "B2442647033B61B30FB771DDE52C5FA0868BD7167CE0124B4593B40064E21720",
+      "sha256": "5D791994521C80D2FE671C6192FFE21F5C5DFB2E9681A9D0A46272C82A6B053A",
+      "bytes": 16416,
+      "durationMs": 2656
+    },
+    {
+      "id": "de-v3-platz-stadt",
+      "path": "assets/audio/german/de-v3-platz-stadt.mp3",
+      "textSha256": "722092E7CF8C3AA8868B057DFC5968A3BCBCEE248786CF3171E757C890FBDC1A",
+      "sha256": "B347E6820DA721F2B462524237FBF4100A41953866A760B709352DF65518E211",
+      "bytes": 17712,
+      "durationMs": 2880
+    },
+    {
+      "id": "de-v3-kreuzung",
+      "path": "assets/audio/german/de-v3-kreuzung.mp3",
+      "textSha256": "1138F9BFA85DC171E8E3A32CEBE12C5A91A0D810C401CDB64D6B7EC780E21696",
+      "sha256": "A94FB3CDF6B09482FD32C1DBEC0349A1FA67B6F5A8AF6A71C947CE7AC881851D",
+      "bytes": 16416,
+      "durationMs": 2640
+    },
+    {
+      "id": "de-v3-ampel",
+      "path": "assets/audio/german/de-v3-ampel.mp3",
+      "textSha256": "6941D4A30D261D2D7AA9A5BAD1ADFB80C12EC12092E48696D301AA39717A0BE7",
+      "sha256": "594A39BB518FE36E02F0BDB6816C24D00858F386BBE3C9BE1AC3D322F024F65B",
+      "bytes": 16848,
+      "durationMs": 2720
+    },
+    {
+      "id": "de-v3-aufzug",
+      "path": "assets/audio/german/de-v3-aufzug.mp3",
+      "textSha256": "8AB7958DDF52D0F0E8FB33AF45A4E2BB5A3D5977B3DD7CE06309D0827259CDD5",
+      "sha256": "6336CD73C06CF22E4998194FA055FC316622A582B695A2D544965893242AE5B3",
+      "bytes": 16632,
+      "durationMs": 2672
+    },
+    {
+      "id": "de-v3-treppe",
+      "path": "assets/audio/german/de-v3-treppe.mp3",
+      "textSha256": "957136CAA1D11E076A52FAE8E614B25A5D6943AFD1668D6C898A81C642CC127F",
+      "sha256": "439A5AF6AB3FCC729F5D2FF08EF3B290A7516FE8DCD3D3CEBBFE868D27B2588E",
+      "bytes": 17064,
+      "durationMs": 2752
+    },
+    {
+      "id": "de-v3-stockwerk",
+      "path": "assets/audio/german/de-v3-stockwerk.mp3",
+      "textSha256": "E4513E8EBF0104F96C60688CCC62D09B72451D0F4F3C7FD24017CC7713C745E8",
+      "sha256": "794324ECF9D00E3E2B6D594565ADE9DAA2336ADA2C8EFCB71F6DB04A89F7D436",
+      "bytes": 16416,
+      "durationMs": 2640
+    },
+    {
+      "id": "de-v3-kalender",
+      "path": "assets/audio/german/de-v3-kalender.mp3",
+      "textSha256": "DDCE4B59467601C255396339FA5B61B53932614F0FE182C00AFCBE49797910A5",
+      "sha256": "D81321599EA9C45CD2CEF67372F19A5E93E60D76A57270F192CF2B9D0C859E45",
+      "bytes": 16416,
+      "durationMs": 2640
+    },
+    {
+      "id": "de-v3-wochentag",
+      "path": "assets/audio/german/de-v3-wochentag.mp3",
+      "textSha256": "0AF90A27CD500196B02B09C9F3114F82E560FAC605C6CC75A48890EEF999A17A",
+      "sha256": "F24EE6FA9FE986C7E2B6FF8BF97D92454A7631E3FFAD63B2D09BED3CC2ADFDD4",
+      "bytes": 17928,
+      "durationMs": 2912
+    },
+    {
+      "id": "de-v3-vormittag",
+      "path": "assets/audio/german/de-v3-vormittag.mp3",
+      "textSha256": "0DCC67AE9B5F336EC4E08429BAB28FF6970FD8B2D34B44B162BE550BBB45F937",
+      "sha256": "61081B31B6FADB555E8F4D774D00D4853D9369FAF594B39C2397E5A3631BB1CA",
+      "bytes": 19656,
+      "durationMs": 3184
+    },
+    {
+      "id": "de-v3-nachmittag",
+      "path": "assets/audio/german/de-v3-nachmittag.mp3",
+      "textSha256": "75A46D4872318A80077933A7D642A703C73C17FCC8DF2727B53D13B8BE909AB1",
+      "sha256": "6EC8DEFFECAEE6B672C2EEB806C4D7530E6C71D38C0E475B50B7936E78A57CC7",
+      "bytes": 15336,
+      "durationMs": 2464
+    },
+    {
+      "id": "de-v3-abend",
+      "path": "assets/audio/german/de-v3-abend.mp3",
+      "textSha256": "5432855A81D132741A78C3208B3F66486DDFBF829CD7156EABA88561AEB301BD",
+      "sha256": "73829D3617768858373D2093CFE1E71EA048CA062DEFED3790FDD615C0B53FED",
+      "bytes": 14472,
+      "durationMs": 2336
+    },
+    {
+      "id": "de-v3-wochenende",
+      "path": "assets/audio/german/de-v3-wochenende.mp3",
+      "textSha256": "28480888D48B7BC377AC3FA9A1D7E52071547D9A66779969114D514DAE2C0B01",
+      "sha256": "D2AF2E9D51C50C9EB2AA826D3A4D9C28A6C492926FD4CE8DF6442813B12D0BF7",
+      "bytes": 14688,
+      "durationMs": 2368
+    },
+    {
+      "id": "de-v3-telefonnummer",
+      "path": "assets/audio/german/de-v3-telefonnummer.mp3",
+      "textSha256": "B558F6D7B1DA4CF7200070F13432FDCCCE7D42978B5282BD517A186F4A362F45",
+      "sha256": "CD528C8DC8A67126D24294D39820B2040B43FD94A2E110AF34BD78C67D66BC1B",
+      "bytes": 17712,
+      "durationMs": 2848
+    },
+    {
+      "id": "de-v3-personalpronomen-nominativ",
+      "path": "assets/audio/german/de-v3-personalpronomen-nominativ.mp3",
+      "textSha256": "0495256F282A8AF930F44B425AEB9549C6CDD1ECB2D57E98CC935D77DE1B69D2",
+      "sha256": "580ADB486561A0CBF2EA1999D37D20D07189029E30A7F1480578E8A682F70E84",
+      "bytes": 12960,
+      "durationMs": 2080
+    },
+    {
+      "id": "de-v3-regelmaessige-endungen",
+      "path": "assets/audio/german/de-v3-regelmaessige-endungen.mp3",
+      "textSha256": "BA45503136C748893FF5809138B5CB857E778A996D846815B663408901C3CE26",
+      "sha256": "2C72C65DFDA53616BCD71ACEDCFFA24C844BF4B26AB599730EFF0E74FCABAF20",
+      "bytes": 14472,
+      "durationMs": 2320
+    },
+    {
+      "id": "de-v3-stamm-auf-t-d",
+      "path": "assets/audio/german/de-v3-stamm-auf-t-d.mp3",
+      "textSha256": "301DB946E8BCE20BE2703248356EE3AFEA884071E4396F366529905499C06DE3",
+      "sha256": "F625E204570A225B526CE6F2ECB93510DC31A055693201D4421AD77AB55D3630",
+      "bytes": 15984,
+      "durationMs": 2560
+    },
+    {
+      "id": "de-v3-haben-akkusativ",
+      "path": "assets/audio/german/de-v3-haben-akkusativ.mp3",
+      "textSha256": "E62B2513B0FF56AA97599A3792E32995F58876A512C487FF82B8BD68A537A964",
+      "sha256": "68E2665D358DCF2AD1FFA2C39AE64C1BE624A841AFBAFDB6564AD5E3A39CED07",
+      "bytes": 13392,
+      "durationMs": 2160
+    },
+    {
+      "id": "de-v3-kein-negativartikel",
+      "path": "assets/audio/german/de-v3-kein-negativartikel.mp3",
+      "textSha256": "57A95AF6E50B1D8322D5C668AAB562DFE7CFF172AF457AD2630EB2BC7231950B",
+      "sha256": "4BBAC30B8B7DF55C873335EEDFA1B9D7F8B2A6E70C776ED1E17E5793C12EDAC7",
+      "bytes": 15120,
+      "durationMs": 2432
+    },
+    {
+      "id": "de-v3-nicht-satzende",
+      "path": "assets/audio/german/de-v3-nicht-satzende.mp3",
+      "textSha256": "7A0832E38F6EB73545B50596111FE742EBE0D4112DF99785D9750D56A27F9061",
+      "sha256": "FDAA8963FF2B1675A8AB91B3BBBB54ADC298984A8578E4334D6327D610F31F9B",
+      "bytes": 11664,
+      "durationMs": 1840
+    },
+    {
+      "id": "de-v3-plural-ohne-artikel",
+      "path": "assets/audio/german/de-v3-plural-ohne-artikel.mp3",
+      "textSha256": "9F18A3638D39CB02EEE928519255FE73A70423480952A9D532199510BB97A8A9",
+      "sha256": "8B434D8F2C072A1156FC4F72F42F446282F49795EADD1D09CEA8B5F17F991E88",
+      "bytes": 11880,
+      "durationMs": 1904
+    },
+    {
+      "id": "de-v3-es-gibt-akkusativ",
+      "path": "assets/audio/german/de-v3-es-gibt-akkusativ.mp3",
+      "textSha256": "4A18387AA493475E500E599BAB9B92DA17C4274CB19B71234820FB408CDECD1A",
+      "sha256": "DF8D682151A406D853151DB5A7AD25772131A67558904B75E86D1B09A4CFB4DA",
+      "bytes": 14040,
+      "durationMs": 2240
+    },
+    {
+      "id": "de-v3-moechten-form",
+      "path": "assets/audio/german/de-v3-moechten-form.mp3",
+      "textSha256": "551FFCBD6A5C2A6E979EA4092C9FAF349F7ED8D8CA62EA4D66F73D91E24BFF2D",
+      "sha256": "C79E26F362F4FA32070BCA4C8B644FBB2F11C2B46B2CD8673D7450282278EC49",
+      "bytes": 17712,
+      "durationMs": 2880
+    },
+    {
+      "id": "de-v3-koennen-faehigkeit",
+      "path": "assets/audio/german/de-v3-koennen-faehigkeit.mp3",
+      "textSha256": "BC8B7507C14649FF259901FE1C62E5FCF6652B0435DBEE81730379A68170619E",
+      "sha256": "C9A799F1882C1CA04A2EF6C0F0777880309D5550965220058B5DB9277325E57D",
+      "bytes": 13608,
+      "durationMs": 2176
+    },
+    {
+      "id": "de-v3-muessen-pflicht",
+      "path": "assets/audio/german/de-v3-muessen-pflicht.mp3",
+      "textSha256": "96E18FA6C869D43A09724C9EF73221B6AB12D3EB74184CFCE249CE134F5FBD8E",
+      "sha256": "F675917DCD1F6E6D72485E68FD27F032DAF44084BF99A30B09AA3DBCFAA365D0",
+      "bytes": 14688,
+      "durationMs": 2352
+    },
+    {
+      "id": "de-v3-wollen-plan",
+      "path": "assets/audio/german/de-v3-wollen-plan.mp3",
+      "textSha256": "7997510E4A84DD251AFD735AF173C9EDBB42C0E5B5DD3CFDB728A4F234DF3AEA",
+      "sha256": "8A08C8A572AF5DF85D8A642CEBDAE7B2F34FC889D1DFBF4F27214679690C6C0B",
+      "bytes": 12744,
+      "durationMs": 2032
+    },
+    {
+      "id": "de-v3-imperativ-du",
+      "path": "assets/audio/german/de-v3-imperativ-du.mp3",
+      "textSha256": "F071445851241F6BE066771983C49F10DE3C31056262AF3526EE8AAB5A4E1217",
+      "sha256": "FDB5B2DC18601D8DD3400501DCCE09AC4C743F3F60F2474572A2276E3370D7D0",
+      "bytes": 14256,
+      "durationMs": 2272
+    },
+    {
+      "id": "de-v3-imperativ-ihr",
+      "path": "assets/audio/german/de-v3-imperativ-ihr.mp3",
+      "textSha256": "47E380B65C24680CBB9257236235A6AA2DC40EC5B0955FAF7F6FE307E602EF5D",
+      "sha256": "950A1D7E1373D5136793E204AD6334C75CDD43A5548F2A253575C8A9F02E2BB1",
+      "bytes": 15120,
+      "durationMs": 2448
+    },
+    {
+      "id": "de-v3-possessiv-mein-dein",
+      "path": "assets/audio/german/de-v3-possessiv-mein-dein.mp3",
+      "textSha256": "58254C3C55EF1AE4B0370224983BF03E2054229A7AD16F59FC5B117EFA9D85F0",
+      "sha256": "7EC1DD7FE1D73EAEF744EC98BDD00F4A6F6F306869E318E1A3F7E59B5DD25E6C",
+      "bytes": 11880,
+      "durationMs": 1904
+    },
+    {
+      "id": "de-v3-von-bis-zeit",
+      "path": "assets/audio/german/de-v3-von-bis-zeit.mp3",
+      "textSha256": "E1B5B00AAB7F35E945B228CE2D33444638134E5EAD2B3AB4CE842B4C2D5910DF",
+      "sha256": "9E26F39A8B3806A374D7F5F31EF90DDEC1400B44515BD3D7CFD3E8E68EA872D1",
+      "bytes": 20088,
+      "durationMs": 3248
+    },
+    {
+      "id": "de-v3-am-wochentag",
+      "path": "assets/audio/german/de-v3-am-wochentag.mp3",
+      "textSha256": "5F94AB16192B7B3F315244DA239AF03A72697D03015D77B1A28DDDA592AFB4AC",
+      "sha256": "C753B00E789A4EDC0AABC2F624C34088B6630D8F52608021415C9FC5128F8994",
+      "bytes": 13392,
+      "durationMs": 2144
+    },
+    {
+      "id": "de-v3-im-monat-jahreszeit",
+      "path": "assets/audio/german/de-v3-im-monat-jahreszeit.mp3",
+      "textSha256": "D27F04944B8913D4C7B4BDCCB92DA6F415893AA612159A83D1046CEE5FC4F849",
+      "sha256": "C86A3A7A521BEF5690BDD718FFDEF720B4DFCBCF4825C44015BCA573066D3E5D",
+      "bytes": 17496,
+      "durationMs": 2816
+    },
+    {
+      "id": "de-v3-um-uhrzeit",
+      "path": "assets/audio/german/de-v3-um-uhrzeit.mp3",
+      "textSha256": "1761EE433327982B561C8277632F6A5B440CA75590C3A43AA06A3F02EC4EDEDE",
+      "sha256": "05B1BB47437E9B8C186CC6661B7C9087E1698FB8800021B23840B04371C7DFA6",
+      "bytes": 12528,
+      "durationMs": 2000
+    },
+    {
+      "id": "de-v3-nach-hause-zu-hause",
+      "path": "assets/audio/german/de-v3-nach-hause-zu-hause.mp3",
+      "textSha256": "6F7E9597A9B62D5E2BFB9543D729EA2AD02E29DAB48B586167AC84DFE9B13AD6",
+      "sha256": "3ABA693A0EC8209740EEF37008BCB16444A7CB4714600E0B6A8F1E0B7D35BB40",
+      "bytes": 16632,
+      "durationMs": 2688
+    },
+    {
+      "id": "de-v3-gern-lieber",
+      "path": "assets/audio/german/de-v3-gern-lieber.mp3",
+      "textSha256": "CC2D0A36A4FCB1F69DD25001D036F04E8A883014ACBAABC8083BD737C0E90422",
+      "sha256": "39B351EC551FD65E16B4856B7A588AB3AF09DC2CCCEAECCBB159E9D836FD9B11",
+      "bytes": 19224,
+      "durationMs": 3120
+    },
+    {
+      "id": "de-v3-denn-fragepartikel",
+      "path": "assets/audio/german/de-v3-denn-fragepartikel.mp3",
+      "textSha256": "04DE78EDF3493615DF6FBED6FA004883D5CC1B876A2901B4AEAF9C029006BC36",
+      "sha256": "424AB7CC871ECB0A58768CB6785DAEDB93CC1258E32ADF9B2CD64DD214D2966C",
+      "bytes": 10584,
+      "durationMs": 1664
+    },
+    {
+      "id": "de-v3-wer-wen",
+      "path": "assets/audio/german/de-v3-wer-wen.mp3",
+      "textSha256": "2015046D7BBA136D317A3CDED0B07580C41C2DA2372C11F8C8B75F13F3163360",
+      "sha256": "7FD1C469B8CF55B5F5EC399CD97B079354210121D7496CBD48D6916A1E1044DE",
+      "bytes": 13392,
+      "durationMs": 2128
+    },
+    {
+      "id": "de-v3-wo-wohin",
+      "path": "assets/audio/german/de-v3-wo-wohin.mp3",
+      "textSha256": "598F195D0D4CE2A115C932401356CD00A680826A5029CB405274284EF6E03720",
+      "sha256": "08732761DE88127D2624B0B9FDC3357D627BEAE1D22C422528420ED61C4C82F7",
+      "bytes": 11232,
+      "durationMs": 1776
+    },
+    {
+      "id": "de-v3-satzklammer-modal",
+      "path": "assets/audio/german/de-v3-satzklammer-modal.mp3",
+      "textSha256": "F77AB91522AE1C03D5C133AC1A7DF00819D4243C5C37133262E72E27A572AE6E",
+      "sha256": "DBE703B49F90D7BF80949A600F20063DDFE0D251B04370653741DAA7170550AF",
+      "bytes": 16848,
+      "durationMs": 2736
+    },
+    {
+      "id": "de-v3-ich-wuerde-gern",
+      "path": "assets/audio/german/de-v3-ich-wuerde-gern.mp3",
+      "textSha256": "C62C71771C933B279CCFF350E0CBE32C3998592FB010032DBB7E14D77E35CD81",
+      "sha256": "F24C55B877C9607BA933747645FAD9BF772749794DBB8B7C06E86EAC3FBB5614",
+      "bytes": 23112,
+      "durationMs": 3776
+    },
+    {
+      "id": "de-v3-waere-es-moeglich",
+      "path": "assets/audio/german/de-v3-waere-es-moeglich.mp3",
+      "textSha256": "AB66FCF67CFF94E58C7317E5FA0B587903FE239A5240DB0312ABB3C1885B137F",
+      "sha256": "99D3B8B59F3E41DA0C776A65CDB6C28EFCB9520FBDAFC7F74AA8AD749D281C73",
+      "bytes": 25704,
+      "durationMs": 4192
+    },
+    {
+      "id": "de-v3-koennte-ich-bitte",
+      "path": "assets/audio/german/de-v3-koennte-ich-bitte.mp3",
+      "textSha256": "80532472E2A33E107CCB1277821F2BA371F3489220195C2591495EAA5EB90A67",
+      "sha256": "3CC3F6A5723CC2E3EB5AFAAAA654A24A6AA76474F7AD200E17206E20316BE323",
+      "bytes": 19656,
+      "durationMs": 3184
+    },
+    {
+      "id": "de-v3-leider-klappt-nicht",
+      "path": "assets/audio/german/de-v3-leider-klappt-nicht.mp3",
+      "textSha256": "8B9BA730AF115BEB1C1E4E98199FAC32556BDA0B77DFE19F8FBD7D0AD346E0B2",
+      "sha256": "E17CD54EAB4838B6023FBF25484491C077B3EC78237A72E9160127A81E48C9AB",
+      "bytes": 21600,
+      "durationMs": 3504
+    },
+    {
+      "id": "de-v3-anderer-termin",
+      "path": "assets/audio/german/de-v3-anderer-termin.mp3",
+      "textSha256": "2BE1281AD084DA196775B6FA660FD18EC0C12C7B5F671B05194002D8EEAB6ABB",
+      "sha256": "4410B55042059AA1035C7EB89F6B38EF245052AB72D9A76DDB20DE09D040ACFC",
+      "bytes": 18792,
+      "durationMs": 3056
+    },
+    {
+      "id": "de-v3-verspaete-mich",
+      "path": "assets/audio/german/de-v3-verspaete-mich.mp3",
+      "textSha256": "180C8ABD1D9C3B3CBA12829129FAA3A3D34D7F54D15C8D0D2991B4E19F7FC24C",
+      "sha256": "A1F78933CB2CF7C2DE3ABFE16CF5E65AE27C7E2ED924FA198B1AF968A5A5AB49",
+      "bytes": 16632,
+      "durationMs": 2672
+    },
+    {
+      "id": "de-v3-zug-faellt-aus",
+      "path": "assets/audio/german/de-v3-zug-faellt-aus.mp3",
+      "textSha256": "FE6F3D7D6C7F627FB7B32013F94A7AC3A31CFD68217F2746987F00CA4A3D7226",
+      "sha256": "7E614FC18ED2A2EA721ECB5E9A1D66E3D5ADB8CED11F636BE9490F1B5906633F",
+      "bytes": 15984,
+      "durationMs": 2560
+    },
+    {
+      "id": "de-v3-anschluss-verpasst",
+      "path": "assets/audio/german/de-v3-anschluss-verpasst.mp3",
+      "textSha256": "E681E68D7EA6BDA093987AB7ADA88A1696753F3E84FDDC79B077FA6D909094FC",
+      "sha256": "27D5702EF6F4E760BD9B46EA07BEADB57EE79F2B121A103D8BA106C5965DAC35",
+      "bytes": 21168,
+      "durationMs": 3456
+    },
+    {
+      "id": "de-v3-koennen-empfehlen",
+      "path": "assets/audio/german/de-v3-koennen-empfehlen.mp3",
+      "textSha256": "06EAC41EE19AF3FB8CB1EDBD616DBCB351D44FD985DF209B88327DA060BFF2F5",
+      "sha256": "FC32C7262E26D8C702FD812CA114A95CC9D967F5F3199EE0FE2CE30089CB4D0E",
+      "bytes": 19656,
+      "durationMs": 3200
+    },
+    {
+      "id": "de-v3-interessiere-mich",
+      "path": "assets/audio/german/de-v3-interessiere-mich.mp3",
+      "textSha256": "68A00A455D85FE596B62E08D86D5F6CF708FF78CB30F25CB3673E01F87D37E00",
+      "sha256": "4D85EA3B32196E241F9A7926F81FF98AB06C024E210AA3632285D19E0C660912",
+      "bytes": 19224,
+      "durationMs": 3104
+    },
+    {
+      "id": "de-v3-habe-lust",
+      "path": "assets/audio/german/de-v3-habe-lust.mp3",
+      "textSha256": "F1EE49501D710473075803365B094639F68A4E3BCC38A023D29A70B873F9A52B",
+      "sha256": "97FCCBF011A1A905000EFD5BD63EDCF702B293E488099FAD2803EF8ABAF7BF06",
+      "bytes": 19440,
+      "durationMs": 3152
+    },
+    {
+      "id": "de-v3-keine-lust",
+      "path": "assets/audio/german/de-v3-keine-lust.mp3",
+      "textSha256": "7FBF7F7A2B83892E82880992EA40201E4D0628156B81A8639A624EF22F4F61D0",
+      "sha256": "336224F69F0B2DCA7975B860784281B9A7F8F341603A2769AFE08F44F5CCDB22",
+      "bytes": 23328,
+      "durationMs": 3808
+    },
+    {
+      "id": "de-v3-meiner-meinung-a2",
+      "path": "assets/audio/german/de-v3-meiner-meinung-a2.mp3",
+      "textSha256": "A49E53C0C287E4F241D8DE5B0102FE01EBDD86DBF6C3B8F491EEBAA6E0DDA70C",
+      "sha256": "14B6CC648A4E8957AFF846B4C192DB2916E214757891DC6DFD56CFBF3C37DBB0",
+      "bytes": 18792,
+      "durationMs": 3040
+    },
+    {
+      "id": "de-v3-finde-dass",
+      "path": "assets/audio/german/de-v3-finde-dass.mp3",
+      "textSha256": "74A754479CA0967420B614072B54D3F4F17B0C7B41C6B2AB5037AC015C115103",
+      "sha256": "EE6109DFD99C2CA700D06B828551A9260A931AE0C7D1D582075896C578CA6B20",
+      "bytes": 19224,
+      "durationMs": 3120
+    },
+    {
+      "id": "de-v3-stimmt-genau",
+      "path": "assets/audio/german/de-v3-stimmt-genau.mp3",
+      "textSha256": "C4605E503AAF11C93F44783F344E7251854BF49EEC0F9E0E46C3143D49B1EFC9",
+      "sha256": "20C04E8A9CDFBC574065756422104EB7763E2F032008A716A81BCB96F89476EE",
+      "bytes": 21168,
+      "durationMs": 3456
+    },
+    {
+      "id": "de-v3-nicht-ganz-sicher",
+      "path": "assets/audio/german/de-v3-nicht-ganz-sicher.mp3",
+      "textSha256": "CFC059D282A5042E6DA41FE569DC8D6C226628F950D0A51349499A90E8301BCC",
+      "sha256": "299A680E960B0D711198CE91B252612B3BCE5FBC2FBF893DE180C70C95FD58C8",
+      "bytes": 28080,
+      "durationMs": 4592
+    },
+    {
+      "id": "de-v3-kommt-mir-bekannt",
+      "path": "assets/audio/german/de-v3-kommt-mir-bekannt.mp3",
+      "textSha256": "C7F32763D79FF63C96DF631900F33BCC439682470D75A4116940EEADCF8E51A4",
+      "sha256": "9096303CA73D3A277A20DF593286458BCC3678A17CC003A537BFCFEEEAF8C277",
+      "bytes": 23112,
+      "durationMs": 3760
+    },
+    {
+      "id": "de-v3-erinnere-mich",
+      "path": "assets/audio/german/de-v3-erinnere-mich.mp3",
+      "textSha256": "04C9B20984C8FB3824E94C924B17C24E9A51F5264D40FFCEAD98E445B343EC8F",
+      "sha256": "0D924531F50DCFD382A86D52ED00D5729F76DBFA702496ACAEC2BFAD3E9FFE47",
+      "bytes": 20520,
+      "durationMs": 3328
+    },
+    {
+      "id": "de-v3-habe-vergessen",
+      "path": "assets/audio/german/de-v3-habe-vergessen.mp3",
+      "textSha256": "B2B9AD9BCABB83932ADC8FB972E51AC28E62763539A2D33E1A18C697B4EAEEAA",
+      "sha256": "BFC47335FA4B833F21E75AE3D202D107A8554FF5D41BFE45E806A484CFADAA8C",
+      "bytes": 16632,
+      "durationMs": 2688
+    },
+    {
+      "id": "de-v3-kein-problem-a2",
+      "path": "assets/audio/german/de-v3-kein-problem-a2.mp3",
+      "textSha256": "81E5B8E92938FBF2BC0164146EE87F445C4DC131BA245F60041986ABFA48A8FB",
+      "sha256": "DD5F5414B0F936FA5A90ADE13EAEFF8B492F401BBDFA2EBD384FE9E152D02C60",
+      "bytes": 20304,
+      "durationMs": 3312
+    },
+    {
+      "id": "de-v3-macht-nichts",
+      "path": "assets/audio/german/de-v3-macht-nichts.mp3",
+      "textSha256": "2553AC059B0508AAB4AC40BD29A5BE1F739B07163A667BECBD33A734C84D1D91",
+      "sha256": "07D5CDE8560213E166492FBA1D161C79F143424D8B7B29BCA1528D483CA75D9A",
+      "bytes": 20520,
+      "durationMs": 3328
+    },
+    {
+      "id": "de-v3-pass-auf",
+      "path": "assets/audio/german/de-v3-pass-auf.mp3",
+      "textSha256": "41EDC69DCB81FCC5BE79F54E30082526CA1BB0756FD5E621BE5A19AD9B2A3C5C",
+      "sha256": "DAD17800220F7B14BE12B44474483B6693FD349864BA24CFC31AF8B9963E7B02",
+      "bytes": 20952,
+      "durationMs": 3392
+    },
+    {
+      "id": "de-v3-herzlichen-glueckwunsch",
+      "path": "assets/audio/german/de-v3-herzlichen-glueckwunsch.mp3",
+      "textSha256": "CC4418A5331C4D481169DAB39129D92E5E39AB1E4195BE5538EE32456DE8C8F9",
+      "sha256": "593B0E1448E036EC4F1ADD60303FB4139024514DA7AEB05438FBDD808A02A1E8",
+      "bytes": 18792,
+      "durationMs": 3056
+    },
+    {
+      "id": "de-v3-gute-besserung-neu",
+      "path": "assets/audio/german/de-v3-gute-besserung-neu.mp3",
+      "textSha256": "E5247D3CFC22772205D011D083C091D2C1B5CAAAD19E4060B57AF767A2612000",
+      "sha256": "1512D9B5849963B1F2FCFDEF7B3C465534C3E9D46FE0237C5B97DA50B16C5CD5",
+      "bytes": 18144,
+      "durationMs": 2928
+    },
+    {
+      "id": "de-v3-druecke-daumen",
+      "path": "assets/audio/german/de-v3-druecke-daumen.mp3",
+      "textSha256": "B9A37E1DDBD3EB7EA7CACCE9646C85BB544202CDF41B3978220B2301C359FCE6",
+      "sha256": "A54B075512C67B265F222B93D39DF1D85499AF5CC5A82157E61CEF2F7A688D1C",
+      "bytes": 19224,
+      "durationMs": 3104
+    },
+    {
+      "id": "de-v3-umsteigen",
+      "path": "assets/audio/german/de-v3-umsteigen.mp3",
+      "textSha256": "ACBD000F4A865F0D1D6A1ED26091AF0E9176906D86B3743C9828192E084999A8",
+      "sha256": "4B8AC35FD3C84BAF143B1EA710513AB1F461767F6871896EA976027CF9B1177B",
+      "bytes": 20952,
+      "durationMs": 3408
+    },
+    {
+      "id": "de-v3-reservierung",
+      "path": "assets/audio/german/de-v3-reservierung.mp3",
+      "textSha256": "B4BDBA6778FEDA96046C3E1398509ABC2C8CABB0BCA48E2C573A89F897F15F47",
+      "sha256": "362805540AD95D7FB85512DF294EF71B0174F43099CDDFDB0482AC570608D4B2",
+      "bytes": 17712,
+      "durationMs": 2864
+    },
+    {
+      "id": "de-v3-ausweis",
+      "path": "assets/audio/german/de-v3-ausweis.mp3",
+      "textSha256": "90FB78DD5C37EA6C575BAC47957DDBCDDA1EE73785CC74FD5F43BA7B2234F7FF",
+      "sha256": "803238B594B4FB4194047F309E680CB9CF965135C4120C02B666AB7B98F6B870",
+      "bytes": 18144,
+      "durationMs": 2944
+    },
+    {
+      "id": "de-v3-gepaeck",
+      "path": "assets/audio/german/de-v3-gepaeck.mp3",
+      "textSha256": "34455971131784D2436995375059D4AE423E5760943CBC6F9C75AD8DC207F4B3",
+      "sha256": "8EDC134751106933EEE984296289A69142AE09D4C59F74C2CAB7083BB73889D9",
+      "bytes": 17064,
+      "durationMs": 2768
+    },
+    {
+      "id": "de-v3-ausflug",
+      "path": "assets/audio/german/de-v3-ausflug.mp3",
+      "textSha256": "ADCB1BCAD3222E241322CFAEBDC07FBFA032D960666E5AEF66BB75CF51F37B5F",
+      "sha256": "413812F832E885E5EEE011EFEC5E3D8B6756FEB242F9A154EB818BE2A3397398",
+      "bytes": 19224,
+      "durationMs": 3120
+    },
+    {
+      "id": "de-v3-aussichtspunkt",
+      "path": "assets/audio/german/de-v3-aussichtspunkt.mp3",
+      "textSha256": "9FB3994AC0154EC0EF5C1A747974D2B25B73260C19F1CDBB6EB2708921BBB058",
+      "sha256": "1AE51B8C4BA22552F71954DC0E58A4D6246044C9CC596C8D04FD45489E3D38E0",
+      "bytes": 16632,
+      "durationMs": 2688
+    },
+    {
+      "id": "de-v3-eintrittskarte",
+      "path": "assets/audio/german/de-v3-eintrittskarte.mp3",
+      "textSha256": "0BFA6EBC4A020BA3F200D8BAF3B6030E5E504B31C98031D313AF978A5B0C7FF2",
+      "sha256": "997C63714BACD01AB57D2B4C3802D421AF614CC26EF069A382C9AF1E6A93FD4F",
+      "bytes": 20520,
+      "durationMs": 3344
+    },
+    {
+      "id": "de-v3-oeffnungszeit",
+      "path": "assets/audio/german/de-v3-oeffnungszeit.mp3",
+      "textSha256": "6AD9444C23345FBF398A89058F78F1056C6C689A47C1EA4DB400367ACD1DB51D",
+      "sha256": "D5177718C8BD9023CE9B0CB09C88E2E4F98DF2B34E054E33E75869786F0437A6",
+      "bytes": 16848,
+      "durationMs": 2704
+    },
+    {
+      "id": "de-v3-fuehrung",
+      "path": "assets/audio/german/de-v3-fuehrung.mp3",
+      "textSha256": "457FDCB8477726E7BDCD0B2E7C2F75C0833062597EC19E285AEFFA788DF00156",
+      "sha256": "97703D18E836AF8625EAB02C3D2FE2CD39D6029DEC26BBDDDC95463C247F5FDA",
+      "bytes": 20088,
+      "durationMs": 3248
+    },
+    {
+      "id": "de-v3-ausstellung",
+      "path": "assets/audio/german/de-v3-ausstellung.mp3",
+      "textSha256": "C9A35BD72E8476A8A5C311D1D01A0E86EA4896ED3F8FAB5D54E1C18554C50C41",
+      "sha256": "866DA302D568E78D382A08814909BFD10003A9EB1A7365772131A8DAB2F1FA8F",
+      "bytes": 21168,
+      "durationMs": 3424
+    },
+    {
+      "id": "de-v3-veranstaltung",
+      "path": "assets/audio/german/de-v3-veranstaltung.mp3",
+      "textSha256": "0219D1B92B928F39FB2515979324D8078DE2D218C7C134679299A04F9D1645C5",
+      "sha256": "66676BDADAFC83BE87A3AA4A1D6E52D670A5AA5997C0FCED50AEBAE4C0250076",
+      "bytes": 20304,
+      "durationMs": 3280
+    },
+    {
+      "id": "de-v3-anmeldung",
+      "path": "assets/audio/german/de-v3-anmeldung.mp3",
+      "textSha256": "5027A3EA9674FF1063A92F94BFE8321C97D8BB4E4054DC4D7280CEBED440CBC9",
+      "sha256": "3100FDD9C3394334F7DDC03A4CD4DF06DC8B37DFD73CD026711C1848088A4182",
+      "bytes": 17496,
+      "durationMs": 2832
+    },
+    {
+      "id": "de-v3-versicherung",
+      "path": "assets/audio/german/de-v3-versicherung.mp3",
+      "textSha256": "B5FD35098DC1F38D275420A4A0F68D575825CFB1C6ABAACEBD53F41D56C93956",
+      "sha256": "94E17B292B00884BEDAC6F80E198BF52F853A579267271C82584C745CC474BB3",
+      "bytes": 20088,
+      "durationMs": 3248
+    },
+    {
+      "id": "de-v3-verletzung",
+      "path": "assets/audio/german/de-v3-verletzung.mp3",
+      "textSha256": "6FB12851458951D768E47CC316BA3641324D83F9F7BCC4A641A25A7C2CC53F9B",
+      "sha256": "233043CE5C6F849B3A3C96323FE7C59C2202B74153459ECD895DE4992A394496",
+      "bytes": 20088,
+      "durationMs": 3264
+    },
+    {
+      "id": "de-v3-erklaerung",
+      "path": "assets/audio/german/de-v3-erklaerung.mp3",
+      "textSha256": "6BEEB4F43D732C3F0BE5668DA21BD51515B545D8E7FD1CE122B25A1D426087B0",
+      "sha256": "11FB9F3D0728868AD8DD47115FACF863622FEF46E9073313E9EF8B989A7C69D3",
+      "bytes": 17280,
+      "durationMs": 2784
+    },
+    {
+      "id": "de-v3-erlaubnis",
+      "path": "assets/audio/german/de-v3-erlaubnis.mp3",
+      "textSha256": "9F0B4C43D4AC8EB5F70DD43A4AACC193A74DF8C75A294AB8B7EACE86E5748D39",
+      "sha256": "7FF3453D8C8D18F4A7A2E7A79E0998329EE456FF59B5DAAA313129AD546D790F",
+      "bytes": 18576,
+      "durationMs": 2992
+    },
+    {
+      "id": "de-v3-verbot",
+      "path": "assets/audio/german/de-v3-verbot.mp3",
+      "textSha256": "F5FEFA346845CEFCD79A705F2054FD175592CC54FC8A0E8764C6E21824677BE2",
+      "sha256": "046F94319AB76834468711C4711B2582B9F6730A7EE2EDA4077364A745D7CC70",
+      "bytes": 19440,
+      "durationMs": 3168
+    },
+    {
+      "id": "de-v3-abfall",
+      "path": "assets/audio/german/de-v3-abfall.mp3",
+      "textSha256": "59C129DDDA690B4C8F3AEC24CFFFB815B947947653C09276877D994054B4DCD3",
+      "sha256": "5408FF0AB001CBB04AA1DD92CBE015BE895210E92C97C9589B869381FB9EA450",
+      "bytes": 13824,
+      "durationMs": 2208
+    },
+    {
+      "id": "de-v3-mehrwegflasche",
+      "path": "assets/audio/german/de-v3-mehrwegflasche.mp3",
+      "textSha256": "61F2D1056C2342FDEA959A86304D2EE0ABAD0ACD092AF3F0E6A51651A4C07B31",
+      "sha256": "83A109EB139925ED75087E4031E55F07DA0DF0C0101C082573D7ABFEE6ACAB98",
+      "bytes": 20088,
+      "durationMs": 3264
+    },
+    {
+      "id": "de-v3-nachbarschaft",
+      "path": "assets/audio/german/de-v3-nachbarschaft.mp3",
+      "textSha256": "14F63C4C175C3135A7D78D4B2B03F9A0BE6631B2F710D1572A6484BDE8A75E57",
+      "sha256": "83968CD9869F9A8666CA363CF1EB47950E1B850E76D3EC4DBB0E9B2A490CC9B5",
+      "bytes": 19224,
+      "durationMs": 3120
+    },
+    {
+      "id": "de-v3-verkehrsmittel",
+      "path": "assets/audio/german/de-v3-verkehrsmittel.mp3",
+      "textSha256": "44DD0D704135F8804FFA61B85BE399EF84E2C5F04F042A6108538180F8F99ECE",
+      "sha256": "A9E9AFC42B8DD604BAD9905CD967F8C377274B5CC25148E92CC901742AA2AD9B",
+      "bytes": 22464,
+      "durationMs": 3648
+    },
+    {
+      "id": "de-v3-fahrgemeinschaft",
+      "path": "assets/audio/german/de-v3-fahrgemeinschaft.mp3",
+      "textSha256": "05B821D25CA5AF18E02CC4FE257D27CA41C41270F6BECAF9DA21667CB580F6E6",
+      "sha256": "2E7AFE21870C6EC6C9070CD2182550C852DEF2900298AFEA806D313139CD9FA3",
+      "bytes": 20088,
+      "durationMs": 3264
+    },
+    {
+      "id": "de-v3-umleitung",
+      "path": "assets/audio/german/de-v3-umleitung.mp3",
+      "textSha256": "1BA3B4EB8EC7287A6AC97692ADC220718A9204C5FDD851EC016F0AF54FEECF80",
+      "sha256": "AAC10AD89D11C6A059486ABD5926FEC7C1BF44BCD662513AD66B982603A9B9D4",
+      "bytes": 16848,
+      "durationMs": 2736
+    },
+    {
+      "id": "de-v3-baustelle",
+      "path": "assets/audio/german/de-v3-baustelle.mp3",
+      "textSha256": "4F796E28CF4B515485E74AE6717F81886BDD38A9664AC0291405C669FEA24694",
+      "sha256": "E551BAFA044336BACC16B0AE6F1BAC230DF4FBC9BD56181E3D7985DA6C6AB8F8",
+      "bytes": 19440,
+      "durationMs": 3136
+    },
+    {
+      "id": "de-v3-fundbuero",
+      "path": "assets/audio/german/de-v3-fundbuero.mp3",
+      "textSha256": "717A48B05917DF369F3D5E6991EC97259E4ABD1649D5D15CE3A63964B237CB76",
+      "sha256": "D9FC1DFBBE8E202EA74F4B0EA5AB706303859C5E021FB2A5C841FCD0CED0F4EB",
+      "bytes": 17928,
+      "durationMs": 2896
+    },
+    {
+      "id": "de-v3-perfekt-haben-bewegung",
+      "path": "assets/audio/german/de-v3-perfekt-haben-bewegung.mp3",
+      "textSha256": "FC53736E5FA0B1E4BF011B876D638ED85B2EB7AE3C254AF50C12A84D8F396D99",
+      "sha256": "C883E5F9FD4A67E32BB0B2DD411971322F13CD90AF4341D196CF1F90F0844DCD",
+      "bytes": 15984,
+      "durationMs": 2592
+    },
+    {
+      "id": "de-v3-perfekt-sein-wechsel",
+      "path": "assets/audio/german/de-v3-perfekt-sein-wechsel.mp3",
+      "textSha256": "BCB900586C3961450442DC97CC08391846B6A3C69DCF132305293381E8812DEC",
+      "sha256": "2ED6E32859DEBFEC14E86A3CE32A5F4AD928A9CF5B05A599AF1AAC248317F9E1",
+      "bytes": 16632,
+      "durationMs": 2672
+    },
+    {
+      "id": "de-v3-partizip-trennbar",
+      "path": "assets/audio/german/de-v3-partizip-trennbar.mp3",
+      "textSha256": "78B6C933F164ACBADC5BA43436653E41D764DC195C7B66ECE496839EAADCE207",
+      "sha256": "04C1CCF3FFEDB356D7208B2225714E9145E51A4692199928C1AC8DEE9A924CCC",
+      "bytes": 17496,
+      "durationMs": 2816
+    },
+    {
+      "id": "de-v3-partizip-untrennbar",
+      "path": "assets/audio/german/de-v3-partizip-untrennbar.mp3",
+      "textSha256": "5D47FFB0B65BD53CE9853D298EA16273E470D2061C07FB1589E3B09D58C6953E",
+      "sha256": "64750BADF98D3006E68C495FA1335D6F1EF4F93237869DCD447B01ED33F25FA9",
+      "bytes": 16416,
+      "durationMs": 2656
+    },
+    {
+      "id": "de-v3-praeteritum-modal-a2",
+      "path": "assets/audio/german/de-v3-praeteritum-modal-a2.mp3",
+      "textSha256": "066EFA3E44C9453D90A6C1291708B8BCD12BB55079BA00C8601B6103EF2373BD",
+      "sha256": "0E9D53A8CDE582C78719F9AF799E8DAD2DD4860D0D9E4CCAE66C56F94DBFE4CF",
+      "bytes": 17496,
+      "durationMs": 2832
+    },
+    {
+      "id": "de-v3-weil-kausal",
+      "path": "assets/audio/german/de-v3-weil-kausal.mp3",
+      "textSha256": "6A3D7D6539D6A54D5730337633CF9ADDEF9678209B9AF92709928B01EC3BF6D1",
+      "sha256": "9293E2F426D98441574B56571C994802A27B101BB6B409D661F5535E83794615",
+      "bytes": 18144,
+      "durationMs": 2944
+    },
+    {
+      "id": "de-v3-dass-objektsatz",
+      "path": "assets/audio/german/de-v3-dass-objektsatz.mp3",
+      "textSha256": "82B4127B7956EBB59AF71EBAB654CCECE49466332697C3BD9FE1F0B3A7EE14A9",
+      "sha256": "EE743A287E8E5B53FB20567BEE156F2F1CB6AAAF291FE1DAFE275A2270412CE7",
+      "bytes": 18144,
+      "durationMs": 2944
+    },
+    {
+      "id": "de-v3-wenn-wiederholt",
+      "path": "assets/audio/german/de-v3-wenn-wiederholt.mp3",
+      "textSha256": "A2D64523F81A6B352364B891D13C299F11EFE69BDE35A1A0381F9F3971BCE13E",
+      "sha256": "26C079CA2A06A1E8DA197706CEFBEB96EFBC2B174CB4FBEEBF1917B63EDC84DB",
+      "bytes": 20736,
+      "durationMs": 3376
+    },
+    {
+      "id": "de-v3-als-einmalig",
+      "path": "assets/audio/german/de-v3-als-einmalig.mp3",
+      "textSha256": "66758D89D4D9C45CD1E3AE8F4FBD0202FAC79976E3D6F70CC6449EEEAB1A38EA",
+      "sha256": "F91783FCD6EAF3CB66F5511C7ED6BB7BAB33E0FBA1DFC216CFAD3CFEBFD579A6",
+      "bytes": 19656,
+      "durationMs": 3200
+    },
+    {
+      "id": "de-v3-ob-indirekt",
+      "path": "assets/audio/german/de-v3-ob-indirekt.mp3",
+      "textSha256": "C61E759237429F015ECB9A131D0C4D8AACAF3C16F93BCB20EF7FADD3F0CF65BB",
+      "sha256": "70DA868BCA500002311435A6899A5568AEFF8660465BB92102E79F2DC185A032",
+      "bytes": 17064,
+      "durationMs": 2752
+    },
+    {
+      "id": "de-v3-indirekte-w-frage",
+      "path": "assets/audio/german/de-v3-indirekte-w-frage.mp3",
+      "textSha256": "8B06B161A9ABC19ED36528114D30E042309B6B2F4535E80EF824043186B3627C",
+      "sha256": "6BA0F547CD9310043CAD8375B10A690D094C006EE1404D1C9C1CAF4DA185D7F2",
+      "bytes": 15120,
+      "durationMs": 2416
+    },
+    {
+      "id": "de-v3-relativ-nominativ-akk",
+      "path": "assets/audio/german/de-v3-relativ-nominativ-akk.mp3",
+      "textSha256": "B77F11E4CE1CECA223EC2F5B3A24FC57F91F24D8332A364497E48093A5E7A99D",
+      "sha256": "786AF8E4D4D81FDD34DF6A3BE1AEC2D0B394C9AE7FC6AF2740B7EC9D07AE14AD",
+      "bytes": 19656,
+      "durationMs": 3200
+    },
+    {
+      "id": "de-v3-dativ-person",
+      "path": "assets/audio/german/de-v3-dativ-person.mp3",
+      "textSha256": "39CCF5AF7BC6D5645944771543A5460CDADF658A84ABF3E7085D850032982D80",
+      "sha256": "D01F644D15604B98B66931C85BB2194CFE16C39E30CB8A1423B470D30F517AF1",
+      "bytes": 20952,
+      "durationMs": 3408
+    },
+    {
+      "id": "de-v3-wechselpraeposition-richtung",
+      "path": "assets/audio/german/de-v3-wechselpraeposition-richtung.mp3",
+      "textSha256": "F7F5F48A6D8F3971BB51439DC47EC9AF18947F20DA89956E66CA3EB8F2B417FD",
+      "sha256": "1B60581C5FE6705A0B2F0B72E93B700A5B53A021D7D35CFAAC7AF2ED26F9D397",
+      "bytes": 15984,
+      "durationMs": 2560
+    },
+    {
+      "id": "de-v3-wechselpraeposition-ort",
+      "path": "assets/audio/german/de-v3-wechselpraeposition-ort.mp3",
+      "textSha256": "492D0E2A8ADBBE2A54F01969B668235A9C1531666A5A7DDF39DC34049D4DBC00",
+      "sha256": "BCD612EC4688969A0BF618BBB0E3D0F8CD6EBE8BE66EE0CD6DD93B2CAC1550DC",
+      "bytes": 13392,
+      "durationMs": 2160
+    },
+    {
+      "id": "de-v3-adjektiv-ohne-artikel",
+      "path": "assets/audio/german/de-v3-adjektiv-ohne-artikel.mp3",
+      "textSha256": "C1FFFED06991E023FC25001EC0CF1C81342D274D0B8798569444183B4D0B5068",
+      "sha256": "A05A4711E620D20129DF32180950DD294027F7788B9B7F77581A88AA6A59D095",
+      "bytes": 17712,
+      "durationMs": 2880
+    },
+    {
+      "id": "de-v3-komparativ-als",
+      "path": "assets/audio/german/de-v3-komparativ-als.mp3",
+      "textSha256": "619B8184FFBDEED660C88F934827A96FF4CA1FCACF18F7395F496E302D15B244",
+      "sha256": "007C7BBC80E207CEACE43FB1E983B01A1B36F069259D9203D2AA9E1A908D3BAC",
+      "bytes": 23760,
+      "durationMs": 3888
+    },
+    {
+      "id": "de-v3-superlativ-am",
+      "path": "assets/audio/german/de-v3-superlativ-am.mp3",
+      "textSha256": "D4A2166AFE02ECE7F238BA71A2BF1E69E81D46CA2FD33A33966CB9D6F26EB7C2",
+      "sha256": "AA8BD75A53C5F15A74EC3E40157285CF2FB479DF3FAA87ED128D9EE965F3BDD3",
+      "bytes": 14472,
+      "durationMs": 2320
+    },
+    {
+      "id": "de-v3-zu-infinitiv-plan",
+      "path": "assets/audio/german/de-v3-zu-infinitiv-plan.mp3",
+      "textSha256": "A4E0E1E4CABA324180C6F68EE31DF8F019A879FFCA14280368791C9A4140ABEF",
+      "sha256": "974A96254F433C8A62336029E4B2204164C2984879E62FC66102B849421D0919",
+      "bytes": 19008,
+      "durationMs": 3088
+    },
+    {
+      "id": "de-v3-um-zu-zweck",
+      "path": "assets/audio/german/de-v3-um-zu-zweck.mp3",
+      "textSha256": "D4FD3C6E4AD4E6A62E6C874B581F82A34CFE32A114BA5E5C0BB493472DF40AAF",
+      "sha256": "B181C30FA3023A9D5D42CFECFF3AB615E06E93729C362DA1D3B142815DCC7DA8",
+      "bytes": 20736,
+      "durationMs": 3360
+    },
+    {
+      "id": "de-v3-ohne-zu-a2",
+      "path": "assets/audio/german/de-v3-ohne-zu-a2.mp3",
+      "textSha256": "910F961DB1CF5A4B8702F575D291B73615BEA2830E80ADA32C9E8302619B59A6",
+      "sha256": "0809DB3ED1DAD76E0650B1596A924DD469218FDBD80C2018F10FD43E3596B6A3",
+      "bytes": 14256,
+      "durationMs": 2288
+    },
+    {
+      "id": "de-v3-reflexiv-akk-a2",
+      "path": "assets/audio/german/de-v3-reflexiv-akk-a2.mp3",
+      "textSha256": "F4701297DF0636DEF223AE29654A4E07B402CB6FC8E048A27D208BA5F69F5512",
+      "sha256": "617D124883FA596828294F9250628D940267FC1C4DECB1C979225556F93E837F",
+      "bytes": 16848,
+      "durationMs": 2704
+    },
+    {
+      "id": "de-v3-verben-mit-dativ-akk",
+      "path": "assets/audio/german/de-v3-verben-mit-dativ-akk.mp3",
+      "textSha256": "32DEA7D1E99A6281E9564DDABB4CC9C5F79D16A53F7C944B028A37C23D4637C4",
+      "sha256": "3B348CED197039F5722A4D0E2DAE5ECEB019853F6904B25D52FD210BC270EE99",
+      "bytes": 19656,
+      "durationMs": 3184
+    },
+    {
+      "id": "de-v3-deshalb-hauptsatz",
+      "path": "assets/audio/german/de-v3-deshalb-hauptsatz.mp3",
+      "textSha256": "B5E779448C1E8ADA9E08503E64D57DD99C4BA7B77C70E91A1E357F795EFF7719",
+      "sha256": "E1B1C7B3717B95E95A0F35D4B0C1DF6E94FCD893ED68DCA6F85F7C1903148349",
+      "bytes": 22248,
+      "durationMs": 3616
+    },
+    {
+      "id": "de-v3-trotzdem-hauptsatz",
+      "path": "assets/audio/german/de-v3-trotzdem-hauptsatz.mp3",
+      "textSha256": "1428DEC7BADCC5AF1FD7BA14BD65F1A110A748EEEAE3FB3B4314EC773CB56B99",
+      "sha256": "B6855B1CC5ADACB59F0B77F47C9B433A4FC4ACFF0B6991AD764AB67C12ADE51C",
+      "bytes": 22032,
+      "durationMs": 3568
+    },
+    {
+      "id": "de-v3-meines-erachtens",
+      "path": "assets/audio/german/de-v3-meines-erachtens.mp3",
+      "textSha256": "7AACA2BB0933E756A52D66F2B9F1C4F87E929CCBC77553052C00D204BBAC607B",
+      "sha256": "78BF0424C39B5C145BBBD01B85E12F49B962E6ADD963265BCA18C93EF92E00A6",
+      "bytes": 20736,
+      "durationMs": 3376
+    },
+    {
+      "id": "de-v3-bin-der-ansicht",
+      "path": "assets/audio/german/de-v3-bin-der-ansicht.mp3",
+      "textSha256": "41BAFE3F9CE7CA495B0F9B5392D9EE466A448FB76394B83FEB7FB45FD336835C",
+      "sha256": "22E6545792CB42EBBB2BFA1F5FD0646F298A361C844103E7507456A4A3303680",
+      "bytes": 29376,
+      "durationMs": 4816
+    },
+    {
+      "id": "de-v3-kann-gut-nachvollziehen",
+      "path": "assets/audio/german/de-v3-kann-gut-nachvollziehen.mp3",
+      "textSha256": "8F198FD3D7254B1F5247C991EDB899B4C56F567A218C943DEADB13F2E6C041E4",
+      "sha256": "5E816AB333F880FA0665A74EDC257AD10C4D5D6ED1DC782EA65A5C05C3E8F3DD",
+      "bytes": 14904,
+      "durationMs": 2384
+    },
+    {
+      "id": "de-v3-sehe-etwas-anders",
+      "path": "assets/audio/german/de-v3-sehe-etwas-anders.mp3",
+      "textSha256": "F491B733514077553E54C6CFC30DAAC0F197509E1ED04B7B7F83A6918E345C92",
+      "sha256": "2FFEC0AA33352BE1FD008F5BF6146980D46A9713D2915E41DBDC1DEC12785389",
+      "bytes": 24192,
+      "durationMs": 3952
+    },
+    {
+      "id": "de-v3-stimme-teilweise-zu",
+      "path": "assets/audio/german/de-v3-stimme-teilweise-zu.mp3",
+      "textSha256": "B14E9D694A73B15306ADF29D740046850169ED6D7DFEBF497502047FDD995876",
+      "sha256": "AC0B86B3E7597A9C8E8337C543D5F0F34993124B7A8485A12A6F61DA568A4B5F",
+      "bytes": 32184,
+      "durationMs": 5264
+    },
+    {
+      "id": "de-v3-dafuer-spricht",
+      "path": "assets/audio/german/de-v3-dafuer-spricht.mp3",
+      "textSha256": "8C98577B996F7582948167ED7A84D7456584CCB466857ADB4D6E474150733489",
+      "sha256": "0F4F7181BACC6257D0898227F7B951E1292552F2398622E6B738E44D8EA9C541",
+      "bytes": 23328,
+      "durationMs": 3792
+    },
+    {
+      "id": "de-v3-dagegen-spricht",
+      "path": "assets/audio/german/de-v3-dagegen-spricht.mp3",
+      "textSha256": "A6939D2DDA72B39AD9BE6221A4C2E98FE7558158570B38CAF4A5A1DEB64936AE",
+      "sha256": "DA6D0EB310376EF4ECCEF3B6DC344C4C71631BD3F944600C4787C9FA9191672F",
+      "bytes": 19440,
+      "durationMs": 3136
+    },
+    {
+      "id": "de-v3-auf-der-einen-seite-b1",
+      "path": "assets/audio/german/de-v3-auf-der-einen-seite-b1.mp3",
+      "textSha256": "C2971829BC4B08C75539F9A1932BDDDC84D0126CB203D71113A6B041FF39998D",
+      "sha256": "6DFBDAE1AE0B736EC41D20660EF7A9C273316E98B778DB78BA348F31D9FBE8FF",
+      "bytes": 34992,
+      "durationMs": 5760
+    },
+    {
+      "id": "de-v3-haengt-davon-ab",
+      "path": "assets/audio/german/de-v3-haengt-davon-ab.mp3",
+      "textSha256": "601194C914921B580122466CABF51D81ACB99394DF9D495DE160F471AF4D38BF",
+      "sha256": "D9CAC812D83B38810715DD8FEB25927B2CFF1F8B83E000C8DF792EBF50C8E694",
+      "bytes": 19008,
+      "durationMs": 3072
+    },
+    {
+      "id": "de-v3-vorausgesetzt-dass",
+      "path": "assets/audio/german/de-v3-vorausgesetzt-dass.mp3",
+      "textSha256": "AD01EA7FB4278405B8F703138171ED98C4E2E2C0BEB509E3B849BB3845C2B1B4",
+      "sha256": "ABFC74912BD4F3DB6715E50AD034B5EFD02D5CFF4F92DF9FF59087684206E22B",
+      "bytes": 25056,
+      "durationMs": 4080
+    },
+    {
+      "id": "de-v3-falls-noetig",
+      "path": "assets/audio/german/de-v3-falls-noetig.mp3",
+      "textSha256": "822285D78429F2BDF41DD0A000CFEC94C268F47CF4642CDE61DFF20D0F314E69",
+      "sha256": "37D47DEF28726BF75769D6152981D6E7AA4A47A61E945224212631E5D589BD21",
+      "bytes": 24408,
+      "durationMs": 3984
+    },
+    {
+      "id": "de-v3-auf-jeden-fall",
+      "path": "assets/audio/german/de-v3-auf-jeden-fall.mp3",
+      "textSha256": "3556103C965EC4F27BEE22C700AF0232CED7F4C0B6AEF732DB3EDBEC215C2F48",
+      "sha256": "30EDC338B37FDFD9BB14C7541FE78AF2A8EE89D5EE7C3BFD1D6A7982AFF3F675",
+      "bytes": 20088,
+      "durationMs": 3264
+    },
+    {
+      "id": "de-v3-im-notfall",
+      "path": "assets/audio/german/de-v3-im-notfall.mp3",
+      "textSha256": "49E3C4F8FEAC3F9A76C2E6617B1718685C70A0F32B745E7055BF23DC693E4803",
+      "sha256": "7439CDD53CF99C95F7075A19CB09EC1B02623E9831B679B678A336E4AD07978E",
+      "bytes": 20736,
+      "durationMs": 3360
+    },
+    {
+      "id": "de-v3-soweit-beurteilen",
+      "path": "assets/audio/german/de-v3-soweit-beurteilen.mp3",
+      "textSha256": "778995E49B9420B316C2D4359AEE82A57C6C85720A0F05EB934AC6CAF3FD26B9",
+      "sha256": "1049A593C58DF3F94B6A9CC6D3385617FB2746D30F6B94362F1C7336FCE15475",
+      "bytes": 24192,
+      "durationMs": 3952
+    },
+    {
+      "id": "de-v3-nach-meinem-wissen",
+      "path": "assets/audio/german/de-v3-nach-meinem-wissen.mp3",
+      "textSha256": "CBCA2D36F22F9293C2709448B7B3247014EACD70A11AEB92523B61161BBD0EA9",
+      "sha256": "E3C949656E631A124C5658DD5E841BF0FF2D50B7B742E72DF91AA530BB8DCFDE",
+      "bytes": 21384,
+      "durationMs": 3488
+    },
+    {
+      "id": "de-v3-habe-erfahren",
+      "path": "assets/audio/german/de-v3-habe-erfahren.mp3",
+      "textSha256": "65CC58950D6560D3B23A7105DF6BA7688FC136D4D1F29F490AF783CC3B1E0A3E",
+      "sha256": "D86297E34614162CB71148A29DFA00DC6530EB5322B1D00A59636F5715225B04",
+      "bytes": 23328,
+      "durationMs": 3808
+    },
+    {
+      "id": "de-v3-mir-aufgefallen",
+      "path": "assets/audio/german/de-v3-mir-aufgefallen.mp3",
+      "textSha256": "4CDE63011C4482833BAD1DDE140693611F5ACCD9F3C5A2B4C24F68C3FA438E23",
+      "sha256": "AED191C7C2687FF338D0FA9ABAD0F924E9B966C1196F228D5B3859D617F10ADF",
+      "bytes": 23328,
+      "durationMs": 3792
+    },
+    {
+      "id": "de-v3-ueberrascht-mich",
+      "path": "assets/audio/german/de-v3-ueberrascht-mich.mp3",
+      "textSha256": "A4456BEDD34AD46B6A6EF20309CF4A8D7E8D6A4CEBA7C7AB2FE288DB8BC90A11",
+      "sha256": "80581BD6E029F390BDBED7AF8ACBE46DA43B9676B251199E48C2DC3EA74A4C1F",
+      "bytes": 25272,
+      "durationMs": 4128
+    },
+    {
+      "id": "de-v3-besonders-wichtig",
+      "path": "assets/audio/german/de-v3-besonders-wichtig.mp3",
+      "textSha256": "2ECE3DD253679E242E6444C1B364EFCBB3949A73C4372EB4B0D628AA67A69146",
+      "sha256": "EC8ADCC0813690E111A576B5A4A4654BE2326DD1E1C961109E5D1AD8C74E0356",
+      "bytes": 25272,
+      "durationMs": 4112
+    },
+    {
+      "id": "de-v3-darauf-achten",
+      "path": "assets/audio/german/de-v3-darauf-achten.mp3",
+      "textSha256": "130379AED45E2C714C1EA56B2F945E41408985497281741A15371E2C0D2DDC91",
+      "sha256": "7F474D850227E0316865C32D6DB173C8D50E4393C275DFAF4000AFEDF8C37794",
+      "bytes": 21816,
+      "durationMs": 3552
+    },
+    {
+      "id": "de-v3-waere-sinnvoll",
+      "path": "assets/audio/german/de-v3-waere-sinnvoll.mp3",
+      "textSha256": "B6BC4A39550286E80F4C7D15B3EE90A0B82D3A05822EBF8D9763D368351C903B",
+      "sha256": "4384404F5BF3DAEC13CCAF32C4376518E690825D5CCE93AAEBC705677DB2E779",
+      "bytes": 26352,
+      "durationMs": 4304
+    },
+    {
+      "id": "de-v3-schlage-vor-b1",
+      "path": "assets/audio/german/de-v3-schlage-vor-b1.mp3",
+      "textSha256": "B8D508FECF2B139C351A425901EC8C0954D152C9E4BC1C91493D11F5887F1134",
+      "sha256": "CB1570940E1AA32081994978691755F63C1C34F17993C487139C61ED1C886410",
+      "bytes": 23976,
+      "durationMs": 3904
+    },
+    {
+      "id": "de-v3-einigen-darauf",
+      "path": "assets/audio/german/de-v3-einigen-darauf.mp3",
+      "textSha256": "E97425FFCE5CA0277B45E106001048D7CD69FC94ECF4FAC09586023594B0E71A",
+      "sha256": "C10E4CE0CDAB5948E628ACBB36FAD5F3FA80C6F35DACC8262F97F0B6BE67641C",
+      "bytes": 25272,
+      "durationMs": 4128
+    },
+    {
+      "id": "de-v3-noch-einmal-zusammenfassen",
+      "path": "assets/audio/german/de-v3-noch-einmal-zusammenfassen.mp3",
+      "textSha256": "DC83180FF9EB5C55032B5EE953722D9D1105F3A8EFBFC1CB4F1E4C2B44FF3BEC",
+      "sha256": "532EA1FAB2019D81E2C0CE5D6A8C5D863FD53C7BF5A62B539093A84810C5A748",
+      "bytes": 20088,
+      "durationMs": 3264
+    },
+    {
+      "id": "de-v3-wenn-richtig-verstanden",
+      "path": "assets/audio/german/de-v3-wenn-richtig-verstanden.mp3",
+      "textSha256": "C1ABD9C2304E977C6ED362E469612238F406D27937F4B676095BE05B53361F03",
+      "sha256": "29C050303B0638A443D78A3F765B204BE74F6A34242E16D6D73A0B6A3693433D",
+      "bytes": 24408,
+      "durationMs": 3984
+    },
+    {
+      "id": "de-v3-die-quelle",
+      "path": "assets/audio/german/de-v3-die-quelle.mp3",
+      "textSha256": "BC680AE3154956AEFE498834EE15819E80A1C54558639C413385E0293239D05D",
+      "sha256": "191BA7B6BC462EF25EA65AF5A853522C8AC7BBE1F9CF7A3298A965CD6C7A6C5B",
+      "bytes": 21600,
+      "durationMs": 3504
+    },
+    {
+      "id": "de-v3-der-beleg",
+      "path": "assets/audio/german/de-v3-der-beleg.mp3",
+      "textSha256": "938657A259F63408F152C2D74C2793499FA7A5AB389063BC4C2F8EFE518F324E",
+      "sha256": "7E2DE182CC748849535C9F24030B0639469F2836DBA6DFF820A8662ECD42842A",
+      "bytes": 19440,
+      "durationMs": 3168
+    },
+    {
+      "id": "de-v3-die-behauptung",
+      "path": "assets/audio/german/de-v3-die-behauptung.mp3",
+      "textSha256": "4D6AD4B88755DFA9FDC4E8F5F6C95AB2C0D762D386EE708552848D2DFAD0E25F",
+      "sha256": "19271CE5D49EFF8D5FF65801F01537E5479472E373F920C9F794B4283D58988F",
+      "bytes": 25272,
+      "durationMs": 4128
+    },
+    {
+      "id": "de-v3-die-stichprobe",
+      "path": "assets/audio/german/de-v3-die-stichprobe.mp3",
+      "textSha256": "9DEE958CD0C86977ED5621DD4391F560985A36494520EB2BBC7D1FA6E54E249D",
+      "sha256": "617513412059316839EDDD3CC5F8A5D32C11E7C02CB3D79092A18BFC4D9CFBF8",
+      "bytes": 21384,
+      "durationMs": 3488
+    },
+    {
+      "id": "de-v3-die-umfrage",
+      "path": "assets/audio/german/de-v3-die-umfrage.mp3",
+      "textSha256": "15ECF02C3A0B47DCEC07ACFE6577156D8D648F816508C65C33BA8C333857442E",
+      "sha256": "AE4628F954F256402CDEBD5EDFEDB1858F67604ECB84D32E5234B2C9A98BE74F",
+      "bytes": 19872,
+      "durationMs": 3216
+    },
+    {
+      "id": "de-v3-die-auswertung",
+      "path": "assets/audio/german/de-v3-die-auswertung.mp3",
+      "textSha256": "1C7CAF50EE153A2896BE20C65E61E9311E105F0BBFC4E12FB595EE725734D484",
+      "sha256": "EEBAC98BAAC786661868351BA6C416879446ADCACB9A05E0CBCF517219F7C62B",
+      "bytes": 19872,
+      "durationMs": 3216
+    },
+    {
+      "id": "de-v3-der-durchschnitt",
+      "path": "assets/audio/german/de-v3-der-durchschnitt.mp3",
+      "textSha256": "926BD1F6A993C8497DCB9EEF3DC2999626AA74DC7CBDB9D440BE366C575E837A",
+      "sha256": "8AA2296BDC4991122BE1CC893E582D41F7AE00F70A5577FD1D1B06623A0C1F8A",
+      "bytes": 20304,
+      "durationMs": 3312
+    },
+    {
+      "id": "de-v3-der-anteil",
+      "path": "assets/audio/german/de-v3-der-anteil.mp3",
+      "textSha256": "16630A1D4EA33C96C186849DDC5DAB259652D966FE3654539D6384CA0A77E383",
+      "sha256": "71910D32DF06CBB30FF56A101C79819E637D951298305FB6A416D56BF6FC690D",
+      "bytes": 19008,
+      "durationMs": 3088
+    },
+    {
+      "id": "de-v3-die-tendenz",
+      "path": "assets/audio/german/de-v3-die-tendenz.mp3",
+      "textSha256": "4600F35F39C16FB7B8104B5B23F5179D5C7F7FA17A370C5E6384A2A28340C76E",
+      "sha256": "23FE5D191E17CC457AF38F0748668D8B258429B6106D789C646D6B83C8F4F14C",
+      "bytes": 24192,
+      "durationMs": 3952
+    },
+    {
+      "id": "de-v3-die-ursache",
+      "path": "assets/audio/german/de-v3-die-ursache.mp3",
+      "textSha256": "2F4F278F1E304BC93593F0CB724F68E20AD69BCDE2691774839C402B01A30BA2",
+      "sha256": "882C9C40983A1679EA5A6183AFBFBD5E701D087C99CB2DF2D9BB1D6CF913B54A",
+      "bytes": 18360,
+      "durationMs": 2960
+    },
+    {
+      "id": "de-v3-die-folge",
+      "path": "assets/audio/german/de-v3-die-folge.mp3",
+      "textSha256": "0AEA4848087E7B68F89193250E61430E1D8ECB2CE6ACDF64DF1355E420B71844",
+      "sha256": "A6030C53A75799101F4AC0DB98FB9BD3147975725D43CEDAE34F2848B4690515",
+      "bytes": 20088,
+      "durationMs": 3248
+    },
+    {
+      "id": "de-v3-der-zusammenhang",
+      "path": "assets/audio/german/de-v3-der-zusammenhang.mp3",
+      "textSha256": "1FDD70E1A2B515B481A17FCC170124D83A103D2C4477A69891090BD3A589689F",
+      "sha256": "1C6E5C14FAA793C71496EF8B9F985BC621FE9D69A628ED84596E4745C3F8AA3C",
+      "bytes": 22896,
+      "durationMs": 3728
+    },
+    {
+      "id": "de-v3-die-einschaetzung",
+      "path": "assets/audio/german/de-v3-die-einschaetzung.mp3",
+      "textSha256": "815F415F56144B1C39508B4D338ACCBBBDB9C2C077C31D0FD9C23EDDDF546B65",
+      "sha256": "2EE790D9ADFE5720E96CF5C2D430A608E0F271E6A5A0EC7D67A487B7B6C66BFC",
+      "bytes": 19872,
+      "durationMs": 3232
+    },
+    {
+      "id": "de-v3-die-rueckmeldung",
+      "path": "assets/audio/german/de-v3-die-rueckmeldung.mp3",
+      "textSha256": "8648CB31DD0188E27A40BD2079334B4837A22465DD1391103F84255D9145BB03",
+      "sha256": "50FFAEFDDCBCF533D3774733297116971858A1B7D9DE7699B05B5EDDF7B6BC9C",
+      "bytes": 21816,
+      "durationMs": 3552
+    },
+    {
+      "id": "de-v3-die-vereinbarung",
+      "path": "assets/audio/german/de-v3-die-vereinbarung.mp3",
+      "textSha256": "200DE219F77C923492531809869F91AC4E7F2189B5DF5CBA4A4CD295A9A986BD",
+      "sha256": "A007B99E965BDB38EB31118A1903339A28A7C174E9454D02CCD1D467CA96A597",
+      "bytes": 18576,
+      "durationMs": 2992
+    },
+    {
+      "id": "de-v3-die-frist",
+      "path": "assets/audio/german/de-v3-die-frist.mp3",
+      "textSha256": "EDDFC6FF041B85CF5F41CB470BE48253969299E4CECCBE27C08F7186BC388A06",
+      "sha256": "9D567C61BD266D5F525E6D94F6535B930A8A5C7FF814CAE6F1DFAD9D26678EEF",
+      "bytes": 16848,
+      "durationMs": 2736
+    },
+    {
+      "id": "de-v3-die-voraussetzung",
+      "path": "assets/audio/german/de-v3-die-voraussetzung.mp3",
+      "textSha256": "6131E514707B4616B3E1F27F629F60F432D1C231D8689689E85C340427A0815D",
+      "sha256": "6CE9C9417F482DB28A4439029D3B1E3BBC2BF07B40F77AEA6D22A76161474E12",
+      "bytes": 26136,
+      "durationMs": 4256
+    },
+    {
+      "id": "de-v3-die-ausnahme",
+      "path": "assets/audio/german/de-v3-die-ausnahme.mp3",
+      "textSha256": "ABA7863EF9DE928396E5FEF3CFA4B2CCB02D88CA7739BC384EB5363A1690B951",
+      "sha256": "98503C6E4EADCDE94E3A96F65EC9F88A18A638A79E1BD965F92FE02B9941FA4C",
+      "bytes": 20304,
+      "durationMs": 3280
+    },
+    {
+      "id": "de-v3-die-zustaendigkeit",
+      "path": "assets/audio/german/de-v3-die-zustaendigkeit.mp3",
+      "textSha256": "6CAA8002C0A8862F6A6BE33E84AE8B5DE219076094FB650FF7B4C879DB2DFFCC",
+      "sha256": "58187D545397E1AAEB032FF3BD4E650CF6E9B8AFF3FFB8D4CC9A3B38322FD54E",
+      "bytes": 19008,
+      "durationMs": 3072
+    },
+    {
+      "id": "de-v3-die-beteiligung",
+      "path": "assets/audio/german/de-v3-die-beteiligung.mp3",
+      "textSha256": "F5EA4CB9C556F916B1EECD823620F9A7D8F0A3629BBFE159FC21BB24BB0FFA76",
+      "sha256": "6C958363AF1F8C58D0624C83CDB07F2AED3115B8F3A5B10A29523FDB7747DEFE",
+      "bytes": 22032,
+      "durationMs": 3600
+    },
+    {
+      "id": "de-v3-die-nachhaltigkeit",
+      "path": "assets/audio/german/de-v3-die-nachhaltigkeit.mp3",
+      "textSha256": "D79F04CB4F228835EB6BDAA56603FA0EFC7A777209AFF313CF1944E415A360CB",
+      "sha256": "53237E8AE63059DA3AC7650644CF23D81B941432506C39E8F360FA4F719D74CA",
+      "bytes": 25056,
+      "durationMs": 4080
+    },
+    {
+      "id": "de-v3-der-verbrauch",
+      "path": "assets/audio/german/de-v3-der-verbrauch.mp3",
+      "textSha256": "50C00CD152D84AD784517475B7A12870895FA60D19B3F2A7FF55B582975FCAB7",
+      "sha256": "04286AC344540C928E1C95A093F4DFC2F47A20F65AAD3E60C0DE99BC986A2D99",
+      "bytes": 20520,
+      "durationMs": 3328
+    },
+    {
+      "id": "de-v3-die-versorgung",
+      "path": "assets/audio/german/de-v3-die-versorgung.mp3",
+      "textSha256": "555EBF2CEF4E4A446BD6F912E57F5C84C8D092D055CA2908D76066BF22BF5EEF",
+      "sha256": "EF78947996E99CE188EB67CABA8D5576CB187D7442F488EEBCE8A846279C9AEA",
+      "bytes": 20304,
+      "durationMs": 3296
+    },
+    {
+      "id": "de-v3-die-erreichbarkeit",
+      "path": "assets/audio/german/de-v3-die-erreichbarkeit.mp3",
+      "textSha256": "246D80016C8A797F4CA23D4969E024D78FD6F0F46BAB0319B67FFB83F400E818",
+      "sha256": "4D94893307BCE54364E46E8D7DD644342FC3A40E8F7F79111E1EF7B21FBA16DA",
+      "bytes": 20520,
+      "durationMs": 3344
+    },
+    {
+      "id": "de-v3-die-barrierefreiheit",
+      "path": "assets/audio/german/de-v3-die-barrierefreiheit.mp3",
+      "textSha256": "25D3632F2473506BADC69BA6A828339794D3105692EF27E87605B60D91EAD993",
+      "sha256": "39BEB094E24F51F11E4A2F99E7984D58ABEDFA8A536F529A77A02B43945C4D35",
+      "bytes": 27216,
+      "durationMs": 4448
+    },
+    {
+      "id": "de-v3-plusquamperfekt-vorzeitigkeit",
+      "path": "assets/audio/german/de-v3-plusquamperfekt-vorzeitigkeit.mp3",
+      "textSha256": "0D0B5DB83AAA9DC6EF4AE6F5BA8378D4EC23E3B33F86E0B6CE2D01B21831A8EB",
+      "sha256": "A476D13D4627FE811CAF5004E31F6B3D8580DBB7951C6226340A1085F96BD0E0",
+      "bytes": 16200,
+      "durationMs": 2624
+    },
+    {
+      "id": "de-v3-nachdem-vorzeitig",
+      "path": "assets/audio/german/de-v3-nachdem-vorzeitig.mp3",
+      "textSha256": "B48A4B920E39BF69C04216E5B2ACD4D0ED12939284DA3528A3ABF8D1EF046D5B",
+      "sha256": "361EE8FACFC8823F9D69F7AAE057B5BA9C22D4036B5A4570635E3EA6E735E02B",
+      "bytes": 20304,
+      "durationMs": 3312
+    },
+    {
+      "id": "de-v3-bevor-nachzeitig",
+      "path": "assets/audio/german/de-v3-bevor-nachzeitig.mp3",
+      "textSha256": "CD45F45F8E1F0F2C5CC19CF7F7E981674E5C6EA90EF5F9F19ECA2D69C2F102C7",
+      "sha256": "C954BAD25A0F49A2111519A13C074401060F09E5393FABD058736C6D5C546AEB",
+      "bytes": 23760,
+      "durationMs": 3872
+    },
+    {
+      "id": "de-v3-waehrend-gleichzeitig",
+      "path": "assets/audio/german/de-v3-waehrend-gleichzeitig.mp3",
+      "textSha256": "FFAD253F8AFA157B1F2884C685C805BDFE55433385A0280830BFD54A6D0CA78A",
+      "sha256": "885E98F3E2603C7A503ED137F164EFF78ABCE4ABE264E1AF62D8D96F1364748A",
+      "bytes": 22680,
+      "durationMs": 3696
+    },
+    {
+      "id": "de-v3-seitdem-zeitpunkt",
+      "path": "assets/audio/german/de-v3-seitdem-zeitpunkt.mp3",
+      "textSha256": "865A31B1226108D78F01317A6EE98AAF1DBEF0BC0830748B32665D90A64B0A98",
+      "sha256": "84C6985E0E6C56C0B6DF67B14BF76EF65A95B9B709FA8879710EAB29E7488D41",
+      "bytes": 25488,
+      "durationMs": 4160
+    },
+    {
+      "id": "de-v3-bis-zeitgrenze",
+      "path": "assets/audio/german/de-v3-bis-zeitgrenze.mp3",
+      "textSha256": "01541AF6226A97C550ADAC70E872CFD7360ED6BFB27A31A28D9069600C268877",
+      "sha256": "95FA952F6F583250989722A9B70D3DCF674CA3DCDF3091542CD0C0CB2CD4A6F3",
+      "bytes": 21816,
+      "durationMs": 3552
+    },
+    {
+      "id": "de-v3-obwohl-konzessiv-b1",
+      "path": "assets/audio/german/de-v3-obwohl-konzessiv-b1.mp3",
+      "textSha256": "6B105BDA549CE0C2D82D37B0AEEEC0098FFD49C196B38E3B78BC3645F457485E",
+      "sha256": "6ED8FC42D0771175F8A0AD2A0893A67B6AC32801ACCFE34F91521B88088F2FBC",
+      "bytes": 25056,
+      "durationMs": 4080
+    },
+    {
+      "id": "de-v3-sodass-folge",
+      "path": "assets/audio/german/de-v3-sodass-folge.mp3",
+      "textSha256": "2443C29BD0FE09009D6D3DE2DE228FB0AD94ADC1B7BDB16A8DA7B83BB5E745E1",
+      "sha256": "63CC2B9518ED2920A3CBB67A30AFA7BFDBA39F3C5AD1A5903BD74D5E6A777D1D",
+      "bytes": 20088,
+      "durationMs": 3248
+    },
+    {
+      "id": "de-v3-damit-zweck-verschieden",
+      "path": "assets/audio/german/de-v3-damit-zweck-verschieden.mp3",
+      "textSha256": "F12D5DA63631FCB3DA48C039325A0D565874114A9A1FAF988D5A0F02DC2C8676",
+      "sha256": "6203C1B5D214FCF956B87880CFBD676073790766D3C6387624647CAAC87D734D",
+      "bytes": 25488,
+      "durationMs": 4160
+    },
+    {
+      "id": "de-v3-je-desto-b1",
+      "path": "assets/audio/german/de-v3-je-desto-b1.mp3",
+      "textSha256": "48D802454B6468C38760C5C91376798CC34B0CC6092A5AF3DABD374C4C454B96",
+      "sha256": "F09C18693263B265E32F0CDC8BC146B27C9BD67B8C0A0B212C10906F919DC0B1",
+      "bytes": 23112,
+      "durationMs": 3760
+    },
+    {
+      "id": "de-v3-konjunktiv-zwei-rat",
+      "path": "assets/audio/german/de-v3-konjunktiv-zwei-rat.mp3",
+      "textSha256": "D225C1FC03D56CA9E863537034BE07007B7BED53CF9DDC7ADDB0B77653664CAD",
+      "sha256": "69F000B0175B14B6887B66CE75EA6F2F5395513FA0542F430939F733A28F850E",
+      "bytes": 19656,
+      "durationMs": 3200
+    },
+    {
+      "id": "de-v3-konjunktiv-zwei-wunsch",
+      "path": "assets/audio/german/de-v3-konjunktiv-zwei-wunsch.mp3",
+      "textSha256": "7683F161B16F42F8423B4D5B218CF11EFE939CD6D1E4194EE87EC0345070BAE2",
+      "sha256": "3B362A9DE46662DF71EF0DF3312936B8444201A7AA6E5E8E19784122198387A7",
+      "bytes": 11016,
+      "durationMs": 1760
+    },
+    {
+      "id": "de-v3-passiv-praesens-prozess",
+      "path": "assets/audio/german/de-v3-passiv-praesens-prozess.mp3",
+      "textSha256": "732A19AF48B237BCA9C1A382C732BEF8E6E21064FC596FEC44A299220292A2B2",
+      "sha256": "B5ED1EAE2D1AC61F278699C321D7157E6AB5FA86FF7C3A5192D0B233FB9CB33F",
+      "bytes": 21168,
+      "durationMs": 3440
+    },
+    {
+      "id": "de-v3-passiv-praeteritum",
+      "path": "assets/audio/german/de-v3-passiv-praeteritum.mp3",
+      "textSha256": "401AE5C4A94743D5CA336D0821AB3581A69A29E194800925082C80A2529020B9",
+      "sha256": "CBB5772D51FEA1C4ACB244E2F308E4E527FAC5E8698E479FCC1543E85FCF6A66",
+      "bytes": 16416,
+      "durationMs": 2656
+    },
+    {
+      "id": "de-v3-zustandspassiv-sein",
+      "path": "assets/audio/german/de-v3-zustandspassiv-sein.mp3",
+      "textSha256": "1856DBED3BAA38A031B56B9E853C875D3106F742E07E598F2B13009F8D7756EE",
+      "sha256": "EA3EC53A4E461B22C30B5FF318855F62467FBB1FBE7B6BFE8D700770A9FAD1D2",
+      "bytes": 17064,
+      "durationMs": 2768
+    },
+    {
+      "id": "de-v3-relativ-dativ-b1",
+      "path": "assets/audio/german/de-v3-relativ-dativ-b1.mp3",
+      "textSha256": "FBD0A9A7BD8A160A0EFB27BC05D92C837EE7EAFD685C937505D4521CB0BAD25F",
+      "sha256": "9CC79B23BE942D70BB85EC7C8A2FAE82859885C8DEF09866781C17A3EB98D64E",
+      "bytes": 21816,
+      "durationMs": 3536
+    },
+    {
+      "id": "de-v3-relativ-mit-praeposition",
+      "path": "assets/audio/german/de-v3-relativ-mit-praeposition.mp3",
+      "textSha256": "C1331FA08F939DF4C3764963145A8A1F0F22F9629541AEEA3B681201A8172392",
+      "sha256": "20F3D67910EBEAF535C931F848949C70BB67951D99652FC15C0C250ACE032B54",
+      "bytes": 19872,
+      "durationMs": 3216
+    },
+    {
+      "id": "de-v3-genitiv-s",
+      "path": "assets/audio/german/de-v3-genitiv-s.mp3",
+      "textSha256": "73E7609C1A18AFEED007368FC23F5C9578AB96D8B3899F2D47EC0BEC643FD5CC",
+      "sha256": "CF2957DF6449D7A8138A59BF41B1085A3F6373817E9B199604181EF7824ACEDF",
+      "bytes": 18360,
+      "durationMs": 2976
+    },
+    {
+      "id": "de-v3-wegen-genitiv-dativ",
+      "path": "assets/audio/german/de-v3-wegen-genitiv-dativ.mp3",
+      "textSha256": "469A4F3AA3CB0257E4775FB1F0CC8D0DD35512C718DF23FC3A3242FDAC5C367A",
+      "sha256": "F9FBBA359957AF93B39D34CC257606C2A9F0079D6D1BADCC355F6073D8F24827",
+      "bytes": 22680,
+      "durationMs": 3680
+    },
+    {
+      "id": "de-v3-trotz-genitiv",
+      "path": "assets/audio/german/de-v3-trotz-genitiv.mp3",
+      "textSha256": "1AC4E44E00CA1F9B00774221B947583F73ADF3E12B488F936000CB1ABFD8710D",
+      "sha256": "CA40053430827BE3AD28DDF06CD104F6063EDE09559B79923A2BB7E7FCA860E2",
+      "bytes": 21816,
+      "durationMs": 3552
+    },
+    {
+      "id": "de-v3-wegen-demonstrativ-da",
+      "path": "assets/audio/german/de-v3-wegen-demonstrativ-da.mp3",
+      "textSha256": "1BF35FAAE315EB37BC9D491F8C38403926AAEAA3CD20D35E268A959D89029A08",
+      "sha256": "4FFB55DED89967341594C6494C8F55F0F58DE32825E34873032AC64600301702",
+      "bytes": 13608,
+      "durationMs": 2176
+    },
+    {
+      "id": "de-v3-wo-compounds-colloquial",
+      "path": "assets/audio/german/de-v3-wo-compounds-colloquial.mp3",
+      "textSha256": "9CFEB1BCB56E0E945CB37BC78DA2CC76370877ECD1420AC6684B64D4C46A149E",
+      "sha256": "BF1D6E934FC46B50E078897254FE45CEC0AC1416D5C8BDEB514B5D4501664F84",
+      "bytes": 18576,
+      "durationMs": 3008
+    },
+    {
+      "id": "de-v3-nomen-verb-verbindung-b1",
+      "path": "assets/audio/german/de-v3-nomen-verb-verbindung-b1.mp3",
+      "textSha256": "8780948623B4C4C433A0A83D8D3EC282FBB35D59DF488D10A1B772B5B2354D66",
+      "sha256": "EF7B0F3DAB0784768B17CD0E261C2A8772A7DF62506174F5A7B7CE74F381DDBD",
+      "bytes": 19440,
+      "durationMs": 3136
+    },
+    {
+      "id": "de-v3-partizip-als-adjektiv",
+      "path": "assets/audio/german/de-v3-partizip-als-adjektiv.mp3",
+      "textSha256": "55BACC7D61597691960D4462973A892FDD4F3BE97A8B6A8210CB9C305848F5F7",
+      "sha256": "20331AB4BA10B194B004BD2F6C32667BA4DA35B4DE3EF1CC858FA76C29DDFA3A",
+      "bytes": 18360,
+      "durationMs": 2960
+    },
+    {
+      "id": "de-v3-lassen-veranlassen",
+      "path": "assets/audio/german/de-v3-lassen-veranlassen.mp3",
+      "textSha256": "9CDDB80347E9A8CC24D7119D5FC562EF666B28D588B99C8B4598C2E57346206E",
+      "sha256": "ED3F6DCB2A7167626B8355A5BD90A88110AB85C38E174DD3F12A8B38CACC2C2C",
+      "bytes": 14472,
+      "durationMs": 2336
+    },
+    {
+      "id": "de-v3-es-ist-festzuhalten",
+      "path": "assets/audio/german/de-v3-es-ist-festzuhalten.mp3",
+      "textSha256": "BF1566A64BA543C64B1CE082F1D06800D4F805F0BD06668701A5ACA69F98DDFA",
+      "sha256": "AFB13BB537292B0D506940C9FA7919F1774715A9A3D9E3EB4B612371F64FD879",
+      "bytes": 31320,
+      "durationMs": 5120
+    },
+    {
+      "id": "de-v3-daraus-folgt-nicht",
+      "path": "assets/audio/german/de-v3-daraus-folgt-nicht.mp3",
+      "textSha256": "98C91F1D1FE8F593487A6F75AE5BBE9A4C02AF2A752CE36BC4A2F075DEEF68CC",
+      "sha256": "9A97E35DBC3CDD7A410813D9420CF9C20CA01D05FFBF3F1E5122E54A8DC76722",
+      "bytes": 27000,
+      "durationMs": 4400
+    },
+    {
+      "id": "de-v3-laesst-sich-einwenden",
+      "path": "assets/audio/german/de-v3-laesst-sich-einwenden.mp3",
+      "textSha256": "7FA79555F83B463D89E4F41365DB8728404204616ED55CA29C99DEEF00B2A9A4",
+      "sha256": "18B3849AC210435BB23AEACB04685E8E27D90395425D76213817D419A3540BE1",
+      "bytes": 26352,
+      "durationMs": 4320
+    },
+    {
+      "id": "de-v3-unter-der-annahme",
+      "path": "assets/audio/german/de-v3-unter-der-annahme.mp3",
+      "textSha256": "E03FCBE15E19AF84C8A1CE3CB9A8D18664752D9483F450BFF310AD6EE3AB9E2A",
+      "sha256": "53EBEF96609D0966F140E5ECEC88830144991323C55AEB4BF8EAD2C9534E3448",
+      "bytes": 33912,
+      "durationMs": 5552
+    },
+    {
+      "id": "de-v3-vor-dem-hintergrund",
+      "path": "assets/audio/german/de-v3-vor-dem-hintergrund.mp3",
+      "textSha256": "B3D965D0BEECB046E68DA4AC11A3E9BD4DC7DF22678B00A1603F21F780377F6C",
+      "sha256": "6153DBDC6D9C2C7EBC00FF631F1E28A8A51CE06B710AB6239D16D96D725695B4",
+      "bytes": 25920,
+      "durationMs": 4224
+    },
+    {
+      "id": "de-v3-in-anbetracht",
+      "path": "assets/audio/german/de-v3-in-anbetracht.mp3",
+      "textSha256": "E69DF5509FA555C8C6B730D1A6265D6A40EDD07B318B14EF4A6BE3AC845E5357",
+      "sha256": "8EEE0B4BE590A77ACDF9BBF9FF3A861783E1F8D093AA8EB7C9EC110745CFF13C",
+      "bytes": 27216,
+      "durationMs": 4464
+    },
+    {
+      "id": "de-v3-ungeachtet-dessen",
+      "path": "assets/audio/german/de-v3-ungeachtet-dessen.mp3",
+      "textSha256": "522C36EFDF8E6CC1BF58534881537BA71196CF188A5E224152DCA774B1CAC44F",
+      "sha256": "1EE42D30B5390734DA9EC4BB37AF268C89BE2D057DEFC2592F05F94945EE7914",
+      "bytes": 26136,
+      "durationMs": 4256
+    },
+    {
+      "id": "de-v3-nicht-ausgeschlossen",
+      "path": "assets/audio/german/de-v3-nicht-ausgeschlossen.mp3",
+      "textSha256": "74CC9D6353F5520C3591BC05F0FF2BA89C36EB20E5DB192FA5098F5BA055BB32",
+      "sha256": "3A37B6A069F5BC399B5683B87AB13C53929AC42D0C40BCCBB49B5F1275080CD8",
+      "bytes": 34776,
+      "durationMs": 5696
+    },
+    {
+      "id": "de-v3-spricht-wenig-dafuer",
+      "path": "assets/audio/german/de-v3-spricht-wenig-dafuer.mp3",
+      "textSha256": "D1211C72897C676DA12BF31CEACCFCBAF34323CBF63EFF1643FD517C2D196EBB",
+      "sha256": "E5A23131947F07B43BBAD14F21E897493E0F9206E00A7E726FDEDD7CD374EA50",
+      "bytes": 28512,
+      "durationMs": 4656
+    },
+    {
+      "id": "de-v3-bedarf-pruefung",
+      "path": "assets/audio/german/de-v3-bedarf-pruefung.mp3",
+      "textSha256": "8F69A9482848AA6BEE0924CDFC0DB4B3E5872FECB77C53665E97D9307D1BAAD8",
+      "sha256": "722865341FE022CF2E6CAFDC39CF75EBDE4A31D1BB06FE00CD66CB7469DA9DAB",
+      "bytes": 26784,
+      "durationMs": 4368
+    },
+    {
+      "id": "de-v3-differenziert-betrachten",
+      "path": "assets/audio/german/de-v3-differenziert-betrachten.mp3",
+      "textSha256": "F5D11379C69283AEC7ED68562F75220594147CB0448422FF4E957678697D2034",
+      "sha256": "69C648B0F659CCA624B301515E5C5D2939DBC9816ADFE0355F0B5E44D367E960",
+      "bytes": 27432,
+      "durationMs": 4480
+    },
+    {
+      "id": "de-v3-nicht-gleichzusetzen",
+      "path": "assets/audio/german/de-v3-nicht-gleichzusetzen.mp3",
+      "textSha256": "5601C3F10E38C4A10E7E22FFA523981715E177214CD9D4F9D4D710E9B16BDB3E",
+      "sha256": "3CE554FB1204412AEAB2295BC91826ACC258DB00A3097E9037AC6DB5475D48E7",
+      "bytes": 28080,
+      "durationMs": 4592
+    },
+    {
+      "id": "de-v3-aus-schliessen",
+      "path": "assets/audio/german/de-v3-aus-schliessen.mp3",
+      "textSha256": "384258159BC855948C11E82DD548F217DF1BCC17B1220093D97D4F9050D6EFF6",
+      "sha256": "EB3457C3DF1975AE605089E7FD6ED6DA31F0C9D5D895B7517FB46CB5A5A0E4DF",
+      "bytes": 28944,
+      "durationMs": 4752
+    },
+    {
+      "id": "de-v3-steht-im-widerspruch",
+      "path": "assets/audio/german/de-v3-steht-im-widerspruch.mp3",
+      "textSha256": "CB4B58BB662272DA6B7175FAA904B75F8A518907C858DF5313404C25ABA5C40B",
+      "sha256": "59ADB9852CF647AEB49BFDCE90FA2A36C1818AE75CF5852E3A56AEAEEA7E4EB3",
+      "bytes": 22248,
+      "durationMs": 3632
+    },
+    {
+      "id": "de-v3-deckt-sich-mit",
+      "path": "assets/audio/german/de-v3-deckt-sich-mit.mp3",
+      "textSha256": "A28CA2A5795E3907739ADC99C8AACFB77D6F1AD4F22CD9FE96C7D7638A3C0820",
+      "sha256": "6FD6A898DB7A9A4D50C19804DAD7316C6B7AB43B2B1BF34956B1336F16CA3DBA",
+      "bytes": 24840,
+      "durationMs": 4048
+    },
+    {
+      "id": "de-v3-knuepft-an",
+      "path": "assets/audio/german/de-v3-knuepft-an.mp3",
+      "textSha256": "44281230949A7301C24AA8237E09B0126000DC7A0A715BDB686C3470A46B54E3",
+      "sha256": "82684687413C0286C0B0D4BD964430A8955E4D8DD261C519808D9CEDEE7BB232",
+      "bytes": 28080,
+      "durationMs": 4592
+    },
+    {
+      "id": "de-v3-bleibt-offen",
+      "path": "assets/audio/german/de-v3-bleibt-offen.mp3",
+      "textSha256": "FCFE535FB1CDA714BACC8F1C62767C2009B13B6EBCABAB6D98AE47701707A70A",
+      "sha256": "AB5B4EE437501B76E825F63DE3ACD72E63138A8D7ECE410FCC27CA78A88417AA",
+      "bytes": 20520,
+      "durationMs": 3344
+    },
+    {
+      "id": "de-v3-entscheidend-ist",
+      "path": "assets/audio/german/de-v3-entscheidend-ist.mp3",
+      "textSha256": "F520C0B14123D35D73D646FC9B8334AE2D3B98B022B60DC2FC459C250EAA2B90",
+      "sha256": "77276B1FFAB1507C9BA694D5167F23D5BB762EA031A59C6B226D2E481FEB5188",
+      "bytes": 24408,
+      "durationMs": 3968
+    },
+    {
+      "id": "de-v3-je-nach-perspektive",
+      "path": "assets/audio/german/de-v3-je-nach-perspektive.mp3",
+      "textSha256": "DEAFCC17A1C034EE6877451FA3BE7A5AC08BB9B7C7F94A11CC36FD0C950BFC4F",
+      "sha256": "4D90A336B9C6DAEF677653DB733798872BA4F640891983786FDA106C4B61A8CD",
+      "bytes": 30240,
+      "durationMs": 4960
+    },
+    {
+      "id": "de-v3-im-weiteren-sinne",
+      "path": "assets/audio/german/de-v3-im-weiteren-sinne.mp3",
+      "textSha256": "979FB3134B8F4DCDFDE91821E0BB8D444AED44661F94B5768236E352D8123C5E",
+      "sha256": "B6267220502A2790557FE35FF7D723EE9A6AB3B26CD76F3DB24C6F1DBF12DEB2",
+      "bytes": 22680,
+      "durationMs": 3696
+    },
+    {
+      "id": "de-v3-im-engeren-sinne",
+      "path": "assets/audio/german/de-v3-im-engeren-sinne.mp3",
+      "textSha256": "BC4E0C4B8BA823DD0E267B2D77D3A81FE84BD29D83F6F023592B86C8D1606CA1",
+      "sha256": "62BB96A4903F19FE2B5DF5FC8A38826952DC94E5C20D16F75ECB6048EC52C4A9",
+      "bytes": 24192,
+      "durationMs": 3936
+    },
+    {
+      "id": "de-v3-unterdessen-zeigt",
+      "path": "assets/audio/german/de-v3-unterdessen-zeigt.mp3",
+      "textSha256": "FE1BBD04449C8B2D1375822E51CC0DD9E7CD1EDF9F3D213F5AB5ED8E32FD46E9",
+      "sha256": "AA415396134D254BCE44280F22E9D0BB91AA8449A2FAF0E60543242336DD8986",
+      "bytes": 23760,
+      "durationMs": 3856
+    },
+    {
+      "id": "de-v3-vorlaeufiges-fazit",
+      "path": "assets/audio/german/de-v3-vorlaeufiges-fazit.mp3",
+      "textSha256": "00B146B7F69FC2EE5497518FA2B7E3E05B8B8612A1E865AFA849D792E135BB43",
+      "sha256": "C417E94561F47B8B028A0790473420FA2C9B9C3A0237772A59D604CE69EB5F08",
+      "bytes": 30672,
+      "durationMs": 5024
+    },
+    {
+      "id": "de-v3-im-kern-geht-es",
+      "path": "assets/audio/german/de-v3-im-kern-geht-es.mp3",
+      "textSha256": "56860CFE228FC6EA12C92658E90BDBE92A6DD6CB114D901E48C3777612E6FEA3",
+      "sha256": "FC5F7038C1EA88525AB0882D339BEA8245B22023DD627EB721CD9280A12ED451",
+      "bytes": 27648,
+      "durationMs": 4528
+    },
+    {
+      "id": "de-v3-steht-zur-debatte",
+      "path": "assets/audio/german/de-v3-steht-zur-debatte.mp3",
+      "textSha256": "1B1107156EE77196BD27FA610724E76BB1F76A773478E3B4D15ABA46DF15EFD9",
+      "sha256": "0443EB55112A1DD7241674F2965A0E938C6B1BE63F9A5C9994E78B08992F16DD",
+      "bytes": 23328,
+      "durationMs": 3808
+    },
+    {
+      "id": "de-v3-die-aussagekraft",
+      "path": "assets/audio/german/de-v3-die-aussagekraft.mp3",
+      "textSha256": "DB5D525552551EF486891879E5C34662B67EDD72679090BC1712B2864ED921E2",
+      "sha256": "A4530914A17F6BEA06D889276E1E3890FCA80D8605839AC190E95115BACB54BC",
+      "bytes": 23112,
+      "durationMs": 3760
+    },
+    {
+      "id": "de-v3-die-belastbarkeit",
+      "path": "assets/audio/german/de-v3-die-belastbarkeit.mp3",
+      "textSha256": "820DC6E1F8B377F6272799B1AD911BE5503E692E8281EE20BFCF62674649CF3B",
+      "sha256": "BB56A209C9E7AE23ADF966B6DE4C8329A1FC445450390E294D69F4896D926A32",
+      "bytes": 29376,
+      "durationMs": 4816
+    },
+    {
+      "id": "de-v3-die-nachvollziehbarkeit",
+      "path": "assets/audio/german/de-v3-die-nachvollziehbarkeit.mp3",
+      "textSha256": "FD6A265C3950B5A3B5F575382413D5FAD025E8C67DC4ACB0FBC692A46978E70E",
+      "sha256": "C028C76BD50038CD0AA1E88677FFDAA1F7CAD91E3EE5249C5ECA6D648052B44C",
+      "bytes": 27648,
+      "durationMs": 4528
+    },
+    {
+      "id": "de-v3-die-verzerrung",
+      "path": "assets/audio/german/de-v3-die-verzerrung.mp3",
+      "textSha256": "E4D15BC4EE58156075B83517B1889150503430BBEF15BBB6BAC7AEA50E6B5473",
+      "sha256": "FBDDF6CCFCCAB146B9405B687455CE1F69CDFE68306E401A63EB32B02F0D81C8",
+      "bytes": 28944,
+      "durationMs": 4736
+    },
+    {
+      "id": "de-v3-die-uebertragbarkeit",
+      "path": "assets/audio/german/de-v3-die-uebertragbarkeit.mp3",
+      "textSha256": "1DE9E730C9B95F39FFC74D4845467C87FCB99698693CF37B2F34531808F6F3A9",
+      "sha256": "63668376EE0982D5D9742F9F4381E7D079FD0373BBC9D593D380CAB68EAD6389",
+      "bytes": 24840,
+      "durationMs": 4064
+    },
+    {
+      "id": "de-v3-die-vergleichbarkeit",
+      "path": "assets/audio/german/de-v3-die-vergleichbarkeit.mp3",
+      "textSha256": "CAC3A212038831B64BCE473DEECE2314C5D18FBA070D13B5C491B6F239E1777B",
+      "sha256": "EA33CE559D36C37EB205F8B299F783FB9D2E7F3F539C7AAD6CA1CB8338A7A58F",
+      "bytes": 23112,
+      "durationMs": 3776
+    },
+    {
+      "id": "de-v3-die-gewichtung",
+      "path": "assets/audio/german/de-v3-die-gewichtung.mp3",
+      "textSha256": "52FF68660131A5EDB5BFDEC7F497102767B49515EA1D758D309AF88E543AA737",
+      "sha256": "B44DFFB8A5DB0C1C29B0915189F1CCE1243127CF689B28A637EA45149C7D6392",
+      "bytes": 22680,
+      "durationMs": 3696
+    },
+    {
+      "id": "de-v3-die-priorisierung",
+      "path": "assets/audio/german/de-v3-die-priorisierung.mp3",
+      "textSha256": "6838E7A996810DF20BA9FF8882768691C68C2A357F0345FBB888F01A8AEF198D",
+      "sha256": "0EBFE5F9B590C7CDA9132A4720A08393B633F9AC7F469313148D0BB4C58BD306",
+      "bytes": 26352,
+      "durationMs": 4320
+    },
+    {
+      "id": "de-v3-der-zielkonflikt",
+      "path": "assets/audio/german/de-v3-der-zielkonflikt.mp3",
+      "textSha256": "458A8CC45235F26BF2CD06AFDD5B6525BAA787CEEE7DC4BD23CD24BEC002B6CD",
+      "sha256": "566EE39A76E701E71A1FF597C7F939EA03824895F979E10167165643515A1B7A",
+      "bytes": 32400,
+      "durationMs": 5296
+    },
+    {
+      "id": "de-v3-die-pflicht",
+      "path": "assets/audio/german/de-v3-die-pflicht.mp3",
+      "textSha256": "BEE1827F1DB42F2E619D0ACD88D820CC2A9F3D56DD24822C0889A5C2E23BA8C2",
+      "sha256": "258140BB7A96B75ED5BA4D29C4946DC5FFE88A2AB36AD97A5FED8083C3696CA9",
+      "bytes": 27432,
+      "durationMs": 4496
+    },
+    {
+      "id": "de-v3-die-umsetzbarkeit",
+      "path": "assets/audio/german/de-v3-die-umsetzbarkeit.mp3",
+      "textSha256": "A918BFB2ACB53B2A83819CA79CA97991568E68879F8A0CD00355989C48762570",
+      "sha256": "330B15BF8A58B5843DAAD9D6656C0AA4082A33261DEC0DB304B1745B4035891A",
+      "bytes": 25488,
+      "durationMs": 4176
+    },
+    {
+      "id": "de-v3-die-wirksamkeit",
+      "path": "assets/audio/german/de-v3-die-wirksamkeit.mp3",
+      "textSha256": "4EC08BF181930FAB5F21E7C35880EBD71B09E2409DCCC8424A0A40D3663EFEBF",
+      "sha256": "67AC4A109B60FB89DEA5D75750159E017FDFEA862A1BB8904F401ED3B3F07821",
+      "bytes": 27000,
+      "durationMs": 4400
+    },
+    {
+      "id": "de-v3-die-zweckmaessigkeit",
+      "path": "assets/audio/german/de-v3-die-zweckmaessigkeit.mp3",
+      "textSha256": "72225FF1075D74E872FE153EFA1071E1A99ADDAF6DE7466D58107C6A6C754137",
+      "sha256": "D5AC2397D71A2FE061CC7C77DE8C4CC1EEC47092864B83F8242E9B0DA4ABE910",
+      "bytes": 22896,
+      "durationMs": 3744
+    },
+    {
+      "id": "de-v3-die-verhaeltnismaessigkeit",
+      "path": "assets/audio/german/de-v3-die-verhaeltnismaessigkeit.mp3",
+      "textSha256": "5C938AB04214E2EF33F14F511682E53D0791933BC2CF9462851C87D8A249359B",
+      "sha256": "3927E67942722358CA25493BDA149896F358D493D72EF7CE3648ED412164AC98",
+      "bytes": 20736,
+      "durationMs": 3360
+    },
+    {
+      "id": "de-v3-die-eigenverantwortung",
+      "path": "assets/audio/german/de-v3-die-eigenverantwortung.mp3",
+      "textSha256": "C6608B3FFEA1A1E47FCE1AD4624D4EC822511FF5064B91290D9AA6F5CBCFEA9C",
+      "sha256": "063324A262285C7DB21920BFCAC0FF209F98977D27295667766ADBDBEC481487",
+      "bytes": 39312,
+      "durationMs": 6480
+    },
+    {
+      "id": "de-v3-die-daseinsvorsorge",
+      "path": "assets/audio/german/de-v3-die-daseinsvorsorge.mp3",
+      "textSha256": "20EA196ABB254376FBE9CF1CC41DC2330C6D4E760946CB6D5048E32D00660FCF",
+      "sha256": "DE9E9AA31F5301802556B4FADCF8C2762C5F533622BEEE9E57EF6BC4A1240DAA",
+      "bytes": 28944,
+      "durationMs": 4736
+    },
+    {
+      "id": "de-v3-die-wechselbeziehung",
+      "path": "assets/audio/german/de-v3-die-wechselbeziehung.mp3",
+      "textSha256": "396B89841AE9E7E2BB09A9044BD50A1CEE496D57DA5C2B247AC03478FA567976",
+      "sha256": "1BBCEA6DECF019137286586C813A57EC5AD66C442AFCF9CEFC2403C94AC49117",
+      "bytes": 26352,
+      "durationMs": 4288
+    },
+    {
+      "id": "de-v3-die-pfadabhaengigkeit",
+      "path": "assets/audio/german/de-v3-die-pfadabhaengigkeit.mp3",
+      "textSha256": "5B1049787DE449FA034F8832996C09C5FDD5069E9EF18DC488C59E81B4588E6D",
+      "sha256": "0F769DF0D8751DA52176446B769C76BDFCA08D361E4B1F4B510F27BAF53CFDF1",
+      "bytes": 25272,
+      "durationMs": 4128
+    },
+    {
+      "id": "de-v3-der-handlungsspielraum",
+      "path": "assets/audio/german/de-v3-der-handlungsspielraum.mp3",
+      "textSha256": "632EEFBC3F3DB86C66877A2D93BF630C1036BEB763FE81CDE814DAF29F2B7C5E",
+      "sha256": "E8D077E3982B9309C4ABDE000FBE31829FA8457060D5F3B953344BC6CEBFADBD",
+      "bytes": 23328,
+      "durationMs": 3808
+    },
+    {
+      "id": "de-v3-der-erkenntnisgewinn",
+      "path": "assets/audio/german/de-v3-der-erkenntnisgewinn.mp3",
+      "textSha256": "3706478C777D6BDE3A59297AFA4E2BD3D619CCC48ED4BD093EF73AFE5AF44980",
+      "sha256": "F95FBFDEFEA994EB86F9B371DCFBEFEC8DF7AA0696F46D1576F6D65034D78650",
+      "bytes": 23760,
+      "durationMs": 3856
+    },
+    {
+      "id": "de-v3-die-annahme",
+      "path": "assets/audio/german/de-v3-die-annahme.mp3",
+      "textSha256": "FCA62E1FD750A606AC358571E49838F7B2FF4CA30D59AB24BC87D5DFD381B591",
+      "sha256": "EC5519B15883002CEF66A796D44E9AC93CB30F537F1F18EA47DFC00675A190FB",
+      "bytes": 19008,
+      "durationMs": 3072
+    },
+    {
+      "id": "de-v3-die-randbedingung",
+      "path": "assets/audio/german/de-v3-die-randbedingung.mp3",
+      "textSha256": "65C5626D8AF1EA274C13ECA556D9A98F52388E67D2348330E12CF6A4849258A8",
+      "sha256": "E9618893A4D916EC2E11147B4D33676C824832F19011D025A18C9CBF265B0F59",
+      "bytes": 25272,
+      "durationMs": 4112
+    },
+    {
+      "id": "de-v3-die-abwaertsspirale",
+      "path": "assets/audio/german/de-v3-die-abwaertsspirale.mp3",
+      "textSha256": "D73BF4664CFAB6AD191B6A9A099549E34E7DF5F01217846C2F98FB5B88E4BEC8",
+      "sha256": "9A6EE3410139AFB2CF21F8925B4271E6D24746D855221A6CCC198EC0D6D926FE",
+      "bytes": 29160,
+      "durationMs": 4768
+    },
+    {
+      "id": "de-v3-die-resilienz",
+      "path": "assets/audio/german/de-v3-die-resilienz.mp3",
+      "textSha256": "88824AEBB8EF420BCB809A6589080D23B1BD787399A2F346BAE36022C6E7D576",
+      "sha256": "51DD694D8E6E626CF0087DE53AB07A23A14EB4436BBBCCED8C8D59D30CA19472",
+      "bytes": 29592,
+      "durationMs": 4832
+    },
+    {
+      "id": "de-v3-die-teilhabe",
+      "path": "assets/audio/german/de-v3-die-teilhabe.mp3",
+      "textSha256": "016C7E4319603D006332431E7031D12C52211AC96E55E74B049D2A92CBF01D97",
+      "sha256": "B6C7D7794879150CB134ECA307AFD80A491CB0CED1EFEC1F05975A6B04FEBA7D",
+      "bytes": 34344,
+      "durationMs": 5632
+    },
+    {
+      "id": "de-v3-konjunktiv-eins-distanz",
+      "path": "assets/audio/german/de-v3-konjunktiv-eins-distanz.mp3",
+      "textSha256": "CDF2FAF678048EB4A2FFD856E4CF5422569D006B80C0F1E818EE25721D1BA4D6",
+      "sha256": "53712AAFECB0B63D472D559EA46D143E1A76C09F072E68003DD6E0D4CE1A761C",
+      "bytes": 21816,
+      "durationMs": 3536
+    },
+    {
+      "id": "de-v3-konjunktiv-eins-ersatz",
+      "path": "assets/audio/german/de-v3-konjunktiv-eins-ersatz.mp3",
+      "textSha256": "8C1AF9B5D1777CD86A511E785BFF571614332D6C25005A88B6E65A51FD75B91F",
+      "sha256": "C6BD6DCAA866C9EBA95A09816B986201377639FE8230CCCF9733CAB19195D5C5",
+      "bytes": 24408,
+      "durationMs": 3968
+    },
+    {
+      "id": "de-v3-modalverb-subjektiv",
+      "path": "assets/audio/german/de-v3-modalverb-subjektiv.mp3",
+      "textSha256": "40031D88419B586F77C9725F608306C0865298BC32F4299396DEBE662A2A310A",
+      "sha256": "7673ED9C9FA2F844AEF1D09542F18F80F288ABAA99F9CAC4B936A2323C7ED366",
+      "bytes": 28080,
+      "durationMs": 4608
+    },
+    {
+      "id": "de-v3-passiv-mit-modalverb",
+      "path": "assets/audio/german/de-v3-passiv-mit-modalverb.mp3",
+      "textSha256": "379CE8D08B834251AF4DB9F0BA44A00FD67E5B27EEB27ED11FA9E868CE4E4B7A",
+      "sha256": "4964A35E6A3579044ECB569BB2080AA03D2AFB25EA248E3D3AFA94966B9ACE20",
+      "bytes": 23112,
+      "durationMs": 3760
+    },
+    {
+      "id": "de-v3-passiv-perfekt-b2",
+      "path": "assets/audio/german/de-v3-passiv-perfekt-b2.mp3",
+      "textSha256": "135465BA8EB8FD8953166CF7B75F8D0F0FC707A92C8040A25FE29723E707B397",
+      "sha256": "E6823156F80A740B1EBB72DB99D495355581C6A08FD4C839286D3ACE539144A8",
+      "bytes": 14904,
+      "durationMs": 2384
+    },
+    {
+      "id": "de-v3-gerundiv-sein-zu",
+      "path": "assets/audio/german/de-v3-gerundiv-sein-zu.mp3",
+      "textSha256": "43D22947F4A80E888C054C1099C6806F4059B734D4FBEA6E7E50B347544B1EC1",
+      "sha256": "D43C67E3D610D8F236C69684D0C52F287619A2C64224B4660C64F6DE6E6F1478",
+      "bytes": 18792,
+      "durationMs": 3040
+    },
+    {
+      "id": "de-v3-haben-zu-verpflichtung",
+      "path": "assets/audio/german/de-v3-haben-zu-verpflichtung.mp3",
+      "textSha256": "2DB37A2C58BB9676EF6E0DD9CAEB1AC4C8819B881C3215A8CF4F209C6BEBFF8E",
+      "sha256": "1AAA18006D9C5442E50C9046D15F87DFBDC46AE9EA5909FD03F17561512BA5BE",
+      "bytes": 21816,
+      "durationMs": 3552
+    },
+    {
+      "id": "de-v3-funktionsverb-in-betracht",
+      "path": "assets/audio/german/de-v3-funktionsverb-in-betracht.mp3",
+      "textSha256": "B830EEE933C490EAB0D6DAD3E891DCADB904F6A1A84BD6EBEC216556B15A0B49",
+      "sha256": "A32301890260350D264CF0337CEE971E9734634527932690DA2091666AFDA42D",
+      "bytes": 18360,
+      "durationMs": 2976
+    },
+    {
+      "id": "de-v3-funktionsverb-zur-verfuegung",
+      "path": "assets/audio/german/de-v3-funktionsverb-zur-verfuegung.mp3",
+      "textSha256": "A7A353EDC039F6379714EE6570641328B4F04E3D3911A92D67B2D68D5C854A4C",
+      "sha256": "89248ACAAC189CDBA1835546E8BCED220F53CB7E12E452FA14F344A9733DDBAB",
+      "bytes": 22896,
+      "durationMs": 3712
+    },
+    {
+      "id": "de-v3-nominalstil-verbalisieren",
+      "path": "assets/audio/german/de-v3-nominalstil-verbalisieren.mp3",
+      "textSha256": "AD1482127A426073AAEC75F744316C46C1D7A5566A6AA5BAD1B68BDF202BF2B4",
+      "sha256": "5721FBF99D0285FA68A05EC66718B92EBCA5AA064745884700C8EE6F24599BB5",
+      "bytes": 21384,
+      "durationMs": 3472
+    },
+    {
+      "id": "de-v3-erweiterte-partizipgruppe",
+      "path": "assets/audio/german/de-v3-erweiterte-partizipgruppe.mp3",
+      "textSha256": "0C6A4DECC31B5D35364D5932BC936C09A1C73035690C39BE0DD5929E103ACCDD",
+      "sha256": "3A63CE243976999C8D8F3641305B02CA802F23EB9321A2A6FC6272FA8F26566D",
+      "bytes": 23976,
+      "durationMs": 3904
+    },
+    {
+      "id": "de-v3-apposition-komma",
+      "path": "assets/audio/german/de-v3-apposition-komma.mp3",
+      "textSha256": "9823894A603853C0B371048E50F3FF27A33E149BC7070B258EC841A212A8F9EA",
+      "sha256": "7D466BFFC3F6599B3EDB98E5E17273E240D7192F4F3C85356A846019CF183BB6",
+      "bytes": 30888,
+      "durationMs": 5072
+    },
+    {
+      "id": "de-v3-korrelat-es-dass",
+      "path": "assets/audio/german/de-v3-korrelat-es-dass.mp3",
+      "textSha256": "69DADCB6262BAC1F93468F0E96F1982F7BC2EBBED4B49346BDDACE48F9A49BC5",
+      "sha256": "8FEF95A344758EF643C69580CE6D875E5FF70AAFD9AD235E6B88741B2065931B",
+      "bytes": 24408,
+      "durationMs": 3984
+    },
+    {
+      "id": "de-v3-indem-mittel-b2",
+      "path": "assets/audio/german/de-v3-indem-mittel-b2.mp3",
+      "textSha256": "E5EE83167A31E334A05EC92CFAB75E50A90EDD7D16A6BE75E7B90A7933428054",
+      "sha256": "3C4B7256BF4D7AF11AD691BBE48FADFF69A2699FBCDE5EB55BC0697D4D04F65E",
+      "bytes": 27432,
+      "durationMs": 4496
+    },
+    {
+      "id": "de-v3-dadurch-dass",
+      "path": "assets/audio/german/de-v3-dadurch-dass.mp3",
+      "textSha256": "77CCCFF9A9255BEEA935C1BB9924BE1726D96B897DD0CC5AC225D7E10007CCB6",
+      "sha256": "B067D245907E2DAB1C115EC7B4432FC9A1965D70D6C468025C7F10716F6DD178",
+      "bytes": 26568,
+      "durationMs": 4336
+    },
+    {
+      "id": "de-v3-ohne-dass-b2",
+      "path": "assets/audio/german/de-v3-ohne-dass-b2.mp3",
+      "textSha256": "9ADFE3BEC2ECBCE06DF8111C1C3E2F1724D040F6215F9C1A41BC2A518042C7D5",
+      "sha256": "50C586C2BCA406A012FB99B1A7B05FE39A10DEE566FC71EA59674DDB491EEF11",
+      "bytes": 22248,
+      "durationMs": 3616
+    },
+    {
+      "id": "de-v3-anstatt-dass",
+      "path": "assets/audio/german/de-v3-anstatt-dass.mp3",
+      "textSha256": "C7D7402202329D56DD1BE20AEE3B32B374C2F0D1228AC310CFB432944F562408",
+      "sha256": "90F9A457087FF9AECDC0DC6068E0798F73C3633FD5642E5CC5410190B0E1B630",
+      "bytes": 23760,
+      "durationMs": 3856
+    },
+    {
+      "id": "de-v3-geschweige-denn",
+      "path": "assets/audio/german/de-v3-geschweige-denn.mp3",
+      "textSha256": "629AC6E9777916A3FB377BDCF509E00736EDF678D4467AE5CB6AAFF2CC72FE13",
+      "sha256": "F548A0C3C1049857C8EE2DB1389ED55EC3A0B79943F5C0C0C0C0A18C5A935D33",
+      "bytes": 27216,
+      "durationMs": 4448
+    },
+    {
+      "id": "de-v3-sowohl-als-auch",
+      "path": "assets/audio/german/de-v3-sowohl-als-auch.mp3",
+      "textSha256": "6530FF36E848811E491C94F30A3120367DB878E65179FDC44128243D4455BEFC",
+      "sha256": "2369B22064D34F1B11A452E4FC1650C1FCB521422B974AB4161203D1BCDAC3C7",
+      "bytes": 21816,
+      "durationMs": 3552
+    },
+    {
+      "id": "de-v3-weder-noch",
+      "path": "assets/audio/german/de-v3-weder-noch.mp3",
+      "textSha256": "1A0C949024AC9A8AFAE4B1278E1CEDF3B70FA8A82ADE89FE97C992901589BF66",
+      "sha256": "C3C38D01F91A29EC10312BEB217F09FC7A4738E44FB78A9A6E637CB3C696D681",
+      "bytes": 19656,
+      "durationMs": 3184
+    },
+    {
+      "id": "de-v3-nicht-nur-sondern",
+      "path": "assets/audio/german/de-v3-nicht-nur-sondern.mp3",
+      "textSha256": "AB50109AC0291BB51E83D728E9F4DA426058AAA0DD14F26FC25F83C1F3EDB3A3",
+      "sha256": "EE6710506CE05F5931746A9EBC53ACCB1177E2C2FEA48EB45830E139CF982878",
+      "bytes": 28512,
+      "durationMs": 4656
+    },
+    {
+      "id": "de-v3-zumal-begruendung",
+      "path": "assets/audio/german/de-v3-zumal-begruendung.mp3",
+      "textSha256": "012E6FB4493496CAA5093C19A525BE4A0AEFC9D70C49BD5DC098840ECAF10F16",
+      "sha256": "99DC3D9D346CE5F42BC2945D0A9DDD979C38AABFFE841FDB535B32A07E29CC6E",
+      "bytes": 25488,
+      "durationMs": 4160
+    },
+    {
+      "id": "de-v3-insofern-als",
+      "path": "assets/audio/german/de-v3-insofern-als.mp3",
+      "textSha256": "7E75B7D2507F9D396FDD2B2AAF7CA746720231FE873F5E27C4F786027D88F099",
+      "sha256": "716BBDC2AC3B3155C181441F1D0091C49B55C0BF6FD8EDBB5EB9E44A5638AB48",
+      "bytes": 24624,
+      "durationMs": 4000
+    },
+    {
+      "id": "de-v3-als-ob-irreal",
+      "path": "assets/audio/german/de-v3-als-ob-irreal.mp3",
+      "textSha256": "DD5B1A41464EC4D9E0DCE1AB0EEE0890C69B291C9D7448403E7B859861A2BF1F",
+      "sha256": "7BFF32E23E5883816A4C9BA2DDC1609F52ADCACDE19A04EEE473683DE4CD3904",
+      "bytes": 24408,
+      "durationMs": 3968
+    },
+    {
+      "id": "de-v3-waere-haette-vergangenheit",
+      "path": "assets/audio/german/de-v3-waere-haette-vergangenheit.mp3",
+      "textSha256": "37DEA417A147B6387A925F5AD797591C107051B62FAEEDFA0559CDA5F0994F25",
+      "sha256": "BEBC5AF827A1348A30F5B69DDA58225C12B82EC0C1C3C7FCC16FEB90AD1C8F2F",
+      "bytes": 20952,
+      "durationMs": 3408
+    }
+  ]
+}
