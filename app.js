@@ -829,6 +829,7 @@
 
   function renderAllCards() {
     for (const type of TYPES) renderCard(type);
+    if (persistenceRecoveryBlocked) disablePersistentActions();
   }
 
   function renderCard(type, shouldFocus) {

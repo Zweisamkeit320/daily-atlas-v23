@@ -12,8 +12,8 @@ const AUDIO_CACHE_PREFIX = "daily-atlas-audio-";
 
 // CACHE_VERSION remains as a release-integrity compatibility field for the
 // packaging tools. Runtime caches use independently generated pack versions.
-const CACHE_VERSION = "v3-f797fe07290819d6";
-const SHELL_VERSION = "s1-a02f0f9dfe536fcb";
+const CACHE_VERSION = "v3-8fe6e3b4b5dcda5d";
+const SHELL_VERSION = "s1-f3de33f5d990ca1e";
 const CONTENT_VERSION = "c1-5d285a0223d2b3b6";
 const MEDICAL_VERSION = "m1-9c59aa54b9d7dc86";
 const AUDIO_VERSION = "a1-390c78b958c182b5";
