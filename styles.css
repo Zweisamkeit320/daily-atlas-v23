@@ -60,6 +60,8 @@ html[data-background-color="sand"] {
 html {
   scroll-behavior: auto;
   scroll-padding-bottom: 170px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -132,6 +134,13 @@ html[data-boot-state="degraded"] .boot-spinner { animation: none; border-color: 
 .public-safe-banner a { color: var(--teal); text-underline-offset: 3px; }
 
 .catalog-detail-placeholder { min-height: 260px; display: grid; place-items: center; }
+.catalog-detail-placeholder.has-detail-preview { grid-template-columns: minmax(150px, 34%) minmax(0, 1fr); place-items: stretch; }
+.detail-preview-visual { position: relative; min-height: 300px; overflow: hidden; color: white; background: linear-gradient(150deg, rgba(11, 80, 78, 0.92), rgba(148, 65, 36, 0.72)), var(--visual, #0b504e); }
+.detail-preview-visual::after { position: absolute; z-index: 1; inset: 0; content: ""; pointer-events: none; background: linear-gradient(180deg, rgba(9, 35, 34, 0.12), rgba(9, 35, 34, 0.72)); }
+.detail-preview-visual .daily-visual-image { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 180ms ease; }
+.detail-preview-visual .visual-fallback { z-index: 0; }
+.detail-preview-visual .visual-topline { z-index: 2; }
+.catalog-detail-placeholder.has-detail-preview .detail-placeholder-copy { align-self: center; }
 .detail-placeholder-copy { width: min(100% - 36px, 520px); padding: 24px 0; text-align: center; }
 .detail-placeholder-copy h3 { margin: 10px 0; font: 500 clamp(25px, 4vw, 38px)/1.15 Georgia, "Noto Serif SC", serif; }
 .detail-placeholder-copy p { color: var(--muted, #64736f); line-height: 1.65; }
@@ -2596,8 +2605,12 @@ summary:focus-visible {
   .german-copy,
   .medical-copy {
     min-width: 0;
-    overflow: hidden;
   }
+
+  .city-visual { overflow: hidden; }
+
+  .german-copy,
+  .medical-copy { overflow: visible; }
 
   .city-coordinate,
   .german-phrase,
@@ -3383,6 +3396,58 @@ html[data-density="compact"] .medical-copy {
 
   .backup-diff-summary {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .paper-noise,
+  .ambient {
+    display: none;
+  }
+
+  .boot-panel,
+  .quick-nav,
+  .visual-credit,
+  .visual-topline {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .quick-nav {
+    background: #fffdf8;
+  }
+
+  .recommendation-card {
+    box-shadow: 0 10px 30px rgba(23, 57, 55, 0.08);
+  }
+
+  .city-inner,
+  .german-inner,
+  .medical-inner,
+  .card-content {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .catalog-detail-placeholder.has-detail-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-preview-visual {
+    min-height: 300px;
+  }
+
+  .catalog-detail-placeholder.has-detail-preview .detail-placeholder-copy {
+    width: min(100% - 32px, 520px);
+  }
+
+  .card-visual {
+    min-height: 300px;
+  }
+
+  .card-content {
+    min-height: 0;
   }
 }
 

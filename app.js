@@ -34,7 +34,7 @@
     medical: { collection: "medical", label: "医学", short: "医", card: "medicalCard", swap: "换一条", known: "了解了", unit: "条" }
   });
   const TYPES = Object.freeze(Object.keys(TYPE_META));
-  const APP_VERSION = "2.4.0";
+  const APP_VERSION = "2.4.1";
   const RECORD_PAGE_SIZE = 100;
   const STORAGE_KEYS = Object.freeze({
     statePrefix: "dailyAtlas.state.v3.",
@@ -283,12 +283,8 @@
     }
     if (persistenceRecoveryBlocked) {
       disablePersistentActions();
-      void hydrateCurrentDetails().finally(() => {
-        initializationReady = true;
-        renderAllCards();
-        renderRecordCount();
-        signalAppReady();
-      });
+      makeShellInteractive();
+      monitorCurrentDetailHydration();
       window.setInterval(checkForNewDay, 60000);
       return;
     }
@@ -296,14 +292,28 @@
       .catch(() => {
         elements.storageWarning.hidden = false;
       })
-      .finally(async () => {
-        await hydrateCurrentDetails();
-        initializationReady = true;
-        renderAllCards();
-        renderRecordCount();
-        signalAppReady();
+      .finally(() => {
+        makeShellInteractive();
+        monitorCurrentDetailHydration();
       });
     window.setInterval(checkForNewDay, 60000);
+  }
+
+  function makeShellInteractive() {
+    if (initializationReady) return;
+    initializationReady = true;
+    renderAllCards();
+    renderRecordCount();
+    signalAppReady();
+  }
+
+  function monitorCurrentDetailHydration() {
+    void hydrateCurrentDetails().finally(() => {
+      const failed = TYPES.filter((type) => detailFailures.has(itemKey(type, typeStates[type]?.currentId))).length;
+      window.dispatchEvent(new CustomEvent("dailyatlasdetailssettled", {
+        detail: Object.freeze({ failed, total: TYPES.length })
+      }));
+    });
   }
 
   function signalAppReady() {
@@ -311,16 +321,20 @@
       const id = typeStates[type]?.currentId;
       return id && detailFailures.has(`${type}:${id}`);
     }).length;
+    const pendingDetails = TYPES.filter((type) => currentItem(type)?.selectionOnly === true).length;
     window.dispatchEvent(new CustomEvent("dailyatlasappready", {
       detail: Object.freeze({
         version: APP_VERSION,
         safeMode: globalThis.DAILY_ATLAS_SAFE_MODE === true,
         degraded: failedDetails > 0,
+        pendingDetails,
         message: globalThis.DAILY_ATLAS_SAFE_MODE === true
           ? "当前只使用同源完整目录，并暂停可选远程媒体；偏好与记录仍保存在本机。"
           : failedDetails > 0
             ? `今日选择已生成，但有 ${failedDetails} 张卡片的详情尚未载入；可在卡片内重试。`
-          : "今日五项已就绪。"
+          : pendingDetails > 0
+            ? `今日五项已经可以使用；${pendingDetails} 张卡片的完整介绍正在后台补齐。`
+            : "今日五项已就绪。"
       })
     }));
   }
@@ -837,13 +851,15 @@
 
   function renderCard(type, shouldFocus) {
     const card = elements[TYPE_META[type].card];
+    Visuals?.unbind?.(card);
     if (type === "german") {
       const speechState = speechController?.getState?.();
       if (speechState?.speaking || speechState?.pending) speechController.stop("德语卡片已更新");
     }
     if (type === "city") activeWeatherToken += 1;
     const item = currentItem(type);
-    card.classList.remove("is-swapping", "exhausted-card", "catalog-detail-placeholder");
+    card.classList.remove("is-swapping", "exhausted-card", "catalog-detail-placeholder", "has-detail-preview");
+    delete card.dataset.detailState;
     if (!item) {
       renderExhausted(card, type, shouldFocus);
       reflectInitializationState(card);
@@ -875,21 +891,32 @@
   function renderDetailPlaceholder(card, type, item, shouldFocus) {
     const key = itemKey(type, item.id);
     const failed = detailFailures.has(key);
+    const visual = resolveVisual(item, type);
+    const visualMarkup = ["book", "movie", "city"].includes(type) ? `
+      <div class="detail-preview-visual" style="--visual:${safeColor(Array.isArray(item.visual?.palette) ? item.visual.palette[0] : item.visual)}">
+        <div class="visual-fallback" aria-hidden="true"><small>${escapeHtml(TYPE_META[type].label)}</small><strong>${escapeHtml(item.title || TYPE_META[type].label)}</strong></div>
+        ${visualImageHtml(visual, `${type === "city" ? "city-image" : "cover-image"} detail-preview-image`)}
+        ${visualCreditHtml(visual)}
+        <span class="visual-topline" aria-hidden="true">${type === "book" ? "READ" : type === "movie" ? "WATCH" : "WORLD CITY"} · 正在补齐详情</span>
+      </div>` : "";
     card.classList.add("catalog-detail-placeholder");
+    card.classList.toggle("has-detail-preview", Boolean(visualMarkup));
+    card.dataset.detailState = failed ? "failed" : "loading";
     card.innerHTML = `
+      ${visualMarkup}
       <div class="detail-placeholder-copy">
         <span class="section-kicker">${failed ? "DETAIL RETRY" : "LOADING DETAIL"}</span>
         <h3 tabindex="-1">${escapeHtml(item.title || item.german || TYPE_META[type].label)}</h3>
-        <p>${failed ? "这条详情没有在限定时间内载入；今日选择和个人记录都未改变。" : "今日选择已经确定，正在按需载入这一条的完整介绍。"}</p>
+        <p>${failed ? "这条详情没有在限定时间内载入；仍可换一项或标记为已了解。" : "今日选择已经确定并可操作，完整介绍正在后台按需载入。"}</p>
         ${failed ? `<button class="secondary-button" type="button" data-action="retry-detail" data-item-id="${escapeAttribute(item.id)}" data-date="${escapeAttribute(currentDateKey)}">重试这张卡片</button>` : '<span class="detail-loading-mark" aria-hidden="true"></span>'}
-        <div class="card-actions detail-placeholder-actions" aria-label="详情载入后可操作">
-          <button class="primary-button swap-button" type="button" data-item-id="${escapeAttribute(item.id)}" data-date="${escapeAttribute(currentDateKey)}" disabled>${TYPE_META[type].swap}</button>
-          <button class="secondary-button known-button" type="button" data-item-id="${escapeAttribute(item.id)}" data-date="${escapeAttribute(currentDateKey)}" disabled>${TYPE_META[type].known}</button>
+        <div class="card-actions detail-placeholder-actions" aria-label="今日选择操作">
+          <button class="primary-button swap-button" type="button" data-action="swap" data-item-id="${escapeAttribute(item.id)}" data-date="${escapeAttribute(currentDateKey)}"><span>${TYPE_META[type].swap}</span><span class="button-arrow" aria-hidden="true">→</span></button>
+          <button class="secondary-button known-button" type="button" data-action="known" data-item-id="${escapeAttribute(item.id)}" data-date="${escapeAttribute(currentDateKey)}">${TYPE_META[type].known}</button>
         </div>
       </div>
     `;
+    Visuals?.bind?.(card);
     reflectInitializationState(card);
-    card.toggleAttribute("aria-busy", !failed);
     if (!failed && !detailPromises.has(key)) {
       void hydrateDetails([{ type, id: item.id }]).then(() => {
         if (typeStates[type].currentId === item.id) renderCard(type, shouldFocus);
@@ -902,7 +929,7 @@
 
   function reflectInitializationState(card) {
     card.toggleAttribute("aria-busy", !initializationReady);
-    if (!initializationReady) {
+    if (!initializationReady || persistenceRecoveryBlocked) {
       for (const control of card.querySelectorAll("button[data-action]")) control.disabled = true;
     }
   }
@@ -1460,6 +1487,8 @@
           currentId: expectedId,
           excludedIds: [...knownIds, ...changed.skipped, ...Profile.unsuitableIds(changedProfile, type)],
           sequence: changed.sequence,
+          manualShuffle: true,
+          random: randomUnit,
           ...selectionOptions(type, currentDateKey, changedProfile)
         });
         changed.currentId = next ? next.id : null;
@@ -1902,7 +1931,7 @@
     const summary = type === "german" ? item.explanation : item.summary;
     const localMedicalImage = type === "medical";
     const resolvedVisual = ["book", "movie", "city"].includes(type) ? resolveVisual(item, type) : null;
-    const renderedVisual = resolvedVisual ? visualImageHtml(resolvedVisual, "explore-image") : "";
+    const renderedVisual = resolvedVisual ? visualImageHtml(resolvedVisual, "explore-image", { lazy: true }) : "";
     const visual = renderedVisual || localMedicalImage
       ? renderedVisual || `<img src="${safeImageUrl(item.image)}" alt="${escapeAttribute(item.alt)}" loading="lazy" decoding="async" />`
       : `<span class="explore-monogram" aria-hidden="true">${escapeHtml(meta.short)}</span>`;
@@ -2919,6 +2948,16 @@
     return safe >= Number.MAX_SAFE_INTEGER ? Number.MAX_SAFE_INTEGER : safe + 1;
   }
 
+  function randomUnit() {
+    const cryptoObject = globalThis.crypto;
+    if (cryptoObject && typeof cryptoObject.getRandomValues === "function") {
+      const value = new Uint32Array(1);
+      cryptoObject.getRandomValues(value);
+      return value[0] / 0x100000000;
+    }
+    return Math.random();
+  }
+
   function bumpRecordVersion(record) {
     record.version = State.incrementVersion(record.version ?? record.revision);
     record.revision = nextSafeCounter(record.revision);
@@ -2989,10 +3028,11 @@
     }) || Object.freeze({ candidates: Object.freeze([]) });
   }
 
-  function visualImageHtml(visual, className) {
+  function visualImageHtml(visual, className, options) {
     const candidates = Array.isArray(visual?.candidates) ? visual.candidates.filter(Boolean) : [];
     if (!candidates.length) return "";
-    return `<img class="${escapeAttribute(className)} daily-visual-image" src="${escapeAttribute(candidates[0])}" data-visual-candidates="${escapeAttribute(JSON.stringify(candidates))}" data-visual-index="0" alt="${escapeAttribute(visual.alt || "内容配图")}" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`;
+    const lazy = options?.lazy === true;
+    return `<img class="${escapeAttribute(className)} daily-visual-image" src="${escapeAttribute(candidates[0])}" data-visual-candidates="${escapeAttribute(JSON.stringify(candidates))}" data-visual-index="0" alt="${escapeAttribute(visual.alt || "内容配图")}" loading="${lazy ? "lazy" : "eager"}" fetchpriority="${lazy ? "auto" : "high"}" decoding="async" referrerpolicy="no-referrer" />`;
   }
 
   function visualCreditHtml(visual) {
@@ -3005,6 +3045,7 @@
     const url = String(value || "");
     if (/^https:\/\//.test(url)) return escapeAttribute(url);
     if (/^\.\/sources-and-licenses\.html(?:#[a-z0-9-]+)?$/.test(url)) return escapeAttribute(url);
+    if (/^\.\/city-credits\.html#city-[a-z0-9-]+$/.test(url)) return escapeAttribute(url);
     return "./sources-and-licenses.html";
   }
 

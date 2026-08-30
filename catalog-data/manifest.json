@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "appVersion": "2.4.0",
+  "appVersion": "2.4.1",
   "snapshotDate": "2026-08-25",
   "contentVersion": "037d8f6955e50c60",
-  "selectionVersion": "dd86a5107b76942f",
+  "selectionVersion": "0c680b95a02eaad0",
   "searchVersion": "ab87649fb3761848",
   "detailsVersion": "5deafc881f6dffe1",
   "chunkSize": 50,
@@ -16,19 +16,19 @@
     "medical": 500
   },
   "selection": {
-    "path": "selection.84bae4c04c99.js",
-    "bytes": 372322,
-    "sha256": "84BAE4C04C994CE528C03677C81178F9609E0DCC2E150D57043EE673210ECC8B",
-    "integrity": "sha384-4SAowgZJbocEDwJqYaGcUnU9VHeZqSykEoxiB4F1oZyU93l0R7EV4svXx94p6ARq",
-    "version": "dd86a5107b76942f",
+    "path": "selection.04548beef369.js",
+    "bytes": 383582,
+    "sha256": "04548BEEF369882B9857A2D11D32AECD0B83ED172504BEA6D2FB30B51BA33759",
+    "integrity": "sha384-x0ofI1nwFgiSJfvD8Y5n3NEnlAuccbkG3zLQME+4I8H4qcTnZWo/C+MznI14FYYb",
+    "version": "0c680b95a02eaad0",
     "count": 2200
   },
   "selectionData": {
-    "path": "selection-data.1601f3706753.json",
-    "bytes": 369882,
-    "sha256": "1601F370675375790D052D6D669B35667223ED2E7375437EF2B08BA302C85331",
-    "integrity": "sha384-0kbKAR7jN/wzUtBZr2DzyzLukWb0URFnG8+eBcJ7vrjJ+rD/V64TRUS6S9Zs4Pzh",
-    "version": "dd86a5107b76942f",
+    "path": "selection-data.d6e3cb1e495c.json",
+    "bytes": 381004,
+    "sha256": "D6E3CB1E495CB0939D54DF6EFADF64B5522594801A4119CA605DE4D4C095AFAE",
+    "integrity": "sha384-XmqoTRP7NO3/MzFcVRyDU0CNq8sN8GlN+T3Nu5xu0uaN49vGaVhyRZU977o3mOJM",
+    "version": "0c680b95a02eaad0",
     "count": 2200
   },
   "search": {

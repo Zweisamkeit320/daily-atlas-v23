@@ -11,7 +11,12 @@
     "images.metahub.space"
   ]));
   const BOUND_ATTRIBUTE = "data-daily-atlas-visual-bound";
-  const IMAGE_ROUTE_TIMEOUT_MS = 8000;
+  const GENERATION_ATTRIBUTE = "data-daily-atlas-visual-generation";
+  const IMAGE_ROUTE_TIMEOUT_MS = 3000;
+  const IMAGE_TOTAL_TIMEOUT_MS = 9000;
+  const IMAGE_MAX_CANDIDATES = Math.ceil(IMAGE_TOTAL_TIMEOUT_MS / IMAGE_ROUTE_TIMEOUT_MS);
+  const imageBindings = new WeakMap();
+  let nextGeneration = 0;
 
   function publicConfig() {
     return root.DAILY_ATLAS_PUBLIC_CONFIG || {};
@@ -66,7 +71,15 @@
   function cityEntry(item) {
     const id = safeCityId(item?.id);
     const items = root.DAILY_ATLAS_CITY_VISUALS?.items;
-    if (!id || !Array.isArray(items)) return null;
+    if (!id) return null;
+    if (!Array.isArray(items)) {
+      return Object.freeze({
+        id,
+        path: `./assets/visuals/cities/${id}.webp`,
+        sourcePage: `./city-credits.html#${id}`,
+        provisional: true
+      });
+    }
     const entry = items.find((candidate) => candidate?.id === id);
     if (!entry) return null;
     const path = String(entry.path || "").replace(/^assets\//, "./assets/");
@@ -136,7 +149,7 @@
         type,
         candidates: Object.freeze(entry ? [entry.path] : []),
         remote: false,
-        provider: entry ? `Wikimedia Commons · ${String(entry.author || "作者待核")} · ${licenseLabel(entry)}` : "",
+        provider: entry?.provisional ? "Wikimedia Commons" : entry ? `Wikimedia Commons · ${String(entry.author || "作者待核")} · ${licenseLabel(entry)}` : "",
         sourcePage: String(entry?.sourcePage || ""),
         attribution: String(entry?.attribution || ""),
         licenseCode: String(entry?.licenseCode || ""),
@@ -155,39 +168,77 @@
       return unique(parsed.map((value) => {
         if (/^\.\/assets\/visuals\/cities\/city-[a-z0-9-]+\.webp$/.test(String(value))) return String(value);
         return normalizedRemoteUrl(value);
-      }));
+      })).slice(0, IMAGE_MAX_CANDIDATES);
     } catch (_error) {
       return [];
     }
   }
 
   function bindImage(image) {
-    if (!image || image.getAttribute(BOUND_ATTRIBUTE) === "true") return;
+    if (!image || imageBindings.has(image)) return;
+    const generation = ++nextGeneration;
     image.setAttribute(BOUND_ATTRIBUTE, "true");
+    image.setAttribute(GENERATION_ATTRIBUTE, String(generation));
     const candidates = parseCandidates(image);
     const visual = image.closest?.(".card-visual, .city-visual, .explore-visual") || image.parentElement;
     const credit = visual?.querySelector?.("[data-visual-credit]") || null;
     let index = Math.max(0, Number(image.getAttribute("data-visual-index")) || 0);
     let timer = null;
+    let disposed = false;
+    const startedAt = Date.now();
+    const binding = { generation, dispose: null };
+    imageBindings.set(image, binding);
+
+    const isCurrent = () => !disposed
+      && imageBindings.get(image) === binding
+      && image.getAttribute(GENERATION_ATTRIBUTE) === String(generation);
 
     const clearTimer = () => {
       if (timer !== null && typeof root.clearTimeout === "function") root.clearTimeout(timer);
       timer = null;
     };
+    const dispose = (abortRequest) => {
+      if (disposed) return;
+      disposed = true;
+      clearTimer();
+      image.removeEventListener?.("load", markLoaded);
+      image.removeEventListener?.("error", tryNext);
+      if (imageBindings.get(image) === binding) imageBindings.delete(image);
+      if (image.getAttribute(GENERATION_ATTRIBUTE) === String(generation)) {
+        image.removeAttribute(BOUND_ATTRIBUTE);
+        image.removeAttribute(GENERATION_ATTRIBUTE);
+      }
+      if (abortRequest === true) image.removeAttribute?.("src");
+    };
+    const isActive = () => {
+      if (!isCurrent()) return false;
+      if (image.isConnected === false) {
+        dispose(false);
+        return false;
+      }
+      return true;
+    };
     const armTimer = () => {
       clearTimer();
-      if (typeof root.setTimeout !== "function") return;
-      timer = root.setTimeout(() => tryNext(), IMAGE_ROUTE_TIMEOUT_MS);
+      if (!isActive() || typeof root.setTimeout !== "function") return;
+      const remaining = IMAGE_TOTAL_TIMEOUT_MS - (Date.now() - startedAt);
+      if (remaining <= 0) {
+        tryNext();
+        return;
+      }
+      timer = root.setTimeout(() => tryNext(), Math.min(IMAGE_ROUTE_TIMEOUT_MS, remaining));
     };
 
-    const markLoaded = () => {
+    function markLoaded() {
+      if (!isActive()) return;
       clearTimer();
       image.hidden = false;
       if (credit) credit.hidden = false;
       visual?.classList?.add("visual-image-loaded");
       visual?.classList?.remove("visual-image-failed");
-    };
-    const tryNext = () => {
+    }
+    function tryNext() {
+      if (!isActive()) return;
       clearTimer();
       index += 1;
       if (index < candidates.length) {
@@ -200,7 +251,9 @@
       if (credit) credit.hidden = true;
       visual?.classList?.remove("visual-image-loaded");
       visual?.classList?.add("visual-image-failed");
-    };
+      dispose(false);
+    }
+    binding.dispose = dispose;
 
     image.addEventListener("load", markLoaded);
     image.addEventListener("error", tryNext);
@@ -215,9 +268,18 @@
     for (const image of container.querySelectorAll("img[data-visual-candidates]")) bindImage(image);
   }
 
+  function unbind(container) {
+    if (!container) return;
+    const images = [];
+    if (container.matches?.("img[data-visual-candidates]")) images.push(container);
+    if (container.querySelectorAll) images.push(...container.querySelectorAll("img[data-visual-candidates]"));
+    for (const image of new Set(images)) imageBindings.get(image)?.dispose?.(true);
+  }
+
   return Object.freeze({
     REMOTE_HOSTS,
     IMAGE_ROUTE_TIMEOUT_MS,
+    IMAGE_TOTAL_TIMEOUT_MS,
     bind,
     bindImage,
     cityEntry,
@@ -225,6 +287,7 @@
     normalizedRemoteUrl,
     resolve,
     safeCityId,
+    unbind,
     weservUrl
   });
 });

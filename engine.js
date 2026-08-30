@@ -161,13 +161,18 @@
     }
 
     if (["book", "movie"].includes(type)) {
-      const genre = settings.genre || preferredGenre(settings.dateKey, type, settings.sequence);
-      const genrePool = pool.filter((item) => itemGenres(item).includes(genre));
-      if (genrePool.length) pool = genrePool;
+      // The once-per-day pick keeps the stable genre/popularity rotation. A
+      // user-requested replacement deliberately widens that deterministic
+      // slice so "换一个" can draw from the full eligible editorial pool.
+      if (!settings.manualShuffle) {
+        const genre = settings.genre || preferredGenre(settings.dateKey, type, settings.sequence);
+        const genrePool = pool.filter((item) => itemGenres(item).includes(genre));
+        if (genrePool.length) pool = genrePool;
 
-      const tier = settings.popularityTier || preferredPopularityTier(settings.dateKey, type, settings.sequence);
-      const tierPool = pool.filter((item) => item.popularityTier === tier);
-      if (tierPool.length) pool = tierPool;
+        const tier = settings.popularityTier || preferredPopularityTier(settings.dateKey, type, settings.sequence);
+        const tierPool = pool.filter((item) => item.popularityTier === tier);
+        if (tierPool.length) pool = tierPool;
+      }
 
       // The 500-item release keeps the original editorial pool as a quality
       // floor. Evidence-reviewed expansion items become eligible only after
@@ -196,7 +201,7 @@
       }
 
       const groups = [...new Set(pool.map(rotationGroup).filter(Boolean))].sort();
-      if (groups.length) {
+      if (groups.length && !settings.manualShuffle) {
         let selectedGroup = groups[hashString(`${settings.dateKey}:${type}:group:${settings.sequence || 0}`) % groups.length];
         if (!settings.exploration && typeof settings.scoreItem === "function") {
           const rankedGroups = groups.map((group) => ({
@@ -280,11 +285,25 @@
       themeId: settings.themeId,
       scoreItem: settings.scoreItem,
       exploration: settings.exploration,
-      allowSourceScreened: settings.allowSourceScreened
+      allowSourceScreened: settings.allowSourceScreened,
+      manualShuffle: settings.manualShuffle
     });
     if (!candidates.length) return null;
     const window = selectionWindow(candidates, settings);
-    const index = hashString(`${dateKey}:${type}:next:${sequence}`) % window.length;
+    let index;
+    if (settings.manualShuffle) {
+      if (settings.random !== undefined && typeof settings.random !== "function") {
+        throw new TypeError("random must be a function");
+      }
+      const random = typeof settings.random === "function" ? settings.random : Math.random;
+      const value = Number(random());
+      if (!Number.isFinite(value) || value < 0 || value >= 1) {
+        throw new RangeError("random must return a finite number in [0, 1)");
+      }
+      index = Math.floor(value * window.length);
+    } else {
+      index = hashString(`${dateKey}:${type}:next:${sequence}`) % window.length;
+    }
     return window[index];
   }
 

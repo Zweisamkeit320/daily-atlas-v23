@@ -439,9 +439,9 @@
   });
 
   if (root.document) {
-    if (root.document.readyState === "loading") {
-      root.document.addEventListener("DOMContentLoaded", () => initialize(), { once: true });
-    } else initialize();
+    const initializeAfterShell = () => initialize();
+    if (["ready", "safe", "degraded"].includes(root.document.documentElement?.dataset?.bootState)) initializeAfterShell();
+    else root.addEventListener?.("dailyatlasappready", initializeAfterShell, { once: true });
   }
   return api;
 });

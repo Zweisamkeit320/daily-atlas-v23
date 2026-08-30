@@ -171,13 +171,14 @@
     await loadScript("./catalog-loader.js");
     if (!root.DailyAtlasCatalogData?.createStore) throw Object.assign(new Error("catalog loader unavailable"), { code: "CATALOG_LOADER_MISSING" });
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const mobileClient = /Android|Mobile|MicroMessenger|Quark|VivoBrowser/i.test(String(navigator.userAgent || ""));
     const store = root.DailyAtlasCatalogData.createStore({
       baseUrl: document.baseURI,
       assetResolver: routedAssetResolver,
       assetFetcher: fetchCatalogData,
       disableWorker: root.DAILY_ATLAS_SAFE_MODE,
       requestTimeoutMs: CATALOG_TIMEOUT_MS,
-      detailConcurrency: connection?.saveData || /(^|-)2g$/.test(String(connection?.effectiveType || "")) ? 2 : 4
+      detailConcurrency: mobileClient || connection?.saveData || /(^|-)2g$/.test(String(connection?.effectiveType || "")) ? 2 : 4
     });
     const selection = await withDeadline(store.loadSelection(), CATALOG_TIMEOUT_MS, "selection-catalog");
     root.DailyAtlasCatalogStore = store;
@@ -243,7 +244,6 @@
     try {
       await Promise.all(foundationPaths.map((path) => loadScript(path)));
       await Promise.all(featurePaths.map((path) => loadScript(path)));
-      await loadScript("./assets/visuals/cities/manifest.js").catch(() => null);
     }
     catch (error) { showFailure(error.code || "MODULE_LOAD_FAILED", "一个页面模块未能在 12 秒内加载。今日数据没有被修改，可以直接重试。" ); return; }
 
@@ -253,6 +253,9 @@
       await loadScript("./app.js");
       const detail = await readyPromise;
       complete(detail);
+      root.addEventListener("dailyatlasdetailssettled", () => {
+        void loadScript("./assets/visuals/cities/manifest.js").catch(() => null);
+      }, { once: true });
     } catch (error) {
       showFailure(error.code || error.name || "APP_START_FAILED", "应用没有在 20 秒内报告就绪。个人数据不会因本次超时被清除。" );
     }

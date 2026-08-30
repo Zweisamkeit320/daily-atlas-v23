@@ -33,7 +33,11 @@
         id: row[0], type, title: row[1], year: row[2], genres: Object.freeze(row[3]), genre: row[3][0],
         tags: Object.freeze(row[4]), themeTags: Object.freeze(row[5]), popularityTier: row[6], curationLevel: row[7],
         rating: Object.freeze({ source: isBook ? "Open Library" : "IMDb", value: row[8], max: isBook ? 5 : 10, count: row[9] }),
-        sourceUrl: "https://selection.invalid/", image: placeholder, detailChunk: row[10], selectionOnly: true
+        sourceUrl: "https://selection.invalid/",
+        image: isBook
+          ? `https://covers.openlibrary.org/b/id/${row[11]}-M.jpg?default=false`
+          : `https://images.metahub.space/poster/medium/${row[11]}/img`,
+        detailChunk: row[10], selectionOnly: true
       });
     };
     const city = (row) => Object.freeze({
@@ -215,6 +219,8 @@
     let chunkManifest = null;
     const chunkPromises = new Map();
     const detailByKey = new Map();
+    const detailQueue = [];
+    let activeDetailLoads = 0;
     let searchPromise = null;
     let workerPromise = null;
     let workerUnavailable = options.disableWorker === true;
@@ -301,10 +307,34 @@
       return selectionPromise;
     }
 
+    function pumpDetailQueue() {
+      while (activeDetailLoads < detailConcurrency && detailQueue.length) {
+        const job = detailQueue.shift();
+        activeDetailLoads += 1;
+        (async () => {
+          try {
+            job.resolve(await job.task());
+          } catch (error) {
+            job.reject(error);
+          } finally {
+            activeDetailLoads -= 1;
+            pumpDetailQueue();
+          }
+        })();
+      }
+    }
+
+    function scheduleDetailLoad(task) {
+      return new Promise((resolve, reject) => {
+        detailQueue.push({ task, resolve, reject });
+        pumpDetailQueue();
+      });
+    }
+
     async function loadChunk(chunkId) {
       await loadSelection();
       if (chunkPromises.has(chunkId)) return chunkPromises.get(chunkId);
-      const promise = (async () => {
+      const promise = scheduleDetailLoad(async () => {
         const record = chunkManifest.get(chunkId);
         invariant(record, `unknown detail chunk: ${chunkId}`);
         const versions = host.DAILY_ATLAS_DETAIL_CHUNKS || (host.DAILY_ATLAS_DETAIL_CHUNKS = Object.create(null));
@@ -320,7 +350,7 @@
           detailByKey.set(key, item);
         }
         return items;
-      })();
+      });
       chunkPromises.set(chunkId, promise);
       promise.catch(() => chunkPromises.delete(chunkId));
       return promise;
