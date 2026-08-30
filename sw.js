@@ -9,15 +9,18 @@ const SEARCH_CACHE_PREFIX = "daily-atlas-search-";
 const CONTENT_RUNTIME_CACHE_PREFIX = "daily-atlas-content-runtime-";
 const SEARCH_DATA_CACHE_PREFIX = "daily-atlas-search-data-";
 const AUDIO_CACHE_PREFIX = "daily-atlas-audio-";
+const VISUAL_CACHE_PREFIX = "daily-atlas-visual-";
+const VISUAL_PACK_CACHE_PREFIX = "daily-atlas-visual-pack-";
 
 // CACHE_VERSION remains as a release-integrity compatibility field for the
 // packaging tools. Runtime caches use independently generated pack versions.
-const CACHE_VERSION = "v3-8fe6e3b4b5dcda5d";
-const SHELL_VERSION = "s1-f3de33f5d990ca1e";
-const CONTENT_VERSION = "c1-5d285a0223d2b3b6";
+const CACHE_VERSION = "v3-22b1ecb3c1dc2f11";
+const SHELL_VERSION = "s1-49a3257677a9b669";
+const CONTENT_VERSION = "c1-e4021cb4664f26a0";
 const MEDICAL_VERSION = "m1-9c59aa54b9d7dc86";
 const AUDIO_VERSION = "a1-390c78b958c182b5";
-const SEARCH_VERSION = "q1-9150911cfef89c87";
+const SEARCH_VERSION = "q1-2e57efa7447e616b";
+const VISUAL_VERSION = "i1-9c415f77677604fb";
 const AUDIO_MANIFEST_SHA256 = "35E652038EB1B805D51D7AC50A72F892B6F3451792D573940ECBF550AAB4C0EA";
 
 const CACHE_NAME = `${CACHE_PREFIX}${SHELL_VERSION}`;
@@ -32,11 +35,16 @@ const LIGHT_AUDIO_CACHE = `${AUDIO_CACHE_PREFIX}light-${AUDIO_VERSION}`;
 // ready marker is written, its verified files are resumable staging data and
 // are never served as a complete pack. This avoids a quota-heavy 10 MB copy.
 const FULL_AUDIO_CACHE = `${AUDIO_CACHE_PREFIX}pack-${AUDIO_VERSION}`;
+const VISUAL_CACHE = `${VISUAL_CACHE_PREFIX}${VISUAL_VERSION}`;
+const FULL_VISUAL_CACHE = `${VISUAL_PACK_CACHE_PREFIX}${VISUAL_VERSION}`;
+const VISUAL_CACHE_MAX_ITEMS = 180;
 const FULL_AUDIO_MARKER = "./__daily-atlas-full-audio-complete__";
 const FULL_CONTENT_MARKER = "./__daily-atlas-full-content-complete__";
 const FULL_SEARCH_MARKER = "./__daily-atlas-full-search-complete__";
+const FULL_VISUAL_MARKER = "./__daily-atlas-full-visual-complete__";
 const PACK_READY_MARKER = "./__daily-atlas-pack-ready__";
 const GERMAN_AUDIO_MANIFEST = "./assets/audio/german/manifest.json";
+const CITY_VISUAL_MANIFEST = "./assets/visuals/cities/manifest.json";
 const SPLIT_CATALOG_MANIFEST = "./catalog-data/manifest.json";
 const ASSET_TIMEOUT_MS = 20000;
 const FULL_AUDIO_BATCH_SIZE = 4;
@@ -44,6 +52,12 @@ const APP_SHELL = Object.freeze([
   "./",
   "./index.html",
   "./styles.css",
+  "./public-config.js",
+  "./privacy.html",
+  "./sources-and-licenses.html",
+  "./city-credits.html",
+  "./city-credits.js",
+  "./legal.css",
   "./asset-routing.js",
   "./runtime-health.js",
   "./diagnostics.html",
@@ -63,6 +77,9 @@ const APP_SHELL = Object.freeze([
   "./speech.js",
   "./city-live.js",
   "./reminders.js",
+  "./visuals.js",
+  "./assets/visuals/cities/manifest.js",
+  "./assets/visuals/cities/manifest.json",
   "./pwa.js",
   "./app.js",
   "./manifest.webmanifest",
@@ -71,7 +88,7 @@ const APP_SHELL = Object.freeze([
   "./assets/icons/icon-512.png",
   "./catalog-data/manifest.js",
   "./catalog-data/manifest.json",
-  "./catalog-data/selection-data.8830690affcf.json",
+  "./catalog-data/selection-data.1601f3706753.json",
   "./explore.js",
   "./search-worker.js",
   "./assets/medical/manifest.json",
@@ -118,16 +135,28 @@ const PACK_VERSIONS = Object.freeze({
   content: CONTENT_VERSION,
   medical: MEDICAL_VERSION,
   audio: AUDIO_VERSION,
-  search: SEARCH_VERSION
+  search: SEARCH_VERSION,
+  visual: VISUAL_VERSION
 });
 
 let narrationManifestPromise = null;
+let cityVisualManifestPromise = null;
 let splitCatalogManifestPromise = null;
+let fullAudioReadyPromise = null;
+let fullVisualReadyPromise = null;
 let fullDownloadPromise = null;
 let fullDownloadStopReason = null;
 let fullDownloadCount = 0;
 let fullDownloadAbortController = null;
 const fullDownloadObservers = new Set();
+
+function invalidateFullAudioTrust() {
+  fullAudioReadyPromise = null;
+}
+
+function invalidateFullVisualTrust() {
+  fullVisualReadyPromise = null;
+}
 
 function localUrl(value) {
   return new URL(value, self.location.href).href;
@@ -213,7 +242,20 @@ async function cachePack(cacheName, version, paths, loader) {
 async function fetchLocalAsset(assetPath) {
   const response = await fetch(localUrl(assetPath), { cache: "reload" });
   if (!response.ok) throw codedError(`Application asset failed with HTTP ${response.status}: ${assetPath}`, "NETWORK");
-  return response;
+  if (!response.redirected) return response;
+  const finalUrl = new URL(response.url);
+  if (finalUrl.origin !== self.location.origin) {
+    throw codedError(`Application asset redirected off-origin: ${assetPath}`, "NETWORK");
+  }
+  // Static hosts such as Cloudflare Pages canonicalize /index.html to /.
+  // Returning a cached redirected Response from a navigation fetch causes
+  // Chromium to reject the navigation with net::ERR_FAILED. Reconstruct the
+  // same-origin 200 response before caching so it has no redirect URL list.
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: response.headers
+  });
 }
 
 async function cacheApplicationShell() {
@@ -267,7 +309,7 @@ async function cacheContentPack() {
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     await cleanupManagedCaches();
-    await fullAudioReady();
+    await Promise.all([fullAudioReady(), fullVisualReady()]);
     await self.clients.claim();
   })());
 });
@@ -282,7 +324,9 @@ async function cleanupManagedCaches() {
     SEARCH_DATA_CACHE,
     AUDIO_METADATA_CACHE,
     LIGHT_AUDIO_CACHE,
-    FULL_AUDIO_CACHE
+    FULL_AUDIO_CACHE,
+    VISUAL_CACHE,
+    FULL_VISUAL_CACHE
   ]);
   const managedPrefixes = [
     CACHE_PREFIX,
@@ -292,6 +336,8 @@ async function cleanupManagedCaches() {
     SEARCH_CACHE_PREFIX,
     SEARCH_DATA_CACHE_PREFIX,
     AUDIO_CACHE_PREFIX,
+    VISUAL_CACHE_PREFIX,
+    VISUAL_PACK_CACHE_PREFIX,
     DailyAtlasAssets.TRANSFER_CACHE_PREFIX
   ];
   const keys = await caches.keys();
@@ -401,6 +447,44 @@ async function narrationEntries() {
     throw error;
   });
   return narrationManifestPromise;
+}
+
+async function cityVisualEntries() {
+  if (cityVisualManifestPromise) return cityVisualManifestPromise;
+  cityVisualManifestPromise = (async () => {
+    const shell = await caches.open(CACHE_NAME);
+    const response = await shell.match(localUrl(CITY_VISUAL_MANIFEST));
+    if (!response?.ok) throw codedError("City visual manifest was not cached", "INVALID_VISUAL_MANIFEST");
+    const raw = await response.clone().arrayBuffer();
+    const digest = await crypto.subtle.digest("SHA-256", raw);
+    const manifestSha256 = [...new Uint8Array(digest)].map((value) => value.toString(16).padStart(2, "0")).join("").toUpperCase();
+    const manifest = JSON.parse(new TextDecoder().decode(raw));
+    const entries = Array.isArray(manifest.items) ? manifest.items.map((entry) => ({
+      id: String(entry.id || ""),
+      path: String(entry.path || ""),
+      bytes: Number(entry.bytes),
+      sha256: String(entry.sha256 || "").toUpperCase(),
+      width: Number(entry.width),
+      height: Number(entry.height)
+    })) : [];
+    if (manifest.schemaVersion !== 1 || manifest.count !== 200 || entries.length !== 200 || entries.some((entry) => (
+      !/^city-[a-z0-9-]+$/.test(entry.id)
+      || entry.path !== `./assets/visuals/cities/${entry.id}.webp`
+      || !Number.isSafeInteger(entry.bytes) || entry.bytes <= 0
+      || !/^[A-F0-9]{64}$/.test(entry.sha256)
+      || entry.width !== 960 || entry.height !== 540
+    ))) throw codedError("City visual manifest is invalid", "INVALID_VISUAL_MANIFEST");
+    const urls = new Set(entries.map((entry) => localUrl(entry.path)));
+    const ids = new Set(entries.map((entry) => entry.id));
+    if (urls.size !== 200 || ids.size !== 200) throw codedError("City visual manifest contains duplicates", "INVALID_VISUAL_MANIFEST");
+    const byUrl = new Map(entries.map((entry) => [localUrl(entry.path), entry]));
+    const totalBytes = entries.reduce((sum, entry) => sum + entry.bytes, 0);
+    return Object.freeze({ entries: Object.freeze(entries), urls, byUrl, totalBytes, manifestSha256 });
+  })().catch((error) => {
+    cityVisualManifestPromise = null;
+    throw error;
+  });
+  return cityVisualManifestPromise;
 }
 
 async function splitCatalogManifest() {
@@ -635,29 +719,121 @@ async function verifyCachedNarration(response, entry) {
   if (actual !== entry.sha256) throw codedError(`Narration hash mismatch: ${entry.path}`, "INVALID_AUDIO");
 }
 
-async function fullAudioReady() {
-  if (!(await caches.keys()).includes(FULL_AUDIO_CACHE)) {
-    return false;
+async function verifyCachedCityVisual(response, entry) {
+  if (!response?.ok || !String(response.headers.get("content-type") || "").toLowerCase().startsWith("image/webp")) {
+    throw codedError(`City visual is not a WebP response: ${entry.path}`, "INVALID_VISUAL");
   }
-  const manifest = await narrationEntries();
-  const cache = await caches.open(FULL_AUDIO_CACHE);
-  const marker = await cache.match(localUrl(FULL_AUDIO_MARKER));
-  if (!marker?.ok) {
-    return false;
+  const value = await response.clone().arrayBuffer();
+  if (value.byteLength !== entry.bytes) throw codedError(`City visual size mismatch: ${entry.path}`, "INVALID_VISUAL");
+  const bytes = new Uint8Array(value);
+  const ascii = (start, length) => String.fromCharCode(...bytes.slice(start, start + length));
+  if (ascii(0, 4) !== "RIFF" || ascii(8, 4) !== "WEBP") {
+    throw codedError(`City visual signature mismatch: ${entry.path}`, "INVALID_VISUAL");
   }
-  try {
-    const value = await marker.json();
-    if (value?.audioVersion !== AUDIO_VERSION
-      || value?.manifestSha256 !== AUDIO_MANIFEST_SHA256
-      || value?.count !== manifest.entries.length
-      || value?.totalBytes !== manifest.totalBytes) {
+  const digest = await crypto.subtle.digest("SHA-256", value);
+  const actual = [...new Uint8Array(digest)].map((item) => item.toString(16).padStart(2, "0")).join("").toUpperCase();
+  if (actual !== entry.sha256) throw codedError(`City visual hash mismatch: ${entry.path}`, "INVALID_VISUAL");
+}
+
+async function visualPackSnapshot(cache, manifest, verifyBodies) {
+  const validUrls = new Set();
+  let bytes = 0;
+  for (const request of await cache.keys()) {
+    if (request.url === localUrl(FULL_VISUAL_MARKER)) continue;
+    const entry = manifest.byUrl.get(request.url);
+    if (!entry || validUrls.has(request.url)) {
+      await cache.delete(request);
+      continue;
+    }
+    const response = await cache.match(request);
+    if (!response?.ok) {
+      await cache.delete(request);
+      continue;
+    }
+    if (verifyBodies) {
+      try { await verifyCachedCityVisual(response, entry); }
+      catch (_error) {
+        await cache.delete(request);
+        continue;
+      }
+    }
+    validUrls.add(request.url);
+    bytes += entry.bytes;
+  }
+  return Object.freeze({ count: validUrls.size, bytes, urls: validUrls });
+}
+
+async function fullVisualReady() {
+  if (fullVisualReadyPromise) return fullVisualReadyPromise;
+  const check = (async () => {
+    if (!(await caches.keys()).includes(FULL_VISUAL_CACHE)) return false;
+    const manifest = await cityVisualEntries();
+    const cache = await caches.open(FULL_VISUAL_CACHE);
+    const marker = await cache.match(localUrl(FULL_VISUAL_MARKER));
+    if (!marker?.ok) return false;
+    try {
+      const value = await marker.json();
+      if (value?.visualVersion !== VISUAL_VERSION
+        || value?.manifestSha256 !== manifest.manifestSha256
+        || value?.count !== manifest.entries.length
+        || value?.totalBytes !== manifest.totalBytes) {
+        await cache.delete(localUrl(FULL_VISUAL_MARKER));
+        return false;
+      }
+      // The marker is only metadata. Trust it once per worker lifetime after
+      // all 200 cached bodies pass content-type, byte-length and SHA-256 checks.
+      const snapshot = await visualPackSnapshot(cache, manifest, true);
+      const ready = snapshot.count === manifest.entries.length && snapshot.bytes === manifest.totalBytes;
+      if (!ready) await cache.delete(localUrl(FULL_VISUAL_MARKER));
+      return ready;
+    } catch (_error) {
+      await cache.delete(localUrl(FULL_VISUAL_MARKER));
       return false;
     }
-    const snapshot = await audioCacheSnapshot(cache, manifest, false);
-    return snapshot.count === manifest.entries.length && snapshot.bytes === manifest.totalBytes;
-  } catch (_error) {
-    return false;
-  }
+  })();
+  fullVisualReadyPromise = check;
+  const ready = await check;
+  if (!ready && fullVisualReadyPromise === check) fullVisualReadyPromise = null;
+  return ready;
+}
+
+async function stagedVisualCount() {
+  if (!(await caches.keys()).includes(FULL_VISUAL_CACHE) || await fullVisualReady()) return 0;
+  const manifest = await cityVisualEntries();
+  const cache = await caches.open(FULL_VISUAL_CACHE);
+  return (await visualPackSnapshot(cache, manifest, false)).count;
+}
+
+async function fullAudioReady() {
+  if (fullAudioReadyPromise) return fullAudioReadyPromise;
+  const check = (async () => {
+    if (!(await caches.keys()).includes(FULL_AUDIO_CACHE)) return false;
+    const manifest = await narrationEntries();
+    const cache = await caches.open(FULL_AUDIO_CACHE);
+    const marker = await cache.match(localUrl(FULL_AUDIO_MARKER));
+    if (!marker?.ok) return false;
+    try {
+      const value = await marker.json();
+      if (value?.audioVersion !== AUDIO_VERSION
+        || value?.manifestSha256 !== AUDIO_MANIFEST_SHA256
+        || value?.count !== manifest.entries.length
+        || value?.totalBytes !== manifest.totalBytes) {
+        await cache.delete(localUrl(FULL_AUDIO_MARKER));
+        return false;
+      }
+      const snapshot = await audioCacheSnapshot(cache, manifest, true);
+      const ready = snapshot.count === manifest.entries.length && snapshot.bytes === manifest.totalBytes;
+      if (!ready) await cache.delete(localUrl(FULL_AUDIO_MARKER));
+      return ready;
+    } catch (_error) {
+      await cache.delete(localUrl(FULL_AUDIO_MARKER));
+      return false;
+    }
+  })();
+  fullAudioReadyPromise = check;
+  const ready = await check;
+  if (!ready && fullAudioReadyPromise === check) fullAudioReadyPromise = null;
+  return ready;
 }
 
 async function lightAudioCount() {
@@ -675,15 +851,19 @@ async function stagedAudioCount() {
 }
 
 async function offlineStatus(overrides) {
-  const [audioFull, catalogFull, manifest, splitManifest] = await Promise.all([
+  const [audioFull, catalogFull, visualFull, manifest, splitManifest, visualManifest] = await Promise.all([
     fullAudioReady(),
     fullSplitCatalogReady(),
+    fullVisualReady(),
     narrationEntries(),
-    splitCatalogManifest()
+    splitCatalogManifest(),
+    cityVisualEntries()
   ]);
-  const full = audioFull && catalogFull;
+  const full = audioFull && catalogFull && visualFull;
   const extra = overrides || {};
-  const staging = full ? 0 : (Boolean(fullDownloadPromise) ? fullDownloadCount : audioFull ? 0 : await stagedAudioCount());
+  const staging = full ? 0 : (Boolean(fullDownloadPromise)
+    ? fullDownloadCount
+    : (audioFull ? 500 : await stagedAudioCount()) + (visualFull ? 200 : await stagedVisualCount()));
   const light = full ? 0 : await lightAudioCount();
   const defaultPhase = full ? "ready" : fullDownloadPromise ? "downloading" : staging > 0 ? "paused" : "ready";
   const requestedFull = Boolean(fullDownloadPromise) && !["error", "cancelled", "paused"].includes(extra.phase);
@@ -691,14 +871,17 @@ async function offlineStatus(overrides) {
     ok: extra.ok !== false,
     mode: full || requestedFull ? "full" : "light",
     phase: extra.phase || defaultPhase,
-    cachedCount: full ? 500 : staging > 0 ? staging : light,
+    cachedCount: full ? 700 : staging > 0 ? staging : light,
     stagedCount: staging,
     lightCachedCount: light,
-    totalCount: 500,
-    estimatedFullBytes: manifest.totalBytes + splitManifest.fullBytes,
+    totalCount: 700,
+    estimatedFullBytes: manifest.totalBytes + splitManifest.fullBytes + visualManifest.totalBytes,
     contentReady: catalogFull,
     contentCachedCount: catalogFull ? splitManifest.details.length + 1 : null,
     contentTotalCount: splitManifest.details.length + 1,
+    visualReady: visualFull,
+    visualCachedCount: visualFull ? visualManifest.entries.length : await stagedVisualCount(),
+    visualTotalCount: visualManifest.entries.length,
     errorCode: extra.errorCode || null,
     packVersions: PACK_VERSIONS,
     ...(Number.isFinite(extra.requiredBytes) ? { requiredBytes: extra.requiredBytes } : {}),
@@ -709,6 +892,9 @@ async function offlineStatus(overrides) {
 
 async function repairApplicationCaches() {
   await stopFullDownload("PAUSED", false);
+  invalidateFullAudioTrust();
+  invalidateFullVisualTrust();
+  await caches.delete(VISUAL_CACHE);
   await cleanupManagedCaches();
   await Promise.all([
     cacheApplicationShell(),
@@ -718,8 +904,9 @@ async function repairApplicationCaches() {
     cacheOrdinaryPack(AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS)
   ]);
   narrationManifestPromise = null;
+  cityVisualManifestPromise = null;
   splitCatalogManifestPromise = null;
-  const manifest = await narrationEntries();
+  const [manifest, visualManifest] = await Promise.all([narrationEntries(), cityVisualEntries()]);
   await repairSplitRuntimeCaches();
   const light = await caches.open(LIGHT_AUDIO_CACHE);
   await audioCacheSnapshot(light, manifest, true);
@@ -734,6 +921,21 @@ async function repairApplicationCaches() {
         count: manifest.entries.length,
         totalBytes: manifest.totalBytes
       }));
+      invalidateFullAudioTrust();
+    }
+  }
+  if ((await caches.keys()).includes(FULL_VISUAL_CACHE)) {
+    const full = await caches.open(FULL_VISUAL_CACHE);
+    await full.delete(localUrl(FULL_VISUAL_MARKER));
+    const snapshot = await visualPackSnapshot(full, visualManifest, true);
+    if (snapshot.count === visualManifest.entries.length && snapshot.bytes === visualManifest.totalBytes) {
+      await full.put(localUrl(FULL_VISUAL_MARKER), jsonResponse({
+        visualVersion: VISUAL_VERSION,
+        manifestSha256: visualManifest.manifestSha256,
+        count: visualManifest.entries.length,
+        totalBytes: visualManifest.totalBytes
+      }));
+      invalidateFullVisualTrust();
     }
   }
   const result = await offlineStatus();
@@ -775,8 +977,11 @@ async function stopFullDownload(reason, removeStaging) {
   const active = fullDownloadPromise;
   if (active) await active;
   if (removeStaging) {
+    invalidateFullAudioTrust();
+    invalidateFullVisualTrust();
     await Promise.all([
       caches.delete(FULL_AUDIO_CACHE),
+      caches.delete(FULL_VISUAL_CACHE),
       caches.delete(CONTENT_RUNTIME_CACHE),
       caches.delete(SEARCH_DATA_CACHE)
     ]);
@@ -786,23 +991,38 @@ async function stopFullDownload(reason, removeStaging) {
 }
 
 async function ensureFullAudio() {
-  if ((await fullAudioReady()) && (await fullSplitCatalogReady())) return offlineStatus({ phase: "ready" });
+  if ((await fullAudioReady()) && (await fullSplitCatalogReady()) && (await fullVisualReady())) return offlineStatus({ phase: "ready" });
   if (fullDownloadPromise) return fullDownloadPromise;
   fullDownloadStopReason = null;
   fullDownloadAbortController = new AbortController();
   fullDownloadPromise = (async () => {
-    const manifest = await narrationEntries();
+    const [manifest, visualManifest] = await Promise.all([narrationEntries(), cityVisualEntries()]);
     const cache = await caches.open(FULL_AUDIO_CACHE);
+    const visualCache = await caches.open(FULL_VISUAL_CACHE);
     const audioWasReady = await fullAudioReady();
-    if (!audioWasReady) await cache.delete(localUrl(FULL_AUDIO_MARKER));
+    const visualWasReady = await fullVisualReady();
+    if (!audioWasReady) {
+      invalidateFullAudioTrust();
+      await cache.delete(localUrl(FULL_AUDIO_MARKER));
+    }
+    if (!visualWasReady) {
+      invalidateFullVisualTrust();
+      await visualCache.delete(localUrl(FULL_VISUAL_MARKER));
+    }
     const staged = audioWasReady
       ? Object.freeze({ count: manifest.entries.length, bytes: manifest.totalBytes, urls: manifest.urls })
       : await audioCacheSnapshot(cache, manifest, true);
-    fullDownloadCount = staged.count;
+    const stagedVisuals = visualWasReady
+      ? Object.freeze({ count: visualManifest.entries.length, bytes: visualManifest.totalBytes, urls: visualManifest.urls })
+      : await visualPackSnapshot(visualCache, visualManifest, true);
+    fullDownloadCount = staged.count + stagedVisuals.count;
     const missing = audioWasReady ? [] : manifest.entries.filter((entry) => !staged.urls.has(localUrl(entry.path)));
+    const missingVisuals = visualWasReady ? [] : visualManifest.entries.filter((entry) => !stagedVisuals.urls.has(localUrl(entry.path)));
     const catalogWasReady = await fullSplitCatalogReady();
     const splitStage = catalogWasReady ? null : await splitStageState(true);
-    const requiredBytes = missing.reduce((sum, entry) => sum + entry.bytes, 0) + (splitStage?.requiredBytes || 0);
+    const requiredBytes = missing.reduce((sum, entry) => sum + entry.bytes, 0)
+      + missingVisuals.reduce((sum, entry) => sum + entry.bytes, 0)
+      + (splitStage?.requiredBytes || 0);
     const capacity = await storageCapacity(requiredBytes);
     const margin = Math.min(1024 * 1024, Math.ceil(requiredBytes * 0.1));
     if (capacity && capacity.availableBytes < requiredBytes + margin) {
@@ -817,6 +1037,20 @@ async function ensureFullAudio() {
     try {
       notifyFullDownload(await offlineStatus({ phase: "downloading", requiredBytes, ...(capacity || {}) }));
       if (splitStage) await downloadSplitStage(splitStage, fullDownloadAbortController.signal);
+      for (let index = 0; index < missingVisuals.length; index += FULL_AUDIO_BATCH_SIZE) {
+        if (fullDownloadStopReason) throw codedError("Full offline download was stopped", fullDownloadStopReason);
+        const batch = missingVisuals.slice(index, index + FULL_AUDIO_BATCH_SIZE);
+        const responses = await Promise.all(batch.map(async (entry) => ({
+          entry,
+          response: await fetchVerifiedCityVisual(entry, fullDownloadAbortController.signal)
+        })));
+        if (fullDownloadStopReason) throw codedError("Full offline download was stopped", fullDownloadStopReason);
+        for (const { entry, response } of responses) {
+          await visualCache.put(localUrl(entry.path), response);
+          fullDownloadCount += 1;
+        }
+        notifyFullDownload(await offlineStatus({ phase: "downloading", requiredBytes, ...(capacity || {}) }));
+      }
       for (let index = 0; index < missing.length; index += FULL_AUDIO_BATCH_SIZE) {
         if (fullDownloadStopReason) throw codedError("Full offline download was stopped", fullDownloadStopReason);
         const batch = missing.slice(index, index + FULL_AUDIO_BATCH_SIZE);
@@ -843,16 +1077,39 @@ async function ensureFullAudio() {
           count: manifest.entries.length,
           totalBytes: manifest.totalBytes
         }));
+        invalidateFullAudioTrust();
         if (!(await fullAudioReady())) {
           await cache.delete(localUrl(FULL_AUDIO_MARKER));
           throw codedError("The narration ready marker failed its 500-file validation", "INCOMPLETE_AUDIO");
+        }
+      }
+      if (!visualWasReady) {
+        const finalVisualSnapshot = await visualPackSnapshot(visualCache, visualManifest, true);
+        if (finalVisualSnapshot.count !== visualManifest.entries.length || finalVisualSnapshot.bytes !== visualManifest.totalBytes) {
+          throw codedError("The staged city visual pack is incomplete", "INCOMPLETE_VISUAL");
+        }
+        await visualCache.put(localUrl(FULL_VISUAL_MARKER), jsonResponse({
+          visualVersion: VISUAL_VERSION,
+          manifestSha256: visualManifest.manifestSha256,
+          count: visualManifest.entries.length,
+          totalBytes: visualManifest.totalBytes
+        }));
+        invalidateFullVisualTrust();
+        if (!(await fullVisualReady())) {
+          await visualCache.delete(localUrl(FULL_VISUAL_MARKER));
+          throw codedError("The city visual ready marker failed its 200-file validation", "INCOMPLETE_VISUAL");
         }
       }
       await caches.delete(LIGHT_AUDIO_CACHE);
       return offlineStatus({ phase: "ready" });
     } catch (error) {
       if (!audioWasReady) {
+        invalidateFullAudioTrust();
         await cache.delete(localUrl(FULL_AUDIO_MARKER));
+      }
+      if (!visualWasReady) {
+        invalidateFullVisualTrust();
+        await visualCache.delete(localUrl(FULL_VISUAL_MARKER));
       }
       const reason = fullDownloadStopReason || error?.code;
       const paused = reason === "PAUSED";
@@ -913,6 +1170,17 @@ async function fetchVerifiedNarration(entry, signal) {
   }
 }
 
+async function fetchVerifiedCityVisual(entry, signal) {
+  const response = await fetch(localUrl(entry.path), {
+    cache: "reload",
+    credentials: "same-origin",
+    redirect: "error",
+    signal
+  });
+  await verifyCachedCityVisual(response, entry);
+  return response;
+}
+
 async function matchInstalledAsset(request) {
   for (const cacheName of [CACHE_NAME, CONTENT_CACHE, MEDICAL_CACHE, SEARCH_CACHE, AUDIO_METADATA_CACHE]) {
     const cache = await caches.open(cacheName);
@@ -922,37 +1190,139 @@ async function matchInstalledAsset(request) {
   return null;
 }
 
+async function trimVisualCache(cache) {
+  const keys = await cache.keys();
+  const excess = keys.length - VISUAL_CACHE_MAX_ITEMS;
+  if (excess > 0) await Promise.all(keys.slice(0, excess).map((key) => cache.delete(key)));
+}
+
+async function matchOrFetchVisual(request) {
+  const cache = await caches.open(VISUAL_CACHE);
+  const cached = await cache.match(request);
+  const manifest = await cityVisualEntries();
+  const entry = manifest.byUrl.get(request.url);
+  if (cached && entry) {
+    try {
+      await verifyCachedCityVisual(cached, entry);
+      return cached;
+    } catch (_error) {
+      await cache.delete(request);
+    }
+  }
+  // A same-origin city path that is absent from the signed manifest is not a
+  // publishable visual. Failing the image request exposes the card's existing
+  // procedural fallback without ever pairing unknown bytes with attribution.
+  if (!entry) return Response.error();
+  let response;
+  try {
+    // cache:reload prevents a browser HTTP-cache copy from an older A release
+    // being displayed under the current B release's author/licence metadata.
+    response = await fetchVerifiedCityVisual(entry);
+  } catch (_error) {
+    return Response.error();
+  }
+  try {
+    await cache.put(request, response.clone());
+    await trimVisualCache(cache);
+  } catch (_error) {
+    // A quota failure must not hide a response whose bytes were already
+    // verified; it simply remains uncached and can be retried later.
+  }
+  return response;
+}
+
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (request.method !== "GET") return;
   const url = new URL(request.url);
+  // Remote covers/posters stay on the browser's ordinary network path. The
+  // worker never persists opaque/error challenge responses, so a transient
+  // third-party failure can recover on the next retry.
   if (url.origin !== self.location.origin) return;
 
   if (request.mode === "navigate") {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_NAME);
-      const cached = (await cache.match(request)) || (await cache.match(localUrl("./index.html")));
+      const aliases = new Map([
+        [new URL(localUrl("./index.html")).pathname, "./"],
+        [new URL(localUrl("./diagnostics")).pathname, "./diagnostics.html"],
+        [new URL(localUrl("./privacy")).pathname, "./privacy.html"],
+        [new URL(localUrl("./sources-and-licenses")).pathname, "./sources-and-licenses.html"],
+        [new URL(localUrl("./city-credits")).pathname, "./city-credits.html"]
+      ]);
+      const alias = aliases.get(url.pathname);
+      const cached = (await cache.match(request, { ignoreSearch: true }))
+        || (alias ? await cache.match(localUrl(alias)) : null)
+        || (await cache.match(localUrl("./")));
       if (cached) return cached;
       try { return await fetch(request); }
-      catch (_error) { return cache.match(localUrl("./index.html")); }
+      catch (_error) { return cache.match(localUrl("./")); }
     })());
     return;
   }
 
   event.respondWith((async () => {
+    if (/\/assets\/visuals\/cities\/city-[a-z0-9-]+\.webp$/.test(url.pathname)) {
+      if (await fullVisualReady()) {
+        const complete = await caches.open(FULL_VISUAL_CACHE);
+        const cached = await complete.match(request);
+        if (cached) {
+          const manifest = await cityVisualEntries();
+          const entry = manifest.byUrl.get(request.url);
+          try {
+            if (!entry) throw codedError("City visual is absent from the current manifest", "INVALID_VISUAL");
+            await verifyCachedCityVisual(cached, entry);
+            return cached;
+          } catch (_error) {
+            await complete.delete(request);
+            await complete.delete(localUrl(FULL_VISUAL_MARKER));
+            invalidateFullVisualTrust();
+          }
+        } else {
+          await complete.delete(localUrl(FULL_VISUAL_MARKER));
+          invalidateFullVisualTrust();
+        }
+      }
+      return matchOrFetchVisual(request);
+    }
     if (/\/catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js$|\/catalog-data\/selection-data\.[a-f0-9]{12}\.json$|\/catalog-data\/details\/(?:book|movie|city|german|medical)-\d{3}\.[a-f0-9]{12}\.js$/.test(url.pathname)) {
       const catalogAsset = await matchOrFetchSplitCatalog(request);
       if (catalogAsset) return catalogAsset;
     }
     if (/\/assets\/audio\/german\/de-[a-z0-9-]+\.mp3$/.test(url.pathname)) {
+      const manifest = await narrationEntries();
+      const entry = manifest.byUrl.get(request.url);
       if (await fullAudioReady()) {
         const complete = await caches.open(FULL_AUDIO_CACHE);
         const cached = await complete.match(request);
-        if (cached) return cached;
+        if (cached) {
+          try {
+            if (!entry) throw codedError("Narration is absent from the current manifest", "INVALID_AUDIO");
+            await verifyCachedNarration(cached, entry);
+            return cached;
+          } catch (_error) {
+            await complete.delete(request);
+            await complete.delete(localUrl(FULL_AUDIO_MARKER));
+            invalidateFullAudioTrust();
+          }
+        } else {
+          await complete.delete(localUrl(FULL_AUDIO_MARKER));
+          invalidateFullAudioTrust();
+        }
       }
       const light = await caches.open(LIGHT_AUDIO_CACHE);
       const cached = await light.match(request);
-      if (cached) return cached;
+      if (cached && entry) {
+        try {
+          await verifyCachedNarration(cached, entry);
+          return cached;
+        } catch (_error) {
+          await light.delete(request);
+        }
+      }
+      if (!entry) return Response.error();
+      try { return await fetchVerifiedNarration(entry); }
+      catch (_error) { return Response.error(); }
     }
     const cached = await matchInstalledAsset(request);
     if (cached) return cached;
@@ -962,10 +1332,18 @@ self.addEventListener("fetch", (event) => {
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
-  const destination = new URL(event.notification.data?.url || "./", self.location.href).href;
+  const scope = self.registration.scope;
+  let destination = scope;
+  try {
+    const requested = new URL(event.notification.data?.url || "./", scope);
+    if (requested.origin === self.location.origin && requested.href.startsWith(scope)) destination = requested.href;
+  } catch (_error) {}
   event.waitUntil((async () => {
     const windows = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
-    const existing = windows.find((client) => new URL(client.url).origin === self.location.origin);
+    const existing = windows.find((client) => {
+      try { return new URL(client.url).href.startsWith(scope); }
+      catch (_error) { return false; }
+    });
     if (existing) {
       await existing.navigate(destination);
       return existing.focus();
@@ -980,8 +1358,10 @@ self.DailyAtlasServiceWorkerInternals = Object.freeze({
   PACK_VERSIONS,
   cacheApplicationShell,
   cacheContentPack,
+  cityVisualEntries,
   ensureFullAudio,
   fullAudioReady,
+  fullVisualReady,
   narrationEntries,
   offlineStatus,
   packReady

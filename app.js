@@ -18,6 +18,8 @@
   const PWA = globalThis.DailyAtlasPWA || null;
   const CatalogStore = globalThis.DailyAtlasCatalogStore || null;
   const RuntimeHealth = globalThis.DailyAtlasRuntimeHealth || null;
+  const Visuals = globalThis.DailyAtlasVisuals || null;
+  const PublicConfig = globalThis.DAILY_ATLAS_PUBLIC_CONFIG || Object.freeze({});
 
   if (!Engine || !Catalog || !State || !Profile || !Backup) {
     document.body.innerHTML = '<p class="noscript-message">精选数据加载失败，请刷新页面或重新解压完整文件夹。</p>';
@@ -32,7 +34,7 @@
     medical: { collection: "medical", label: "医学", short: "医", card: "medicalCard", swap: "换一条", known: "了解了", unit: "条" }
   });
   const TYPES = Object.freeze(Object.keys(TYPE_META));
-  const APP_VERSION = "2.3.0";
+  const APP_VERSION = "2.4.0";
   const RECORD_PAGE_SIZE = 100;
   const STORAGE_KEYS = Object.freeze({
     statePrefix: "dailyAtlas.state.v3.",
@@ -109,6 +111,7 @@
     backgroundStyle: document.querySelector("#backgroundStyle"),
     compactModeEnabled: document.querySelector("#compactModeEnabled"),
     dataSaverEnabled: document.querySelector("#dataSaverEnabled"),
+    dataSaverHelp: document.querySelector("#dataSaverHelp"),
     textSize: document.querySelector("#textSize"),
     contrastMode: document.querySelector("#contrastMode"),
     motionMode: document.querySelector("#motionMode"),
@@ -859,7 +862,8 @@
     }
     if (type === "medical") card.innerHTML = renderMedicalCard(item);
 
-    for (const image of card.querySelectorAll("img")) {
+    Visuals?.bind?.(card);
+    for (const image of card.querySelectorAll("img:not([data-visual-candidates])")) {
       const hideBroken = () => { image.hidden = true; };
       image.addEventListener("error", hideBroken, { once: true });
       if (image.complete && image.naturalWidth === 0) hideBroken();
@@ -922,9 +926,9 @@
     const contentNotes = Array.isArray(item.contentNotes)
       ? item.contentNotes.filter(Boolean).join("；")
       : String(item.contentNotes || "").trim();
-    const mediaImage = appearanceState?.dataSaver === true || globalThis.DAILY_ATLAS_SAFE_MODE === true
-      ? ""
-      : `<img class="cover-image" src="${safeImageUrl(item.image)}" alt="《${escapeAttribute(item.title)}》${type === "book" ? "封面" : "海报"}" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`;
+    const mediaVisual = resolveVisual(item, type);
+    const mediaImage = visualImageHtml(mediaVisual, "cover-image");
+    const mediaCredit = visualCreditHtml(mediaVisual);
 
     return `
       <div class="card-visual" style="--visual:${safeColor(item.visual)}">
@@ -933,6 +937,7 @@
           <strong>${escapeHtml(item.title)}</strong>
         </div>
         ${mediaImage}
+        ${mediaCredit}
         <span class="visual-topline" aria-hidden="true">${type === "book" ? "READ" : "WATCH"} · ${escapeHtml(genres.join(" / "))}</span>
         <span class="visual-number" aria-hidden="true">${ordinal}<small> / ${total}</small></span>
       </div>
@@ -971,9 +976,12 @@
     const monogram = String(item.cityEn || item.title || "C").slice(0, 2).toUpperCase();
     const highlights = (item.highlights || []).map((entry) => `<span>${escapeHtml(entry)}</span>`).join("");
     const color = item.visual && Array.isArray(item.visual.palette) ? item.visual.palette[0] : item.visual;
+    const cityVisual = resolveVisual(item, "city");
     return `
       <div class="city-inner">
         <div class="city-visual" style="--visual:${safeColor(color)}">
+          ${visualImageHtml(cityVisual, "city-image")}
+          ${visualCreditHtml(cityVisual)}
           <span class="city-coordinate">WORLD CITY · ${escapeHtml(item.region)}</span>
           <span class="city-monogram" aria-hidden="true">${escapeHtml(monogram)}</span>
           <div class="city-heading">
@@ -1864,6 +1872,7 @@
     }
     explorePage = result.page;
     elements.exploreResults.innerHTML = result.items.map(exploreResultHtml).join("");
+    Visuals?.bind?.(elements.exploreResults);
     if (!result.items.length) elements.exploreResults.innerHTML = '<p class="explore-empty">没有符合当前条件的条目。试试清除一个筛选，或换一个关键词。</p>';
     elements.exploreStatus.textContent = `找到 ${result.total} 条内容；当前显示第 ${result.page} 页，共 ${result.pageCount} 页。`;
     elements.explorePageStatus.textContent = `第 ${result.page} / ${result.pageCount} 页`;
@@ -1891,14 +1900,15 @@
     else if (type === "german") detail = `${item.level} · ${item.kind} · ${item.chinese}`;
     else detail = `${item.topicGroup || item.topic} · ${item.topic}`;
     const summary = type === "german" ? item.explanation : item.summary;
-    const remoteImageAllowed = (type === "book" || type === "movie") && appearanceState?.dataSaver !== true;
     const localMedicalImage = type === "medical";
-    const visual = remoteImageAllowed || localMedicalImage
-      ? `<img src="${safeImageUrl(item.image)}" alt="${escapeAttribute(type === "medical" ? item.alt : `《${title}》${type === "book" ? "封面" : "海报"}`)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`
+    const resolvedVisual = ["book", "movie", "city"].includes(type) ? resolveVisual(item, type) : null;
+    const renderedVisual = resolvedVisual ? visualImageHtml(resolvedVisual, "explore-image") : "";
+    const visual = renderedVisual || localMedicalImage
+      ? renderedVisual || `<img src="${safeImageUrl(item.image)}" alt="${escapeAttribute(item.alt)}" loading="lazy" decoding="async" />`
       : `<span class="explore-monogram" aria-hidden="true">${escapeHtml(meta.short)}</span>`;
     const series = item.series ? `<p class="explore-series">${escapeHtml(item.series)}${item.installment ? ` · ${escapeHtml(seriesInstallmentLabel(item.installment))}` : ""}${item.prerequisite ? `；${escapeHtml(item.prerequisite)}` : ""}</p>` : "";
     return `<article class="explore-card explore-${type}">
-      <div class="explore-visual" style="--visual:${safeColor(Array.isArray(item.visual?.palette) ? item.visual.palette[0] : item.visual)}">${visual}</div>
+      <div class="explore-visual" style="--visual:${safeColor(Array.isArray(item.visual?.palette) ? item.visual.palette[0] : item.visual)}">${visual}${resolvedVisual ? visualCreditHtml(resolvedVisual) : ""}</div>
       <div class="explore-card-copy"><span class="explore-type">${escapeHtml(meta.label)}</span><h3>${escapeHtml(title)}</h3><p class="explore-meta">${escapeHtml(detail)}</p><p>${escapeHtml(summary || "")}</p>${series}<footer>${score ? `<span>${escapeHtml(score)}</span>` : ""}<a href="${safeLink(item.sourceUrl)}" target="_blank" rel="noreferrer">查看来源${externalLinkIcon()}</a></footer></div>
     </article>`;
   }
@@ -2054,7 +2064,7 @@
     elements.resumeOfflineButton.disabled = !paused;
     elements.cancelOfflineButton.disabled = !(downloading || paused);
     elements.offlineProgressPanel.hidden = !(downloading || paused);
-    elements.offlineProgress.max = Math.max(1, Number(state.offlineTotalCount) || 500);
+    elements.offlineProgress.max = Math.max(1, Number(state.offlineTotalCount) || 700);
     elements.offlineProgress.value = Math.max(0, Number(state.offlineStagedCount ?? state.offlineCachedCount) || 0);
     elements.offlineProgressText.textContent = `${elements.offlineProgress.value}/${elements.offlineProgress.max} 条`;
     if (state.registered) {
@@ -2069,16 +2079,19 @@
           QUOTA: "设备可用存储空间不足",
           NETWORK: "网络中断或音频文件不可用",
           CURRENT_AUDIO_FAILED: "当前德语朗读暂未缓存",
+          INVALID_VISUAL: "城市图片校验失败",
+          INCOMPLETE_VISUAL: "城市图片包尚未完整写入",
+          INVALID_VISUAL_MANIFEST: "城市图片清单校验失败",
           "worker-timeout": "浏览器没有及时完成离线任务"
         };
         elements.offlineStatus.textContent = `${errors[state.offlineErrorCode] || "离线包操作失败"}；轻量应用壳没有受损，可以稍后重试。`;
       } else if (state.offlinePhase === "cancelled") {
         elements.offlineStatus.textContent = "完整离线包下载已取消；当前使用轻量离线。";
       } else if (mode === "full") {
-        elements.offlineStatus.textContent = "完整离线已启用：2,200 项详情、搜索索引与 500 条德语朗读均可离线使用；远程封面不缓存。";
+        elements.offlineStatus.textContent = "完整离线已启用：2,200 项详情、搜索索引、500 条德语朗读与 200 张开放许可城市图均可离线使用；书封和电影海报不属于完整离线包。";
       } else if (state.controlled) {
         const currentAudio = Number(state.offlineCachedCount) > 0 ? "，当前德语朗读已缓存" : "";
-        elements.offlineStatus.textContent = `轻量离线已启用：应用壳、紧凑索引、医学图与已访问详情可离线使用${currentAudio}；未访问详情、搜索索引和其余朗读按需下载。`;
+        elements.offlineStatus.textContent = `轻量离线已启用：应用壳、紧凑索引、医学图与已访问详情可离线使用${currentAudio}；城市图按访问尽力缓存，未访问详情、搜索索引和其余朗读按需下载。`;
       } else {
         elements.offlineStatus.textContent = "轻量离线应用壳已注册，刷新一次后接管页面。";
       }
@@ -2142,7 +2155,9 @@
     if (target === elements.backgroundColor) patch = { color: target.value };
     else if (target === elements.backgroundStyle) patch = { style: target.value };
     else if (target === elements.compactModeEnabled) patch = { density: target.checked ? "compact" : "comfortable" };
-    else if (target === elements.dataSaverEnabled) patch = { dataSaver: target.checked };
+    else if (target === elements.dataSaverEnabled) {
+      patch = { dataSaver: target.checked };
+    }
     else if (target === elements.textSize) patch = { textSize: target.value };
     else if (target === elements.contrastMode) patch = { contrast: target.value };
     else if (target === elements.motionMode) patch = { motion: target.value };
@@ -2159,6 +2174,8 @@
     elements.backgroundStyle.value = state.style;
     elements.compactModeEnabled.checked = state.density === "compact";
     elements.dataSaverEnabled.checked = state.dataSaver === true;
+    elements.dataSaverEnabled.disabled = false;
+    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "关闭远程书封、电影海报与城市风貌图，改用本地程序化视觉；医学图仍保留。";
     elements.textSize.value = state.textSize || "default";
     elements.contrastMode.value = state.contrast || "default";
     elements.motionMode.value = state.motion || "system";
@@ -2175,6 +2192,7 @@
     if (dataSaverChanged) {
       renderCard("book");
       renderCard("movie");
+      renderCard("city");
       if (exploreIndex) renderExploreResults(explorePage, false);
     }
   }
@@ -2838,7 +2856,7 @@
 
   async function repairApplicationCaches() {
     if (!PWA?.repairCaches) return;
-    const confirmed = window.confirm("修复今日万象应用缓存吗？这只重建应用壳、内容、医学图与音频缓存，不删除收藏、偏好、探索记录或备份。完整离线包可能需要重新下载缺项。");
+    const confirmed = window.confirm("修复今日万象应用缓存吗？这会清除应用管理的同源城市图缓存，并重新核对应用壳、内容、医学图、城市图与音频缓存；不会删除收藏、偏好、探索记录或备份，也不会清理浏览器自行管理的远程书封／海报 HTTP 缓存。完整离线包可能需要补下载缺项。");
     if (!confirmed) return;
     elements.repairCacheButton.disabled = true;
     elements.storagePreflightStatus.textContent = "正在核对并修复应用缓存…";
@@ -2847,7 +2865,7 @@
       renderPwaState(result);
       elements.storagePreflightStatus.textContent = result?.ok === false
         ? "缓存修复没有完全结束；个人数据未改变，请切换网络后重试。"
-        : "应用缓存已核对并修复；个人数据未改变。";
+        : "应用缓存已核对并修复；应用管理的按需同源城市图缓存已清除，个人数据未改变。请重新载入页面。";
     } catch (_error) {
       elements.storagePreflightStatus.textContent = "缓存修复失败；个人数据未改变，请打开独立诊断页查看具体状态。";
     } finally {
@@ -2962,6 +2980,32 @@
   function safeImageUrl(value) {
     const url = String(value || "");
     return /^(https:\/\/|\.\/assets\/)/.test(url) ? escapeAttribute(url) : "./assets/favicon.svg";
+  }
+
+  function resolveVisual(item, type) {
+    return Visuals?.resolve?.(item, type, {
+      dataSaver: appearanceState?.dataSaver === true,
+      safeMode: globalThis.DAILY_ATLAS_SAFE_MODE === true
+    }) || Object.freeze({ candidates: Object.freeze([]) });
+  }
+
+  function visualImageHtml(visual, className) {
+    const candidates = Array.isArray(visual?.candidates) ? visual.candidates.filter(Boolean) : [];
+    if (!candidates.length) return "";
+    return `<img class="${escapeAttribute(className)} daily-visual-image" src="${escapeAttribute(candidates[0])}" data-visual-candidates="${escapeAttribute(JSON.stringify(candidates))}" data-visual-index="0" alt="${escapeAttribute(visual.alt || "内容配图")}" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`;
+  }
+
+  function visualCreditHtml(visual) {
+    if (!visual?.provider || !visual?.sourcePage || !Array.isArray(visual.candidates) || !visual.candidates.length) return "";
+    const href = safeVisualLink(visual.sourcePage);
+    return `<a class="visual-credit" data-visual-credit href="${href}" ${href.startsWith("https://") ? 'target="_blank" rel="noreferrer"' : ""} hidden>图源 · ${escapeHtml(visual.provider)}</a>`;
+  }
+
+  function safeVisualLink(value) {
+    const url = String(value || "");
+    if (/^https:\/\//.test(url)) return escapeAttribute(url);
+    if (/^\.\/sources-and-licenses\.html(?:#[a-z0-9-]+)?$/.test(url)) return escapeAttribute(url);
+    return "./sources-and-licenses.html";
   }
 
   function safeLink(value) {

@@ -109,6 +109,28 @@ html[data-boot-state="degraded"] .boot-panel { position: relative; top: 0; borde
 html[data-boot-state="degraded"] .boot-spinner { animation: none; border-color: #966513; }
 @keyframes boot-spin { to { transform: rotate(360deg); } }
 
+.public-safe-banner {
+  position: relative;
+  z-index: 4;
+  width: min(1180px, calc(100% - 48px));
+  margin: 10px auto 0;
+  padding: 9px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 14px;
+  border: 1px solid rgba(23, 80, 78, 0.23);
+  border-radius: 12px;
+  color: var(--ink-soft);
+  background: rgba(255, 253, 248, 0.72);
+  font-size: 11px;
+}
+
+.public-safe-banner[hidden] { display: none; }
+.public-safe-banner strong { color: var(--teal); }
+.public-safe-links { display: inline-flex; gap: 12px; margin-left: auto; }
+.public-safe-banner a { color: var(--teal); text-underline-offset: 3px; }
+
 .catalog-detail-placeholder { min-height: 260px; display: grid; place-items: center; }
 .detail-placeholder-copy { width: min(100% - 36px, 520px); padding: 24px 0; text-align: center; }
 .detail-placeholder-copy h3 { margin: 10px 0; font: 500 clamp(25px, 4vw, 38px)/1.15 Georgia, "Noto Serif SC", serif; }
@@ -804,6 +826,47 @@ main,
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.visual-image-loaded .cover-image,
+.visual-image-loaded .city-image,
+.visual-image-loaded .explore-image {
+  opacity: 1;
+}
+
+.visual-credit {
+  position: absolute;
+  z-index: 4;
+  left: 14px;
+  bottom: 14px;
+  max-width: calc(100% - 92px);
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,0.24);
+  border-radius: 999px;
+  color: white;
+  background: rgba(10, 37, 36, 0.7);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.visual-credit:hover,
+.visual-credit:focus-visible {
+  color: white;
+  background: rgba(10, 37, 36, 0.9);
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
 .visual-fallback {
@@ -1187,20 +1250,39 @@ main,
     var(--visual, #0b504e);
 }
 
+.city-image {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.city-visual .visual-credit {
+  top: 17px;
+  right: 17px;
+  bottom: auto;
+  left: auto;
+  max-width: min(52%, 230px);
+}
+
 .city-visual::before,
 .city-visual::after {
   position: absolute;
+  z-index: 1;
   content: "";
   border: 1px solid rgba(255,255,255,0.24);
   border-radius: 50%;
 }
 
 .city-visual::before {
-  width: 220px;
-  height: 220px;
-  top: -105px;
-  right: -65px;
-  box-shadow: 0 0 0 25px rgba(255,255,255,0.035), 0 0 0 50px rgba(255,255,255,0.025);
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(180deg, rgba(10,37,36,0.4), rgba(10,37,36,0.18) 42%, rgba(10,37,36,0.82));
 }
 
 .city-visual::after {
@@ -1212,7 +1294,7 @@ main,
 
 .city-coordinate {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -1222,6 +1304,7 @@ main,
   position: absolute;
   right: 18px;
   bottom: -26px;
+  z-index: 2;
   color: rgba(255,255,255,0.17);
   font-family: Georgia, serif;
   font-size: 130px;
@@ -1231,7 +1314,7 @@ main,
 
 .city-heading {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   left: 23px;
   bottom: 23px;
 }
@@ -1619,7 +1702,8 @@ main,
   color: var(--rust);
 }
 
-.site-footer button {
+.site-footer button,
+.site-footer a {
   min-height: 44px;
   border: 0;
   color: var(--ink);
@@ -1627,6 +1711,14 @@ main,
   text-decoration: underline;
   text-underline-offset: 4px;
   cursor: pointer;
+}
+
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px 14px;
 }
 
 dialog {
@@ -2831,6 +2923,28 @@ summary:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.explore-visual .explore-image {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.explore-visual .visual-credit {
+  left: 8px;
+  bottom: 8px;
+  max-width: calc(100% - 16px);
+  min-height: 44px;
+  padding: 7px 9px;
+  font-size: 11px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-image,
+  .city-image,
+  .explore-image {
+    transition: none;
+  }
 }
 
 .explore-monogram {

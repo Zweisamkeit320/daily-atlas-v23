@@ -6,7 +6,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
 
-  const PWA_BOUNDARY = "PWA 安装和 Service Worker 离线缓存需要 HTTPS 或 localhost；file:// 双击模式仍可使用核心页面，但不能注册 Service Worker。远程书封和电影海报不纳入离线缓存。";
+  const PWA_BOUNDARY = "PWA 安装和 Service Worker 离线缓存需要 HTTPS 或 localhost；file:// 双击模式仍可使用核心页面，但不能注册 Service Worker。完整离线包含 200 张同源开放许可城市图；书封和电影海报是远程渐进视觉，不进入完整包，失败时始终回到本地编辑视觉。";
   const state = {
     registration: null,
     installPrompt: null,
@@ -21,7 +21,7 @@
     offlineCachedCount: 0,
     offlineStagedCount: 0,
     offlineLightCachedCount: 0,
-    offlineTotalCount: 500,
+    offlineTotalCount: 700,
     offlineErrorCode: null,
     offlineRequiredBytes: null,
     offlineAvailableBytes: null,
@@ -29,6 +29,9 @@
     offlineContentReady: false,
     offlineContentCachedCount: null,
     offlineContentTotalCount: null,
+    offlineVisualReady: false,
+    offlineVisualCachedCount: null,
+    offlineVisualTotalCount: null,
     packVersions: null
   };
 
@@ -202,6 +205,9 @@
     if (typeof payload.contentReady === "boolean") state.offlineContentReady = payload.contentReady;
     state.offlineContentCachedCount = Number.isSafeInteger(payload.contentCachedCount) && payload.contentCachedCount >= 0 ? payload.contentCachedCount : null;
     state.offlineContentTotalCount = Number.isSafeInteger(payload.contentTotalCount) && payload.contentTotalCount > 0 ? payload.contentTotalCount : null;
+    if (typeof payload.visualReady === "boolean") state.offlineVisualReady = payload.visualReady;
+    state.offlineVisualCachedCount = Number.isSafeInteger(payload.visualCachedCount) && payload.visualCachedCount >= 0 ? payload.visualCachedCount : null;
+    state.offlineVisualTotalCount = Number.isSafeInteger(payload.visualTotalCount) && payload.visualTotalCount > 0 ? payload.visualTotalCount : null;
     if (payload.packVersions && typeof payload.packVersions === "object") {
       state.packVersions = Object.freeze({ ...payload.packVersions });
     }
@@ -226,18 +232,18 @@
   async function sendOfflineMessage(message, options) {
     const support = capability();
     if (!support.supported) {
-      const result = Object.freeze({ ok: false, mode: "light", phase: "unsupported", cachedCount: 0, totalCount: 500, errorCode: support.reason });
+      const result = Object.freeze({ ok: false, mode: "light", phase: "unsupported", cachedCount: 0, totalCount: 700, errorCode: support.reason });
       updateOfflineState(result);
       return result;
     }
     if (typeof root.MessageChannel !== "function") {
-      const result = Object.freeze({ ok: false, mode: "light", phase: "unsupported", cachedCount: 0, totalCount: 500, errorCode: "message-channel-unavailable" });
+      const result = Object.freeze({ ok: false, mode: "light", phase: "unsupported", cachedCount: 0, totalCount: 700, errorCode: "message-channel-unavailable" });
       updateOfflineState(result);
       return result;
     }
     const worker = await activeWorker();
     if (!worker || typeof worker.postMessage !== "function") {
-      const result = Object.freeze({ ok: false, mode: state.offlineMode, phase: "error", cachedCount: state.offlineCachedCount, totalCount: 500, errorCode: "worker-not-active" });
+      const result = Object.freeze({ ok: false, mode: state.offlineMode, phase: "error", cachedCount: state.offlineCachedCount, totalCount: 700, errorCode: "worker-not-active" });
       updateOfflineState(result);
       return result;
     }
@@ -393,6 +399,9 @@
       offlineContentReady: state.offlineContentReady,
       offlineContentCachedCount: state.offlineContentCachedCount,
       offlineContentTotalCount: state.offlineContentTotalCount,
+      offlineVisualReady: state.offlineVisualReady,
+      offlineVisualCachedCount: state.offlineVisualCachedCount,
+      offlineVisualTotalCount: state.offlineVisualTotalCount,
       packVersions: state.packVersions ? Object.freeze({ ...state.packVersions }) : null,
       boundary: PWA_BOUNDARY
     });

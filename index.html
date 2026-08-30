@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f2eee4" />
     <meta name="referrer" content="no-referrer" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://api.open-meteo.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.weserv.nl https://covers.openlibrary.org https://archive.org https://*.us.archive.org https://images.metahub.space; media-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://api.open-meteo.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="description"
@@ -24,6 +24,18 @@
     <div class="compatibility-message" id="compatibilityNotice" role="alert" hidden>
       此浏览器版本过旧，无法安全运行今日万象。请更新到近几年版本的 Edge、Chrome、Safari、Firefox，或使用持续更新的国产 Chromium 浏览器。
     </div>
+
+    <aside class="public-safe-banner" id="publicSafeBanner" aria-label="公开安全素材模式" hidden>
+      <strong>公开安全素材模式</strong>
+      <span>远程书封与电影海报已关闭，书影使用本地程序化视觉。</span>
+      <span class="public-safe-links"><a href="./privacy.html">隐私说明</a><a href="./sources-and-licenses.html">来源与许可</a></span>
+    </aside>
+
+    <aside class="public-safe-banner origin-banner" id="originBanner" aria-label="访问入口说明">
+      <strong>双入口</strong>
+      <span id="originCurrent">当前：正在识别访问入口</span>
+      <span class="public-safe-links"><a id="originAlternate" href="https://zweisamkeit320.github.io/daily-atlas-v23/" target="_blank" rel="noopener noreferrer">打开夸克优先入口</a><a href="./privacy.html#origin-storage">数据为何不互通</a></span>
+    </aside>
 
     <aside class="boot-panel" id="bootPanel" aria-labelledby="bootTitle">
       <span class="boot-spinner" aria-hidden="true"></span>
@@ -212,7 +224,11 @@
 
     <footer class="site-footer">
       <p>今日万象 <span>·</span> 给普通的一天，留五个通向世界的窗口。</p>
-      <button id="dataNoteButton" type="button">数据、选品与使用边界</button>
+      <div class="site-footer-links">
+        <button id="dataNoteButton" type="button">数据、选品与使用边界</button>
+        <a href="./privacy.html">隐私说明</a>
+        <a href="./sources-and-licenses.html">来源与许可</a>
+      </div>
     </footer>
 
     <dialog class="record-dialog" id="recordDialog" aria-labelledby="recordTitle">
@@ -333,7 +349,7 @@
             <label class="select-row" for="motionMode"><span>动画</span><select id="motionMode"><option value="system">跟随系统</option><option value="reduce">减少动画</option></select></label>
           </div>
           <label class="switch-row"><input id="compactModeEnabled" type="checkbox" /> <span><strong>紧凑模式</strong><small>收紧手机卡片和页面间距，内容与操作仍完整保留。</small></span></label>
-          <label class="switch-row"><input id="dataSaverEnabled" type="checkbox" /> <span><strong>数据节省模式</strong><small>不请求远程书封和电影海报，改用本地程序化视觉；医学图仍保留。</small></span></label>
+          <label class="switch-row"><input id="dataSaverEnabled" type="checkbox" /> <span><strong>数据节省模式</strong><small id="dataSaverHelp">日常浏览关闭远程书封、电影海报与城市风貌图，改用本地程序化视觉；医学图仍保留。主动下载完整离线包时仍会核验 200 张同源城市图。</small></span></label>
           <div class="appearance-preview" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <p class="settings-status" id="appearanceStatus" role="status">当前使用原纸米白 · 杂志纸纹。</p>
           <details class="keyboard-help" id="keyboardHelp"><summary>键盘与辅助操作说明</summary><p>使用 Tab／Shift+Tab 移动，Enter 或空格激活按钮，Escape 关闭弹窗。页面顶部的跳过链接可直达今日精选或全库搜索；手机底部导航可快速跳到五张卡片。</p></details>
@@ -380,16 +396,16 @@
             <legend>选择此设备的离线范围</legend>
             <label>
               <input id="offlineLightMode" type="radio" name="offlineMode" value="light" checked />
-              <span><strong>轻量离线</strong><small>默认。保存应用壳、紧凑索引、医学图和已访问内容，安装与更新更快。</small></span>
+              <span><strong>轻量离线</strong><small>默认。保存应用壳、紧凑索引、医学图和已访问内容；已成功访问的图片只作尽力缓存。</small></span>
             </label>
             <label>
               <input id="offlineFullMode" type="radio" name="offlineMode" value="full" />
-              <span><strong>完整离线</strong><small>额外下载 44 个详情分片、搜索索引和 500 条德语朗读，约 15 MB；远程封面仍不缓存。</small></span>
+              <span><strong>完整离线</strong><small>额外下载 44 个详情分片、搜索索引、500 条德语朗读和 200 张城市图，当前约 36 MB；预检会按本版清单显示实际空间，远程书封／海报仍需联网。</small></span>
             </label>
           </fieldset>
-          <p class="boundary-note" id="offlineModeHelp">切换到完整离线后会显示下载进度；下载失败或取消不会破坏已经可用的轻量应用壳。</p>
+          <p class="boundary-note" id="offlineModeHelp">切换到完整离线后会校验并下载 500 条德语朗读、200 张开放许可城市图、完整详情与搜索索引；书封和电影海报仍是在线渐进视觉。下载可暂停续传，失败或取消不会破坏轻量应用壳。</p>
           <div class="offline-progress" id="offlineProgressPanel" hidden>
-            <progress id="offlineProgress" value="0" max="500" aria-label="完整离线包下载进度"></progress>
+            <progress id="offlineProgress" value="0" max="700" aria-label="完整离线媒体包下载进度"></progress>
             <span id="offlineProgressText">准备下载…</span>
             <button class="secondary-button" id="pauseOfflineButton" type="button">暂停</button>
             <button class="secondary-button" id="resumeOfflineButton" type="button" hidden>继续下载</button>
@@ -409,10 +425,11 @@
               <button class="secondary-button danger-button" id="repairCacheButton" type="button">修复应用缓存</button>
               <a class="secondary-button diagnostic-link" href="./diagnostics.html">打开独立诊断页</a>
             </div>
-            <p class="boundary-note">缓存修复只清理今日万象的应用壳、内容、医学图和音频缓存，不删除收藏、偏好、探索记录或备份。持久存储是否授予由浏览器决定。</p>
+            <p class="boundary-note">缓存修复只清理今日万象管理的应用壳、内容、医学图、同源城市图和音频缓存，不删除收藏、偏好、探索记录或备份；浏览器自行管理的远程书封／海报 HTTP 缓存不在此范围。持久存储是否授予由浏览器决定。</p>
           </div>
           <p class="boundary-note">如果没有出现安装按钮：Android 或国产浏览器请在浏览器菜单中寻找“添加到桌面／主屏幕”；iPhone、iPad 请用 Safari 的“分享 → 添加到主屏幕”。浏览器未提供这些入口时，仍可把它当作普通网页使用。</p>
-          <p class="boundary-note">远程封面和海报不进入离线缓存；断网时继续显示文字视觉。豆瓣并列评分需书面许可和稳定接口；云账号同步需后端、冲突合并、隐私与删除机制，因此本版只交付可迁移备份契约。</p>
+          <p class="boundary-note">v2.4 默认按需显示有来源说明的远程书封／电影海报，以及逐项核对开放许可的同源城市图；任一图片失败会自动露出本地编辑视觉。开启数据节省或安全模式后，日常卡片与探索页不会发起这些非必要图片请求；用户明确启动完整离线下载时仍会核验 200 张同源城市图。豆瓣并列评分仍需书面许可和稳定接口。</p>
+          <p class="boundary-note">GitHub Pages 与 Cloudflare Pages 是两个不同 Origin；夸克、vivo 和微信浏览器也各有独立存储。在另一入口或另一浏览器看不到收藏，不表示原数据被删除。迁移时请从原入口导出 JSON，再在新入口预览并选择合并或替换。</p>
         </section>
       </div>
       <div class="dialog-actions one-action">
@@ -490,7 +507,7 @@
         <p>
           轻音乐由浏览器实时合成，不包含外部录音或采样；其中标注为经典改编的曲目只取自公版作品并由本项目重新合成。
           初次打开完全静音，只有点击播放后才会发声；只保存曲目与音量，
-          不保存或上传行为数据。封面与海报是远程图片，加载失败时会显示文字视觉。
+          不保存或上传行为数据。书封、海报和城市图的网络与许可边界见“来源与许可”；数据节省模式会关闭非必要视觉请求。
         </p>
 
         <div class="source-links">
@@ -524,6 +541,7 @@
       <div class="noscript-message">请启用 JavaScript，才能生成每日内容并保存本地记录。</div>
     </noscript>
 
+    <script src="./public-config.js"></script>
     <script src="./runtime-health.js"></script>
     <script src="./bootstrap.js"></script>
   </body>

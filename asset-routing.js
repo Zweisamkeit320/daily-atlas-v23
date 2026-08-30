@@ -11,12 +11,14 @@
   // value explicitly, but a moving branch or tag must never be used here.
   const DEPLOYMENT_REVISION = "e2e784827d55acd1166cda89bac534f4a6782846";
   const CDN_BASE = `https://cdn.jsdelivr.net/gh/Zweisamkeit320/daily-atlas-v23@${DEPLOYMENT_REVISION}/`;
-  const CATALOG_INTEGRITY = "sha384-fRb8oBISwpY/orzj2Sn/DvOY0UbtJ6I3XSoVJXOdfjlmOgaY3rq84gPG9ASyv3TC";
-  const CATALOG_SHA256 = "6DB4A9012947348220A72844814EFFD264DBDB3988AF79485A53ED8EE51A0AFE";
-  const CATALOG_BYTES = 3395269;
+  const CATALOG_INTEGRITY = "sha384-jzNBZQsI/nwEWcA/f1SHldKQRXIFIN7ogDMPPnef7Csw+E6a4nPb6ImtC25m7SR+";
+  const CATALOG_SHA256 = "AA29AA82DA8EC11926DEF2642475CD0FDE0C24817EF573A8422F2A87EAE462EC";
+  const CATALOG_BYTES = 3397181;
   const DEFAULT_TIMEOUT_MS = 15000;
+  const PRIMARY_ROUTE_TIMEOUT_MS = 6500;
+  const FALLBACK_ROUTE_TIMEOUT_MS = 6500;
   const TRANSFER_CACHE_PREFIX = "daily-atlas-transfer-";
-  const ROUTABLE_ASSET = /^(?:catalog\.js|assets\/audio\/german\/de-[a-z0-9-]+\.mp3|catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js|catalog-data\/selection-data\.[a-f0-9]{12}\.json|catalog-data\/details\/(?:book|movie|city|german|medical)-\d{3}\.[a-f0-9]{12}\.js)$/;
+  const ROUTABLE_ASSET = /^(?:assets\/audio\/german\/de-[a-z0-9-]+\.mp3|catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js|catalog-data\/selection-data\.[a-f0-9]{12}\.json|catalog-data\/details\/(?:book|movie|city|german|medical)-\d{3}\.[a-f0-9]{12}\.js)$/;
 
   function deploymentMatches(locationLike) {
     const hostname = String(locationLike?.hostname || "").toLowerCase();
@@ -48,15 +50,15 @@
     const immutableCatalogChunk = /^catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js$|^catalog-data\/selection-data\.[a-f0-9]{12}\.json$|^catalog-data\/details\/(?:book|movie|city|german|medical)-\d{3}\.[a-f0-9]{12}\.js$/.test(path);
     const candidates = deploymentMatches(locationLike)
       ? [
-          Object.freeze({ source: "cdn", url: cdnUrl(path), cache: "force-cache" }),
-          Object.freeze({ source: "same-origin", url: local, cache: immutableCatalogChunk ? "force-cache" : "reload" })
+          Object.freeze({ source: "same-origin", url: local, cache: immutableCatalogChunk ? "force-cache" : "reload" }),
+          Object.freeze({ source: "cdn", url: cdnUrl(path), cache: "force-cache" })
         ]
       : [Object.freeze({ source: "same-origin", url: local, cache: immutableCatalogChunk ? "force-cache" : "reload" })];
     return Object.freeze(candidates);
   }
 
   function catalogUrl(locationLike, serviceWorkerControlled) {
-    return deploymentMatches(locationLike) && !serviceWorkerControlled ? cdnUrl("catalog.js") : "./catalog.js";
+    return "./catalog.js";
   }
 
   function networkUrl(value, locationLike) {
@@ -153,7 +155,11 @@
     let finalCode = "NETWORK";
     for (const candidate of candidates) {
       try {
-        const result = await fetchAttempt(candidate, settings);
+        const requestedTimeout = Math.max(1, Number(settings.timeoutMs) || DEFAULT_TIMEOUT_MS);
+        const routeTimeout = candidates.length > 1
+          ? Math.min(requestedTimeout, candidate.source === "same-origin" ? PRIMARY_ROUTE_TIMEOUT_MS : FALLBACK_ROUTE_TIMEOUT_MS)
+          : requestedTimeout;
+        const result = await fetchAttempt(candidate, { ...settings, timeoutMs: routeTimeout });
         return Object.freeze({ ...result, attempts: Object.freeze([...attempts]) });
       } catch (error) {
         if (error?.code === "CANCELLED") throw error;
@@ -255,7 +261,9 @@
     }
     const routed = candidateUrls(path, locationLike);
     const controlled = Boolean(root.navigator?.serviceWorker?.controller);
-    const candidates = controlled && routed.length > 1 ? Object.freeze([routed[1]]) : routed;
+    const candidates = controlled && routed.length > 1
+      ? Object.freeze(routed.filter((candidate) => candidate.source === "same-origin"))
+      : routed;
     return Object.freeze({
       path,
       url: candidates[0].url,
@@ -272,9 +280,11 @@
     CATALOG_SHA256,
     CDN_BASE,
     DEFAULT_TIMEOUT_MS,
+    FALLBACK_ROUTE_TIMEOUT_MS,
     DEPLOYMENT_HOST,
     DEPLOYMENT_PATH,
     DEPLOYMENT_REVISION,
+    PRIMARY_ROUTE_TIMEOUT_MS,
     TRANSFER_CACHE_PREFIX,
     assetResolver,
     catalogAssetRequest,

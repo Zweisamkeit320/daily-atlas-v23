@@ -237,11 +237,13 @@
     const foundationPaths = ["./state.js", "./profile.js", "./lock.js", "./backup-crypto.js"];
     const featurePaths = [
       "./backup.js", "./appearance.js", "./explore.js", "./weekly.js", "./music.js", "./speech.js",
-      "./city-live.js", "./reminders.js", ...(root.DAILY_ATLAS_SAFE_MODE ? [] : ["./pwa.js"])
+      "./city-live.js", "./reminders.js", "./visuals.js",
+      ...(root.DAILY_ATLAS_SAFE_MODE ? [] : ["./pwa.js"])
     ];
     try {
       await Promise.all(foundationPaths.map((path) => loadScript(path)));
       await Promise.all(featurePaths.map((path) => loadScript(path)));
+      await loadScript("./assets/visuals/cities/manifest.js").catch(() => null);
     }
     catch (error) { showFailure(error.code || "MODULE_LOAD_FAILED", "一个页面模块未能在 12 秒内加载。今日数据没有被修改，可以直接重试。" ); return; }
 

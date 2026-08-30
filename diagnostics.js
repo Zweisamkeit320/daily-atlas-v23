@@ -3,6 +3,45 @@
 
   const Health = globalThis.DailyAtlasRuntimeHealth;
   const APP_VERSION = document.querySelector('meta[name="daily-atlas-version"]')?.content || "unknown";
+  const REQUIRED_CONFIG_BOOLEANS = Object.freeze([
+    "publicReleaseMode", "publicSafeMode", "remoteBookMovieImages", "localCityImages"
+  ]);
+  const EXTERNAL_IMAGE_TARGETS = Object.freeze([
+    Object.freeze({
+      label: "images.weserv.nl 图片代理",
+      host: "images.weserv.nl",
+      url: "https://images.weserv.nl/?url=https%3A%2F%2Fcovers.openlibrary.org%2Fb%2Fid%2F10521439-M.jpg%3Fdefault%3Dfalse&w=64&h=96&fit=cover&output=webp"
+    }),
+    Object.freeze({
+      label: "Open Library 书封",
+      host: "covers.openlibrary.org",
+      url: "https://covers.openlibrary.org/b/id/10521439-S.jpg?default=false"
+    }),
+    Object.freeze({
+      label: "MetaHub 电影海报",
+      host: "images.metahub.space",
+      url: "https://images.metahub.space/poster/small/tt0086190/img"
+    })
+  ]);
+
+  function validatePublicConfig(candidate) {
+    if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) {
+      return Object.freeze({ ok: false, code: "CONFIG_UNAVAILABLE", value: null });
+    }
+    if (candidate.schemaVersion !== 2) {
+      return Object.freeze({ ok: false, code: "CONFIG_SCHEMA_INVALID", value: null });
+    }
+    if (candidate.appVersion !== APP_VERSION) {
+      return Object.freeze({ ok: false, code: "CONFIG_VERSION_MISMATCH", value: null });
+    }
+    if (REQUIRED_CONFIG_BOOLEANS.some((field) => typeof candidate[field] !== "boolean")) {
+      return Object.freeze({ ok: false, code: "CONFIG_BOOLEAN_INVALID", value: null });
+    }
+    return Object.freeze({ ok: true, code: "OK", value: candidate });
+  }
+
+  const PublicConfigContract = validatePublicConfig(globalThis.DAILY_ATLAS_PUBLIC_CONFIG);
+  const PublicConfig = PublicConfigContract.value;
   const elements = {
     overall: document.querySelector("#overallStatus"),
     overallTitle: document.querySelector("#overallTitle"),
@@ -18,9 +57,12 @@
     copy: document.querySelector("#copyButton"),
     repair: document.querySelector("#repairButton"),
     clearErrors: document.querySelector("#clearErrorsButton"),
+    externalImageTest: document.querySelector("#externalImageTestButton"),
+    externalImageProbes: document.querySelector("#externalImageProbeList"),
     actionStatus: document.querySelector("#actionStatus")
   };
   let lastReport = null;
+  let lastExternalImageReport = null;
 
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -69,6 +111,11 @@
       ["连接", secureTransport ? (protocol === "https:" ? "HTTPS" : "localhost") : protocol.replace(":", "").toUpperCase()],
       ["安全上下文", globalThis.isSecureContext ? "是" : "否"],
       ["网络状态", navigator.onLine ? "浏览器报告在线" : "浏览器报告离线"],
+      ["公开配置", PublicConfigContract.ok ? "已加载并通过契约校验" : `无效／未加载（${PublicConfigContract.code}）`],
+      ["公开测试发布", PublicConfigContract.ok ? (PublicConfig.publicReleaseMode ? "是" : "否") : "未知（按否处理）"],
+      ["显式安全模式", PublicConfigContract.ok ? (PublicConfig.publicSafeMode ? "已启用" : "未启用") : "未知（按启用处理）"],
+      ["远程书封／海报", PublicConfigContract.ok && PublicConfig.remoteBookMovieImages ? "允许" : PublicConfigContract.ok ? "已禁用" : "未知（按禁用处理）"],
+      ["同源城市图", PublicConfigContract.ok && PublicConfig.localCityImages ? "允许" : PublicConfigContract.ok ? "已禁用" : "未知（按禁用处理）"],
       ["Service Worker", registration ? (navigator.serviceWorker.controller ? "已接管" : "已注册，待刷新接管") : "未注册"]
     ];
     elements.environment.innerHTML = dl(rows);
@@ -81,18 +128,58 @@
     catch (_error) { return null; }
   }
 
+  async function probeSameOriginWebp(path) {
+    const started = Date.now();
+    try {
+      const response = await Health.withTimeout(fetch(path, {
+        method: "GET",
+        cache: "no-store",
+        credentials: "same-origin"
+      }), 8000, { label: "diagnostic-city-image" });
+      if (!response.ok) {
+        return { ok: false, code: "HTTP_ERROR", status: response.status, durationMs: Date.now() - started, bytes: null };
+      }
+      const contentType = response.headers.get("content-type") || "";
+      const body = new Uint8Array(await Health.withTimeout(response.arrayBuffer(), 8000, { label: "diagnostic-city-image-body" }));
+      const ascii = (offset) => String.fromCharCode(...body.slice(offset, offset + 4));
+      const valid = /^image\/webp(?:\s*;|$)/i.test(contentType) && body.length >= 12 && ascii(0) === "RIFF" && ascii(8) === "WEBP";
+      return {
+        ok: valid,
+        code: valid ? "OK" : "CITY_IMAGE_INVALID",
+        status: response.status,
+        durationMs: Date.now() - started,
+        bytes: body.length
+      };
+    } catch (error) {
+      return { ok: false, code: error?.code === "TIMEOUT" ? "TIMEOUT" : "NETWORK", status: 0, durationMs: Date.now() - started, bytes: null };
+    }
+  }
+
   async function runProbes() {
     const targets = [
       ["诊断页", "./diagnostics.html"],
       ["应用首页", "./index.html"],
+      ["隐私说明", "./privacy.html"],
+      ["来源与许可", "./sources-and-licenses.html"],
+      ["城市图署名清单", "./city-credits.html"],
+      ["公开配置", "./public-config.js"],
       ["Web App Manifest", "./manifest.webmanifest"],
       ["Service Worker", "./sw.js"],
+      ["视觉回退模块", "./visuals.js"],
+      ["城市开放许可图片清单", "./assets/visuals/cities/manifest.js"],
+      ["同源城市实图（成都）", "./assets/visuals/cities/city-chengdu.webp", "webp"],
       ["分片目录清单", "./catalog-data/manifest.js"],
       ["搜索 Worker", "./search-worker.js"],
       ["医学图清单", "./assets/medical/manifest.json"],
       ["德语音频清单", "./assets/audio/german/manifest.json"]
     ];
-    const results = await Promise.all(targets.map(async ([label, path]) => ({ label, path, ...(await Health.probe(path, { timeoutMs: 8000 })) })));
+    const results = await Promise.all(targets.map(async ([label, path, kind]) => {
+      const probe = kind === "webp" ? await probeSameOriginWebp(path) : await Health.probe(path, { timeoutMs: 8000 });
+      if (label === "公开配置" && probe.ok && !PublicConfigContract.ok) {
+        return { label, path, ...probe, ok: false, code: PublicConfigContract.code };
+      }
+      return { label, path, ...probe };
+    }));
     const Assets = globalThis.DailyAtlasAssets;
     const cdnBase = Assets?.CDN_BASE;
     if (Assets?.deploymentMatches?.(location) && typeof cdnBase === "string" && cdnBase.startsWith("https://")) {
@@ -148,7 +235,9 @@
     ]);
     const errors = renderErrors();
 
-    const criticalFailures = probes.filter((entry) => ["诊断页", "应用首页", "Service Worker", "分片目录清单"].includes(entry.label) && !entry.ok);
+    const criticalLabels = ["诊断页", "应用首页", "公开配置", "Service Worker", "分片目录清单"];
+    if (PublicConfigContract.ok && PublicConfig.localCityImages) criticalLabels.push("同源城市实图（成都）");
+    const criticalFailures = probes.filter((entry) => criticalLabels.includes(entry.label) && !entry.ok);
     const capabilityGaps = capabilities.filter((entry) => !entry.ok);
     const degraded = !environment.secureContext || capabilityGaps.length > 0 || probes.some((entry) => !entry.ok);
     const status = criticalFailures.length ? "fail" : degraded ? "degraded" : "pass";
@@ -163,6 +252,14 @@
     lastReport = Object.freeze({
       checkedAt: new Date().toISOString(),
       appVersion: APP_VERSION,
+      publicConfig: {
+        valid: PublicConfigContract.ok,
+        code: PublicConfigContract.code,
+        publicReleaseMode: PublicConfigContract.ok && PublicConfig.publicReleaseMode === true,
+        publicSafeMode: !PublicConfigContract.ok || PublicConfig.publicSafeMode === true,
+        remoteBookMovieImages: PublicConfigContract.ok && PublicConfig.remoteBookMovieImages === true,
+        localCityImages: PublicConfigContract.ok && PublicConfig.localCityImages === true
+      },
       status,
       environment,
       capabilities,
@@ -170,7 +267,8 @@
       caches: cacheReport,
       probes,
       timing,
-      errors
+      errors,
+      externalImageProbes: lastExternalImageReport
     });
     elements.rerun.disabled = false;
   }
@@ -183,12 +281,21 @@
       `总体状态: ${report.status}`,
       `Origin: ${report.environment.origin}`,
       `安全上下文: ${report.environment.secureContext ? "是" : "否"}`,
+      `公开配置: ${report.publicConfig.valid ? "VALID" : report.publicConfig.code}`,
+      `公开测试发布: ${report.publicConfig.publicReleaseMode ? "是" : "否"}`,
+      `显式安全模式: ${report.publicConfig.publicSafeMode ? "已启用" : "未启用"}`,
+      `远程书封/海报: ${report.publicConfig.remoteBookMovieImages ? "允许" : "已禁用"}`,
+      `同源城市图: ${report.publicConfig.localCityImages ? "允许" : "已禁用"}`,
       `存储: ${Health.humanBytes(report.storage.usage)} / ${Health.humanBytes(report.storage.quota)}`,
       `应用缓存: ${report.caches.caches?.length || 0} 个, ${report.caches.totalEntries || 0} 项`,
       "关键文件:",
       ...report.probes.map((entry) => `- ${entry.label}: ${entry.ok ? `PASS ${entry.durationMs}ms` : entry.code}`),
       "能力:",
       ...report.capabilities.map((entry) => `- ${entry.label}: ${entry.ok ? "PASS" : "UNAVAILABLE"}`),
+      "外部图源（仅在用户点击后检测）:",
+      ...(report.externalImageProbes?.length
+        ? report.externalImageProbes.map((entry) => `- ${entry.label}: ${entry.ok ? `PASS ${entry.durationMs}ms` : entry.code}`)
+        : ["- 未运行（未向第三方发出诊断请求）"]),
       `最近错误码: ${report.errors.length ? report.errors.map((entry) => `${entry.at}/${entry.stage}/${entry.code}`).join(", ") : "无"}`,
       "说明: 此摘要不含收藏、偏好、搜索词、医学关注方向或完整 User-Agent。"
     ];
@@ -223,6 +330,51 @@
     Health?.clearErrors?.();
     renderErrors();
     elements.actionStatus.textContent = "最近错误码记录已清除；收藏、偏好和探索记录未更改。";
+  });
+
+  function probeExternalImage(target, timeoutMs = 10000) {
+    return new Promise((resolve) => {
+      const started = Date.now();
+      const image = new Image();
+      let settled = false;
+      const finish = (ok, code) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        image.onload = null;
+        image.onerror = null;
+        resolve(Object.freeze({
+          label: target.label,
+          host: target.host,
+          ok,
+          code,
+          durationMs: Date.now() - started
+        }));
+      };
+      const timer = setTimeout(() => finish(false, "TIMEOUT"), timeoutMs);
+      image.decoding = "async";
+      image.referrerPolicy = "no-referrer";
+      image.onload = () => finish(image.naturalWidth > 0 && image.naturalHeight > 0, image.naturalWidth > 0 ? "OK" : "EMPTY_IMAGE");
+      image.onerror = () => finish(false, "IMAGE_ERROR");
+      image.src = target.url;
+    });
+  }
+
+  elements.externalImageTest.addEventListener("click", async () => {
+    elements.externalImageTest.disabled = true;
+    elements.externalImageProbes.innerHTML = EXTERNAL_IMAGE_TARGETS.map((target) => `
+      <div class="probe-row"><span>${escapeHtml(target.label)}<br /><small>正在连接 ${escapeHtml(target.host)}…</small></span>${badge(false, true)}</div>
+    `).join("");
+    try {
+      const results = await Promise.all(EXTERNAL_IMAGE_TARGETS.map((target) => probeExternalImage(target)));
+      lastExternalImageReport = Object.freeze(results);
+      elements.externalImageProbes.innerHTML = results.map((result) => `
+        <div class="probe-row"><span>${escapeHtml(result.label)}<br /><small>${escapeHtml(result.ok ? `${result.durationMs} ms` : result.code)}</small></span>${badge(result.ok, false)}</div>
+      `).join("");
+      if (lastReport) lastReport = Object.freeze({ ...lastReport, externalImageProbes: lastExternalImageReport });
+    } finally {
+      elements.externalImageTest.disabled = false;
+    }
   });
 
   void run();
