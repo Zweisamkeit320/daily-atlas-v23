@@ -1522,7 +1522,7 @@
       });
     } catch (error) {
       recoverLocalModel([type], error);
-      outcome = { status: "error" };
+      outcome = { status: "error", code: error?.code || null };
     } finally {
       swapLocked[type] = false;
       renderCard(type, true);
@@ -1531,7 +1531,9 @@
     }
 
     if (outcome?.status === "error") {
-      const message = "这次操作没有成功，原推荐与偏好已保留，请稍后再试。";
+      const message = outcome.code === "WEB_CRYPTO_UNAVAILABLE"
+        ? "当前浏览器无法提供安全随机数，这次换项没有执行；原推荐、偏好和今日跳过记录均已保留。请更新浏览器后重试。"
+        : "这次操作没有成功，原推荐与偏好已保留，请稍后再试。";
       showToast(message, false);
       elements.liveRegion.textContent = message;
       return;
@@ -2078,7 +2080,10 @@
   function renderPwaState(state) {
     if (!state) return;
     elements.installAppButton.hidden = !state.installAvailable;
-    elements.updateAppButton.hidden = !state.updateAvailable;
+    const updateApplying = state.updateApplying === true;
+    elements.updateAppButton.hidden = !state.updateAvailable && !updateApplying;
+    elements.updateAppButton.disabled = updateApplying;
+    elements.updateAppButton.textContent = updateApplying ? "正在切换版本…" : "应用更新并重新载入";
     const supported = state.supported !== false;
     const mode = state.offlineMode === "full" ? "full" : "light";
     const downloading = state.offlinePhase === "downloading";
@@ -2097,7 +2102,9 @@
     elements.offlineProgress.value = Math.max(0, Number(state.offlineStagedCount ?? state.offlineCachedCount) || 0);
     elements.offlineProgressText.textContent = `${elements.offlineProgress.value}/${elements.offlineProgress.max} 条`;
     if (state.registered) {
-      if (state.updateAvailable) {
+      if (updateApplying) {
+        elements.offlineStatus.textContent = "正在切换到已完整缓存的新版本；若浏览器未能及时激活，按钮会自动恢复以便重试。";
+      } else if (state.updateAvailable) {
         elements.offlineStatus.textContent = "新版本轻量应用壳已完整缓存；点击按钮后原子切换并重新载入。";
       } else if (downloading) {
         elements.offlineStatus.textContent = `正在下载完整离线包：${elements.offlineProgress.value}/${elements.offlineProgress.max} 条。轻量应用壳仍可使用。`;
@@ -2950,12 +2957,20 @@
 
   function randomUnit() {
     const cryptoObject = globalThis.crypto;
-    if (cryptoObject && typeof cryptoObject.getRandomValues === "function") {
-      const value = new Uint32Array(1);
-      cryptoObject.getRandomValues(value);
-      return value[0] / 0x100000000;
+    if (!cryptoObject || typeof cryptoObject.getRandomValues !== "function") {
+      const error = new Error("WEB_CRYPTO_UNAVAILABLE");
+      error.code = "WEB_CRYPTO_UNAVAILABLE";
+      throw error;
     }
-    return Math.random();
+    const value = new Uint32Array(1);
+    try {
+      cryptoObject.getRandomValues(value);
+    } catch (_error) {
+      const error = new Error("WEB_CRYPTO_UNAVAILABLE");
+      error.code = "WEB_CRYPTO_UNAVAILABLE";
+      throw error;
+    }
+    return value[0] / 0x100000000;
   }
 
   function bumpRecordVersion(record) {

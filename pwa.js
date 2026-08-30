@@ -11,6 +11,7 @@
     registration: null,
     installPrompt: null,
     updateAvailable: false,
+    updateApplying: false,
     registered: false,
     online: root.navigator?.onLine !== false,
     status: "idle",
@@ -50,6 +51,42 @@
     ]).finally(() => root.clearTimeout(timer));
   }
   const installCallbacks = new Set();
+  const observedRegistrations = new WeakSet();
+  const observedWorkers = new WeakSet();
+  let updateApplyTimer = null;
+  let updateApplyListener = null;
+  let updateApplyWorker = null;
+  let updateApplyReload = false;
+
+  function finishApplyingUpdate(outcome, extra) {
+    if (!state.updateApplying) return false;
+    const serviceWorker = root.navigator?.serviceWorker;
+    const worker = updateApplyWorker;
+    const shouldReload = outcome === "activated" && updateApplyReload;
+    if (updateApplyTimer !== null) root.clearTimeout?.(updateApplyTimer);
+    if (updateApplyListener) serviceWorker?.removeEventListener?.("controllerchange", updateApplyListener);
+    updateApplyTimer = null;
+    updateApplyListener = null;
+    updateApplyWorker = null;
+    updateApplyReload = false;
+    state.updateApplying = false;
+    if (outcome === "activated") {
+      state.updateAvailable = false;
+    } else {
+      state.updateAvailable = Boolean(state.registration?.waiting || worker?.state === "installed");
+      dispatch(outcome === "timeout" ? "update-apply-timeout" : "update-apply-failed", extra);
+    }
+    return shouldReload;
+  }
+
+  function handleAppliedControllerChange() {
+    const shouldReload = finishApplyingUpdate("activated");
+    state.controllerChanged = true;
+    state.updateAvailable = false;
+    dispatch("controller-changed");
+    void getOfflineStatus();
+    if (shouldReload) root.location?.reload?.();
+  }
 
   function capability() {
     const protocol = String(root.location?.protocol || "");
@@ -79,12 +116,7 @@
     });
     root.addEventListener?.("online", () => { state.online = true; dispatch("online"); });
     root.addEventListener?.("offline", () => { state.online = false; dispatch("offline"); });
-    root.navigator?.serviceWorker?.addEventListener?.("controllerchange", () => {
-      state.controllerChanged = true;
-      state.updateAvailable = false;
-      dispatch("controller-changed");
-      void getOfflineStatus();
-    });
+    root.navigator?.serviceWorker?.addEventListener?.("controllerchange", handleAppliedControllerChange);
     if (options?.autoRegister !== false) void register(options).catch(() => {});
     return api;
   }
@@ -121,17 +153,25 @@
   }
 
   function observeRegistration(registration) {
-    registration.addEventListener?.("updatefound", () => {
-      const worker = registration.installing;
-      if (!worker) return;
-      dispatch("update-installing");
-      worker.addEventListener?.("statechange", () => {
-        if (worker.state === "installed" && root.navigator.serviceWorker.controller) {
-          state.updateAvailable = true;
-          dispatch("update-available");
-        }
-      });
-    });
+    if (!registration || observedRegistrations.has(registration)) return;
+    observedRegistrations.add(registration);
+    registration.addEventListener?.("updatefound", () => observeWorker(registration.installing));
+    observeWorker(registration.installing);
+  }
+
+  function observeWorker(worker) {
+    if (!worker || observedWorkers.has(worker)) return;
+    observedWorkers.add(worker);
+    let availableAnnounced = false;
+    const inspect = () => {
+      if (availableAnnounced || worker.state !== "installed" || !root.navigator?.serviceWorker?.controller) return;
+      availableAnnounced = true;
+      state.updateAvailable = true;
+      dispatch("update-available");
+    };
+    dispatch("update-installing");
+    worker.addEventListener?.("statechange", inspect);
+    inspect();
   }
 
   async function checkForUpdate() {
@@ -151,17 +191,27 @@
 
   function applyUpdate(options) {
     const waiting = state.registration?.waiting;
-    if (!waiting) return false;
+    if (!waiting || state.updateApplying) return false;
+    const settings = options || {};
+    const serviceWorker = root.navigator?.serviceWorker;
+    const timeoutMs = Math.max(1, Math.min(60000, Number(settings.timeoutMs) || 15000));
     state.controllerChanged = false;
-    waiting.postMessage({ type: "SKIP_WAITING" });
-    if (options?.reload) {
-      const onChange = () => {
-        root.navigator.serviceWorker.removeEventListener?.("controllerchange", onChange);
-        root.location?.reload?.();
-      };
-      root.navigator.serviceWorker.addEventListener?.("controllerchange", onChange);
-    }
+    state.updateApplying = true;
+    state.updateAvailable = false;
+    updateApplyWorker = waiting;
+    updateApplyReload = Boolean(settings.reload);
+    updateApplyListener = () => handleAppliedControllerChange();
+    serviceWorker?.addEventListener?.("controllerchange", updateApplyListener);
+    updateApplyTimer = root.setTimeout?.(() => {
+      finishApplyingUpdate("timeout", { errorCode: "activation-timeout" });
+    }, timeoutMs) ?? null;
     dispatch("update-requested");
+    try {
+      waiting.postMessage({ type: "SKIP_WAITING" });
+    } catch (error) {
+      finishApplyingUpdate("failed", { error: String(error?.message || error) });
+      return false;
+    }
     return true;
   }
 
@@ -383,6 +433,7 @@
       registered: state.registered,
       controlled: Boolean(root.navigator?.serviceWorker?.controller),
       updateAvailable: state.updateAvailable,
+      updateApplying: state.updateApplying,
       installAvailable: Boolean(state.installPrompt),
       online: state.online,
       status: state.status,

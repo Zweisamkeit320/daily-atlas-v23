@@ -9,7 +9,7 @@
   const DEPLOYMENT_PATH = "/daily-atlas-v23/";
   // A full commit is immutable on the CDN. The release builder may replace this
   // value explicitly, but a moving branch or tag must never be used here.
-  const DEPLOYMENT_REVISION = "eb719cbf3406a0f3097887501cfa5d07c2f4bb19";
+  const DEPLOYMENT_REVISION = "113b69412fb7d9b853f52fd5f0b9bd8764fd311b";
   const CDN_BASE = `https://cdn.jsdelivr.net/gh/Zweisamkeit320/daily-atlas-v23@${DEPLOYMENT_REVISION}/`;
   const CATALOG_INTEGRITY = "sha384-n3Gfd0OiucVV+pFA0m8WGjDm8BfBcLQFGA2NyH0VaNDWAL8bvbNTenYNjKWHUEfE";
   const CATALOG_SHA256 = "6C774131988C8C3DC755C53F5F120062B4799FB33ECBCF7A57943AAC3814389E";

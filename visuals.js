@@ -197,7 +197,7 @@
       if (timer !== null && typeof root.clearTimeout === "function") root.clearTimeout(timer);
       timer = null;
     };
-    const dispose = (abortRequest) => {
+    const dispose = () => {
       if (disposed) return;
       disposed = true;
       clearTimer();
@@ -208,12 +208,11 @@
         image.removeAttribute(BOUND_ATTRIBUTE);
         image.removeAttribute(GENERATION_ATTRIBUTE);
       }
-      if (abortRequest === true) image.removeAttribute?.("src");
     };
     const isActive = () => {
       if (!isCurrent()) return false;
       if (image.isConnected === false) {
-        dispose(false);
+        dispose();
         return false;
       }
       return true;
@@ -251,7 +250,7 @@
       if (credit) credit.hidden = true;
       visual?.classList?.remove("visual-image-loaded");
       visual?.classList?.add("visual-image-failed");
-      dispose(false);
+      dispose();
     }
     binding.dispose = dispose;
 
@@ -273,7 +272,7 @@
     const images = [];
     if (container.matches?.("img[data-visual-candidates]")) images.push(container);
     if (container.querySelectorAll) images.push(...container.querySelectorAll("img[data-visual-candidates]"));
-    for (const image of new Set(images)) imageBindings.get(image)?.dispose?.(true);
+    for (const image of new Set(images)) imageBindings.get(image)?.dispose?.();
   }
 
   return Object.freeze({

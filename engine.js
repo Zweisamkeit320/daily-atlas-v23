@@ -271,6 +271,11 @@
 
   function chooseNext(items, options) {
     const settings = options || {};
+    if (settings.manualShuffle && typeof settings.random !== "function") {
+      const error = new TypeError("MANUAL_RANDOM_REQUIRED");
+      error.code = "MANUAL_RANDOM_REQUIRED";
+      throw error;
+    }
     const dateKey = settings.dateKey || localDateKey();
     const type = settings.type || (items && items[0] && items[0].type) || "book";
     const excluded = new Set(settings.excludedIds || settings.seenIds || []);
@@ -292,11 +297,7 @@
     const window = selectionWindow(candidates, settings);
     let index;
     if (settings.manualShuffle) {
-      if (settings.random !== undefined && typeof settings.random !== "function") {
-        throw new TypeError("random must be a function");
-      }
-      const random = typeof settings.random === "function" ? settings.random : Math.random;
-      const value = Number(random());
+      const value = Number(settings.random());
       if (!Number.isFinite(value) || value < 0 || value >= 1) {
         throw new RangeError("random must return a finite number in [0, 1)");
       }
