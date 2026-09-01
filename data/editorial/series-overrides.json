@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-08-28",
+  "boundary": "Stable-ID manual review for series membership and entry order. A title-number signal may nominate an item for review, but never proves a series relationship by itself.",
+  "items": [
+    {
+      "id": "/works/OL5784621W",
+      "mediaType": "book",
+      "status": "verified-series",
+      "series": "千禧年（Millennium）",
+      "installment": 2,
+      "orderScheme": "original-publication",
+      "standaloneFriendly": false,
+      "prerequisite": "建议先读第1部《龙文身的女孩》；主要人物关系和莎兰德背景由前作建立。",
+      "reviewNote": "作者官网将本书明确列为 Millennium 三部曲第二部。",
+      "evidence": [
+        {
+          "sourceName": "Stieg Larsson official site",
+          "sourceUrl": "https://stieglarsson.com/the-girl-who-played-with-fire/"
+        }
+      ]
+    },
+    {
+      "id": "/works/OL5961772W",
+      "mediaType": "book",
+      "status": "verified-series",
+      "series": "德累斯顿档案（The Dresden Files）",
+      "installment": 7,
+      "orderScheme": "original-publication",
+      "standaloneFriendly": false,
+      "prerequisite": "建议先读前6部，至少了解哈里·德累斯顿的盟友、敌人与持续冲突。",
+      "reviewNote": "冻结标题明确标注 The Dresden Files, Book 7。",
+      "evidence": [
+        {
+          "sourceName": "Open Library Work",
+          "sourceUrl": "https://openlibrary.org/works/OL5961772W"
+        }
+      ]
+    },
+    {
+      "id": "/works/OL16925622W",
+      "mediaType": "book",
+      "status": "verified-series",
+      "series": "The Selection 系列",
+      "installment": 3,
+      "orderScheme": "original-publication",
+      "standaloneFriendly": false,
+      "prerequisite": "建议先读前2部；人物关系、竞选进程与主要选择由前作连续推进。",
+      "reviewNote": "冻结标题明确标注 The Selection #3。",
+      "evidence": [
+        {
+          "sourceName": "Open Library Work",
+          "sourceUrl": "https://openlibrary.org/works/OL16925622W"
+        }
+      ]
+    },
+    {
+      "id": "tt5813916",
+      "mediaType": "movie",
+      "status": "verified-series",
+      "series": "《山》（Dağ）系列",
+      "installment": 2,
+      "orderScheme": "original-release",
+      "standaloneFriendly": false,
+      "prerequisite": "建议先看第1部《山》，以了解人物与行动背景。",
+      "reviewNote": "片名中的 II 是系列第二部标记。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt5813916/"
+        }
+      ]
+    },
+    {
+      "id": "tt2265171",
+      "mediaType": "movie",
+      "status": "verified-series",
+      "series": "《突袭》（The Raid）系列",
+      "installment": 2,
+      "orderScheme": "original-release",
+      "standaloneFriendly": false,
+      "prerequisite": "建议先看第1部《突袭》；本片开场直接承接前作行动结果。",
+      "reviewNote": "片名和稳定 ID 对应 The Raid 系列第二部。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt2265171/"
+        }
+      ]
+    },
+    {
+      "id": "tt10366206",
+      "mediaType": "movie",
+      "status": "verified-series",
+      "series": "《疾速追杀》（John Wick）系列",
+      "installment": 4,
+      "orderScheme": "original-release",
+      "standaloneFriendly": false,
+      "prerequisite": "建议按顺序看完前3部；本片直接承接约翰·威克与高桌会的冲突。",
+      "reviewNote": "Chapter 4 是系列正片第四部。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt10366206/"
+        }
+      ]
+    },
+    {
+      "id": "tt0378194",
+      "mediaType": "movie",
+      "status": "verified-series",
+      "series": "《杀死比尔》（Kill Bill）两卷电影",
+      "installment": 2,
+      "orderScheme": "volume-number",
+      "standaloneFriendly": false,
+      "prerequisite": "须先看《杀死比尔：第一卷》；第二卷直接继续同一复仇叙事。",
+      "reviewNote": "Vol. 2 是两卷结构中的第二卷，不是标题中的普通数字。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt0378194/"
+        }
+      ]
+    },
+    {
+      "id": "tt0096874",
+      "mediaType": "movie",
+      "status": "verified-series",
+      "series": "《回到未来》三部曲",
+      "installment": 2,
+      "orderScheme": "original-release",
+      "standaloneFriendly": false,
+      "prerequisite": "须先看第1部；本片从前作结尾继续，并建立第三部的直接前置。",
+      "reviewNote": "Part II 是三部曲第二部。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt0096874/"
+        }
+      ]
+    },
+    {
+      "id": "tt2488496",
+      "mediaType": "movie",
+      "status": "verified-series",
+      "series": "星球大战：天行者传奇",
+      "installment": 7,
+      "orderScheme": "episode-number",
+      "standaloneFriendly": false,
+      "prerequisite": "至少建议先看原三部曲第4—6集，以理解旧角色、政局和家族关系。",
+      "reviewNote": "Episode VII 是天行者传奇的故事集数，不按本片上映年份重新编号。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt2488496/"
+        }
+      ]
+    },
+    {
+      "id": "tt0099088",
+      "mediaType": "movie",
+      "status": "verified-series",
+      "series": "《回到未来》三部曲",
+      "installment": 3,
+      "orderScheme": "original-release",
+      "standaloneFriendly": false,
+      "prerequisite": "须先看前2部；第三部直接承接第二部结尾的时间线。",
+      "reviewNote": "Part III 是三部曲第三部。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt0099088/"
+        }
+      ]
+    },
+    {
+      "id": "tt1070874",
+      "mediaType": "movie",
+      "status": "verified-non-series",
+      "series": null,
+      "installment": null,
+      "orderScheme": null,
+      "standaloneFriendly": true,
+      "prerequisite": null,
+      "reviewNote": "片名中的 7 指涉受审者人数，不是续作编号。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt1070874/"
+        }
+      ]
+    },
+    {
+      "id": "tt0104797",
+      "mediaType": "movie",
+      "status": "verified-non-series",
+      "series": null,
+      "installment": null,
+      "orderScheme": null,
+      "standaloneFriendly": true,
+      "prerequisite": null,
+      "reviewNote": "X 是人物姓名 Malcolm X 的组成部分，不是罗马数字卷次。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt0104797/"
+        }
+      ]
+    },
+    {
+      "id": "tt0120586",
+      "mediaType": "movie",
+      "status": "verified-non-series",
+      "series": null,
+      "installment": null,
+      "orderScheme": null,
+      "standaloneFriendly": true,
+      "prerequisite": null,
+      "reviewNote": "片名末尾 X 是标题组成部分，没有系列卷次含义。",
+      "evidence": [
+        {
+          "sourceName": "IMDb title page",
+          "sourceUrl": "https://www.imdb.com/title/tt0120586/"
+        }
+      ]
+    }
+  ]
+}

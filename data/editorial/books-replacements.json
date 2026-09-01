@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "genre": "mystery",
+  "items": [
+    {
+      "id": "/works/OL472165W",
+      "titleZh": "悬崖山庄奇案",
+      "summary": "波洛在康沃尔海滨度假时，年轻庄园主尼克接连遭遇汽车刹车失灵、山石坠落与帽沿弹孔；他必须判断这些究竟是巧合，还是有人正把一次次失败包装成意外。",
+      "reason": "克里斯蒂从开篇便把危险摆到明处，谜题转而考验证词、身份与注意盲区；线索可回看，海滨假日的明亮气氛又与持续威胁形成锋利反差。",
+      "audience": "喜欢黄金时代本格、波洛、开放线索与海滨庄园气氛，并希望系列案件可独立阅读的读者",
+      "genreRationale": "Open Library 悬疑主题检索命中；作者版权方官方页明确以波洛保护潜在受害者、追查尚未得逞的谋杀为核心，调查与解谜构成主线。",
+      "series": "赫尔克里·波洛系列",
+      "installment": 7,
+      "standaloneFriendly": true,
+      "prerequisite": null,
+      "contentNotes": "含谋杀未遂、枪击、死亡、药物提及与欺骗；不同中译本的人名译法可能略有差异。",
+      "evidenceNote": "Open Library 冻结悬疑快照 $.docs[50] 记录 /works/OL472165W、4.181818 分、22 人；Agatha Christie 官方作品页确认1932年、波洛与连续遇险谜面：https://www.agathachristie.com/en/stories/peril-at-end-house；人民文学出版社2006年版书目信息支持通行中译名《悬崖山庄奇案》：https://book.douban.com/reading/10185264/",
+      "status": "keep",
+      "recommendedGenre": "mystery"
+    },
+    {
+      "id": "/works/OL3464570W",
+      "titleZh": "Bunnicula（暂无可靠通行中译名）",
+      "summary": "门罗一家从电影院带回一只来历不明的兔子后，家中蔬菜接连变得惨白；爱读恐怖故事的猫切斯特认定新宠是吸血鬼，狗哈罗德则夹在怀疑与同情之间查找证据。",
+      "reason": "儿童谜案把哥特恐怖缩小成宠物之间的观察、误会与证据争论，狗叙述者既温和又受限；它能让年轻读者练习区分事实、推断和先入之见。",
+      "audience": "适合小学中高年级、亲子共读，以及想读轻微惊悚、动物叙事和幽默调查的读者",
+      "genreRationale": "Open Library 悬疑主题检索命中；作者官网将首卷完整题名列为 Bunnicula: A Rabbit-Tale of Mystery，情节也由异常现象、嫌疑判断和证据核查推进，虽兼具幻想与幽默，谜案仍是结构核心。",
+      "series": "Bunnicula 系列",
+      "installment": 1,
+      "standaloneFriendly": true,
+      "prerequisite": null,
+      "contentNotes": "含宠物被怀疑、限制进食和轻微哥特式惊吓；整体为幽默儿童读物，不是写实犯罪故事。",
+      "evidenceNote": "Open Library 冻结悬疑快照 $.docs[56] 记录 /works/OL3464570W、4.1666665 分、24 人；James Howe 官方书目将其列为1979年出版的 Bunnicula: A Rabbit-Tale of Mystery，并置于 Bunnicula 中级读物系列首位：https://www.jameshowe.com/bibliography。本次未核得可靠中文出版题名，故保留原名而不臆译。",
+      "status": "keep",
+      "recommendedGenre": "mystery"
+    }
+  ]
+}

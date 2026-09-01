@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f2eee4" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.weserv.nl https://covers.openlibrary.org https://archive.org https://*.us.archive.org https://images.metahub.space; media-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://api.open-meteo.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="description"
+      content="每天精选一本书、一部电影、一座世界城市、一条德语知识和一则医学科普。"
+    />
+    <title>今日万象｜每日五项精选</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#recommendations">跳到今日精选</a>
+    <a class="skip-link skip-link-explore" href="#explore">跳到全库搜索</a>
+
+    <div class="compatibility-message" id="compatibilityNotice" role="alert" hidden>
+      此浏览器版本过旧，无法安全运行今日万象。请更新到近几年版本的 Edge、Chrome、Safari、Firefox，或使用持续更新的国产 Chromium 浏览器。
+    </div>
+
+    <aside class="public-safe-banner" id="publicSafeBanner" aria-label="公开安全素材模式" hidden>
+      <strong>公开安全素材模式</strong>
+      <span>远程书封与电影海报已关闭，书影使用本地程序化视觉。</span>
+      <span class="public-safe-links"><a href="./privacy.html">隐私说明</a><a href="./sources-and-licenses.html">来源与许可</a></span>
+    </aside>
+
+    <aside class="public-safe-banner origin-banner" id="originBanner" aria-label="访问入口说明">
+      <strong>双入口</strong>
+      <span id="originCurrent">当前：正在识别访问入口</span>
+      <span class="public-safe-links"><a id="originAlternate" href="https://zweisamkeit320.github.io/daily-atlas-v23/" target="_blank" rel="noopener noreferrer">打开夸克优先入口</a><a href="./privacy.html#origin-storage">数据为何不互通</a></span>
+    </aside>
+
+    <aside class="boot-panel" id="bootPanel" aria-labelledby="bootTitle">
+      <span class="boot-spinner" aria-hidden="true"></span>
+      <div class="boot-copy" role="status" aria-live="polite" aria-atomic="true">
+        <strong id="bootTitle">正在准备今日五项</strong>
+        <small id="bootDetail">页面外壳已经显示，正在载入紧凑候选索引。</small>
+        <progress id="bootProgress" max="5" value="0" aria-label="应用加载阶段"></progress>
+      </div>
+      <div class="boot-actions" id="bootActions" hidden>
+        <button id="bootRetryButton" type="button">重试</button>
+        <button id="bootSafeButton" type="button">进入安全模式</button>
+        <a href="./diagnostics.html">打开诊断页</a>
+      </div>
+    </aside>
+
+    <div class="paper-noise" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="今日万象首页">
+        <span class="brand-mark" aria-hidden="true">象</span>
+        <span class="brand-copy">
+          <strong>今日万象</strong>
+          <small>DAILY ATLAS</small>
+        </span>
+      </a>
+
+      <div class="header-actions">
+        <a class="explore-button" id="exploreButton" href="#explore">探索 2,200 项</a>
+        <div class="music-toolbar" aria-label="背景轻音乐控制">
+          <button class="track-step" id="musicPrevious" type="button" aria-label="上一首轻音乐">‹</button>
+          <button class="music-button" id="musicToggle" type="button" aria-pressed="false">
+            <span class="music-icon" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <span class="music-copy">
+              <strong>轻音乐</strong>
+              <small id="musicStatus">点击播放</small>
+            </span>
+          </button>
+          <label class="track-control" for="musicTrack">
+            <span class="sr-only">轻音乐曲目</span>
+            <select id="musicTrack" aria-label="轻音乐曲目"></select>
+          </label>
+          <button class="track-step" id="musicNext" type="button" aria-label="下一首轻音乐">›</button>
+          <label class="volume-control" for="musicVolume">
+            <span>音量</span>
+            <input id="musicVolume" type="range" min="0" max="100" value="18" aria-label="背景轻音乐音量" />
+          </label>
+        </div>
+
+        <button class="settings-button" id="settingsButton" type="button" aria-haspopup="dialog" aria-label="打开偏好、外观与备份设置">
+          <span aria-hidden="true">⚙</span><span>偏好与备份</span>
+        </button>
+
+        <button class="record-button" id="recordButton" type="button" aria-haspopup="dialog" aria-label="打开探索记录，共0项">
+          <span class="record-icon" aria-hidden="true"></span>
+          <span>探索记录</span>
+          <span class="record-count" id="recordCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="appMain" aria-busy="true">
+      <section class="hero" aria-labelledby="pageTitle">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> FIVE WINDOWS · ONE DAY</p>
+          <h1 id="pageTitle">给今天五个入口，<br />让好奇心<span>走得更远。</span></h1>
+          <p class="hero-intro">
+            一页读故事，一幕看世界；再认识一座城市、一句德语和一个真正有用的医学常识。
+            五项精选都留在同一页，也都可以独立换一条。
+          </p>
+        </div>
+
+        <div class="date-stamp" aria-label="今日日期">
+          <span class="date-day" id="dateDay">11</span>
+          <span class="date-detail">
+            <strong id="dateMonth">八月</strong>
+            <small id="dateYearWeek">2026 · 星期二</small>
+          </span>
+        </div>
+      </section>
+
+      <section class="recommendation-section" id="recommendations" aria-labelledby="recommendationTitle">
+        <aside class="theme-banner" id="themeBanner" aria-labelledby="themeLabel">
+          <span class="theme-index" aria-hidden="true">THEME</span>
+          <div>
+            <strong id="themeLabel">今日主题</strong>
+            <p id="themeSummary"></p>
+          </div>
+          <span class="theme-mode" id="themeMode">编辑联动</span>
+        </aside>
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">TODAY'S FIVE</p>
+            <h2 id="recommendationTitle">今日五项精选</h2>
+          </div>
+          <p class="section-note">
+            <span aria-hidden="true">↗</span>
+            “换一个”只影响今天；标记为已了解后才会长期避开
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <article class="recommendation-card media-card" id="bookCard" aria-label="今日图书推荐" aria-busy="true"></article>
+          <article class="recommendation-card media-card" id="movieCard" aria-label="今日电影推荐" aria-busy="true"></article>
+        </div>
+
+        <div class="discovery-grid">
+          <article class="recommendation-card city-card" id="cityCard" aria-label="今日世界城市推荐" aria-busy="true"></article>
+          <article class="recommendation-card german-card" id="germanCard" aria-label="今日德语知识" aria-busy="true"></article>
+          <article class="recommendation-card medical-card" id="medicalCard" aria-label="今日医学科普" aria-busy="true"></article>
+        </div>
+      </section>
+
+      <section class="explore-section" id="explore" aria-labelledby="exploreTitle">
+        <div class="section-heading explore-heading">
+          <div>
+            <p class="section-kicker">EXPLORE THE LIBRARY</p>
+            <h2 id="exploreTitle">探索全部 2,200 条内容</h2>
+          </div>
+          <p class="section-note">500 本图书 · 500 部电影 · 200 座城市 · 500 条德语 · 500 条医学科普</p>
+        </div>
+        <form class="explore-form" id="exploreForm" role="search">
+          <label class="explore-search" for="exploreQuery"><span>搜索标题、人物、城市、德语或医学主题</span><input id="exploreQuery" type="search" autocomplete="off" enterkeyhint="search" placeholder="例如：记忆、Berlin、Schlaf、心血管" /></label>
+          <label for="exploreType"><span>内容类型</span><select id="exploreType"><option value="all">全部类型</option><option value="book">图书</option><option value="movie">电影</option><option value="city">城市</option><option value="german">德语</option><option value="medical">医学</option></select></label>
+          <label for="exploreGenre"><span>书影题材</span><select id="exploreGenre"><option value="">全部题材</option><option value="history">历史</option><option value="mystery">悬疑</option><option value="scifi">科幻</option></select></label>
+          <label for="exploreEra"><span>书影年代</span><select id="exploreEra"><option value="">全部年代</option><option value="early">1980 年以前</option><option value="modern">1980–2009</option><option value="recent">2010 年至今</option><option value="unknown">年份待核</option></select></label>
+          <label for="exploreRegion"><span>城市地区</span><select id="exploreRegion"><option value="">全部地区</option></select></label>
+          <label for="exploreRating"><span>书影评分</span><select id="exploreRating"><option value="">不限评分</option><option value="0.8">满分比例 80% 以上</option><option value="0.85">满分比例 85% 以上</option><option value="0.9">满分比例 90% 以上</option></select></label>
+          <label for="exploreGermanLevel"><span>德语等级</span><select id="exploreGermanLevel"><option value="">全部等级</option><option value="A1">A1</option><option value="A2">A2</option><option value="B1">B1</option><option value="B2">B2</option></select></label>
+          <label for="exploreMedicalTopic"><span>医学主题</span><select id="exploreMedicalTopic"><option value="">全部主题</option></select></label>
+          <label for="exploreSort"><span>排序</span><select id="exploreSort"><option value="relevance">相关度</option><option value="rating">评分比例</option><option value="year">年份</option><option value="title">标题</option></select></label>
+          <button class="secondary-button explore-reset" id="exploreReset" type="reset">清除筛选</button>
+        </form>
+        <p class="explore-status" id="exploreStatus" role="status" aria-live="polite">向下浏览或使用筛选，开始探索完整内容库。</p>
+        <div class="explore-results" id="exploreResults" aria-labelledby="exploreStatus" aria-busy="false"></div>
+        <nav class="explore-pagination" id="explorePagination" aria-label="全库搜索结果分页" hidden>
+          <button class="secondary-button" id="explorePrevious" type="button">上一页</button>
+          <span id="explorePageStatus">第 1 / 1 页</span>
+          <button class="secondary-button" id="exploreNext" type="button">下一页</button>
+        </nav>
+      </section>
+
+      <section class="how-it-works" aria-labelledby="howTitle">
+        <div class="how-intro">
+          <p class="section-kicker">A SMALL DAILY RITUAL</p>
+          <h2 id="howTitle">五分钟，<br />把视野推远一点。</h2>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <span>01</span>
+            <div>
+              <strong>每天稳定生成</strong>
+              <p>按本地日期生成五项内容，当天刷新或重新打开仍保持当前选择。</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <strong>更换与掌握分开</strong>
+              <p>想换口味只在今天跳过；确实读过、看过或掌握，才进入长期记录。</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <strong>数据留在本机</strong>
+              <p>推荐进度、收藏、偏好、页面背景与音频设置只保存在当前浏览器，不会上报。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <aside class="medical-boundary" aria-label="医学内容边界">
+        <strong>医学内容边界</strong>
+        <p>医学卡片用于一般科普与生活决策提示，不代替医生诊断、急救服务或个体化治疗。出现卡片列出的警示症状时，应及时联系当地急救或医疗机构。</p>
+      </aside>
+
+      <p class="storage-warning" id="storageWarning" role="status" hidden>
+        浏览器阻止了本地存储：功能仍可使用，但关闭页面后今日内容和记录不会保留。
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <p>今日万象 <span>·</span> 给普通的一天，留五个通向世界的窗口。</p>
+      <div class="site-footer-links">
+        <button id="dataNoteButton" type="button">数据、选品与使用边界</button>
+        <a href="./privacy.html">隐私说明</a>
+        <a href="./sources-and-licenses.html">来源与许可</a>
+      </div>
+    </footer>
+
+    <dialog class="record-dialog" id="recordDialog" aria-labelledby="recordTitle">
+      <div class="dialog-header">
+        <div>
+          <p class="section-kicker">YOUR TRAIL</p>
+          <h2 id="recordTitle">探索记录</h2>
+        </div>
+        <button class="icon-button" id="closeRecordButton" type="button" aria-label="关闭探索记录">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <p class="dialog-description">这里只记录你主动标记为读过、看过、去过或已掌握的项目；单纯“换一个”不会写入长期记录。</p>
+      <section class="weekly-report" id="weeklyReport" aria-labelledby="weeklyTitle">
+        <div class="weekly-heading"><div><p class="section-kicker">YOUR WEEK</p><h3 id="weeklyTitle">本周回顾</h3></div><span id="weeklyRange"></span></div>
+        <div class="weekly-summary" id="weeklySummary"></div>
+        <div class="weekly-breakdown" id="weeklyBreakdown"></div>
+        <p class="boundary-note" id="weeklyPrivacyNote">仅依据本机数据生成，不上传个人画像。</p>
+      </section>
+      <div class="record-summary" id="recordSummary"></div>
+      <div class="record-list" id="recordList" tabindex="-1"></div>
+      <div class="dialog-actions">
+        <button class="secondary-button danger-button" id="resetRecordButton" type="button">清空全部记录</button>
+        <button class="primary-button compact-button" id="doneRecordButton" type="button">完成</button>
+      </div>
+    </dialog>
+
+    <dialog class="settings-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
+      <div class="dialog-header">
+        <div>
+          <p class="section-kicker">PREFERENCES &amp; PORTABILITY</p>
+          <h2 id="settingsTitle">偏好、外观、朗读与备份</h2>
+        </div>
+        <button class="icon-button" id="closeSettingsButton" type="button" aria-label="关闭偏好设置">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="settings-copy">
+        <section class="settings-section" aria-labelledby="personalizationTitle">
+          <h3 id="personalizationTitle">个性化边界</h3>
+          <label class="switch-row"><input id="personalizationEnabled" type="checkbox" /> <span><strong>启用软偏好排序</strong><small>只在编辑合格池内调整；每四天保留一天广度探索。</small></span></label>
+          <label class="switch-row"><input id="themeLinkingEnabled" type="checkbox" /> <span><strong>启用每日主题联动</strong><small>优先让五张卡围绕同一主题，候选不足时诚实回退。</small></span></label>
+          <div class="preference-grid">
+            <fieldset>
+              <legend>图书题材</legend>
+              <label><input type="checkbox" data-pref-type="book" data-pref-field="genres" value="history" />历史</label>
+              <label><input type="checkbox" data-pref-type="book" data-pref-field="genres" value="mystery" />悬疑</label>
+              <label><input type="checkbox" data-pref-type="book" data-pref-field="genres" value="scifi" />科幻</label>
+            </fieldset>
+            <fieldset>
+              <legend>电影题材</legend>
+              <label><input type="checkbox" data-pref-type="movie" data-pref-field="genres" value="history" />历史</label>
+              <label><input type="checkbox" data-pref-type="movie" data-pref-field="genres" value="mystery" />悬疑</label>
+              <label><input type="checkbox" data-pref-type="movie" data-pref-field="genres" value="scifi" />科幻</label>
+            </fieldset>
+            <fieldset>
+              <legend>年代偏好（书影共用）</legend>
+              <label><input type="checkbox" data-pref-both="eras" value="early" />1980 年以前</label>
+              <label><input type="checkbox" data-pref-both="eras" value="modern" />1980–2009</label>
+              <label><input type="checkbox" data-pref-both="eras" value="recent" />2010 年至今</label>
+            </fieldset>
+            <fieldset>
+              <legend>热度偏好（书影共用）</legend>
+              <label><input type="checkbox" data-pref-both="popularity" value="classic" />高热度经典</label>
+              <label><input type="checkbox" data-pref-both="popularity" value="mid" />中等热度</label>
+              <label><input type="checkbox" data-pref-both="popularity" value="underseen" />相对少评</label>
+            </fieldset>
+            <fieldset>
+              <legend>德语难度</legend>
+              <label><input type="checkbox" data-pref-type="german" data-pref-field="levels" value="A1" />A1</label>
+              <label><input type="checkbox" data-pref-type="german" data-pref-field="levels" value="A2" />A2</label>
+              <label><input type="checkbox" data-pref-type="german" data-pref-field="levels" value="B1" />B1</label>
+              <label><input type="checkbox" data-pref-type="german" data-pref-field="levels" value="B2" />B2</label>
+            </fieldset>
+            <fieldset>
+              <legend>城市地区</legend>
+              <label><input type="checkbox" data-pref-type="city" data-pref-field="regions" value="亚洲" />亚洲</label>
+              <label><input type="checkbox" data-pref-type="city" data-pref-field="regions" value="欧洲" />欧洲</label>
+              <label><input type="checkbox" data-pref-type="city" data-pref-field="regions" value="非洲" />非洲</label>
+              <label><input type="checkbox" data-pref-type="city" data-pref-field="regions" value="北美洲" />北美洲</label>
+              <label><input type="checkbox" data-pref-type="city" data-pref-field="regions" value="南美洲" />南美洲</label>
+              <label><input type="checkbox" data-pref-type="city" data-pref-field="regions" value="大洋洲" />大洋洲</label>
+            </fieldset>
+          </div>
+          <fieldset class="medical-preferences">
+            <legend>医学关注主题（仅改变科普选题，不推断诊断）</legend>
+            <div id="medicalPreferenceOptions"></div>
+          </fieldset>
+          <button class="secondary-button" id="resetPreferencesButton" type="button">重置偏好与“不适合我”</button>
+        </section>
+
+        <section class="settings-section" aria-labelledby="appearanceTitle">
+          <h3 id="appearanceTitle">显示、流量与可访问性</h3>
+          <p>背景、紧凑布局、省流和阅读辅助设置只保存在当前浏览器，并随 JSON 备份迁移。</p>
+          <div class="appearance-controls">
+            <label class="select-row" for="backgroundColor">
+              <span>背景颜色</span>
+              <select id="backgroundColor">
+                <option value="paper">原纸米白</option>
+                <option value="sage">鼠尾草绿</option>
+                <option value="sky">薄雾天青</option>
+                <option value="peach">柔杏暖橙</option>
+                <option value="lavender">浅雾丁香</option>
+                <option value="sand">日光沙金</option>
+              </select>
+            </label>
+            <label class="select-row" for="backgroundStyle">
+              <span>背景样式</span>
+              <select id="backgroundStyle">
+                <option value="editorial">杂志纸纹</option>
+                <option value="clean">纯净留白</option>
+                <option value="botanical">植物光影</option>
+                <option value="aurora">柔和极光</option>
+              </select>
+            </label>
+            <label class="select-row" for="textSize"><span>文字大小</span><select id="textSize"><option value="default">标准</option><option value="large">大字号</option></select></label>
+            <label class="select-row" for="contrastMode"><span>对比度</span><select id="contrastMode"><option value="default">标准</option><option value="high">增强对比</option></select></label>
+            <label class="select-row" for="motionMode"><span>动画</span><select id="motionMode"><option value="system">跟随系统</option><option value="reduce">减少动画</option></select></label>
+          </div>
+          <label class="switch-row"><input id="compactModeEnabled" type="checkbox" /> <span><strong>紧凑模式</strong><small>收紧手机卡片和页面间距，内容与操作仍完整保留。</small></span></label>
+          <label class="switch-row"><input id="dataSaverEnabled" type="checkbox" /> <span><strong>数据节省模式</strong><small id="dataSaverHelp">日常浏览关闭远程书封、电影海报与城市风貌图，改用本地程序化视觉；医学图仍保留。主动下载完整离线包时仍会核验 200 张同源城市图。</small></span></label>
+          <div class="appearance-preview" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <p class="settings-status" id="appearanceStatus" role="status">当前使用原纸米白 · 杂志纸纹。</p>
+          <details class="keyboard-help" id="keyboardHelp"><summary>键盘与辅助操作说明</summary><p>使用 Tab／Shift+Tab 移动，Enter 或空格激活按钮，Escape 关闭弹窗。页面顶部的跳过链接可直达今日精选或全库搜索；手机底部导航可快速跳到五张卡片。</p></details>
+        </section>
+
+        <section class="settings-section" aria-labelledby="audioSettingsTitle">
+          <h3 id="audioSettingsTitle">德语朗读与轻音乐</h3>
+          <label class="select-row" for="musicTrackSettings"><span>背景轻音乐曲目</span><select id="musicTrackSettings" aria-label="在设置中选择背景轻音乐"></select></label>
+          <label class="select-row" for="speechVoiceSelect"><span>后备设备德语音色</span><select id="speechVoiceSelect"><option value="">正在读取设备音色…</option></select></label>
+          <p class="boundary-note" id="speechBoundary">每天的例句默认播放随包固定德语合成女声。设备语音仅在固定音频不可用时后备使用；浏览器接口没有可靠性别字段，因此后备音色不承诺性别。</p>
+          <p class="boundary-note">100 首背景音乐由浏览器实时合成，包括原创轻音乐与公版古典作品的重新编配，不含商业录音；刷新后保留曲目和音量，但不会自动播放。</p>
+        </section>
+
+        <section class="settings-section" aria-labelledby="backupTitle">
+          <h3 id="backupTitle">导入、导出与迁移</h3>
+          <p>备份只包含探索记录、收藏、偏好、当天状态、页面背景、音频设置和提醒设置；不包含天气缓存、远程图片或浏览器通知权限。</p>
+          <label class="switch-row"><input id="encryptBackupEnabled" type="checkbox" /> <span><strong>使用本地密码加密导出</strong><small>可选。密码不会保存或上传；遗忘后无法恢复该加密备份。</small></span></label>
+          <div class="backup-password-fields" id="exportPasswordFields" hidden>
+            <label for="exportBackupPassword"><span>备份密码</span><input id="exportBackupPassword" type="password" autocomplete="new-password" spellcheck="false" maxlength="256" /></label>
+            <label for="exportBackupPasswordConfirm"><span>再次输入</span><input id="exportBackupPasswordConfirm" type="password" autocomplete="new-password" spellcheck="false" maxlength="256" /></label>
+          </div>
+          <div class="settings-actions">
+            <button class="primary-button compact-button" id="exportBackupButton" type="button">导出 JSON 备份</button>
+            <button class="secondary-button" id="importBackupButton" type="button">选择要恢复的备份</button>
+            <input id="importBackupFile" type="file" accept="application/json,.json" hidden tabindex="-1" aria-hidden="true" />
+          </div>
+          <p class="settings-status" id="backupStatus" role="status"></p>
+        </section>
+
+        <section class="settings-section" aria-labelledby="reminderTitle">
+          <h3 id="reminderTitle">每日提醒</h3>
+          <label class="select-row" for="reminderTime"><span>本地时间</span><input id="reminderTime" type="time" value="08:30" /></label>
+          <div class="settings-actions">
+            <button class="primary-button compact-button" id="enableReminderButton" type="button">启用运行中提醒</button>
+            <button class="secondary-button" id="disableReminderButton" type="button">关闭提醒</button>
+            <button class="secondary-button" id="calendarReminderButton" type="button">导出每日 ICS</button>
+          </div>
+          <p class="boundary-note" id="reminderStatus">网页关闭后不能保证准点唤醒；ICS 可交给系统日历负责长期调度。</p>
+        </section>
+
+        <section class="settings-section" aria-labelledby="offlineTitle">
+          <h3 id="offlineTitle">离线包与 PWA</h3>
+          <fieldset class="offline-mode-choices" aria-describedby="offlineModeHelp offlineStatus">
+            <legend>选择此设备的离线范围</legend>
+            <label>
+              <input id="offlineLightMode" type="radio" name="offlineMode" value="light" checked />
+              <span><strong>轻量离线</strong><small>默认。保存应用壳、紧凑索引、医学图和已访问内容；已成功访问的图片只作尽力缓存。</small></span>
+            </label>
+            <label>
+              <input id="offlineFullMode" type="radio" name="offlineMode" value="full" />
+              <span><strong>完整离线</strong><small>额外下载 44 个详情分片、搜索索引、500 条德语朗读和 200 张城市图，当前约 36 MB；预检会按本版清单显示实际空间，远程书封／海报仍需联网。</small></span>
+            </label>
+          </fieldset>
+          <p class="boundary-note" id="offlineModeHelp">切换到完整离线后会校验并下载 500 条德语朗读、200 张开放许可城市图、完整详情与搜索索引；书封和电影海报仍是在线渐进视觉。下载可暂停续传，失败或取消不会破坏轻量应用壳。</p>
+          <div class="offline-progress" id="offlineProgressPanel" hidden>
+            <progress id="offlineProgress" value="0" max="700" aria-label="完整离线媒体包下载进度"></progress>
+            <span id="offlineProgressText">准备下载…</span>
+            <button class="secondary-button" id="pauseOfflineButton" type="button">暂停</button>
+            <button class="secondary-button" id="resumeOfflineButton" type="button" hidden>继续下载</button>
+            <button class="secondary-button" id="cancelOfflineButton" type="button">取消下载</button>
+          </div>
+          <div class="settings-actions">
+            <button class="secondary-button" id="installAppButton" type="button" hidden>安装到设备</button>
+            <button class="primary-button compact-button" id="updateAppButton" type="button" hidden>应用更新并重新载入</button>
+            <span class="settings-status" id="offlineStatus" role="status">通过 HTTPS 或 localhost 打开后可启用离线应用。</span>
+          </div>
+          <div class="storage-preflight" aria-labelledby="storagePreflightTitle">
+            <h4 id="storagePreflightTitle">设备存储预检与缓存修复</h4>
+            <p class="settings-status" id="storagePreflightStatus" role="status" aria-live="polite">尚未检查此设备的站点存储配额。</p>
+            <div class="settings-actions">
+              <button class="secondary-button" id="checkStorageButton" type="button">检查空间</button>
+              <button class="secondary-button" id="persistStorageButton" type="button">请求持久存储</button>
+              <button class="secondary-button danger-button" id="repairCacheButton" type="button">修复应用缓存</button>
+              <a class="secondary-button diagnostic-link" href="./diagnostics.html">打开独立诊断页</a>
+            </div>
+            <p class="boundary-note">缓存修复只清理今日万象管理的应用壳、内容、医学图、同源城市图和音频缓存，不删除收藏、偏好、探索记录或备份；浏览器自行管理的远程书封／海报 HTTP 缓存不在此范围。持久存储是否授予由浏览器决定。</p>
+          </div>
+          <p class="boundary-note">如果没有出现安装按钮：Android 或国产浏览器请在浏览器菜单中寻找“添加到桌面／主屏幕”；iPhone、iPad 请用 Safari 的“分享 → 添加到主屏幕”。浏览器未提供这些入口时，仍可把它当作普通网页使用。</p>
+          <p class="boundary-note">v2.4 默认按需显示有来源说明的远程书封／电影海报，以及逐项核对开放许可的同源城市图；任一图片失败会自动露出本地编辑视觉。开启数据节省或安全模式后，日常卡片与探索页不会发起这些非必要图片请求；用户明确启动完整离线下载时仍会核验 200 张同源城市图。豆瓣并列评分仍需书面许可和稳定接口。</p>
+          <p class="boundary-note">GitHub Pages 与 Cloudflare Pages 是两个不同 Origin；夸克、vivo 和微信浏览器也各有独立存储。在另一入口或另一浏览器看不到收藏，不表示原数据被删除。迁移时请从原入口导出 JSON，再在新入口预览并选择合并或替换。</p>
+        </section>
+      </div>
+      <div class="dialog-actions one-action">
+        <button class="primary-button compact-button" id="doneSettingsButton" type="button">完成</button>
+      </div>
+    </dialog>
+
+    <dialog class="backup-preview-dialog" id="backupPreviewDialog" aria-labelledby="backupPreviewTitle">
+      <div class="dialog-header">
+        <div>
+          <p class="section-kicker">LOCAL RESTORE</p>
+          <h2 id="backupPreviewTitle">恢复备份</h2>
+        </div>
+        <button class="icon-button" id="closeBackupPreviewButton" type="button" aria-label="取消恢复备份"><span aria-hidden="true">×</span></button>
+      </div>
+      <p class="dialog-description" id="backupPreviewDescription">先核对变化，再决定合并或替换。本页不会上传备份或密码。</p>
+      <section class="backup-unlock" id="backupUnlockPanel" aria-labelledby="backupUnlockTitle" hidden>
+        <h3 id="backupUnlockTitle">此备份已加密</h3>
+        <label for="importBackupPassword"><span>输入备份密码</span><input id="importBackupPassword" type="password" autocomplete="current-password" spellcheck="false" maxlength="256" /></label>
+        <button class="primary-button compact-button" id="unlockBackupButton" type="button">在本机解锁并预览</button>
+      </section>
+      <section class="backup-preview-copy" id="backupPreviewPanel" hidden>
+        <fieldset class="backup-mode-choices" aria-describedby="backupModeHelp backupPreviewStatus">
+          <legend>恢复方式</legend>
+          <label><input id="backupMergeMode" type="radio" name="backupImportMode" value="merge" checked /><span><strong>合并（推荐）</strong><small>保留本机当前项目和设备设置，合并长期记录、收藏与逐项偏好。</small></span></label>
+          <label><input id="backupReplaceMode" type="radio" name="backupImportMode" value="replace" /><span><strong>替换</strong><small>以备份为准；备份中缺少的探索状态和设置会从本机删除。</small></span></label>
+        </fieldset>
+        <p class="boundary-note" id="backupModeHelp">确认前如检测到其他标签页修改了数据，应用会刷新预览并要求再次确认。</p>
+        <div class="backup-diff-summary" id="backupDiffSummary"></div>
+        <details class="backup-diff-details"><summary>查看五类内容与设置的详细变化</summary><div id="backupDiffDetails"></div></details>
+        <p class="boundary-note" id="backupImportWarnings" hidden></p>
+      </section>
+      <p class="settings-status" id="backupPreviewStatus" role="status" aria-live="polite"></p>
+      <div class="dialog-actions">
+        <button class="secondary-button" id="cancelBackupPreviewButton" type="button">取消</button>
+        <button class="primary-button compact-button" id="applyBackupButton" type="button" hidden>确认合并</button>
+      </div>
+    </dialog>
+
+    <dialog class="data-dialog" id="dataDialog" aria-labelledby="dataTitle">
+      <div class="dialog-header">
+        <div>
+          <p class="section-kicker">DATA &amp; BOUNDARIES</p>
+          <h2 id="dataTitle">数据、选品与使用边界</h2>
+        </div>
+        <button class="icon-button" id="closeDataButton" type="button" aria-label="关闭数据说明">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="data-copy">
+        <h3>书与电影怎样入选</h3>
+        <p>
+          题材覆盖历史、悬疑与科幻。评分只是底线，不是“作品价值”的自动排名：候选池同时保留大众经典、
+          中等知名度作品和相对少被讨论但评价样本足够的作品，并逐条写明思想、叙事或形式上的推荐理由。
+        </p>
+        <p>
+          图书参考 Open Library 的评分与书目数据；电影参考 IMDb 非商业数据集。页面展示的是
+          <strong id="snapshotNote">评分数据快照</strong>，不同平台分数不混算。
+        </p>
+
+        <h3>为什么没有直接显示豆瓣评分</h3>
+        <p>
+          豆瓣官方法律声明将书影音条目信息、评分及评价人数列为受约束内容，并禁止未经书面许可将其用于软件、
+          应用或网站。本版本因此不抓取、不复制豆瓣分数，只预留经授权后的多评分源字段。
+        </p>
+
+        <h3>其他三类内容</h3>
+        <p>
+          城市卡片凝练文化、城市肌理与旅行吸引力，不代替实时签证、安全、天气和开放信息；德语内容以可核查的
+          词汇、表达、语法或确有出处的引文为主；医学内容只采用 WHO、CDC、NIH、NHS 等公共卫生或医疗机构资料，
+          并明确行动边界与警示症状。医学插图为本项目原创说明图，不承担诊断作用。
+        </p>
+
+        <h3>音乐与隐私</h3>
+        <p>
+          轻音乐由浏览器实时合成，不包含外部录音或采样；其中标注为经典改编的曲目只取自公版作品并由本项目重新合成。
+          初次打开完全静音，只有点击播放后才会发声；只保存曲目与音量，
+          不保存或上传行为数据。书封、海报和城市图的网络与许可边界见“来源与许可”；数据节省模式会关闭非必要视觉请求。
+        </p>
+
+        <div class="source-links">
+          <a href="https://openlibrary.org/developers/api" target="_blank" rel="noreferrer">Open Library API</a>
+          <a href="https://www.imdb.com/interfaces/" target="_blank" rel="noreferrer">IMDb 非商业数据集</a>
+          <a href="https://www.douban.com/about/legal" target="_blank" rel="noreferrer">豆瓣法律声明</a>
+          <a href="https://www.who.int/health-topics" target="_blank" rel="noreferrer">WHO 健康主题</a>
+        </div>
+      </div>
+      <div class="dialog-actions one-action">
+        <button class="primary-button compact-button" id="doneDataButton" type="button">知道了</button>
+      </div>
+    </dialog>
+
+    <nav class="quick-nav" id="quickNav" aria-label="今日五项快速跳转">
+      <a href="#bookCard" data-quick-jump="book">图书</a><a href="#movieCard" data-quick-jump="movie">电影</a><a href="#cityCard" data-quick-jump="city">城市</a><a href="#germanCard" data-quick-jump="german">德语</a><a href="#medicalCard" data-quick-jump="medical">医学</a>
+    </nav>
+
+    <div class="toast" id="toast" role="region" aria-label="操作提示" hidden>
+      <span class="toast-mark" aria-hidden="true">✓</span>
+      <span id="toastMessage">已换一个推荐</span>
+      <span class="toast-actions">
+        <button id="undoButton" type="button">撤销</button>
+        <button class="toast-close" id="toastCloseButton" type="button" aria-label="关闭操作提示">关闭</button>
+      </span>
+    </div>
+
+    <div class="sr-only" id="liveRegion" aria-live="polite" aria-atomic="true"></div>
+
+    <noscript>
+      <div class="noscript-message">请启用 JavaScript，才能生成每日内容并保存本地记录。</div>
+    </noscript>
+
+    <script src="./public-config.js"></script>
+    <script src="./runtime-health.js"></script>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>

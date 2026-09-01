@@ -1,0 +1,1352 @@
+[
+  {
+    "id": "city-paris",
+    "type": "city",
+    "cityZh": "巴黎",
+    "cityEn": "Paris",
+    "countryZh": "法国",
+    "countryEn": "France",
+    "region": "欧洲",
+    "summary": "巴黎把中世纪街巷、奥斯曼式大道、塞纳河岸与持续更新的艺术生活叠在一起。它的吸引力不只在地标，更在可步行街区、咖啡馆文化和日常审美。",
+    "highlights": [
+      "塞纳河岸漫步",
+      "世界级博物馆",
+      "街区与咖啡馆"
+    ],
+    "bestFor": "第一次欧洲城市旅行、艺术与步行",
+    "seasonNote": "春末和初秋较舒适；热门馆舍宜预约。",
+    "culturalTip": "进入小店先说 Bonjour，公共空间降低音量。",
+    "sourceUrl": "https://parisjetaime.com/eng/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#51647a",
+        "#d8b77c"
+      ],
+      "motif": "河桥与屋顶"
+    }
+  },
+  {
+    "id": "city-rome",
+    "type": "city",
+    "cityZh": "罗马",
+    "cityEn": "Rome",
+    "countryZh": "意大利",
+    "countryEn": "Italy",
+    "region": "欧洲",
+    "summary": "罗马的城市肌理像一部可行走的历史：古代遗址、文艺复兴广场、巴洛克教堂与当代社区彼此相邻。慢下来观察建筑层次，比匆忙打卡更能理解它。",
+    "highlights": [
+      "古罗马遗址",
+      "教堂艺术",
+      "街巷饮食"
+    ],
+    "bestFor": "古典文明、建筑与城市漫游",
+    "seasonNote": "四至六月、九至十月宜步行；盛夏炎热。",
+    "culturalTip": "教堂内着装端庄；喷泉和遗址不是休息座椅。",
+    "sourceUrl": "https://www.turismoroma.it/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#9b5842",
+        "#e7c99a"
+      ],
+      "motif": "圆顶与柱廊"
+    }
+  },
+  {
+    "id": "city-florence",
+    "type": "city",
+    "cityZh": "佛罗伦萨",
+    "cityEn": "Florence",
+    "countryZh": "意大利",
+    "countryEn": "Italy",
+    "region": "欧洲",
+    "summary": "佛罗伦萨以紧凑尺度汇集文艺复兴建筑、雕塑和绘画，城市与托斯卡纳丘陵又形成柔和过渡。它适合少看几个馆、细读几件作品，而非追求数量。",
+    "highlights": [
+      "文艺复兴艺术",
+      "阿诺河与桥",
+      "托斯卡纳饮食"
+    ],
+    "bestFor": "艺术史、建筑细节与慢旅行",
+    "seasonNote": "春秋光线与温度更宜人；美术馆提前订时段。",
+    "culturalTip": "艺术品前避免闪光灯；尊重教堂礼仪与居民通道。",
+    "sourceUrl": "https://www.feelflorence.it/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#8c6a47",
+        "#d8a15d"
+      ],
+      "motif": "穹顶与百合"
+    }
+  },
+  {
+    "id": "city-venice",
+    "type": "city",
+    "cityZh": "威尼斯",
+    "cityEn": "Venice",
+    "countryZh": "意大利",
+    "countryEn": "Italy",
+    "region": "欧洲",
+    "summary": "威尼斯由水道、桥梁和不同性格的小岛构成，真正魅力在清晨与傍晚的潮汐、光线和安静支巷。离开主轴后，仍能读到海上共和国的生活逻辑。",
+    "highlights": [
+      "潟湖水城",
+      "总督宫与教堂",
+      "岛屿工艺"
+    ],
+    "bestFor": "城市形态、摄影与无车漫游",
+    "seasonNote": "四五月及十月较平衡；留意高潮位预报。",
+    "culturalTip": "不要在桥上久停堵路；自带水瓶并减少一次性垃圾。",
+    "sourceUrl": "https://www.veneziaunica.it/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2e7584",
+        "#e1b06a"
+      ],
+      "motif": "贡多拉与水纹"
+    }
+  },
+  {
+    "id": "city-prague",
+    "type": "city",
+    "cityZh": "布拉格",
+    "cityEn": "Prague",
+    "countryZh": "捷克",
+    "countryEn": "Czechia",
+    "region": "欧洲",
+    "summary": "布拉格以城堡山、伏尔塔瓦河与保存完整的多时期建筑建立强烈舞台感。除老城外，新城区、社区咖啡馆和音乐传统让它不只是童话式背景。",
+    "highlights": [
+      "城堡与老城",
+      "河岸景观",
+      "音乐与咖啡馆"
+    ],
+    "bestFor": "建筑、古城夜景与音乐",
+    "seasonNote": "五月、六月和九月适合步行；冬季氛围浓但日短。",
+    "culturalTip": "乘车前按规则购票验票；住宅区夜间保持安静。",
+    "sourceUrl": "https://www.prague.eu/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#354d6b",
+        "#c88b63"
+      ],
+      "motif": "尖塔与石桥"
+    }
+  },
+  {
+    "id": "city-vienna",
+    "type": "city",
+    "cityZh": "维也纳",
+    "cityEn": "Vienna",
+    "countryZh": "奥地利",
+    "countryEn": "Austria",
+    "region": "欧洲",
+    "summary": "维也纳把帝国遗产、古典音乐、现代主义设计与高质量公共空间结合起来。环城大道之外，市场、公园和社区咖啡馆展示一种从容而务实的城市生活。",
+    "highlights": [
+      "音乐厅与歌剧",
+      "皇宫博物馆",
+      "咖啡馆文化"
+    ],
+    "bestFor": "音乐、设计与舒适城市体验",
+    "seasonNote": "四至六月、九月宜户外；音乐季演出需提前订票。",
+    "culturalTip": "正式演出准时入场；咖啡馆可久坐但宜礼貌点单。",
+    "sourceUrl": "https://www.wien.info/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#315a55",
+        "#cfaf73"
+      ],
+      "motif": "音符与环城大道"
+    }
+  },
+  {
+    "id": "city-berlin",
+    "type": "city",
+    "cityZh": "柏林",
+    "cityEn": "Berlin",
+    "countryZh": "德国",
+    "countryEn": "Germany",
+    "region": "欧洲",
+    "summary": "柏林的价值在于把帝国、战争、分裂与统一的痕迹公开放进城市日常，同时容纳实验艺术和多元社区。它不以整齐取胜，而以诚实面对历史吸引人。",
+    "highlights": [
+      "二十世纪历史",
+      "博物馆岛",
+      "当代艺术与社区"
+    ],
+    "bestFor": "近现代史、城市更新与夜文化",
+    "seasonNote": "五月至九月适合骑行；冬季博物馆体验更集中。",
+    "culturalTip": "纪念地保持克制；红色自行车道不要站立。",
+    "sourceUrl": "https://www.visitberlin.de/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3f4a52",
+        "#c84c48"
+      ],
+      "motif": "电视塔与街头几何"
+    }
+  },
+  {
+    "id": "city-lisbon",
+    "type": "city",
+    "cityZh": "里斯本",
+    "cityEn": "Lisbon",
+    "countryZh": "葡萄牙",
+    "countryEn": "Portugal",
+    "region": "欧洲",
+    "summary": "里斯本沿七座山丘展开，电车、瓷砖立面、观景台和塔霍河共同塑造明亮而略带旧时感的城市。步行爬坡虽费力，却能不断获得新的视角。",
+    "highlights": [
+      "山城观景台",
+      "瓷砖与电车",
+      "法朵与海洋史"
+    ],
+    "bestFor": "街拍、音乐与海港文化",
+    "seasonNote": "春秋温和；夏季日晒强且热门电车拥挤。",
+    "culturalTip": "住宅窗前少喧哗；搭乘老电车注意随身物品。",
+    "sourceUrl": "https://www.visitlisboa.com/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#287b86",
+        "#e6a74f"
+      ],
+      "motif": "电车与瓷砖"
+    }
+  },
+  {
+    "id": "city-barcelona",
+    "type": "city",
+    "cityZh": "巴塞罗那",
+    "cityEn": "Barcelona",
+    "countryZh": "西班牙",
+    "countryEn": "Spain",
+    "region": "欧洲",
+    "summary": "巴塞罗那把加泰罗尼亚城市传统、现代主义建筑、市场生活和地中海海滨压缩在宜步行的街区中。高迪之外，社区规划与公共空间同样值得看。",
+    "highlights": [
+      "现代主义建筑",
+      "街区市场",
+      "地中海海滨"
+    ],
+    "bestFor": "建筑、城市设计与美食",
+    "seasonNote": "四至六月和九十月较宜人；热门建筑须预约。",
+    "culturalTip": "尊重加泰罗尼亚语言与身份；老城防范扒窃。",
+    "sourceUrl": "https://www.barcelonaturisme.com/wv3/en/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#296a79",
+        "#dd754d"
+      ],
+      "motif": "马赛克与海浪"
+    }
+  },
+  {
+    "id": "city-edinburgh",
+    "type": "city",
+    "cityZh": "爱丁堡",
+    "cityEn": "Edinburgh",
+    "countryZh": "英国",
+    "countryEn": "United Kingdom",
+    "region": "欧洲",
+    "summary": "爱丁堡以火山地形托起城堡和旧城，又用新城的理性格网形成鲜明对照。文学传统、节庆与阴晴迅速变化的光线，让城市气质格外浓缩。",
+    "highlights": [
+      "旧城与城堡",
+      "文学与节庆",
+      "亚瑟王座"
+    ],
+    "bestFor": "文学、历史与短程徒步",
+    "seasonNote": "五月至九月活动多；八月节庆拥挤且住宿昂贵。",
+    "culturalTip": "山地天气变化快；酒吧与住宅街夜间注意音量。",
+    "sourceUrl": "https://edinburgh.org/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#455466",
+        "#ad7d62"
+      ],
+      "motif": "城堡与山脊"
+    }
+  },
+  {
+    "id": "city-istanbul",
+    "type": "city",
+    "cityZh": "伊斯坦布尔",
+    "cityEn": "Istanbul",
+    "countryZh": "土耳其",
+    "countryEn": "Türkiye",
+    "region": "欧洲与西亚",
+    "summary": "伊斯坦布尔横跨博斯普鲁斯海峡，拜占庭、奥斯曼与现代共和国的遗产在渡轮、清真寺、市场和社区生活中交错。乘船看城市，是理解其尺度的最佳方式之一。",
+    "highlights": [
+      "海峡渡轮",
+      "清真寺与宫殿",
+      "市集与饮食"
+    ],
+    "bestFor": "文明交汇、建筑与街头生活",
+    "seasonNote": "四五月及九十月舒适；宗教节日需查开放时间。",
+    "culturalTip": "进入清真寺遵守着装和礼拜安排；拍人先征得同意。",
+    "sourceUrl": "https://istanbul.goturkiye.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#1f6670",
+        "#d29b55"
+      ],
+      "motif": "圆顶与海峡"
+    }
+  },
+  {
+    "id": "city-athens",
+    "type": "city",
+    "cityZh": "雅典",
+    "cityEn": "Athens",
+    "countryZh": "希腊",
+    "countryEn": "Greece",
+    "region": "欧洲",
+    "summary": "雅典不只是卫城：古典遗址散落在生活密集的现代城区，市场、山丘与当代文化让过去和现在持续对话。黄昏从高处看城市，最能体会它的层次。",
+    "highlights": [
+      "卫城与古迹",
+      "社区市场",
+      "城市山丘"
+    ],
+    "bestFor": "古典文明、考古与城市漫步",
+    "seasonNote": "春秋最宜步行；夏日中午应避开曝晒。",
+    "culturalTip": "遗址内勿触摸或攀爬；餐馆用餐节奏通常较慢。",
+    "sourceUrl": "https://www.thisisathens.org/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b7894",
+        "#d9bd77"
+      ],
+      "motif": "柱廊与橄榄枝"
+    }
+  },
+  {
+    "id": "city-kyoto",
+    "type": "city",
+    "cityZh": "京都",
+    "cityEn": "Kyoto",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "region": "亚洲",
+    "summary": "京都以寺社、庭园、町家和季节变化保存日本古都的空间秩序，但它也有大学、工艺与当代生活。清晨进入小街与庭园，往往比追逐热门景点更有收获。",
+    "highlights": [
+      "寺社庭园",
+      "传统工艺",
+      "四季景观"
+    ],
+    "bestFor": "美学、宗教建筑与慢行",
+    "seasonNote": "春樱秋叶最热门；初夏青苔与冬季更安静。",
+    "culturalTip": "祇园等住宅街遵守拍摄限制；寺院内保持安静。",
+    "sourceUrl": "https://kyoto.travel/en/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#647257",
+        "#b97963"
+      ],
+      "motif": "鸟居与枫叶"
+    }
+  },
+  {
+    "id": "city-tokyo",
+    "type": "city",
+    "cityZh": "东京",
+    "cityEn": "Tokyo",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "region": "亚洲",
+    "summary": "东京把超大城市效率与细密社区生活并置：铁路枢纽之外，巷弄商店、河岸、公园和小型文化空间各有节奏。按街区探索，比试图一次看完更合理。",
+    "highlights": [
+      "多元街区",
+      "设计与流行文化",
+      "传统与当代饮食"
+    ],
+    "bestFor": "城市观察、设计与美食",
+    "seasonNote": "春秋宜步行；梅雨和盛夏需预留室内安排。",
+    "culturalTip": "公共交通少打电话；排队、垃圾分类依现场规则。",
+    "sourceUrl": "https://www.gotokyo.org/en/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#37495f",
+        "#e06568"
+      ],
+      "motif": "城市线网与富士轮廓"
+    }
+  },
+  {
+    "id": "city-seoul",
+    "type": "city",
+    "cityZh": "首尔",
+    "cityEn": "Seoul",
+    "countryZh": "韩国",
+    "countryEn": "South Korea",
+    "region": "亚洲",
+    "summary": "首尔在山地与汉江之间展开，宫殿、传统街区、设计产业和高密度夜生活彼此连接。沿城墙或河岸行走，可看到高速现代化之外更长的城市记忆。",
+    "highlights": [
+      "宫殿与城墙",
+      "汉江空间",
+      "设计与饮食"
+    ],
+    "bestFor": "东亚城市变迁、徒步与夜生活",
+    "seasonNote": "四五月和十月舒适；冬季寒冷干燥。",
+    "culturalTip": "进入传统建筑遵守脱鞋提示；地铁内保持低声。",
+    "sourceUrl": "https://english.visitseoul.net/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#416e72",
+        "#d56f57"
+      ],
+      "motif": "宫墙与山线"
+    }
+  },
+  {
+    "id": "city-beijing",
+    "type": "city",
+    "cityZh": "北京",
+    "cityEn": "Beijing",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "region": "亚洲",
+    "summary": "北京以中轴线串联宫殿、坛庙和城门记忆，胡同与当代文化空间又呈现更细微的生活尺度。理解城市需在宏大的礼制空间和普通街巷之间往返。",
+    "highlights": [
+      "中轴线与故宫",
+      "胡同街区",
+      "长城与郊野"
+    ],
+    "bestFor": "中国历史、城市格局与博物馆",
+    "seasonNote": "春秋较宜户外；关注空气质量与场馆预约。",
+    "culturalTip": "文保区域勿攀爬刻画；胡同是居民生活空间。",
+    "sourceUrl": "https://english.visitbeijing.com.cn/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#7b3f3d",
+        "#c6a15e"
+      ],
+      "motif": "城门与中轴线"
+    }
+  },
+  {
+    "id": "city-xian",
+    "type": "city",
+    "cityZh": "西安",
+    "cityEn": "Xi'an",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "region": "亚洲",
+    "summary": "西安以周秦汉唐遗产见长，城墙、博物馆和考古遗址让帝国制度与丝路交流变得具体。回民街区及地方饮食则补充了活态、多民族的城市经验。",
+    "highlights": [
+      "兵马俑",
+      "古城墙",
+      "博物馆与面食"
+    ],
+    "bestFor": "古代史、考古与饮食",
+    "seasonNote": "春秋舒适；大型遗址宜避开正午和节假日高峰。",
+    "culturalTip": "宗教场所尊重礼仪；遗址讲解选择正规渠道。",
+    "sourceUrl": "https://whc.unesco.org/en/list/441/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#7c5a3c",
+        "#c99042"
+      ],
+      "motif": "城墙与陶俑"
+    }
+  },
+  {
+    "id": "city-shanghai",
+    "type": "city",
+    "cityZh": "上海",
+    "cityEn": "Shanghai",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "region": "亚洲",
+    "summary": "上海的魅力来自江河港口塑造的开放性：外滩、里弄、工业遗产与超高层天际线距离很近。沿街阅读建筑和商业史，比单看繁华夜景更能理解它。",
+    "highlights": [
+      "外滩与浦江",
+      "里弄与近代建筑",
+      "当代艺术"
+    ],
+    "bestFor": "城市史、建筑与现代生活",
+    "seasonNote": "春秋适合步行；梅雨季潮湿，夏季炎热。",
+    "culturalTip": "里弄是居住空间，拍摄与进入需克制并尊重隐私。",
+    "sourceUrl": "https://www.meet-in-shanghai.net/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#31566d",
+        "#c88a5c"
+      ],
+      "motif": "江岸与天际线"
+    }
+  },
+  {
+    "id": "city-singapore",
+    "type": "city",
+    "cityZh": "新加坡",
+    "cityEn": "Singapore",
+    "countryZh": "新加坡",
+    "countryEn": "Singapore",
+    "region": "亚洲",
+    "summary": "新加坡以高密度、多族群和热带生态的组合见长。历史街区、熟食中心、公共住房与花园城市政策，让它成为观察城市治理和文化交汇的清晰样本。",
+    "highlights": [
+      "多族群街区",
+      "熟食中心",
+      "滨海与热带花园"
+    ],
+    "bestFor": "城市治理、亲子与美食",
+    "seasonNote": "全年湿热多阵雨；轻装并安排室内外切换。",
+    "culturalTip": "宗教场所注意着装；熟食中心用纸巾占座是常见习惯。",
+    "sourceUrl": "https://www.visitsingapore.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#26766f",
+        "#d77e52"
+      ],
+      "motif": "超级树与街屋"
+    }
+  },
+  {
+    "id": "city-bangkok",
+    "type": "city",
+    "cityZh": "曼谷",
+    "cityEn": "Bangkok",
+    "countryZh": "泰国",
+    "countryEn": "Thailand",
+    "region": "亚洲",
+    "summary": "曼谷在昭披耶河与运河周围生长，寺庙宫殿、市场、现代商业和街头饮食形成高强度感官体验。乘船与步行结合，能避开单纯被交通定义的印象。",
+    "highlights": [
+      "河岸寺庙",
+      "市场与街头饮食",
+      "当代设计"
+    ],
+    "bestFor": "东南亚文化、美食与城市活力",
+    "seasonNote": "十一月至二月相对凉爽；雨季需弹性行程。",
+    "culturalTip": "寺庙遮肩及膝、脱鞋；勿随意触碰他人头部。",
+    "sourceUrl": "https://www.tourismthailand.org/Destinations/Provinces/Bangkok/219",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#6f5079",
+        "#e5a44f"
+      ],
+      "motif": "寺塔与河船"
+    }
+  },
+  {
+    "id": "city-hanoi",
+    "type": "city",
+    "cityZh": "河内",
+    "cityEn": "Hanoi",
+    "countryZh": "越南",
+    "countryEn": "Vietnam",
+    "region": "亚洲",
+    "summary": "河内以湖泊、林荫大道、老街商业和法式建筑形成既紧凑又松弛的城市感。街头饮食与手工业仍嵌在日常中，清晨绕湖最能感受本地节奏。",
+    "highlights": [
+      "还剑湖",
+      "老城区",
+      "街头饮食与咖啡"
+    ],
+    "bestFor": "城市生活、饮食与历史街区",
+    "seasonNote": "十月至四月较凉爽；冬季可能湿冷。",
+    "culturalTip": "过马路保持稳定路线并观察车流；小店先问价。",
+    "sourceUrl": "https://vietnam.travel/places-to-go/northern-vietnam/ha-noi",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#4f725b",
+        "#c58a55"
+      ],
+      "motif": "湖面与窄屋"
+    }
+  },
+  {
+    "id": "city-luang-prabang",
+    "type": "city",
+    "cityZh": "琅勃拉邦",
+    "cityEn": "Luang Prabang",
+    "countryZh": "老挝",
+    "countryEn": "Laos",
+    "region": "亚洲",
+    "summary": "琅勃拉邦位于湄公河与南康河交汇处，佛寺、殖民时期建筑与山水环境形成温和尺度。它适合放慢脚步，但旅行者也应避免把宗教仪式变成表演。",
+    "highlights": [
+      "佛寺与古城",
+      "双河景观",
+      "夜市与手工艺"
+    ],
+    "bestFor": "安静古城、宗教文化与慢旅行",
+    "seasonNote": "十一月至二月干爽；烧山季需查空气质量。",
+    "culturalTip": "布施仪式保持距离、不使用闪光灯，并遵从当地指引。",
+    "sourceUrl": "https://whc.unesco.org/en/list/479/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#6b7650",
+        "#c6945a"
+      ],
+      "motif": "寺顶与双河"
+    }
+  },
+  {
+    "id": "city-jaipur",
+    "type": "city",
+    "cityZh": "斋浦尔",
+    "cityEn": "Jaipur",
+    "countryZh": "印度",
+    "countryEn": "India",
+    "region": "亚洲",
+    "summary": "斋浦尔的粉色城墙、宫殿、天文台和活跃市集体现十八世纪规划思想，也延续珠宝与纺织工艺。宏大建筑之外，手工传统和街巷色彩同样重要。",
+    "highlights": [
+      "城市宫殿",
+      "简塔·曼塔天文台",
+      "市集与工艺"
+    ],
+    "bestFor": "建筑、工艺与摄影",
+    "seasonNote": "十月至三月较舒适；白天日照仍强。",
+    "culturalTip": "宗教场所着装得体；购买工艺品可礼貌议价。",
+    "sourceUrl": "https://whc.unesco.org/en/list/1605/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#a95c5b",
+        "#e1a864"
+      ],
+      "motif": "宫窗与几何"
+    }
+  },
+  {
+    "id": "city-samarkand",
+    "type": "city",
+    "cityZh": "撒马尔罕",
+    "cityEn": "Samarkand",
+    "countryZh": "乌兹别克斯坦",
+    "countryEn": "Uzbekistan",
+    "region": "亚洲",
+    "summary": "撒马尔罕曾是丝绸之路枢纽，蓝色穹顶、经学院与陵墓群呈现中亚贸易、科学和宗教交流的积累。城市的吸引力来自建筑细部和跨文明历史。",
+    "highlights": [
+      "雷吉斯坦广场",
+      "蓝色穹顶",
+      "丝路历史"
+    ],
+    "bestFor": "丝绸之路、建筑与文明交流",
+    "seasonNote": "四五月及九十月舒适；夏季炎热干燥。",
+    "culturalTip": "宗教建筑内着装得体；拍摄人物和礼拜先征得同意。",
+    "sourceUrl": "https://whc.unesco.org/en/list/603/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2b6f91",
+        "#c9a655"
+      ],
+      "motif": "蓝穹顶与星纹"
+    }
+  },
+  {
+    "id": "city-marrakech",
+    "type": "city",
+    "cityZh": "马拉喀什",
+    "cityEn": "Marrakesh",
+    "countryZh": "摩洛哥",
+    "countryEn": "Morocco",
+    "region": "非洲",
+    "summary": "马拉喀什的老城以红土城墙、庭院、清真寺和市集构成高密度感官世界，阿特拉斯山又提供辽阔背景。住进传统庭院能更直接理解内向式建筑。",
+    "highlights": [
+      "麦地那老城",
+      "庭院与花园",
+      "市集工艺"
+    ],
+    "bestFor": "建筑、手工艺与感官体验",
+    "seasonNote": "春秋舒适；盛夏炎热，斋月期间作息不同。",
+    "culturalTip": "市场拍人先询问；宗教场所按开放规则进入。",
+    "sourceUrl": "https://whc.unesco.org/en/list/331/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#a7513d",
+        "#d9a457"
+      ],
+      "motif": "城墙与庭院"
+    }
+  },
+  {
+    "id": "city-fez",
+    "type": "city",
+    "cityZh": "非斯",
+    "cityEn": "Fez",
+    "countryZh": "摩洛哥",
+    "countryEn": "Morocco",
+    "region": "非洲",
+    "summary": "非斯老城保存复杂巷道、宗教学校、工坊和传统商业网络，空间看似迷宫，却仍是一座活着的生产城市。跟随正规向导能读懂工艺与社区结构。",
+    "highlights": [
+      "非斯老城",
+      "传统工坊",
+      "宗教学校"
+    ],
+    "bestFor": "手工艺、伊斯兰建筑与深度漫游",
+    "seasonNote": "春秋较宜；老城步行需防滑且轻装。",
+    "culturalTip": "不要把工坊劳动只当拍摄背景；付费导览事先确认价格。",
+    "sourceUrl": "https://whc.unesco.org/en/list/170/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#73513c",
+        "#3f8177"
+      ],
+      "motif": "拱门与皮革染坊"
+    }
+  },
+  {
+    "id": "city-cairo",
+    "type": "city",
+    "cityZh": "开罗",
+    "cityEn": "Cairo",
+    "countryZh": "埃及",
+    "countryEn": "Egypt",
+    "region": "非洲",
+    "summary": "开罗是尼罗河畔的超大城市，法老文物、伊斯兰建筑、科普特遗产和当代街区在喧闹中并存。它需要耐心与规划，却能提供极高密度的文明时间感。",
+    "highlights": [
+      "吉萨金字塔群",
+      "伊斯兰开罗",
+      "博物馆与尼罗河"
+    ],
+    "bestFor": "古代文明、宗教建筑与博物馆",
+    "seasonNote": "十月至四月较凉爽；沙尘和交通需留余量。",
+    "culturalTip": "文物遗址只走开放路线；人物拍摄与小费先沟通。",
+    "sourceUrl": "https://whc.unesco.org/en/list/89/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#a47743",
+        "#d7bd76"
+      ],
+      "motif": "金字塔与河流"
+    }
+  },
+  {
+    "id": "city-cape-town",
+    "type": "city",
+    "cityZh": "开普敦",
+    "cityEn": "Cape Town",
+    "countryZh": "南非",
+    "countryEn": "South Africa",
+    "region": "非洲",
+    "summary": "开普敦由桌山、两洋海岸、葡萄酒产区和多层殖民及反种族隔离历史共同塑造。自然景观耀眼，但理解社区差异与历史记忆同样十分重要。",
+    "highlights": [
+      "桌山与海岸",
+      "好望角",
+      "历史与葡萄酒产区"
+    ],
+    "bestFor": "自然、徒步与社会历史",
+    "seasonNote": "十一月至三月干暖；山顶天气可快速变化。",
+    "culturalTip": "徒步结伴并听取本地安全建议；参访社区选择负责任项目。",
+    "sourceUrl": "https://www.capetown.travel/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2b6d77",
+        "#d18c53"
+      ],
+      "motif": "桌山与海湾"
+    }
+  },
+  {
+    "id": "city-zanzibar-city",
+    "type": "city",
+    "cityZh": "桑给巴尔城",
+    "cityEn": "Zanzibar City",
+    "countryZh": "坦桑尼亚",
+    "countryEn": "Tanzania",
+    "region": "非洲",
+    "summary": "桑给巴尔城的石头城以珊瑚石建筑、雕花木门和狭窄街巷记录印度洋贸易，也承载奴隶贸易的沉重历史。海岛风光与文化记忆应被同时看见。",
+    "highlights": [
+      "石头城",
+      "印度洋贸易史",
+      "香料与海岸"
+    ],
+    "bestFor": "海洋文明、建筑与海岛慢行",
+    "seasonNote": "六月至十月较干爽；尊重当地穆斯林社会节奏。",
+    "culturalTip": "城内着装相对保守；参观奴隶贸易遗址保持庄重。",
+    "sourceUrl": "https://whc.unesco.org/en/list/173/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#29767a",
+        "#bc8558"
+      ],
+      "motif": "木门与海浪"
+    }
+  },
+  {
+    "id": "city-lalibela",
+    "type": "city",
+    "cityZh": "拉利贝拉",
+    "cityEn": "Lalibela",
+    "countryZh": "埃塞俄比亚",
+    "countryEn": "Ethiopia",
+    "region": "非洲",
+    "summary": "拉利贝拉的岩石教堂由整块岩体向下凿成，至今仍是重要朝圣地。建筑奇迹与持续的宗教生活不可分割，参观需要充足时间、体力和敬意。",
+    "highlights": [
+      "岩石教堂群",
+      "朝圣传统",
+      "高原景观"
+    ],
+    "bestFor": "宗教建筑、工程史与文化体验",
+    "seasonNote": "十月至三月较干；出行前查安全和交通信息。",
+    "culturalTip": "礼拜期间不打扰信众；听从当地关于脱鞋和拍摄的要求。",
+    "sourceUrl": "https://whc.unesco.org/en/list/18/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#8a5a3c",
+        "#c7aa6b"
+      ],
+      "motif": "十字与岩壁"
+    }
+  },
+  {
+    "id": "city-tunis",
+    "type": "city",
+    "cityZh": "突尼斯城",
+    "cityEn": "Tunis",
+    "countryZh": "突尼斯",
+    "countryEn": "Tunisia",
+    "region": "非洲",
+    "summary": "突尼斯城在古老麦地那、法式新城与地中海岸之间切换，附近迦太基遗址又拉长历史纵深。它适合用街区漫步理解北非、阿拉伯与欧洲影响。",
+    "highlights": [
+      "麦地那",
+      "迦太基遗址",
+      "巴尔杜博物馆"
+    ],
+    "bestFor": "北非历史、马赛克与市集",
+    "seasonNote": "春秋温和；夏季正午炎热。",
+    "culturalTip": "宗教场所衣着得体；市集购物事先确认价格。",
+    "sourceUrl": "https://whc.unesco.org/en/list/36/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3b7281",
+        "#d3a05a"
+      ],
+      "motif": "拱门与马赛克"
+    }
+  },
+  {
+    "id": "city-dakar",
+    "type": "city",
+    "cityZh": "达喀尔",
+    "cityEn": "Dakar",
+    "countryZh": "塞内加尔",
+    "countryEn": "Senegal",
+    "region": "非洲",
+    "summary": "达喀尔位于大西洋半岛，音乐、时尚、当代艺术与西非城市活力鲜明。邻近戈雷岛提醒人们正视奴隶贸易历史，使旅行兼具创造力与反思。",
+    "highlights": [
+      "当代艺术与音乐",
+      "戈雷岛",
+      "大西洋海岸"
+    ],
+    "bestFor": "非洲当代文化、音乐与历史",
+    "seasonNote": "十一月至五月相对干爽；注意强日照和海风。",
+    "culturalTip": "涉及人物与市场拍摄先询问；历史纪念地保持尊重。",
+    "sourceUrl": "https://whc.unesco.org/en/list/26/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#316c72",
+        "#e09a4e"
+      ],
+      "motif": "海岸与鼓点"
+    }
+  },
+  {
+    "id": "city-new-york",
+    "type": "city",
+    "cityZh": "纽约",
+    "cityEn": "New York City",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "region": "北美洲",
+    "summary": "纽约由移民历史、垂直天际线、街区文化和世界级公共机构共同塑造。它的精华不是单一地标，而是不同社区在地铁网络中迅速切换的多重节奏。",
+    "highlights": [
+      "多元街区",
+      "博物馆与表演",
+      "城市公园与天际线"
+    ],
+    "bestFor": "艺术、移民文化与高密度城市",
+    "seasonNote": "春秋宜步行；节假日住宿和景点压力较高。",
+    "culturalTip": "人行道不要突然停步；尊重不同社区和纪念空间。",
+    "sourceUrl": "https://www.nyctourism.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#344f67",
+        "#d49a4f"
+      ],
+      "motif": "天际线与网格"
+    }
+  },
+  {
+    "id": "city-mexico-city",
+    "type": "city",
+    "cityZh": "墨西哥城",
+    "cityEn": "Mexico City",
+    "countryZh": "墨西哥",
+    "countryEn": "Mexico",
+    "region": "北美洲",
+    "summary": "墨西哥城建在古代湖盆之上，阿兹特克遗址、殖民建筑、壁画传统与当代设计并存。市场、博物馆和不同街区让这座巨城呈现惊人的文化密度。",
+    "highlights": [
+      "历史中心",
+      "国家人类学博物馆",
+      "市场与现代艺术"
+    ],
+    "bestFor": "考古、艺术、美食与大城市探索",
+    "seasonNote": "十一月至四月较干；海拔高，首日放慢节奏。",
+    "culturalTip": "街头食物选择客流稳定摊位；夜间出行听取本地建议。",
+    "sourceUrl": "https://whc.unesco.org/en/list/412/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#47705b",
+        "#cf6551"
+      ],
+      "motif": "仙人掌与金字塔"
+    }
+  },
+  {
+    "id": "city-quebec-city",
+    "type": "city",
+    "cityZh": "魁北克城",
+    "cityEn": "Québec City",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "region": "北美洲",
+    "summary": "魁北克城以北美少见的城墙、法语文化和圣劳伦斯河景观形成独特气质。紧凑旧城容易步行，冬季雪景与夏季节庆则展示完全不同的城市性格。",
+    "highlights": [
+      "城墙旧城",
+      "圣劳伦斯河",
+      "法语文化"
+    ],
+    "bestFor": "历史街区、冬日氛围与亲子",
+    "seasonNote": "六月至十月舒适；冬季寒冷但雪季体验鲜明。",
+    "culturalTip": "先用 Bonjour 打招呼很受欢迎；冬季鞋底需防滑。",
+    "sourceUrl": "https://www.quebec-cite.com/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#46627c",
+        "#c58d5a"
+      ],
+      "motif": "城门与雪屋顶"
+    }
+  },
+  {
+    "id": "city-new-orleans",
+    "type": "city",
+    "cityZh": "新奥尔良",
+    "cityEn": "New Orleans",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "region": "北美洲",
+    "summary": "新奥尔良由密西西比河、克里奥尔文化、非裔传统与爵士乐共同塑造。法区之外，社区音乐、饮食和节庆更能说明这座城市如何把复杂历史变成创造力。",
+    "highlights": [
+      "爵士乐现场",
+      "克里奥尔建筑",
+      "河流与饮食"
+    ],
+    "bestFor": "音乐、社会史与味觉旅行",
+    "seasonNote": "二月至五月较舒适；飓风季关注预警和保险。",
+    "culturalTip": "支持正规音乐场所并给表演者小费；居民区夜间降噪。",
+    "sourceUrl": "https://www.neworleans.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5d4d7a",
+        "#d39b46"
+      ],
+      "motif": "爵士号与铁艺阳台"
+    }
+  },
+  {
+    "id": "city-havana",
+    "type": "city",
+    "cityZh": "哈瓦那",
+    "cityEn": "Havana",
+    "countryZh": "古巴",
+    "countryEn": "Cuba",
+    "region": "北美洲",
+    "summary": "哈瓦那的广场、殖民建筑、海滨大道和二十世纪城市景观保存强烈时间感，但城市不应被浪漫化为旧车背景。音乐、社区生活与现实韧性同样关键。",
+    "highlights": [
+      "哈瓦那旧城",
+      "海滨大道",
+      "音乐与城市生活"
+    ],
+    "bestFor": "建筑、加勒比文化与摄影",
+    "seasonNote": "十一月至四月较干爽；出行前了解支付和入境规则。",
+    "culturalTip": "拍摄居民先征得同意；尊重物资与网络条件差异。",
+    "sourceUrl": "https://whc.unesco.org/en/list/204/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2f7780",
+        "#df8253"
+      ],
+      "motif": "拱廊与老车"
+    }
+  },
+  {
+    "id": "city-vancouver",
+    "type": "city",
+    "cityZh": "温哥华",
+    "cityEn": "Vancouver",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "region": "北美洲",
+    "summary": "温哥华把海湾、山脉、温带雨林和多元移民城市压缩在很小范围。骑行海堤、进入公共市场与了解原住民文化，能看到自然景观之外的城市深度。",
+    "highlights": [
+      "斯坦利公园",
+      "海堤骑行",
+      "多元饮食与原住民文化"
+    ],
+    "bestFor": "城市自然、户外与美食",
+    "seasonNote": "六月至九月较干；冬季多雨，山区条件另查。",
+    "culturalTip": "进入原住民文化场所尊重说明；野外不喂食动物。",
+    "sourceUrl": "https://www.destinationvancouver.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2a6970",
+        "#6ca06c"
+      ],
+      "motif": "山海与松林"
+    }
+  },
+  {
+    "id": "city-oaxaca",
+    "type": "city",
+    "cityZh": "瓦哈卡",
+    "cityEn": "Oaxaca",
+    "countryZh": "墨西哥",
+    "countryEn": "Mexico",
+    "region": "北美洲",
+    "summary": "瓦哈卡以殖民时期街区、萨波特克遗址、原住民市场与丰富饮食传统著称。纺织、陶器和节庆仍与社区经济相连，适合以尊重的方式慢慢理解。",
+    "highlights": [
+      "历史中心",
+      "蒙特阿尔班",
+      "手工艺与饮食"
+    ],
+    "bestFor": "考古、原住民文化与美食",
+    "seasonNote": "十月至四月较干；亡灵节期间需提早规划。",
+    "culturalTip": "购买工艺品尊重手工价值；仪式和人物拍摄先询问。",
+    "sourceUrl": "https://whc.unesco.org/en/list/415/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#9a5e47",
+        "#d4a14d"
+      ],
+      "motif": "龙舌兰与石纹"
+    }
+  },
+  {
+    "id": "city-buenos-aires",
+    "type": "city",
+    "cityZh": "布宜诺斯艾利斯",
+    "cityEn": "Buenos Aires",
+    "countryZh": "阿根廷",
+    "countryEn": "Argentina",
+    "region": "南美洲",
+    "summary": "布宜诺斯艾利斯以林荫大道、街区咖啡馆、书店、足球与探戈形成强烈公共生活。欧洲式外观之下，是拉普拉塔移民史和拉美政治文化的复杂积累。",
+    "highlights": [
+      "探戈与剧院",
+      "书店咖啡馆",
+      "多样街区"
+    ],
+    "bestFor": "文学、音乐、建筑与夜生活",
+    "seasonNote": "三至五月、九至十一月温和；晚餐时间通常较晚。",
+    "culturalTip": "探戈表演选择尊重舞者的场所；了解通胀下的支付方式。",
+    "sourceUrl": "https://turismo.buenosaires.gob.ar/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3a5f79",
+        "#c65f5b"
+      ],
+      "motif": "探戈与林荫道"
+    }
+  },
+  {
+    "id": "city-rio-de-janeiro",
+    "type": "city",
+    "cityZh": "里约热内卢",
+    "cityEn": "Rio de Janeiro",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "region": "南美洲",
+    "summary": "里约的山、海、森林与高密度城区彼此嵌合，景观极具戏剧性。桑巴、现代建筑和公共海滩文化让城市充满生命力，社会差异也需要被清醒看见。",
+    "highlights": [
+      "山海景观",
+      "桑巴与街区文化",
+      "现代建筑"
+    ],
+    "bestFor": "自然、音乐与城市摄影",
+    "seasonNote": "五月至十月相对凉爽；狂欢节需很早预订。",
+    "culturalTip": "海滩轻装并保管贵重物；社区游选择本地负责运营者。",
+    "sourceUrl": "https://whc.unesco.org/en/list/1100/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#25767b",
+        "#e0a249"
+      ],
+      "motif": "山海与弧线"
+    }
+  },
+  {
+    "id": "city-cusco",
+    "type": "city",
+    "cityZh": "库斯科",
+    "cityEn": "Cusco",
+    "countryZh": "秘鲁",
+    "countryEn": "Peru",
+    "region": "南美洲",
+    "summary": "库斯科把印加石墙、殖民建筑和安第斯社区传统叠在同一街巷中，是进入更广阔高地文明的门户。城市本身值得停留，而不应只作为马丘比丘中转站。",
+    "highlights": [
+      "印加与殖民建筑",
+      "安第斯市场",
+      "高地文化"
+    ],
+    "bestFor": "考古、山地文化与历史",
+    "seasonNote": "五月至九月较干；海拔约三千四百米，需适应。",
+    "culturalTip": "首日少酒少剧烈运动；拍摄传统服饰人物先征得同意。",
+    "sourceUrl": "https://whc.unesco.org/en/list/273/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#7d5945",
+        "#bb9156"
+      ],
+      "motif": "石墙与山峰"
+    }
+  },
+  {
+    "id": "city-cartagena",
+    "type": "city",
+    "cityZh": "卡塔赫纳",
+    "cityEn": "Cartagena de Indias",
+    "countryZh": "哥伦比亚",
+    "countryEn": "Colombia",
+    "region": "南美洲",
+    "summary": "卡塔赫纳以加勒比港口、完整防御工事和彩色殖民街区著称。城墙内外都承载贸易、奴隶制与非裔文化历史，理解这些背景能超越表面的浪漫景观。",
+    "highlights": [
+      "城墙与堡垒",
+      "加勒比街区",
+      "非裔文化与饮食"
+    ],
+    "bestFor": "海港史、建筑与海滨休闲",
+    "seasonNote": "十二月至四月较干；全年炎热潮湿。",
+    "culturalTip": "拒绝未经同意的合影收费；历史叙事注意殖民与奴隶制。",
+    "sourceUrl": "https://whc.unesco.org/en/list/285/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2e7480",
+        "#dd7652"
+      ],
+      "motif": "堡垒与加勒比色彩"
+    }
+  },
+  {
+    "id": "city-quito",
+    "type": "city",
+    "cityZh": "基多",
+    "cityEn": "Quito",
+    "countryZh": "厄瓜多尔",
+    "countryEn": "Ecuador",
+    "region": "南美洲",
+    "summary": "基多位于安第斯高谷，保存完整的殖民历史中心，火山与山脊为教堂、广场和社区提供壮阔背景。高海拔光线清澈，但行程必须为身体适应留白。",
+    "highlights": [
+      "历史中心",
+      "安第斯火山景观",
+      "教堂艺术"
+    ],
+    "bestFor": "建筑、山地城市与摄影",
+    "seasonNote": "六月至九月偏干；昼夜温差和紫外线都明显。",
+    "culturalTip": "高海拔首日放慢；进入教堂尊重礼拜与拍摄规则。",
+    "sourceUrl": "https://whc.unesco.org/en/list/2/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496779",
+        "#d1a155"
+      ],
+      "motif": "火山与钟楼"
+    }
+  },
+  {
+    "id": "city-valparaiso",
+    "type": "city",
+    "cityZh": "瓦尔帕莱索",
+    "cityEn": "Valparaíso",
+    "countryZh": "智利",
+    "countryEn": "Chile",
+    "region": "南美洲",
+    "summary": "瓦尔帕莱索沿海湾山坡生长，升降机、彩色房屋、壁画和港口遗产形成不规则城市景观。它的魅力在视角变化，也在文学与工人港口记忆。",
+    "highlights": [
+      "山坡升降机",
+      "街头艺术",
+      "港口历史"
+    ],
+    "bestFor": "城市摄影、诗歌与海港文化",
+    "seasonNote": "十月至四月较温和；坡路多，穿防滑鞋。",
+    "culturalTip": "壁画和住宅都应尊重产权；夜间路线听取本地建议。",
+    "sourceUrl": "https://whc.unesco.org/en/list/959/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3b7183",
+        "#df7957"
+      ],
+      "motif": "坡城与升降机"
+    }
+  },
+  {
+    "id": "city-sydney",
+    "type": "city",
+    "cityZh": "悉尼",
+    "cityEn": "Sydney",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "region": "大洋洲",
+    "summary": "悉尼以世界级海港、砂岩海岸和多元街区形成开放气质。歌剧院与大桥只是入口，海岸步道、原住民历史和社区饮食让这座城市更有纵深。",
+    "highlights": [
+      "悉尼港",
+      "海岸步道",
+      "原住民与多元文化"
+    ],
+    "bestFor": "海滨城市、建筑与户外",
+    "seasonNote": "九至十一月、三至五月舒适；夏季注意紫外线。",
+    "culturalTip": "尊重原住民文化场所；海滩只在救生旗之间游泳。",
+    "sourceUrl": "https://www.sydney.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#26758b",
+        "#d7a74e"
+      ],
+      "motif": "歌剧院与海湾"
+    }
+  },
+  {
+    "id": "city-melbourne",
+    "type": "city",
+    "cityZh": "墨尔本",
+    "cityEn": "Melbourne",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "region": "大洋洲",
+    "summary": "墨尔本以巷道咖啡馆、现场音乐、体育和维多利亚时期街区见长，电车连接起性格不同的社区。天气多变，却适合把旅行重心放在日常文化。",
+    "highlights": [
+      "巷道与咖啡",
+      "美术馆与现场音乐",
+      "市场与电车"
+    ],
+    "bestFor": "设计、咖啡、体育与文化",
+    "seasonNote": "三至五月、九至十一月温和；一天可能多种天气。",
+    "culturalTip": "电车上下车注意自行车道；原住民地名和历史值得了解。",
+    "sourceUrl": "https://www.visitmelbourne.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3b596d",
+        "#cf6d59"
+      ],
+      "motif": "电车与巷道"
+    }
+  },
+  {
+    "id": "city-wellington",
+    "type": "city",
+    "cityZh": "惠灵顿",
+    "cityEn": "Wellington",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "region": "大洋洲",
+    "summary": "惠灵顿依山临港，规模紧凑，却拥有强烈电影、设计、咖啡与公共文化氛围。海滨博物馆和周边自然保护区让城市与新西兰历史连接紧密。",
+    "highlights": [
+      "海港与博物馆",
+      "电影创意产业",
+      "山地步道"
+    ],
+    "bestFor": "创意文化、博物馆与短程户外",
+    "seasonNote": "十二月至三月较温和；全年风大，备防风层。",
+    "culturalTip": "了解毛利地名发音；户外遵守无痕和生物安全规则。",
+    "sourceUrl": "https://www.wellingtonnz.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2d6e75",
+        "#d19a55"
+      ],
+      "motif": "海港与风线"
+    }
+  },
+  {
+    "id": "city-hobart",
+    "type": "city",
+    "cityZh": "霍巴特",
+    "cityEn": "Hobart",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "region": "大洋洲",
+    "summary": "霍巴特位于德文特河与惠灵顿山之间，砂岩仓库、当代艺术与塔斯马尼亚荒野门户形成独特组合。城市不大，却适合把历史、食物和自然连成一程。",
+    "highlights": [
+      "萨拉曼卡仓库",
+      "当代艺术",
+      "山海与荒野门户"
+    ],
+    "bestFor": "小城慢游、自然与美食",
+    "seasonNote": "十二月至三月较温和；山区天气骤变。",
+    "culturalTip": "自然区清洁鞋具防止病原传播；尊重原住民历史。",
+    "sourceUrl": "https://www.discovertasmania.com.au/regions/hobart-and-south/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3e6d70",
+        "#aa7a56"
+      ],
+      "motif": "砂岩仓与山峰"
+    }
+  },
+  {
+    "id": "city-auckland",
+    "type": "city",
+    "cityZh": "奥克兰",
+    "cityEn": "Auckland",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "region": "大洋洲",
+    "summary": "奥克兰建在火山地貌与多座海湾之间，是毛利与太平洋岛裔文化重要汇聚地。乘渡轮、登火山丘与逛社区市场，能理解它为何被海洋定义。",
+    "highlights": [
+      "火山丘与海湾",
+      "渡轮岛屿",
+      "毛利与太平洋文化"
+    ],
+    "bestFor": "海洋城市、轻户外与多元文化",
+    "seasonNote": "十二月至三月温暖；阵雨常见，行程保持弹性。",
+    "culturalTip": "火山锥是文化敏感地，遵守步道；学习基本毛利问候。",
+    "sourceUrl": "https://www.aucklandnz.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2e7279",
+        "#6e9b64"
+      ],
+      "motif": "帆影与火山丘"
+    }
+  }
+]

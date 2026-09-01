@@ -1,0 +1,7152 @@
+[
+  {
+    "id": "city-paris",
+    "type": "city",
+    "cityZh": "巴黎",
+    "cityEn": "Paris",
+    "countryZh": "法国",
+    "countryEn": "France",
+    "region": "欧洲",
+    "summary": "巴黎把中世纪街巷、奥斯曼式大道、塞纳河岸与持续更新的艺术生活叠在一起。它的吸引力不只在地标，更在可步行街区、咖啡馆文化和日常审美。",
+    "highlights": [
+      "塞纳河岸漫步",
+      "世界级博物馆",
+      "街区与咖啡馆"
+    ],
+    "bestFor": "第一次欧洲城市旅行、艺术与步行",
+    "seasonNote": "春末和初秋较舒适；热门馆舍宜预约。",
+    "culturalTip": "进入小店先说 Bonjour，公共空间降低音量。",
+    "sourceUrl": "https://parisjetaime.com/eng/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#51647a",
+        "#d8b77c"
+      ],
+      "motif": "河桥与屋顶"
+    },
+    "countryCode": "FR",
+    "latitude": 48.8566,
+    "longitude": 2.3522,
+    "timezone": "Europe/Paris",
+    "themeTags": [
+      "欧洲",
+      "河桥与屋顶"
+    ]
+  },
+  {
+    "id": "city-rome",
+    "type": "city",
+    "cityZh": "罗马",
+    "cityEn": "Rome",
+    "countryZh": "意大利",
+    "countryEn": "Italy",
+    "region": "欧洲",
+    "summary": "罗马的城市肌理像一部可行走的历史：古代遗址、文艺复兴广场、巴洛克教堂与当代社区彼此相邻。慢下来观察建筑层次，比匆忙打卡更能理解它。",
+    "highlights": [
+      "古罗马遗址",
+      "教堂艺术",
+      "街巷饮食"
+    ],
+    "bestFor": "古典文明、建筑与城市漫游",
+    "seasonNote": "四至六月、九至十月宜步行；盛夏炎热。",
+    "culturalTip": "教堂内着装端庄；喷泉和遗址不是休息座椅。",
+    "sourceUrl": "https://www.turismoroma.it/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#9b5842",
+        "#e7c99a"
+      ],
+      "motif": "圆顶与柱廊"
+    },
+    "countryCode": "IT",
+    "latitude": 41.9028,
+    "longitude": 12.4964,
+    "timezone": "Europe/Rome",
+    "themeTags": [
+      "欧洲",
+      "圆顶与柱廊"
+    ]
+  },
+  {
+    "id": "city-florence",
+    "type": "city",
+    "cityZh": "佛罗伦萨",
+    "cityEn": "Florence",
+    "countryZh": "意大利",
+    "countryEn": "Italy",
+    "region": "欧洲",
+    "summary": "佛罗伦萨以紧凑尺度汇集文艺复兴建筑、雕塑和绘画，城市与托斯卡纳丘陵又形成柔和过渡。它适合少看几个馆、细读几件作品，而非追求数量。",
+    "highlights": [
+      "文艺复兴艺术",
+      "阿诺河与桥",
+      "托斯卡纳饮食"
+    ],
+    "bestFor": "艺术史、建筑细节与慢旅行",
+    "seasonNote": "春秋光线与温度更宜人；美术馆提前订时段。",
+    "culturalTip": "艺术品前避免闪光灯；尊重教堂礼仪与居民通道。",
+    "sourceUrl": "https://www.feelflorence.it/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#8c6a47",
+        "#d8a15d"
+      ],
+      "motif": "穹顶与百合"
+    },
+    "countryCode": "IT",
+    "latitude": 43.7696,
+    "longitude": 11.2558,
+    "timezone": "Europe/Rome",
+    "themeTags": [
+      "欧洲",
+      "穹顶与百合"
+    ]
+  },
+  {
+    "id": "city-venice",
+    "type": "city",
+    "cityZh": "威尼斯",
+    "cityEn": "Venice",
+    "countryZh": "意大利",
+    "countryEn": "Italy",
+    "region": "欧洲",
+    "summary": "威尼斯由水道、桥梁和不同性格的小岛构成，真正魅力在清晨与傍晚的潮汐、光线和安静支巷。离开主轴后，仍能读到海上共和国的生活逻辑。",
+    "highlights": [
+      "潟湖水城",
+      "总督宫与教堂",
+      "岛屿工艺"
+    ],
+    "bestFor": "城市形态、摄影与无车漫游",
+    "seasonNote": "四五月及十月较平衡；留意高潮位预报。",
+    "culturalTip": "不要在桥上久停堵路；自带水瓶并减少一次性垃圾。",
+    "sourceUrl": "https://www.veneziaunica.it/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2e7584",
+        "#e1b06a"
+      ],
+      "motif": "贡多拉与水纹"
+    },
+    "countryCode": "IT",
+    "latitude": 45.4408,
+    "longitude": 12.3155,
+    "timezone": "Europe/Rome",
+    "themeTags": [
+      "欧洲",
+      "贡多拉与水纹"
+    ]
+  },
+  {
+    "id": "city-prague",
+    "type": "city",
+    "cityZh": "布拉格",
+    "cityEn": "Prague",
+    "countryZh": "捷克",
+    "countryEn": "Czechia",
+    "region": "欧洲",
+    "summary": "布拉格以城堡山、伏尔塔瓦河与保存完整的多时期建筑建立强烈舞台感。除老城外，新城区、社区咖啡馆和音乐传统让它不只是童话式背景。",
+    "highlights": [
+      "城堡与老城",
+      "河岸景观",
+      "音乐与咖啡馆"
+    ],
+    "bestFor": "建筑、古城夜景与音乐",
+    "seasonNote": "五月、六月和九月适合步行；冬季氛围浓但日短。",
+    "culturalTip": "乘车前按规则购票验票；住宅区夜间保持安静。",
+    "sourceUrl": "https://www.prague.eu/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#354d6b",
+        "#c88b63"
+      ],
+      "motif": "尖塔与石桥"
+    },
+    "countryCode": "CZ",
+    "latitude": 50.0755,
+    "longitude": 14.4378,
+    "timezone": "Europe/Prague",
+    "themeTags": [
+      "欧洲",
+      "尖塔与石桥"
+    ]
+  },
+  {
+    "id": "city-vienna",
+    "type": "city",
+    "cityZh": "维也纳",
+    "cityEn": "Vienna",
+    "countryZh": "奥地利",
+    "countryEn": "Austria",
+    "region": "欧洲",
+    "summary": "维也纳把帝国遗产、古典音乐、现代主义设计与高质量公共空间结合起来。环城大道之外，市场、公园和社区咖啡馆展示一种从容而务实的城市生活。",
+    "highlights": [
+      "音乐厅与歌剧",
+      "皇宫博物馆",
+      "咖啡馆文化"
+    ],
+    "bestFor": "音乐、设计与舒适城市体验",
+    "seasonNote": "四至六月、九月宜户外；音乐季演出需提前订票。",
+    "culturalTip": "正式演出准时入场；咖啡馆可久坐但宜礼貌点单。",
+    "sourceUrl": "https://www.wien.info/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#315a55",
+        "#cfaf73"
+      ],
+      "motif": "音符与环城大道"
+    },
+    "countryCode": "AT",
+    "latitude": 48.2082,
+    "longitude": 16.3738,
+    "timezone": "Europe/Vienna",
+    "themeTags": [
+      "欧洲",
+      "音符与环城大道"
+    ]
+  },
+  {
+    "id": "city-berlin",
+    "type": "city",
+    "cityZh": "柏林",
+    "cityEn": "Berlin",
+    "countryZh": "德国",
+    "countryEn": "Germany",
+    "region": "欧洲",
+    "summary": "柏林的价值在于把帝国、战争、分裂与统一的痕迹公开放进城市日常，同时容纳实验艺术和多元社区。它不以整齐取胜，而以诚实面对历史吸引人。",
+    "highlights": [
+      "二十世纪历史",
+      "博物馆岛",
+      "当代艺术与社区"
+    ],
+    "bestFor": "近现代史、城市更新与夜文化",
+    "seasonNote": "五月至九月适合骑行；冬季博物馆体验更集中。",
+    "culturalTip": "纪念地保持克制；红色自行车道不要站立。",
+    "sourceUrl": "https://www.visitberlin.de/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3f4a52",
+        "#c84c48"
+      ],
+      "motif": "电视塔与街头几何"
+    },
+    "countryCode": "DE",
+    "latitude": 52.52,
+    "longitude": 13.405,
+    "timezone": "Europe/Berlin",
+    "themeTags": [
+      "欧洲",
+      "电视塔与街头几何"
+    ]
+  },
+  {
+    "id": "city-lisbon",
+    "type": "city",
+    "cityZh": "里斯本",
+    "cityEn": "Lisbon",
+    "countryZh": "葡萄牙",
+    "countryEn": "Portugal",
+    "region": "欧洲",
+    "summary": "里斯本沿七座山丘展开，电车、瓷砖立面、观景台和塔霍河共同塑造明亮而略带旧时感的城市。步行爬坡虽费力，却能不断获得新的视角。",
+    "highlights": [
+      "山城观景台",
+      "瓷砖与电车",
+      "法朵与海洋史"
+    ],
+    "bestFor": "街拍、音乐与海港文化",
+    "seasonNote": "春秋温和；夏季日晒强且热门电车拥挤。",
+    "culturalTip": "住宅窗前少喧哗；搭乘老电车注意随身物品。",
+    "sourceUrl": "https://www.visitlisboa.com/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#287b86",
+        "#e6a74f"
+      ],
+      "motif": "电车与瓷砖"
+    },
+    "countryCode": "PT",
+    "latitude": 38.7223,
+    "longitude": -9.1393,
+    "timezone": "Europe/Lisbon",
+    "themeTags": [
+      "欧洲",
+      "电车与瓷砖"
+    ]
+  },
+  {
+    "id": "city-barcelona",
+    "type": "city",
+    "cityZh": "巴塞罗那",
+    "cityEn": "Barcelona",
+    "countryZh": "西班牙",
+    "countryEn": "Spain",
+    "region": "欧洲",
+    "summary": "巴塞罗那把加泰罗尼亚城市传统、现代主义建筑、市场生活和地中海海滨压缩在宜步行的街区中。高迪之外，社区规划与公共空间同样值得看。",
+    "highlights": [
+      "现代主义建筑",
+      "街区市场",
+      "地中海海滨"
+    ],
+    "bestFor": "建筑、城市设计与美食",
+    "seasonNote": "四至六月和九十月较宜人；热门建筑须预约。",
+    "culturalTip": "尊重加泰罗尼亚语言与身份；老城防范扒窃。",
+    "sourceUrl": "https://www.barcelonaturisme.com/wv3/en/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#296a79",
+        "#dd754d"
+      ],
+      "motif": "马赛克与海浪"
+    },
+    "countryCode": "ES",
+    "latitude": 41.3874,
+    "longitude": 2.1686,
+    "timezone": "Europe/Madrid",
+    "themeTags": [
+      "欧洲",
+      "马赛克与海浪"
+    ]
+  },
+  {
+    "id": "city-edinburgh",
+    "type": "city",
+    "cityZh": "爱丁堡",
+    "cityEn": "Edinburgh",
+    "countryZh": "英国",
+    "countryEn": "United Kingdom",
+    "region": "欧洲",
+    "summary": "爱丁堡以火山地形托起城堡和旧城，又用新城的理性格网形成鲜明对照。文学传统、节庆与阴晴迅速变化的光线，让城市气质格外浓缩。",
+    "highlights": [
+      "旧城与城堡",
+      "文学与节庆",
+      "亚瑟王座"
+    ],
+    "bestFor": "文学、历史与短程徒步",
+    "seasonNote": "五月至九月活动多；八月节庆拥挤且住宿昂贵。",
+    "culturalTip": "山地天气变化快；酒吧与住宅街夜间注意音量。",
+    "sourceUrl": "https://edinburgh.org/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#455466",
+        "#ad7d62"
+      ],
+      "motif": "城堡与山脊"
+    },
+    "countryCode": "GB",
+    "latitude": 55.9533,
+    "longitude": -3.1883,
+    "timezone": "Europe/London",
+    "themeTags": [
+      "欧洲",
+      "城堡与山脊"
+    ]
+  },
+  {
+    "id": "city-istanbul",
+    "type": "city",
+    "cityZh": "伊斯坦布尔",
+    "cityEn": "Istanbul",
+    "countryZh": "土耳其",
+    "countryEn": "Türkiye",
+    "region": "欧洲与西亚",
+    "summary": "伊斯坦布尔横跨博斯普鲁斯海峡，拜占庭、奥斯曼与现代共和国的遗产在渡轮、清真寺、市场和社区生活中交错。乘船看城市，是理解其尺度的最佳方式之一。",
+    "highlights": [
+      "海峡渡轮",
+      "清真寺与宫殿",
+      "市集与饮食"
+    ],
+    "bestFor": "文明交汇、建筑与街头生活",
+    "seasonNote": "四五月及九十月舒适；宗教节日需查开放时间。",
+    "culturalTip": "进入清真寺遵守着装和礼拜安排；拍人先征得同意。",
+    "sourceUrl": "https://istanbul.goturkiye.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#1f6670",
+        "#d29b55"
+      ],
+      "motif": "圆顶与海峡"
+    },
+    "countryCode": "TR",
+    "latitude": 41.0082,
+    "longitude": 28.9784,
+    "timezone": "Europe/Istanbul",
+    "themeTags": [
+      "欧洲与西亚",
+      "圆顶与海峡"
+    ]
+  },
+  {
+    "id": "city-athens",
+    "type": "city",
+    "cityZh": "雅典",
+    "cityEn": "Athens",
+    "countryZh": "希腊",
+    "countryEn": "Greece",
+    "region": "欧洲",
+    "summary": "雅典不只是卫城：古典遗址散落在生活密集的现代城区，市场、山丘与当代文化让过去和现在持续对话。黄昏从高处看城市，最能体会它的层次。",
+    "highlights": [
+      "卫城与古迹",
+      "社区市场",
+      "城市山丘"
+    ],
+    "bestFor": "古典文明、考古与城市漫步",
+    "seasonNote": "春秋最宜步行；夏日中午应避开曝晒。",
+    "culturalTip": "遗址内勿触摸或攀爬；餐馆用餐节奏通常较慢。",
+    "sourceUrl": "https://www.thisisathens.org/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b7894",
+        "#d9bd77"
+      ],
+      "motif": "柱廊与橄榄枝"
+    },
+    "countryCode": "GR",
+    "latitude": 37.9838,
+    "longitude": 23.7275,
+    "timezone": "Europe/Athens",
+    "themeTags": [
+      "欧洲",
+      "柱廊与橄榄枝"
+    ]
+  },
+  {
+    "id": "city-kyoto",
+    "type": "city",
+    "cityZh": "京都",
+    "cityEn": "Kyoto",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "region": "亚洲",
+    "summary": "京都以寺社、庭园、町家和季节变化保存日本古都的空间秩序，但它也有大学、工艺与当代生活。清晨进入小街与庭园，往往比追逐热门景点更有收获。",
+    "highlights": [
+      "寺社庭园",
+      "传统工艺",
+      "四季景观"
+    ],
+    "bestFor": "美学、宗教建筑与慢行",
+    "seasonNote": "春樱秋叶最热门；初夏青苔与冬季更安静。",
+    "culturalTip": "祇园等住宅街遵守拍摄限制；寺院内保持安静。",
+    "sourceUrl": "https://kyoto.travel/en/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#647257",
+        "#b97963"
+      ],
+      "motif": "鸟居与枫叶"
+    },
+    "countryCode": "JP",
+    "latitude": 35.0116,
+    "longitude": 135.7681,
+    "timezone": "Asia/Tokyo",
+    "themeTags": [
+      "亚洲",
+      "鸟居与枫叶"
+    ]
+  },
+  {
+    "id": "city-tokyo",
+    "type": "city",
+    "cityZh": "东京",
+    "cityEn": "Tokyo",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "region": "亚洲",
+    "summary": "东京把超大城市效率与细密社区生活并置：铁路枢纽之外，巷弄商店、河岸、公园和小型文化空间各有节奏。按街区探索，比试图一次看完更合理。",
+    "highlights": [
+      "多元街区",
+      "设计与流行文化",
+      "传统与当代饮食"
+    ],
+    "bestFor": "城市观察、设计与美食",
+    "seasonNote": "春秋宜步行；梅雨和盛夏需预留室内安排。",
+    "culturalTip": "公共交通少打电话；排队、垃圾分类依现场规则。",
+    "sourceUrl": "https://www.gotokyo.org/en/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#37495f",
+        "#e06568"
+      ],
+      "motif": "城市线网与富士轮廓"
+    },
+    "countryCode": "JP",
+    "latitude": 35.6762,
+    "longitude": 139.6503,
+    "timezone": "Asia/Tokyo",
+    "themeTags": [
+      "亚洲",
+      "城市线网与富士轮廓"
+    ]
+  },
+  {
+    "id": "city-seoul",
+    "type": "city",
+    "cityZh": "首尔",
+    "cityEn": "Seoul",
+    "countryZh": "韩国",
+    "countryEn": "South Korea",
+    "region": "亚洲",
+    "summary": "首尔在山地与汉江之间展开，宫殿、传统街区、设计产业和高密度夜生活彼此连接。沿城墙或河岸行走，可看到高速现代化之外更长的城市记忆。",
+    "highlights": [
+      "宫殿与城墙",
+      "汉江空间",
+      "设计与饮食"
+    ],
+    "bestFor": "东亚城市变迁、徒步与夜生活",
+    "seasonNote": "四五月和十月舒适；冬季寒冷干燥。",
+    "culturalTip": "进入传统建筑遵守脱鞋提示；地铁内保持低声。",
+    "sourceUrl": "https://english.visitseoul.net/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#416e72",
+        "#d56f57"
+      ],
+      "motif": "宫墙与山线"
+    },
+    "countryCode": "KR",
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "timezone": "Asia/Seoul",
+    "themeTags": [
+      "亚洲",
+      "宫墙与山线"
+    ]
+  },
+  {
+    "id": "city-beijing",
+    "type": "city",
+    "cityZh": "北京",
+    "cityEn": "Beijing",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "region": "亚洲",
+    "summary": "北京以中轴线串联宫殿、坛庙和城门记忆，胡同与当代文化空间又呈现更细微的生活尺度。理解城市需在宏大的礼制空间和普通街巷之间往返。",
+    "highlights": [
+      "中轴线与故宫",
+      "胡同街区",
+      "长城与郊野"
+    ],
+    "bestFor": "中国历史、城市格局与博物馆",
+    "seasonNote": "春秋较宜户外；关注空气质量与场馆预约。",
+    "culturalTip": "文保区域勿攀爬刻画；胡同是居民生活空间。",
+    "sourceUrl": "https://english.visitbeijing.com.cn/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#7b3f3d",
+        "#c6a15e"
+      ],
+      "motif": "城门与中轴线"
+    },
+    "countryCode": "CN",
+    "latitude": 39.9042,
+    "longitude": 116.4074,
+    "timezone": "Asia/Shanghai",
+    "themeTags": [
+      "亚洲",
+      "城门与中轴线"
+    ]
+  },
+  {
+    "id": "city-xian",
+    "type": "city",
+    "cityZh": "西安",
+    "cityEn": "Xi'an",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "region": "亚洲",
+    "summary": "西安以周秦汉唐遗产见长，城墙、博物馆和考古遗址让帝国制度与丝路交流变得具体。回民街区及地方饮食则补充了活态、多民族的城市经验。",
+    "highlights": [
+      "兵马俑",
+      "古城墙",
+      "博物馆与面食"
+    ],
+    "bestFor": "古代史、考古与饮食",
+    "seasonNote": "春秋舒适；大型遗址宜避开正午和节假日高峰。",
+    "culturalTip": "宗教场所尊重礼仪；遗址讲解选择正规渠道。",
+    "sourceUrl": "https://whc.unesco.org/en/list/441/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#7c5a3c",
+        "#c99042"
+      ],
+      "motif": "城墙与陶俑"
+    },
+    "countryCode": "CN",
+    "latitude": 34.3416,
+    "longitude": 108.9398,
+    "timezone": "Asia/Shanghai",
+    "themeTags": [
+      "亚洲",
+      "城墙与陶俑"
+    ]
+  },
+  {
+    "id": "city-shanghai",
+    "type": "city",
+    "cityZh": "上海",
+    "cityEn": "Shanghai",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "region": "亚洲",
+    "summary": "上海的魅力来自江河港口塑造的开放性：外滩、里弄、工业遗产与超高层天际线距离很近。沿街阅读建筑和商业史，比单看繁华夜景更能理解它。",
+    "highlights": [
+      "外滩与浦江",
+      "里弄与近代建筑",
+      "当代艺术"
+    ],
+    "bestFor": "城市史、建筑与现代生活",
+    "seasonNote": "春秋适合步行；梅雨季潮湿，夏季炎热。",
+    "culturalTip": "里弄是居住空间，拍摄与进入需克制并尊重隐私。",
+    "sourceUrl": "https://www.meet-in-shanghai.net/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#31566d",
+        "#c88a5c"
+      ],
+      "motif": "江岸与天际线"
+    },
+    "countryCode": "CN",
+    "latitude": 31.2304,
+    "longitude": 121.4737,
+    "timezone": "Asia/Shanghai",
+    "themeTags": [
+      "亚洲",
+      "江岸与天际线"
+    ]
+  },
+  {
+    "id": "city-singapore",
+    "type": "city",
+    "cityZh": "新加坡",
+    "cityEn": "Singapore",
+    "countryZh": "新加坡",
+    "countryEn": "Singapore",
+    "region": "亚洲",
+    "summary": "新加坡以高密度、多族群和热带生态的组合见长。历史街区、熟食中心、公共住房与花园城市政策，让它成为观察城市治理和文化交汇的清晰样本。",
+    "highlights": [
+      "多族群街区",
+      "熟食中心",
+      "滨海与热带花园"
+    ],
+    "bestFor": "城市治理、亲子与美食",
+    "seasonNote": "全年湿热多阵雨；轻装并安排室内外切换。",
+    "culturalTip": "宗教场所注意着装；熟食中心用纸巾占座是常见习惯。",
+    "sourceUrl": "https://www.visitsingapore.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#26766f",
+        "#d77e52"
+      ],
+      "motif": "超级树与街屋"
+    },
+    "countryCode": "SG",
+    "latitude": 1.3521,
+    "longitude": 103.8198,
+    "timezone": "Asia/Singapore",
+    "themeTags": [
+      "亚洲",
+      "超级树与街屋"
+    ]
+  },
+  {
+    "id": "city-bangkok",
+    "type": "city",
+    "cityZh": "曼谷",
+    "cityEn": "Bangkok",
+    "countryZh": "泰国",
+    "countryEn": "Thailand",
+    "region": "亚洲",
+    "summary": "曼谷在昭披耶河与运河周围生长，寺庙宫殿、市场、现代商业和街头饮食形成高强度感官体验。乘船与步行结合，能避开单纯被交通定义的印象。",
+    "highlights": [
+      "河岸寺庙",
+      "市场与街头饮食",
+      "当代设计"
+    ],
+    "bestFor": "东南亚文化、美食与城市活力",
+    "seasonNote": "十一月至二月相对凉爽；雨季需弹性行程。",
+    "culturalTip": "寺庙遮肩及膝、脱鞋；勿随意触碰他人头部。",
+    "sourceUrl": "https://www.tourismthailand.org/Destinations/Provinces/Bangkok/219",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#6f5079",
+        "#e5a44f"
+      ],
+      "motif": "寺塔与河船"
+    },
+    "countryCode": "TH",
+    "latitude": 13.7563,
+    "longitude": 100.5018,
+    "timezone": "Asia/Bangkok",
+    "themeTags": [
+      "亚洲",
+      "寺塔与河船"
+    ]
+  },
+  {
+    "id": "city-hanoi",
+    "type": "city",
+    "cityZh": "河内",
+    "cityEn": "Hanoi",
+    "countryZh": "越南",
+    "countryEn": "Vietnam",
+    "region": "亚洲",
+    "summary": "河内以湖泊、林荫大道、老街商业和法式建筑形成既紧凑又松弛的城市感。街头饮食与手工业仍嵌在日常中，清晨绕湖最能感受本地节奏。",
+    "highlights": [
+      "还剑湖",
+      "老城区",
+      "街头饮食与咖啡"
+    ],
+    "bestFor": "城市生活、饮食与历史街区",
+    "seasonNote": "十月至四月较凉爽；冬季可能湿冷。",
+    "culturalTip": "过马路保持稳定路线并观察车流；小店先问价。",
+    "sourceUrl": "https://vietnam.travel/places-to-go/northern-vietnam/ha-noi",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#4f725b",
+        "#c58a55"
+      ],
+      "motif": "湖面与窄屋"
+    },
+    "countryCode": "VN",
+    "latitude": 21.0278,
+    "longitude": 105.8342,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "themeTags": [
+      "亚洲",
+      "湖面与窄屋"
+    ]
+  },
+  {
+    "id": "city-luang-prabang",
+    "type": "city",
+    "cityZh": "琅勃拉邦",
+    "cityEn": "Luang Prabang",
+    "countryZh": "老挝",
+    "countryEn": "Laos",
+    "region": "亚洲",
+    "summary": "琅勃拉邦位于湄公河与南康河交汇处，佛寺、殖民时期建筑与山水环境形成温和尺度。它适合放慢脚步，但旅行者也应避免把宗教仪式变成表演。",
+    "highlights": [
+      "佛寺与古城",
+      "双河景观",
+      "夜市与手工艺"
+    ],
+    "bestFor": "安静古城、宗教文化与慢旅行",
+    "seasonNote": "十一月至二月干爽；烧山季需查空气质量。",
+    "culturalTip": "布施仪式保持距离、不使用闪光灯，并遵从当地指引。",
+    "sourceUrl": "https://whc.unesco.org/en/list/479/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#6b7650",
+        "#c6945a"
+      ],
+      "motif": "寺顶与双河"
+    },
+    "countryCode": "LA",
+    "latitude": 19.8834,
+    "longitude": 102.1347,
+    "timezone": "Asia/Vientiane",
+    "themeTags": [
+      "亚洲",
+      "寺顶与双河"
+    ]
+  },
+  {
+    "id": "city-jaipur",
+    "type": "city",
+    "cityZh": "斋浦尔",
+    "cityEn": "Jaipur",
+    "countryZh": "印度",
+    "countryEn": "India",
+    "region": "亚洲",
+    "summary": "斋浦尔的粉色城墙、宫殿、天文台和活跃市集体现十八世纪规划思想，也延续珠宝与纺织工艺。宏大建筑之外，手工传统和街巷色彩同样重要。",
+    "highlights": [
+      "城市宫殿",
+      "简塔·曼塔天文台",
+      "市集与工艺"
+    ],
+    "bestFor": "建筑、工艺与摄影",
+    "seasonNote": "十月至三月较舒适；白天日照仍强。",
+    "culturalTip": "宗教场所着装得体；购买工艺品可礼貌议价。",
+    "sourceUrl": "https://whc.unesco.org/en/list/1605/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#a95c5b",
+        "#e1a864"
+      ],
+      "motif": "宫窗与几何"
+    },
+    "countryCode": "IN",
+    "latitude": 26.9124,
+    "longitude": 75.7873,
+    "timezone": "Asia/Kolkata",
+    "themeTags": [
+      "亚洲",
+      "宫窗与几何"
+    ]
+  },
+  {
+    "id": "city-samarkand",
+    "type": "city",
+    "cityZh": "撒马尔罕",
+    "cityEn": "Samarkand",
+    "countryZh": "乌兹别克斯坦",
+    "countryEn": "Uzbekistan",
+    "region": "亚洲",
+    "summary": "撒马尔罕曾是丝绸之路枢纽，蓝色穹顶、经学院与陵墓群呈现中亚贸易、科学和宗教交流的积累。城市的吸引力来自建筑细部和跨文明历史。",
+    "highlights": [
+      "雷吉斯坦广场",
+      "蓝色穹顶",
+      "丝路历史"
+    ],
+    "bestFor": "丝绸之路、建筑与文明交流",
+    "seasonNote": "四五月及九十月舒适；夏季炎热干燥。",
+    "culturalTip": "宗教建筑内着装得体；拍摄人物和礼拜先征得同意。",
+    "sourceUrl": "https://whc.unesco.org/en/list/603/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2b6f91",
+        "#c9a655"
+      ],
+      "motif": "蓝穹顶与星纹"
+    },
+    "countryCode": "UZ",
+    "latitude": 39.6542,
+    "longitude": 66.9597,
+    "timezone": "Asia/Samarkand",
+    "themeTags": [
+      "亚洲",
+      "蓝穹顶与星纹"
+    ]
+  },
+  {
+    "id": "city-marrakech",
+    "type": "city",
+    "cityZh": "马拉喀什",
+    "cityEn": "Marrakesh",
+    "countryZh": "摩洛哥",
+    "countryEn": "Morocco",
+    "region": "非洲",
+    "summary": "马拉喀什的老城以红土城墙、庭院、清真寺和市集构成高密度感官世界，阿特拉斯山又提供辽阔背景。住进传统庭院能更直接理解内向式建筑。",
+    "highlights": [
+      "麦地那老城",
+      "庭院与花园",
+      "市集工艺"
+    ],
+    "bestFor": "建筑、手工艺与感官体验",
+    "seasonNote": "春秋舒适；盛夏炎热，斋月期间作息不同。",
+    "culturalTip": "市场拍人先询问；宗教场所按开放规则进入。",
+    "sourceUrl": "https://whc.unesco.org/en/list/331/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#a7513d",
+        "#d9a457"
+      ],
+      "motif": "城墙与庭院"
+    },
+    "countryCode": "MA",
+    "latitude": 31.6295,
+    "longitude": -7.9811,
+    "timezone": "Africa/Casablanca",
+    "themeTags": [
+      "非洲",
+      "城墙与庭院"
+    ]
+  },
+  {
+    "id": "city-fez",
+    "type": "city",
+    "cityZh": "非斯",
+    "cityEn": "Fez",
+    "countryZh": "摩洛哥",
+    "countryEn": "Morocco",
+    "region": "非洲",
+    "summary": "非斯老城保存复杂巷道、宗教学校、工坊和传统商业网络，空间看似迷宫，却仍是一座活着的生产城市。跟随正规向导能读懂工艺与社区结构。",
+    "highlights": [
+      "非斯老城",
+      "传统工坊",
+      "宗教学校"
+    ],
+    "bestFor": "手工艺、伊斯兰建筑与深度漫游",
+    "seasonNote": "春秋较宜；老城步行需防滑且轻装。",
+    "culturalTip": "不要把工坊劳动只当拍摄背景；付费导览事先确认价格。",
+    "sourceUrl": "https://whc.unesco.org/en/list/170/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#73513c",
+        "#3f8177"
+      ],
+      "motif": "拱门与皮革染坊"
+    },
+    "countryCode": "MA",
+    "latitude": 34.0181,
+    "longitude": -5.0078,
+    "timezone": "Africa/Casablanca",
+    "themeTags": [
+      "非洲",
+      "拱门与皮革染坊"
+    ]
+  },
+  {
+    "id": "city-cairo",
+    "type": "city",
+    "cityZh": "开罗",
+    "cityEn": "Cairo",
+    "countryZh": "埃及",
+    "countryEn": "Egypt",
+    "region": "非洲",
+    "summary": "开罗是尼罗河畔的超大城市，法老文物、伊斯兰建筑、科普特遗产和当代街区在喧闹中并存。它需要耐心与规划，却能提供极高密度的文明时间感。",
+    "highlights": [
+      "吉萨金字塔群",
+      "伊斯兰开罗",
+      "博物馆与尼罗河"
+    ],
+    "bestFor": "古代文明、宗教建筑与博物馆",
+    "seasonNote": "十月至四月较凉爽；沙尘和交通需留余量。",
+    "culturalTip": "文物遗址只走开放路线；人物拍摄与小费先沟通。",
+    "sourceUrl": "https://whc.unesco.org/en/list/89/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#a47743",
+        "#d7bd76"
+      ],
+      "motif": "金字塔与河流"
+    },
+    "countryCode": "EG",
+    "latitude": 30.0444,
+    "longitude": 31.2357,
+    "timezone": "Africa/Cairo",
+    "themeTags": [
+      "非洲",
+      "金字塔与河流"
+    ]
+  },
+  {
+    "id": "city-cape-town",
+    "type": "city",
+    "cityZh": "开普敦",
+    "cityEn": "Cape Town",
+    "countryZh": "南非",
+    "countryEn": "South Africa",
+    "region": "非洲",
+    "summary": "开普敦由桌山、两洋海岸、葡萄酒产区和多层殖民及反种族隔离历史共同塑造。自然景观耀眼，但理解社区差异与历史记忆同样十分重要。",
+    "highlights": [
+      "桌山与海岸",
+      "好望角",
+      "历史与葡萄酒产区"
+    ],
+    "bestFor": "自然、徒步与社会历史",
+    "seasonNote": "十一月至三月干暖；山顶天气可快速变化。",
+    "culturalTip": "徒步结伴并听取本地安全建议；参访社区选择负责任项目。",
+    "sourceUrl": "https://www.capetown.travel/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2b6d77",
+        "#d18c53"
+      ],
+      "motif": "桌山与海湾"
+    },
+    "countryCode": "ZA",
+    "latitude": -33.9249,
+    "longitude": 18.4241,
+    "timezone": "Africa/Johannesburg",
+    "themeTags": [
+      "非洲",
+      "桌山与海湾"
+    ]
+  },
+  {
+    "id": "city-zanzibar-city",
+    "type": "city",
+    "cityZh": "桑给巴尔城",
+    "cityEn": "Zanzibar City",
+    "countryZh": "坦桑尼亚",
+    "countryEn": "Tanzania",
+    "region": "非洲",
+    "summary": "桑给巴尔城的石头城以珊瑚石建筑、雕花木门和狭窄街巷记录印度洋贸易，也承载奴隶贸易的沉重历史。海岛风光与文化记忆应被同时看见。",
+    "highlights": [
+      "石头城",
+      "印度洋贸易史",
+      "香料与海岸"
+    ],
+    "bestFor": "海洋文明、建筑与海岛慢行",
+    "seasonNote": "六月至十月较干爽；尊重当地穆斯林社会节奏。",
+    "culturalTip": "城内着装相对保守；参观奴隶贸易遗址保持庄重。",
+    "sourceUrl": "https://whc.unesco.org/en/list/173/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#29767a",
+        "#bc8558"
+      ],
+      "motif": "木门与海浪"
+    },
+    "countryCode": "TZ",
+    "latitude": -6.1659,
+    "longitude": 39.2026,
+    "timezone": "Africa/Dar_es_Salaam",
+    "themeTags": [
+      "非洲",
+      "木门与海浪"
+    ]
+  },
+  {
+    "id": "city-lalibela",
+    "type": "city",
+    "cityZh": "拉利贝拉",
+    "cityEn": "Lalibela",
+    "countryZh": "埃塞俄比亚",
+    "countryEn": "Ethiopia",
+    "region": "非洲",
+    "summary": "拉利贝拉的岩石教堂由整块岩体向下凿成，至今仍是重要朝圣地。建筑奇迹与持续的宗教生活不可分割，参观需要充足时间、体力和敬意。",
+    "highlights": [
+      "岩石教堂群",
+      "朝圣传统",
+      "高原景观"
+    ],
+    "bestFor": "宗教建筑、工程史与文化体验",
+    "seasonNote": "十月至三月较干；出行前查安全和交通信息。",
+    "culturalTip": "礼拜期间不打扰信众；听从当地关于脱鞋和拍摄的要求。",
+    "sourceUrl": "https://whc.unesco.org/en/list/18/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#8a5a3c",
+        "#c7aa6b"
+      ],
+      "motif": "十字与岩壁"
+    },
+    "countryCode": "ET",
+    "latitude": 12.0317,
+    "longitude": 39.0476,
+    "timezone": "Africa/Addis_Ababa",
+    "themeTags": [
+      "非洲",
+      "十字与岩壁"
+    ]
+  },
+  {
+    "id": "city-tunis",
+    "type": "city",
+    "cityZh": "突尼斯城",
+    "cityEn": "Tunis",
+    "countryZh": "突尼斯",
+    "countryEn": "Tunisia",
+    "region": "非洲",
+    "summary": "突尼斯城在古老麦地那、法式新城与地中海岸之间切换，附近迦太基遗址又拉长历史纵深。它适合用街区漫步理解北非、阿拉伯与欧洲影响。",
+    "highlights": [
+      "麦地那",
+      "迦太基遗址",
+      "巴尔杜博物馆"
+    ],
+    "bestFor": "北非历史、马赛克与市集",
+    "seasonNote": "春秋温和；夏季正午炎热。",
+    "culturalTip": "宗教场所衣着得体；市集购物事先确认价格。",
+    "sourceUrl": "https://whc.unesco.org/en/list/36/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3b7281",
+        "#d3a05a"
+      ],
+      "motif": "拱门与马赛克"
+    },
+    "countryCode": "TN",
+    "latitude": 36.8065,
+    "longitude": 10.1815,
+    "timezone": "Africa/Tunis",
+    "themeTags": [
+      "非洲",
+      "拱门与马赛克"
+    ]
+  },
+  {
+    "id": "city-dakar",
+    "type": "city",
+    "cityZh": "达喀尔",
+    "cityEn": "Dakar",
+    "countryZh": "塞内加尔",
+    "countryEn": "Senegal",
+    "region": "非洲",
+    "summary": "达喀尔位于大西洋半岛，音乐、时尚、当代艺术与西非城市活力鲜明。邻近戈雷岛提醒人们正视奴隶贸易历史，使旅行兼具创造力与反思。",
+    "highlights": [
+      "当代艺术与音乐",
+      "戈雷岛",
+      "大西洋海岸"
+    ],
+    "bestFor": "非洲当代文化、音乐与历史",
+    "seasonNote": "十一月至五月相对干爽；注意强日照和海风。",
+    "culturalTip": "涉及人物与市场拍摄先询问；历史纪念地保持尊重。",
+    "sourceUrl": "https://whc.unesco.org/en/list/26/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#316c72",
+        "#e09a4e"
+      ],
+      "motif": "海岸与鼓点"
+    },
+    "countryCode": "SN",
+    "latitude": 14.7167,
+    "longitude": -17.4677,
+    "timezone": "Africa/Dakar",
+    "themeTags": [
+      "非洲",
+      "海岸与鼓点"
+    ]
+  },
+  {
+    "id": "city-new-york",
+    "type": "city",
+    "cityZh": "纽约",
+    "cityEn": "New York City",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "region": "北美洲",
+    "summary": "纽约由移民历史、垂直天际线、街区文化和世界级公共机构共同塑造。它的精华不是单一地标，而是不同社区在地铁网络中迅速切换的多重节奏。",
+    "highlights": [
+      "多元街区",
+      "博物馆与表演",
+      "城市公园与天际线"
+    ],
+    "bestFor": "艺术、移民文化与高密度城市",
+    "seasonNote": "春秋宜步行；节假日住宿和景点压力较高。",
+    "culturalTip": "人行道不要突然停步；尊重不同社区和纪念空间。",
+    "sourceUrl": "https://www.nyctourism.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#344f67",
+        "#d49a4f"
+      ],
+      "motif": "天际线与网格"
+    },
+    "countryCode": "US",
+    "latitude": 40.7128,
+    "longitude": -74.006,
+    "timezone": "America/New_York",
+    "themeTags": [
+      "北美洲",
+      "天际线与网格"
+    ]
+  },
+  {
+    "id": "city-mexico-city",
+    "type": "city",
+    "cityZh": "墨西哥城",
+    "cityEn": "Mexico City",
+    "countryZh": "墨西哥",
+    "countryEn": "Mexico",
+    "region": "北美洲",
+    "summary": "墨西哥城建在古代湖盆之上，阿兹特克遗址、殖民建筑、壁画传统与当代设计并存。市场、博物馆和不同街区让这座巨城呈现惊人的文化密度。",
+    "highlights": [
+      "历史中心",
+      "国家人类学博物馆",
+      "市场与现代艺术"
+    ],
+    "bestFor": "考古、艺术、美食与大城市探索",
+    "seasonNote": "十一月至四月较干；海拔高，首日放慢节奏。",
+    "culturalTip": "街头食物选择客流稳定摊位；夜间出行听取本地建议。",
+    "sourceUrl": "https://whc.unesco.org/en/list/412/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#47705b",
+        "#cf6551"
+      ],
+      "motif": "仙人掌与金字塔"
+    },
+    "countryCode": "MX",
+    "latitude": 19.4326,
+    "longitude": -99.1332,
+    "timezone": "America/Mexico_City",
+    "themeTags": [
+      "北美洲",
+      "仙人掌与金字塔"
+    ]
+  },
+  {
+    "id": "city-quebec-city",
+    "type": "city",
+    "cityZh": "魁北克城",
+    "cityEn": "Québec City",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "region": "北美洲",
+    "summary": "魁北克城以北美少见的城墙、法语文化和圣劳伦斯河景观形成独特气质。紧凑旧城容易步行，冬季雪景与夏季节庆则展示完全不同的城市性格。",
+    "highlights": [
+      "城墙旧城",
+      "圣劳伦斯河",
+      "法语文化"
+    ],
+    "bestFor": "历史街区、冬日氛围与亲子",
+    "seasonNote": "六月至十月舒适；冬季寒冷但雪季体验鲜明。",
+    "culturalTip": "先用 Bonjour 打招呼很受欢迎；冬季鞋底需防滑。",
+    "sourceUrl": "https://www.quebec-cite.com/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#46627c",
+        "#c58d5a"
+      ],
+      "motif": "城门与雪屋顶"
+    },
+    "countryCode": "CA",
+    "latitude": 46.8139,
+    "longitude": -71.208,
+    "timezone": "America/Toronto",
+    "themeTags": [
+      "北美洲",
+      "城门与雪屋顶"
+    ]
+  },
+  {
+    "id": "city-new-orleans",
+    "type": "city",
+    "cityZh": "新奥尔良",
+    "cityEn": "New Orleans",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "region": "北美洲",
+    "summary": "新奥尔良由密西西比河、克里奥尔文化、非裔传统与爵士乐共同塑造。法区之外，社区音乐、饮食和节庆更能说明这座城市如何把复杂历史变成创造力。",
+    "highlights": [
+      "爵士乐现场",
+      "克里奥尔建筑",
+      "河流与饮食"
+    ],
+    "bestFor": "音乐、社会史与味觉旅行",
+    "seasonNote": "二月至五月较舒适；飓风季关注预警和保险。",
+    "culturalTip": "支持正规音乐场所并给表演者小费；居民区夜间降噪。",
+    "sourceUrl": "https://www.neworleans.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5d4d7a",
+        "#d39b46"
+      ],
+      "motif": "爵士号与铁艺阳台"
+    },
+    "countryCode": "US",
+    "latitude": 29.9511,
+    "longitude": -90.0715,
+    "timezone": "America/Chicago",
+    "themeTags": [
+      "北美洲",
+      "爵士号与铁艺阳台"
+    ]
+  },
+  {
+    "id": "city-havana",
+    "type": "city",
+    "cityZh": "哈瓦那",
+    "cityEn": "Havana",
+    "countryZh": "古巴",
+    "countryEn": "Cuba",
+    "region": "北美洲",
+    "summary": "哈瓦那的广场、殖民建筑、海滨大道和二十世纪城市景观保存强烈时间感，但城市不应被浪漫化为旧车背景。音乐、社区生活与现实韧性同样关键。",
+    "highlights": [
+      "哈瓦那旧城",
+      "海滨大道",
+      "音乐与城市生活"
+    ],
+    "bestFor": "建筑、加勒比文化与摄影",
+    "seasonNote": "十一月至四月较干爽；出行前了解支付和入境规则。",
+    "culturalTip": "拍摄居民先征得同意；尊重物资与网络条件差异。",
+    "sourceUrl": "https://whc.unesco.org/en/list/204/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2f7780",
+        "#df8253"
+      ],
+      "motif": "拱廊与老车"
+    },
+    "countryCode": "CU",
+    "latitude": 23.1136,
+    "longitude": -82.3666,
+    "timezone": "America/Havana",
+    "themeTags": [
+      "北美洲",
+      "拱廊与老车"
+    ]
+  },
+  {
+    "id": "city-vancouver",
+    "type": "city",
+    "cityZh": "温哥华",
+    "cityEn": "Vancouver",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "region": "北美洲",
+    "summary": "温哥华把海湾、山脉、温带雨林和多元移民城市压缩在很小范围。骑行海堤、进入公共市场与了解原住民文化，能看到自然景观之外的城市深度。",
+    "highlights": [
+      "斯坦利公园",
+      "海堤骑行",
+      "多元饮食与原住民文化"
+    ],
+    "bestFor": "城市自然、户外与美食",
+    "seasonNote": "六月至九月较干；冬季多雨，山区条件另查。",
+    "culturalTip": "进入原住民文化场所尊重说明；野外不喂食动物。",
+    "sourceUrl": "https://www.destinationvancouver.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2a6970",
+        "#6ca06c"
+      ],
+      "motif": "山海与松林"
+    },
+    "countryCode": "CA",
+    "latitude": 49.2827,
+    "longitude": -123.1207,
+    "timezone": "America/Vancouver",
+    "themeTags": [
+      "北美洲",
+      "山海与松林"
+    ]
+  },
+  {
+    "id": "city-oaxaca",
+    "type": "city",
+    "cityZh": "瓦哈卡",
+    "cityEn": "Oaxaca",
+    "countryZh": "墨西哥",
+    "countryEn": "Mexico",
+    "region": "北美洲",
+    "summary": "瓦哈卡以殖民时期街区、萨波特克遗址、原住民市场与丰富饮食传统著称。纺织、陶器和节庆仍与社区经济相连，适合以尊重的方式慢慢理解。",
+    "highlights": [
+      "历史中心",
+      "蒙特阿尔班",
+      "手工艺与饮食"
+    ],
+    "bestFor": "考古、原住民文化与美食",
+    "seasonNote": "十月至四月较干；亡灵节期间需提早规划。",
+    "culturalTip": "购买工艺品尊重手工价值；仪式和人物拍摄先询问。",
+    "sourceUrl": "https://whc.unesco.org/en/list/415/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#9a5e47",
+        "#d4a14d"
+      ],
+      "motif": "龙舌兰与石纹"
+    },
+    "countryCode": "MX",
+    "latitude": 17.0732,
+    "longitude": -96.7266,
+    "timezone": "America/Mexico_City",
+    "themeTags": [
+      "北美洲",
+      "龙舌兰与石纹"
+    ]
+  },
+  {
+    "id": "city-buenos-aires",
+    "type": "city",
+    "cityZh": "布宜诺斯艾利斯",
+    "cityEn": "Buenos Aires",
+    "countryZh": "阿根廷",
+    "countryEn": "Argentina",
+    "region": "南美洲",
+    "summary": "布宜诺斯艾利斯以林荫大道、街区咖啡馆、书店、足球与探戈形成强烈公共生活。欧洲式外观之下，是拉普拉塔移民史和拉美政治文化的复杂积累。",
+    "highlights": [
+      "探戈与剧院",
+      "书店咖啡馆",
+      "多样街区"
+    ],
+    "bestFor": "文学、音乐、建筑与夜生活",
+    "seasonNote": "三至五月、九至十一月温和；晚餐时间通常较晚。",
+    "culturalTip": "探戈表演选择尊重舞者的场所；了解通胀下的支付方式。",
+    "sourceUrl": "https://turismo.buenosaires.gob.ar/en",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3a5f79",
+        "#c65f5b"
+      ],
+      "motif": "探戈与林荫道"
+    },
+    "countryCode": "AR",
+    "latitude": -34.6037,
+    "longitude": -58.3816,
+    "timezone": "America/Argentina/Buenos_Aires",
+    "themeTags": [
+      "南美洲",
+      "探戈与林荫道"
+    ]
+  },
+  {
+    "id": "city-rio-de-janeiro",
+    "type": "city",
+    "cityZh": "里约热内卢",
+    "cityEn": "Rio de Janeiro",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "region": "南美洲",
+    "summary": "里约的山、海、森林与高密度城区彼此嵌合，景观极具戏剧性。桑巴、现代建筑和公共海滩文化让城市充满生命力，社会差异也需要被清醒看见。",
+    "highlights": [
+      "山海景观",
+      "桑巴与街区文化",
+      "现代建筑"
+    ],
+    "bestFor": "自然、音乐与城市摄影",
+    "seasonNote": "五月至十月相对凉爽；狂欢节需很早预订。",
+    "culturalTip": "海滩轻装并保管贵重物；社区游选择本地负责运营者。",
+    "sourceUrl": "https://whc.unesco.org/en/list/1100/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#25767b",
+        "#e0a249"
+      ],
+      "motif": "山海与弧线"
+    },
+    "countryCode": "BR",
+    "latitude": -22.9068,
+    "longitude": -43.1729,
+    "timezone": "America/Sao_Paulo",
+    "themeTags": [
+      "南美洲",
+      "山海与弧线"
+    ]
+  },
+  {
+    "id": "city-cusco",
+    "type": "city",
+    "cityZh": "库斯科",
+    "cityEn": "Cusco",
+    "countryZh": "秘鲁",
+    "countryEn": "Peru",
+    "region": "南美洲",
+    "summary": "库斯科把印加石墙、殖民建筑和安第斯社区传统叠在同一街巷中，是进入更广阔高地文明的门户。城市本身值得停留，而不应只作为马丘比丘中转站。",
+    "highlights": [
+      "印加与殖民建筑",
+      "安第斯市场",
+      "高地文化"
+    ],
+    "bestFor": "考古、山地文化与历史",
+    "seasonNote": "五月至九月较干；海拔约三千四百米，需适应。",
+    "culturalTip": "首日少酒少剧烈运动；拍摄传统服饰人物先征得同意。",
+    "sourceUrl": "https://whc.unesco.org/en/list/273/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#7d5945",
+        "#bb9156"
+      ],
+      "motif": "石墙与山峰"
+    },
+    "countryCode": "PE",
+    "latitude": -13.5319,
+    "longitude": -71.9675,
+    "timezone": "America/Lima",
+    "themeTags": [
+      "南美洲",
+      "石墙与山峰"
+    ]
+  },
+  {
+    "id": "city-cartagena",
+    "type": "city",
+    "cityZh": "卡塔赫纳",
+    "cityEn": "Cartagena de Indias",
+    "countryZh": "哥伦比亚",
+    "countryEn": "Colombia",
+    "region": "南美洲",
+    "summary": "卡塔赫纳以加勒比港口、完整防御工事和彩色殖民街区著称。城墙内外都承载贸易、奴隶制与非裔文化历史，理解这些背景能超越表面的浪漫景观。",
+    "highlights": [
+      "城墙与堡垒",
+      "加勒比街区",
+      "非裔文化与饮食"
+    ],
+    "bestFor": "海港史、建筑与海滨休闲",
+    "seasonNote": "十二月至四月较干；全年炎热潮湿。",
+    "culturalTip": "拒绝未经同意的合影收费；历史叙事注意殖民与奴隶制。",
+    "sourceUrl": "https://whc.unesco.org/en/list/285/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2e7480",
+        "#dd7652"
+      ],
+      "motif": "堡垒与加勒比色彩"
+    },
+    "countryCode": "CO",
+    "latitude": 10.391,
+    "longitude": -75.4794,
+    "timezone": "America/Bogota",
+    "themeTags": [
+      "南美洲",
+      "堡垒与加勒比色彩"
+    ]
+  },
+  {
+    "id": "city-quito",
+    "type": "city",
+    "cityZh": "基多",
+    "cityEn": "Quito",
+    "countryZh": "厄瓜多尔",
+    "countryEn": "Ecuador",
+    "region": "南美洲",
+    "summary": "基多位于安第斯高谷，保存完整的殖民历史中心，火山与山脊为教堂、广场和社区提供壮阔背景。高海拔光线清澈，但行程必须为身体适应留白。",
+    "highlights": [
+      "历史中心",
+      "安第斯火山景观",
+      "教堂艺术"
+    ],
+    "bestFor": "建筑、山地城市与摄影",
+    "seasonNote": "六月至九月偏干；昼夜温差和紫外线都明显。",
+    "culturalTip": "高海拔首日放慢；进入教堂尊重礼拜与拍摄规则。",
+    "sourceUrl": "https://whc.unesco.org/en/list/2/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496779",
+        "#d1a155"
+      ],
+      "motif": "火山与钟楼"
+    },
+    "countryCode": "EC",
+    "latitude": -0.1807,
+    "longitude": -78.4678,
+    "timezone": "America/Guayaquil",
+    "themeTags": [
+      "南美洲",
+      "火山与钟楼"
+    ]
+  },
+  {
+    "id": "city-valparaiso",
+    "type": "city",
+    "cityZh": "瓦尔帕莱索",
+    "cityEn": "Valparaíso",
+    "countryZh": "智利",
+    "countryEn": "Chile",
+    "region": "南美洲",
+    "summary": "瓦尔帕莱索沿海湾山坡生长，升降机、彩色房屋、壁画和港口遗产形成不规则城市景观。它的魅力在视角变化，也在文学与工人港口记忆。",
+    "highlights": [
+      "山坡升降机",
+      "街头艺术",
+      "港口历史"
+    ],
+    "bestFor": "城市摄影、诗歌与海港文化",
+    "seasonNote": "十月至四月较温和；坡路多，穿防滑鞋。",
+    "culturalTip": "壁画和住宅都应尊重产权；夜间路线听取本地建议。",
+    "sourceUrl": "https://whc.unesco.org/en/list/959/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3b7183",
+        "#df7957"
+      ],
+      "motif": "坡城与升降机"
+    },
+    "countryCode": "CL",
+    "latitude": -33.0472,
+    "longitude": -71.6127,
+    "timezone": "America/Santiago",
+    "themeTags": [
+      "南美洲",
+      "坡城与升降机"
+    ]
+  },
+  {
+    "id": "city-sydney",
+    "type": "city",
+    "cityZh": "悉尼",
+    "cityEn": "Sydney",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "region": "大洋洲",
+    "summary": "悉尼以世界级海港、砂岩海岸和多元街区形成开放气质。歌剧院与大桥只是入口，海岸步道、原住民历史和社区饮食让这座城市更有纵深。",
+    "highlights": [
+      "悉尼港",
+      "海岸步道",
+      "原住民与多元文化"
+    ],
+    "bestFor": "海滨城市、建筑与户外",
+    "seasonNote": "九至十一月、三至五月舒适；夏季注意紫外线。",
+    "culturalTip": "尊重原住民文化场所；海滩只在救生旗之间游泳。",
+    "sourceUrl": "https://www.sydney.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#26758b",
+        "#d7a74e"
+      ],
+      "motif": "歌剧院与海湾"
+    },
+    "countryCode": "AU",
+    "latitude": -33.8688,
+    "longitude": 151.2093,
+    "timezone": "Australia/Sydney",
+    "themeTags": [
+      "大洋洲",
+      "歌剧院与海湾"
+    ]
+  },
+  {
+    "id": "city-melbourne",
+    "type": "city",
+    "cityZh": "墨尔本",
+    "cityEn": "Melbourne",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "region": "大洋洲",
+    "summary": "墨尔本以巷道咖啡馆、现场音乐、体育和维多利亚时期街区见长，电车连接起性格不同的社区。天气多变，却适合把旅行重心放在日常文化。",
+    "highlights": [
+      "巷道与咖啡",
+      "美术馆与现场音乐",
+      "市场与电车"
+    ],
+    "bestFor": "设计、咖啡、体育与文化",
+    "seasonNote": "三至五月、九至十一月温和；一天可能多种天气。",
+    "culturalTip": "电车上下车注意自行车道；原住民地名和历史值得了解。",
+    "sourceUrl": "https://www.visitmelbourne.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3b596d",
+        "#cf6d59"
+      ],
+      "motif": "电车与巷道"
+    },
+    "countryCode": "AU",
+    "latitude": -37.8136,
+    "longitude": 144.9631,
+    "timezone": "Australia/Melbourne",
+    "themeTags": [
+      "大洋洲",
+      "电车与巷道"
+    ]
+  },
+  {
+    "id": "city-wellington",
+    "type": "city",
+    "cityZh": "惠灵顿",
+    "cityEn": "Wellington",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "region": "大洋洲",
+    "summary": "惠灵顿依山临港，规模紧凑，却拥有强烈电影、设计、咖啡与公共文化氛围。海滨博物馆和周边自然保护区让城市与新西兰历史连接紧密。",
+    "highlights": [
+      "海港与博物馆",
+      "电影创意产业",
+      "山地步道"
+    ],
+    "bestFor": "创意文化、博物馆与短程户外",
+    "seasonNote": "十二月至三月较温和；全年风大，备防风层。",
+    "culturalTip": "了解毛利地名发音；户外遵守无痕和生物安全规则。",
+    "sourceUrl": "https://www.wellingtonnz.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2d6e75",
+        "#d19a55"
+      ],
+      "motif": "海港与风线"
+    },
+    "countryCode": "NZ",
+    "latitude": -41.2866,
+    "longitude": 174.7756,
+    "timezone": "Pacific/Auckland",
+    "themeTags": [
+      "大洋洲",
+      "海港与风线"
+    ]
+  },
+  {
+    "id": "city-hobart",
+    "type": "city",
+    "cityZh": "霍巴特",
+    "cityEn": "Hobart",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "region": "大洋洲",
+    "summary": "霍巴特位于德文特河与惠灵顿山之间，砂岩仓库、当代艺术与塔斯马尼亚荒野门户形成独特组合。城市不大，却适合把历史、食物和自然连成一程。",
+    "highlights": [
+      "萨拉曼卡仓库",
+      "当代艺术",
+      "山海与荒野门户"
+    ],
+    "bestFor": "小城慢游、自然与美食",
+    "seasonNote": "十二月至三月较温和；山区天气骤变。",
+    "culturalTip": "自然区清洁鞋具防止病原传播；尊重原住民历史。",
+    "sourceUrl": "https://www.discovertasmania.com.au/regions/hobart-and-south/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3e6d70",
+        "#aa7a56"
+      ],
+      "motif": "砂岩仓与山峰"
+    },
+    "countryCode": "AU",
+    "latitude": -42.8821,
+    "longitude": 147.3272,
+    "timezone": "Australia/Hobart",
+    "themeTags": [
+      "大洋洲",
+      "砂岩仓与山峰"
+    ]
+  },
+  {
+    "id": "city-auckland",
+    "type": "city",
+    "cityZh": "奥克兰",
+    "cityEn": "Auckland",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "region": "大洋洲",
+    "summary": "奥克兰建在火山地貌与多座海湾之间，是毛利与太平洋岛裔文化重要汇聚地。乘渡轮、登火山丘与逛社区市场，能理解它为何被海洋定义。",
+    "highlights": [
+      "火山丘与海湾",
+      "渡轮岛屿",
+      "毛利与太平洋文化"
+    ],
+    "bestFor": "海洋城市、轻户外与多元文化",
+    "seasonNote": "十二月至三月温暖；阵雨常见，行程保持弹性。",
+    "culturalTip": "火山锥是文化敏感地，遵守步道；学习基本毛利问候。",
+    "sourceUrl": "https://www.aucklandnz.com/",
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2e7279",
+        "#6e9b64"
+      ],
+      "motif": "帆影与火山丘"
+    },
+    "countryCode": "NZ",
+    "latitude": -36.8509,
+    "longitude": 174.7645,
+    "timezone": "Pacific/Auckland",
+    "themeTags": [
+      "大洋洲",
+      "帆影与火山丘"
+    ]
+  },
+  {
+    "id": "city-tallinn",
+    "type": "city",
+    "cityZh": "塔林",
+    "cityEn": "Tallinn",
+    "countryZh": "爱沙尼亚",
+    "countryEn": "Estonia",
+    "countryCode": "EE",
+    "region": "欧洲",
+    "latitude": 59.437,
+    "longitude": 24.7536,
+    "timezone": "Europe/Tallinn",
+    "summary": "塔林以保存完整的中世纪城墙和尖塔闻名，但创意园区、木屋街区与数字社会也让它不止是一座古城。步行尺度紧凑，海湾、旧城和当代生活可以在一天中自然衔接。",
+    "highlights": [
+      "中世纪旧城",
+      "波罗的海海湾",
+      "创意园区与木屋街区"
+    ],
+    "bestFor": "中世纪城市、设计与安静步行",
+    "seasonNote": "五月至九月日照较长；冬季寒冷且白昼短，但旧城氛围浓。",
+    "culturalTip": "旧城仍是居民日常空间；狭窄街巷停留拍照时给行人留出通道。",
+    "sourceUrl": "https://visittallinn.ee/eng",
+    "themeTags": [
+      "历史层积",
+      "海港",
+      "数字社会"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#385d67",
+        "#c98e59"
+      ],
+      "motif": "城塔与海湾"
+    }
+  },
+  {
+    "id": "city-ljubljana",
+    "type": "city",
+    "cityZh": "卢布尔雅那",
+    "cityEn": "Ljubljana",
+    "countryZh": "斯洛文尼亚",
+    "countryEn": "Slovenia",
+    "countryCode": "SI",
+    "region": "欧洲",
+    "latitude": 46.0569,
+    "longitude": 14.5058,
+    "timezone": "Europe/Ljubljana",
+    "summary": "卢布尔雅那沿卢布尔雅尼察河展开，桥梁、市场、巴洛克街区与二十世纪建筑共同形成温和的人行城市。它体量不大，却适合作为理解斯洛文尼亚文化与周边山地的起点。",
+    "highlights": [
+      "河岸与桥梁",
+      "中央市场",
+      "人行旧城与现代建筑"
+    ],
+    "bestFor": "慢旅行、建筑与咖啡馆生活",
+    "seasonNote": "四至六月和九月宜步行；夏季活动多，午后也可能有阵雨。",
+    "culturalTip": "市中心自行车很多，过道和车道不要停留；市场购物尊重摊主节奏。",
+    "sourceUrl": "https://www.visitljubljana.com/en/",
+    "themeTags": [
+      "河流",
+      "宜居城市",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39756d",
+        "#d2a15f"
+      ],
+      "motif": "河桥与龙"
+    }
+  },
+  {
+    "id": "city-sarajevo",
+    "type": "city",
+    "cityZh": "萨拉热窝",
+    "cityEn": "Sarajevo",
+    "countryZh": "波斯尼亚和黑塞哥维那",
+    "countryEn": "Bosnia and Herzegovina",
+    "countryCode": "BA",
+    "region": "欧洲",
+    "latitude": 43.8563,
+    "longitude": 18.4131,
+    "timezone": "Europe/Sarajevo",
+    "summary": "萨拉热窝坐落在群山之间，奥斯曼老城、奥匈建筑、宗教场所与二十世纪战争记忆距离很近。咖啡、工艺和社区生活使这里既适合历史反思，也能看见城市恢复力。",
+    "highlights": [
+      "巴什察尔希亚老城",
+      "多宗教建筑",
+      "近现代历史记忆"
+    ],
+    "bestFor": "欧洲边缘史、社区文化与山城步行",
+    "seasonNote": "五月至十月较适合户外；冬季寒冷，盆地空气状况需关注。",
+    "culturalTip": "战争遗址和墓园不是布景；涉及居民经历时先倾听并避免替他人下结论。",
+    "sourceUrl": "https://www.visitsarajevo.ba/",
+    "themeTags": [
+      "记忆",
+      "多元文化",
+      "恢复力"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6656",
+        "#b7784e"
+      ],
+      "motif": "铜器与山谷"
+    }
+  },
+  {
+    "id": "city-busan",
+    "type": "city",
+    "cityZh": "釜山",
+    "cityEn": "Busan",
+    "countryZh": "韩国",
+    "countryEn": "South Korea",
+    "countryCode": "KR",
+    "region": "亚洲",
+    "latitude": 35.1796,
+    "longitude": 129.0756,
+    "timezone": "Asia/Seoul",
+    "summary": "釜山由山地、港口和海滩共同塑造，海鲜市场、山坡社区、寺院与电影文化呈现出不同于首尔的开放气质。地铁与步道相结合，能从港湾尺度读懂这座城市。",
+    "highlights": [
+      "港湾与海滩",
+      "山坡社区",
+      "海鲜市场与电影文化"
+    ],
+    "bestFor": "海岸城市、徒步与饮食",
+    "seasonNote": "四至六月和九至十月舒适；夏季潮湿并可能受台风影响。",
+    "culturalTip": "市场拍摄摊主前先征得同意；山坡住宅区注意音量和居民通行。",
+    "sourceUrl": "https://www.visitbusan.net/en/index.do",
+    "themeTags": [
+      "海洋",
+      "电影",
+      "社区"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#287487",
+        "#d78e51"
+      ],
+      "motif": "港桥与山坡"
+    }
+  },
+  {
+    "id": "city-george-town",
+    "type": "city",
+    "cityZh": "乔治市",
+    "cityEn": "George Town",
+    "countryZh": "马来西亚",
+    "countryEn": "Malaysia",
+    "countryCode": "MY",
+    "region": "亚洲",
+    "latitude": 5.4141,
+    "longitude": 100.3288,
+    "timezone": "Asia/Kuala_Lumpur",
+    "summary": "乔治市以海峡贸易留下的店屋、宗教建筑、宗族空间和多语言饮食著称。街头艺术很醒目，但真正的层次来自马来、华人、印度及其他社群长期共处的城市纹理。",
+    "highlights": [
+      "历史店屋",
+      "多元宗教街区",
+      "娘惹与街头饮食"
+    ],
+    "bestFor": "港口史、建筑与多文化饮食",
+    "seasonNote": "十二月至三月通常较干；全年炎热，午后安排室内参观更从容。",
+    "culturalTip": "宗教场所遵守着装和拍摄规则；店屋不少仍有人居住和经营。",
+    "sourceUrl": "https://whc.unesco.org/en/list/1223/",
+    "themeTags": [
+      "迁徙",
+      "贸易",
+      "多元文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#32736f",
+        "#d98554"
+      ],
+      "motif": "店屋与香料"
+    }
+  },
+  {
+    "id": "city-ulaanbaatar",
+    "type": "city",
+    "cityZh": "乌兰巴托",
+    "cityEn": "Ulaanbaatar",
+    "countryZh": "蒙古国",
+    "countryEn": "Mongolia",
+    "countryCode": "MN",
+    "region": "亚洲",
+    "latitude": 47.8864,
+    "longitude": 106.9057,
+    "timezone": "Asia/Ulaanbaatar",
+    "summary": "乌兰巴托聚集了蒙古国的大部分城市文化，寺院、博物馆、剧场与快速扩张的街区并置。它既是理解草原传统如何进入现代生活的窗口，也是前往更广阔地区的交通起点。",
+    "highlights": [
+      "甘丹寺",
+      "蒙古历史博物馆",
+      "草原文化与当代城市"
+    ],
+    "bestFor": "游牧文明、博物馆与区域旅行起点",
+    "seasonNote": "六月至九月相对温和；冬季极寒，春季风沙较多。",
+    "culturalTip": "进入寺院遵守现场规则；城外访问牧户应通过负责任渠道并尊重私人空间。",
+    "sourceUrl": "https://www.mongolia.travel/",
+    "themeTags": [
+      "游牧传统",
+      "现代化",
+      "草原"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#53695f",
+        "#c6904d"
+      ],
+      "motif": "草原与寺顶"
+    }
+  },
+  {
+    "id": "city-accra",
+    "type": "city",
+    "cityZh": "阿克拉",
+    "cityEn": "Accra",
+    "countryZh": "加纳",
+    "countryEn": "Ghana",
+    "countryCode": "GH",
+    "region": "非洲",
+    "latitude": 5.6037,
+    "longitude": -0.187,
+    "timezone": "Africa/Accra",
+    "summary": "阿克拉面向几内亚湾，独立历史、活跃音乐、当代艺术、市场与海岸社区构成鲜明节奏。它没有单一古城核心，更适合通过不同街区理解加纳的政治记忆和创造力。",
+    "highlights": [
+      "独立广场与历史",
+      "当代艺术与音乐",
+      "市场和海岸社区"
+    ],
+    "bestFor": "西非当代文化、音乐与社会历史",
+    "seasonNote": "十一月至三月较干燥；全年湿热，强日照下需放慢节奏。",
+    "culturalTip": "人物和市场拍摄先询问；纪念地与社区参访避免只追求猎奇画面。",
+    "sourceUrl": "https://visitghana.com/attractions/accra/",
+    "themeTags": [
+      "独立",
+      "音乐",
+      "当代非洲"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3f745d",
+        "#d8a144"
+      ],
+      "motif": "海岸与织纹"
+    }
+  },
+  {
+    "id": "city-kigali",
+    "type": "city",
+    "cityZh": "基加利",
+    "cityEn": "Kigali",
+    "countryZh": "卢旺达",
+    "countryEn": "Rwanda",
+    "countryCode": "RW",
+    "region": "非洲",
+    "latitude": -1.9441,
+    "longitude": 30.0619,
+    "timezone": "Africa/Kigali",
+    "summary": "基加利分布在连绵丘陵上，以整洁公共空间、设计产业和迅速变化的城市面貌受到关注。大屠杀纪念馆则要求旅行者正视历史创伤，使城市经验兼具克制反思与面向未来的活力。",
+    "highlights": [
+      "丘陵城市景观",
+      "基加利大屠杀纪念馆",
+      "设计与咖啡文化"
+    ],
+    "bestFor": "历史反思、城市治理与东非文化",
+    "seasonNote": "六月至九月通常较干；雨季道路和户外安排要留弹性。",
+    "culturalTip": "纪念场所保持安静并遵守影像规则；不要向幸存者索取私人创伤叙述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Kigali",
+    "themeTags": [
+      "记忆",
+      "城市治理",
+      "恢复力"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#47745c",
+        "#c98655"
+      ],
+      "motif": "丘陵与编织"
+    }
+  },
+  {
+    "id": "city-windhoek",
+    "type": "city",
+    "cityZh": "温得和克",
+    "cityEn": "Windhoek",
+    "countryZh": "纳米比亚",
+    "countryEn": "Namibia",
+    "countryCode": "NA",
+    "region": "非洲",
+    "latitude": -22.5609,
+    "longitude": 17.0658,
+    "timezone": "Africa/Windhoek",
+    "summary": "温得和克位于纳米比亚高原，是理解德国殖民遗产、独立历史和多语言社会的入口。城市尺度不大，却能通过博物馆、市场和当代公共空间为荒漠旅行提供必要背景。",
+    "highlights": [
+      "独立历史",
+      "多语言市场",
+      "高原与荒漠门户"
+    ],
+    "bestFor": "南部非洲历史与自然旅行衔接",
+    "seasonNote": "五月至九月干爽且昼夜温差大；夏季可能有雷雨。",
+    "culturalTip": "讨论殖民历史时使用当地机构的表述；前往偏远地区前准备水和通信方案。",
+    "sourceUrl": "https://visitnamibia.com.na/",
+    "themeTags": [
+      "殖民记忆",
+      "荒漠",
+      "多语言"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#756247",
+        "#d39555"
+      ],
+      "motif": "高原与羚羊角"
+    }
+  },
+  {
+    "id": "city-maputo",
+    "type": "city",
+    "cityZh": "马普托",
+    "cityEn": "Maputo",
+    "countryZh": "莫桑比克",
+    "countryEn": "Mozambique",
+    "countryCode": "MZ",
+    "region": "非洲",
+    "latitude": -25.9692,
+    "longitude": 32.5732,
+    "timezone": "Africa/Maputo",
+    "summary": "马普托临印度洋而建，葡语建筑、非洲现代主义、市场、海鲜和音乐共同构成松弛而复杂的城市气质。火车站和公共建筑值得看，社区日常也提醒人们不要只从殖民视角阅读城市。",
+    "highlights": [
+      "非洲现代主义建筑",
+      "印度洋海岸",
+      "市场与音乐"
+    ],
+    "bestFor": "建筑、葡语非洲文化与海滨生活",
+    "seasonNote": "五月至十月较干爽；夏季湿热并可能有强降雨。",
+    "culturalTip": "公共建筑和人物拍摄先询问；夜间与跨区交通听取当地可靠建议。",
+    "sourceUrl": "https://www.visitmozambique.gov.mz/",
+    "themeTags": [
+      "现代主义",
+      "音乐",
+      "印度洋"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#386f76",
+        "#d98d5c"
+      ],
+      "motif": "拱廊与印度洋"
+    }
+  },
+  {
+    "id": "city-montreal",
+    "type": "city",
+    "cityZh": "蒙特利尔",
+    "cityEn": "Montréal",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "countryCode": "CA",
+    "region": "北美洲",
+    "latitude": 45.5019,
+    "longitude": -73.5674,
+    "timezone": "America/Toronto",
+    "summary": "蒙特利尔把法语城市传统、移民社区、工业遗产与实验艺术结合起来。旧港只是起点，街区市场、骑行网络、音乐节和冬季公共生活更能体现它的创造力。",
+    "highlights": [
+      "法语街区与旧港",
+      "市场和移民饮食",
+      "音乐、设计与骑行"
+    ],
+    "bestFor": "语言文化、艺术节与街区漫游",
+    "seasonNote": "五月至十月适合骑行；冬季严寒但地下与室内文化活跃。",
+    "culturalTip": "尊重本地法语使用习惯；自行车道和冬季清雪通道不要停留。",
+    "sourceUrl": "https://www.mtl.org/en",
+    "themeTags": [
+      "语言",
+      "移民",
+      "创意城市"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3f6278",
+        "#c75d5b"
+      ],
+      "motif": "穹顶与枫叶"
+    }
+  },
+  {
+    "id": "city-merida",
+    "type": "city",
+    "cityZh": "梅里达",
+    "cityEn": "Mérida",
+    "countryZh": "墨西哥",
+    "countryEn": "Mexico",
+    "countryCode": "MX",
+    "region": "北美洲",
+    "latitude": 20.9674,
+    "longitude": -89.5926,
+    "timezone": "America/Merida",
+    "summary": "梅里达位于尤卡坦半岛，殖民时期街区、玛雅文化、市场饮食和庭院住宅构成鲜明层次。它适合作为了解半岛历史与天然井、考古遗址之间联系的城市基地。",
+    "highlights": [
+      "玛雅文化",
+      "殖民街区",
+      "尤卡坦市场与饮食"
+    ],
+    "bestFor": "考古、地方饮食与慢节奏街区",
+    "seasonNote": "十一月至二月较凉爽；春末和夏季炎热，午间宜减少暴晒。",
+    "culturalTip": "玛雅文化不是过去式；购买工艺和参加社区活动时尊重当代创作者。",
+    "sourceUrl": "https://yucatan.travel/en/merida/",
+    "themeTags": [
+      "玛雅文化",
+      "手工艺",
+      "半岛"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3c7874",
+        "#d59855"
+      ],
+      "motif": "拱门与木棉"
+    }
+  },
+  {
+    "id": "city-chicago",
+    "type": "city",
+    "cityZh": "芝加哥",
+    "cityEn": "Chicago",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 41.8781,
+    "longitude": -87.6298,
+    "timezone": "America/Chicago",
+    "summary": "芝加哥在密歇根湖畔形成大胆天际线，现代建筑史、蓝调与爵士、移民街区和公共艺术彼此交织。沿河步行与乘高架列车观察城市，是理解其工业与规划遗产的好方法。",
+    "highlights": [
+      "现代建筑与河道",
+      "蓝调和爵士",
+      "湖滨与移民街区"
+    ],
+    "bestFor": "建筑、音乐与美国城市史",
+    "seasonNote": "五月至十月适合湖滨活动；冬季风寒明显，天气变化要留余量。",
+    "culturalTip": "不同街区并非主题公园；参加社区文化活动时支持本地经营并尊重居民。",
+    "sourceUrl": "https://www.choosechicago.com/",
+    "themeTags": [
+      "建筑",
+      "音乐",
+      "工业城市"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#375b73",
+        "#c98b4f"
+      ],
+      "motif": "高架列车与湖岸"
+    }
+  },
+  {
+    "id": "city-montevideo",
+    "type": "city",
+    "cityZh": "蒙得维的亚",
+    "cityEn": "Montevideo",
+    "countryZh": "乌拉圭",
+    "countryEn": "Uruguay",
+    "countryCode": "UY",
+    "region": "南美洲",
+    "latitude": -34.9011,
+    "longitude": -56.1645,
+    "timezone": "America/Montevideo",
+    "summary": "蒙得维的亚沿拉普拉塔河口展开，海滨大道、旧城、市场和坎东贝音乐构成从容节奏。它的魅力不靠密集地标，而在公共海岸、社区生活与南锥体历史。",
+    "highlights": [
+      "海滨大道",
+      "旧城与市场",
+      "坎东贝音乐"
+    ],
+    "bestFor": "慢旅行、海岸生活与音乐文化",
+    "seasonNote": "十月至四月适合户外；海风强，天气转凉时需备外套。",
+    "culturalTip": "坎东贝来自具体社区传统；观看或拍摄排练时先征得参与者同意。",
+    "sourceUrl": "https://www.descubrimontevideo.uy/en/",
+    "themeTags": [
+      "公共空间",
+      "音乐",
+      "南锥体"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#3d7180",
+        "#d49a55"
+      ],
+      "motif": "海滨与鼓"
+    }
+  },
+  {
+    "id": "city-la-paz",
+    "type": "city",
+    "cityZh": "拉巴斯",
+    "cityEn": "La Paz",
+    "countryZh": "玻利维亚",
+    "countryEn": "Bolivia",
+    "countryCode": "BO",
+    "region": "南美洲",
+    "latitude": -16.4897,
+    "longitude": -68.1193,
+    "timezone": "America/La_Paz",
+    "summary": "拉巴斯深嵌安第斯峡谷，缆车网络把不同海拔和社区连接起来，艾马拉文化、市场与高山景观同时可见。城市体验的第一原则是适应海拔，而不是急于打卡。",
+    "highlights": [
+      "城市缆车",
+      "艾马拉文化与市场",
+      "安第斯山谷景观"
+    ],
+    "bestFor": "高原城市、社会观察与区域文化",
+    "seasonNote": "五月至十月较干但早晚寒冷；初到高海拔应减慢活动。",
+    "culturalTip": "未经同意不要拍摄市场人物和仪式；高原不适严重时应停止行程并求助。",
+    "sourceUrl": "https://www.lapaz.bo/",
+    "themeTags": [
+      "高原",
+      "原住民文化",
+      "城市交通"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#596678",
+        "#c6814f"
+      ],
+      "motif": "缆车与雪峰"
+    }
+  },
+  {
+    "id": "city-salvador",
+    "type": "city",
+    "cityZh": "萨尔瓦多",
+    "cityEn": "Salvador",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "countryCode": "BR",
+    "region": "南美洲",
+    "latitude": -12.9777,
+    "longitude": -38.5016,
+    "timezone": "America/Bahia",
+    "summary": "萨尔瓦多曾是殖民时期重要港口，彩色老城、非裔巴西宗教、音乐、舞蹈与海湾生活形成强烈文化密度。理解奴隶制历史和当代黑人文化，是观看建筑之外不可缺少的一层。",
+    "highlights": [
+      "佩洛里尼奥老城",
+      "非裔巴西音乐与宗教",
+      "海湾与地方饮食"
+    ],
+    "bestFor": "大西洋史、音乐与非裔文化",
+    "seasonNote": "九月至三月适合海岸活动；全年温暖，强降雨时街巷可能湿滑。",
+    "culturalTip": "宗教仪式不是随意拍摄的演出；历史街区活动时听从本地安全建议。",
+    "sourceUrl": "https://www.salvadordabahia.com/en/",
+    "themeTags": [
+      "非洲离散",
+      "音乐",
+      "殖民历史"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2d7480",
+        "#e08a4f"
+      ],
+      "motif": "彩色立面与鼓"
+    }
+  },
+  {
+    "id": "city-perth",
+    "type": "city",
+    "cityZh": "珀斯",
+    "cityEn": "Perth",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -31.9523,
+    "longitude": 115.8613,
+    "timezone": "Australia/Perth",
+    "summary": "珀斯位于澳大利亚西海岸，天鹅河、印度洋海滩、城市公园与原住民文化共同定义它。与东海岸城市相比，它更能让旅行者体会距离、光线和西部生态。",
+    "highlights": [
+      "天鹅河与国王公园",
+      "印度洋海滩",
+      "努加尔文化"
+    ],
+    "bestFor": "城市自然、海岸与西澳旅行起点",
+    "seasonNote": "九月至十一月野花季宜户外；夏季炎热干燥并有高紫外线。",
+    "culturalTip": "了解并尊重努加尔传统地名与文化说明；海滩遵守救生旗和防晒提示。",
+    "sourceUrl": "https://visitperth.com/",
+    "themeTags": [
+      "海洋",
+      "原住民文化",
+      "生态"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#2f7186",
+        "#d7a44f"
+      ],
+      "motif": "河湾与野花"
+    }
+  },
+  {
+    "id": "city-adelaide",
+    "type": "city",
+    "cityZh": "阿德莱德",
+    "cityEn": "Adelaide",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -34.9285,
+    "longitude": 138.6007,
+    "timezone": "Australia/Adelaide",
+    "summary": "阿德莱德以环绕市中心的公园带、中央市场、节庆和邻近葡萄酒产区闻名。规则清晰的城市格网与原住民文化、移民饮食结合，适合慢下来观察南澳生活。",
+    "highlights": [
+      "城市公园带",
+      "中央市场",
+      "节庆与葡萄酒地区"
+    ],
+    "bestFor": "饮食、节庆与轻松城市生活",
+    "seasonNote": "三至五月和九至十一月温和；盛夏可能出现极端高温。",
+    "culturalTip": "节庆期间提前规划交通；介绍原住民文化时使用当地机构提供的名称和资料。",
+    "sourceUrl": "https://southaustralia.com/destinations/adelaide",
+    "themeTags": [
+      "节庆",
+      "饮食",
+      "公园城市"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#4c7562",
+        "#ca8e52"
+      ],
+      "motif": "公园环与葡萄藤"
+    }
+  },
+  {
+    "id": "city-christchurch",
+    "type": "city",
+    "cityZh": "基督城",
+    "cityEn": "Christchurch",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "countryCode": "NZ",
+    "region": "大洋洲",
+    "latitude": -43.5321,
+    "longitude": 172.6362,
+    "timezone": "Pacific/Auckland",
+    "summary": "基督城在地震重建中重新思考公共空间、建筑和社区韧性，雅芳河、花园、街头艺术与南岛自然门户角色并存。旅行者可以从新旧建筑的并置理解城市如何恢复。",
+    "highlights": [
+      "地震重建建筑",
+      "雅芳河与花园",
+      "南岛自然门户"
+    ],
+    "bestFor": "城市重建、设计与轻户外",
+    "seasonNote": "十二月至三月温暖；春秋天气变化快，山区行程需单独准备。",
+    "culturalTip": "地震纪念地保持克制；使用毛利地名和文化资料时尊重当地说明。",
+    "sourceUrl": "https://www.christchurchnz.com/",
+    "themeTags": [
+      "重建",
+      "社区韧性",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#44756f",
+        "#c69b58"
+      ],
+      "motif": "河舟与重建网格"
+    }
+  },
+  {
+    "id": "city-suva",
+    "type": "city",
+    "cityZh": "苏瓦",
+    "cityEn": "Suva",
+    "countryZh": "斐济",
+    "countryEn": "Fiji",
+    "countryCode": "FJ",
+    "region": "大洋洲",
+    "latitude": -18.1248,
+    "longitude": 178.4501,
+    "timezone": "Pacific/Fiji",
+    "summary": "苏瓦是南太平洋重要的行政与文化中心，殖民时期建筑、博物馆、市场、大学和多族群社区形成不同于度假岛屿的城市经验。这里适合把斐济放回太平洋历史与当代社会中理解。",
+    "highlights": [
+      "斐济博物馆",
+      "中央市场",
+      "太平洋多元文化"
+    ],
+    "bestFor": "太平洋历史、市场与城市文化",
+    "seasonNote": "五月至十月相对凉爽；全年降雨较多，热带天气需保持行程弹性。",
+    "culturalTip": "进入村落或宗教场所前了解着装与访问礼仪；人物拍摄先询问。",
+    "sourceUrl": "https://www.fiji.travel/places-to-go/suva-and-surrounds",
+    "themeTags": [
+      "太平洋",
+      "多元文化",
+      "海岛城市"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#287a7a",
+        "#d69a4d"
+      ],
+      "motif": "海湾与塔帕纹"
+    }
+  },
+  {
+    "id": "city-amsterdam",
+    "type": "city",
+    "cityZh": "阿姆斯特丹",
+    "cityEn": "Amsterdam",
+    "countryZh": "荷兰",
+    "countryEn": "Netherlands",
+    "countryCode": "NL",
+    "region": "欧洲",
+    "latitude": 52.3676,
+    "longitude": 4.9041,
+    "timezone": "Europe/Amsterdam",
+    "summary": "阿姆斯特丹以运河环带、窄立面商屋与自行车日常把水城遗产融入现代生活。运河环带、国立博物馆群与约旦区街巷提供三条互补线索，适合从城市设计、水岸生活与荷兰艺术展开。",
+    "highlights": [
+      "运河环带",
+      "国立博物馆群",
+      "约旦区街巷"
+    ],
+    "bestFor": "城市设计、水岸生活与荷兰艺术",
+    "seasonNote": "在阿姆斯特丹安排运河环带与步行街区时，应按旅行月份核对日照、降水和季节性开放时间。",
+    "culturalTip": "参访运河环带时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Amsterdam",
+    "themeTags": [
+      "水利",
+      "艺术",
+      "日常设计"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "运河屋与自行车"
+    }
+  },
+  {
+    "id": "city-brussels",
+    "type": "city",
+    "cityZh": "布鲁塞尔",
+    "cityEn": "Brussels",
+    "countryZh": "比利时",
+    "countryEn": "Belgium",
+    "countryCode": "BE",
+    "region": "欧洲",
+    "latitude": 50.8503,
+    "longitude": 4.3517,
+    "timezone": "Europe/Brussels",
+    "summary": "理解布鲁塞尔，可以从哥特广场、新艺术建筑、漫画文化与欧洲机构在多语言街区中并置这条主线开始。由大广场走向新艺术路线，再观察欧洲区，会看到地标之外的日常结构。",
+    "highlights": [
+      "大广场",
+      "新艺术路线",
+      "欧洲区"
+    ],
+    "bestFor": "建筑、漫画与多语言公共生活",
+    "seasonNote": "布鲁塞尔的冬夏日照与户外节奏可能不同；若重点参观新艺术路线，出发前请查当地预报和开放安排。",
+    "culturalTip": "大广场是开放的城市空间；参观市政建筑或欧洲机构时，再分别核对相应场所的开放、安检与预约规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Brussels",
+    "themeTags": [
+      "建筑",
+      "语言",
+      "欧洲政治"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "山墙与鸢尾"
+    }
+  },
+  {
+    "id": "city-copenhagen",
+    "type": "city",
+    "cityZh": "哥本哈根",
+    "cityEn": "Copenhagen",
+    "countryZh": "丹麦",
+    "countryEn": "Denmark",
+    "countryCode": "DK",
+    "region": "欧洲",
+    "latitude": 55.6761,
+    "longitude": 12.5683,
+    "timezone": "Europe/Copenhagen",
+    "summary": "港湾浴场、自行车网络与北欧设计展示了公共空间如何服务日常幸福，这是哥本哈根最鲜明的城市性格。旅行不妨围绕新港、设计博物馆、港湾公共空间组织，从而把设计、骑行与滨水城市治理连成一条可感知的路径。",
+    "highlights": [
+      "新港",
+      "设计博物馆",
+      "港湾公共空间"
+    ],
+    "bestFor": "设计、骑行与滨水城市治理",
+    "seasonNote": "把港湾公共空间纳入哥本哈根行程前，按具体月份确认温度、降水和公共交通的季节变化。",
+    "culturalTip": "设计博物馆按场馆规则参观；城市骑行道不要停留拍照，在港湾公共空间也应给游泳者、骑行者和通勤者留出通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Copenhagen",
+    "themeTags": [
+      "设计",
+      "公共空间",
+      "海港"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "彩色港屋与单车"
+    }
+  },
+  {
+    "id": "city-stockholm",
+    "type": "city",
+    "cityZh": "斯德哥尔摩",
+    "cityEn": "Stockholm",
+    "countryZh": "瑞典",
+    "countryEn": "Sweden",
+    "countryCode": "SE",
+    "region": "欧洲",
+    "latitude": 59.3293,
+    "longitude": 18.0686,
+    "timezone": "Europe/Stockholm",
+    "summary": "斯德哥尔摩的吸引力来自十四座岛屿把王城、现代博物馆和群岛生态连成层次清晰的水上首都。老城呈现历史背景，瓦萨博物馆连接当代生活，斯德哥尔摩群岛则补足空间或文化尺度。",
+    "highlights": [
+      "老城",
+      "瓦萨博物馆",
+      "斯德哥尔摩群岛"
+    ],
+    "bestFor": "北欧历史、博物馆与岛屿风景",
+    "seasonNote": "斯德哥尔摩适合步行，但舒适时段随季节而变；围绕老城安排时请以当地近期信息为准。",
+    "culturalTip": "涉及老城的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Stockholm",
+    "themeTags": [
+      "海洋",
+      "博物馆",
+      "北欧历史"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "王冠与群岛"
+    }
+  },
+  {
+    "id": "city-oslo",
+    "type": "city",
+    "cityZh": "奥斯陆",
+    "cityEn": "Oslo",
+    "countryZh": "挪威",
+    "countryEn": "Norway",
+    "countryCode": "NO",
+    "region": "欧洲",
+    "latitude": 59.9139,
+    "longitude": 10.7522,
+    "timezone": "Europe/Oslo",
+    "summary": "在奥斯陆，峡湾、森林边界、新滨水建筑和航海遗产共同定义这座可迅速抵达自然的首都。与其只追逐单一地标，更值得把奥斯陆峡湾、歌剧院滨水区和比格迪博物馆群放在同一段城市观察中。",
+    "highlights": [
+      "奥斯陆峡湾",
+      "歌剧院滨水区",
+      "比格迪博物馆群"
+    ],
+    "bestFor": "航海史、当代建筑与近郊自然",
+    "seasonNote": "在奥斯陆安排奥斯陆峡湾与步行街区时，应按旅行月份核对日照、降水和季节性开放时间。",
+    "culturalTip": "使用公共交通或步行连接奥斯陆峡湾与比格迪博物馆群，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Oslo",
+    "themeTags": [
+      "自然",
+      "航海",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "峡湾与斜坡屋顶"
+    }
+  },
+  {
+    "id": "city-helsinki",
+    "type": "city",
+    "cityZh": "赫尔辛基",
+    "cityEn": "Helsinki",
+    "countryZh": "芬兰",
+    "countryEn": "Finland",
+    "countryCode": "FI",
+    "region": "欧洲",
+    "latitude": 60.1699,
+    "longitude": 24.9384,
+    "timezone": "Europe/Helsinki",
+    "summary": "赫尔辛基把花岗岩海岸、现代主义设计、公共桑拿和海上堡垒构成克制而开放的波罗的海气质。以芬兰堡为入口，再到设计街区和公共桑拿文化，能较完整地理解其为何适合设计、海防历史与生活方式。",
+    "highlights": [
+      "芬兰堡",
+      "设计街区",
+      "公共桑拿文化"
+    ],
+    "bestFor": "设计、海防历史与生活方式",
+    "seasonNote": "赫尔辛基的冬夏日照与户外节奏可能不同；若重点参观设计街区，出发前请查当地预报和开放安排。",
+    "culturalTip": "在公共桑拿文化参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Helsinki",
+    "themeTags": [
+      "设计",
+      "海港",
+      "公共生活"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "岩岸与白色穹顶"
+    }
+  },
+  {
+    "id": "city-riga",
+    "type": "city",
+    "cityZh": "里加",
+    "cityEn": "Riga",
+    "countryZh": "拉脱维亚",
+    "countryEn": "Latvia",
+    "countryCode": "LV",
+    "region": "欧洲",
+    "latitude": 56.9496,
+    "longitude": 24.1052,
+    "timezone": "Europe/Riga",
+    "summary": "里加以汉萨旧城、新艺术立面和中央市场把波罗的海贸易史与当代市井连接起来。黑头宫、新艺术街区与中央市场提供三条互补线索，适合从建筑细节、贸易史与市场观察展开。",
+    "highlights": [
+      "黑头宫",
+      "新艺术街区",
+      "中央市场"
+    ],
+    "bestFor": "建筑细节、贸易史与市场观察",
+    "seasonNote": "把中央市场纳入里加行程前，按具体月份确认温度、降水和公共交通的季节变化。",
+    "culturalTip": "参访黑头宫时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Riga",
+    "themeTags": [
+      "历史层积",
+      "建筑",
+      "市场"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "尖塔与新艺术曲线"
+    }
+  },
+  {
+    "id": "city-vilnius",
+    "type": "city",
+    "cityZh": "维尔纽斯",
+    "cityEn": "Vilnius",
+    "countryZh": "立陶宛",
+    "countryEn": "Lithuania",
+    "countryCode": "LT",
+    "region": "欧洲",
+    "latitude": 54.6872,
+    "longitude": 25.2797,
+    "timezone": "Europe/Vilnius",
+    "summary": "理解维尔纽斯，可以从巴洛克旧城、犹太记忆、大学庭院与独立后的创意街区呈现多重历史身份这条主线开始。由老城教堂群走向维尔纽斯大学，再观察乌祖皮斯，会看到地标之外的日常结构。",
+    "highlights": [
+      "老城教堂群",
+      "维尔纽斯大学",
+      "乌祖皮斯"
+    ],
+    "bestFor": "宗教建筑、城市记忆与创意社区",
+    "seasonNote": "维尔纽斯适合步行，但舒适时段随季节而变；围绕老城教堂群安排时请以当地近期信息为准。",
+    "culturalTip": "先核对老城教堂群的开放与礼仪要求；体验乌祖皮斯时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Vilnius",
+    "themeTags": [
+      "记忆",
+      "建筑",
+      "创意社区"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "钟塔与庭院"
+    }
+  },
+  {
+    "id": "city-warsaw",
+    "type": "city",
+    "cityZh": "华沙",
+    "cityEn": "Warsaw",
+    "countryZh": "波兰",
+    "countryEn": "Poland",
+    "countryCode": "PL",
+    "region": "欧洲",
+    "latitude": 52.2297,
+    "longitude": 21.0122,
+    "timezone": "Europe/Warsaw",
+    "summary": "战后重建的旧城、起义记忆与当代文化机构让城市韧性成为可阅读的空间经验，这是华沙最鲜明的城市性格。旅行不妨围绕重建旧城、华沙起义博物馆、维斯瓦河岸组织，从而把重建史、二十世纪记忆与公共文化连成一条可感知的路径。",
+    "highlights": [
+      "重建旧城",
+      "华沙起义博物馆",
+      "维斯瓦河岸"
+    ],
+    "bestFor": "重建史、二十世纪记忆与公共文化",
+    "seasonNote": "在华沙安排重建旧城与步行街区时，应按旅行月份核对日照、降水和季节性开放时间。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在华沙起义博物馆则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Warsaw",
+    "themeTags": [
+      "重建",
+      "记忆",
+      "韧性"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "重建山墙与河线"
+    }
+  },
+  {
+    "id": "city-krakow",
+    "type": "city",
+    "cityZh": "克拉科夫",
+    "cityEn": "Kraków",
+    "countryZh": "波兰",
+    "countryEn": "Poland",
+    "countryCode": "PL",
+    "region": "欧洲",
+    "latitude": 50.0647,
+    "longitude": 19.945,
+    "timezone": "Europe/Warsaw",
+    "summary": "克拉科夫的吸引力来自中世纪广场、大学传统、卡齐米日社区与近现代记忆共同塑造波兰文化重镇。中央集市广场呈现历史背景，瓦维尔城堡连接当代生活，卡齐米日则补足空间或文化尺度。",
+    "highlights": [
+      "中央集市广场",
+      "瓦维尔城堡",
+      "卡齐米日"
+    ],
+    "bestFor": "中欧历史、宗教文化与步行街区",
+    "seasonNote": "克拉科夫的冬夏日照与户外节奏可能不同；若重点参观瓦维尔城堡，出发前请查当地预报和开放安排。",
+    "culturalTip": "涉及中央集市广场的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Krakow",
+    "themeTags": [
+      "历史",
+      "宗教",
+      "城市记忆"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "城堡与号角"
+    }
+  },
+  {
+    "id": "city-budapest",
+    "type": "city",
+    "cityZh": "布达佩斯",
+    "cityEn": "Budapest",
+    "countryZh": "匈牙利",
+    "countryEn": "Hungary",
+    "countryCode": "HU",
+    "region": "欧洲",
+    "latitude": 47.4979,
+    "longitude": 19.0402,
+    "timezone": "Europe/Budapest",
+    "summary": "在布达佩斯，多瑙河把丘陵城堡、议会建筑、温泉和十九世纪都市遗产连成壮阔轴线。与其只追逐单一地标，更值得把布达城堡、多瑙河岸和历史温泉放在同一段城市观察中。",
+    "highlights": [
+      "布达城堡",
+      "多瑙河岸",
+      "历史温泉"
+    ],
+    "bestFor": "帝国城市史、建筑与温泉文化",
+    "seasonNote": "把历史温泉纳入布达佩斯行程前，按具体月份确认温度、降水和公共交通的季节变化。",
+    "culturalTip": "使用公共交通或步行连接布达城堡与历史温泉，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Budapest",
+    "themeTags": [
+      "河流",
+      "建筑",
+      "生活方式"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "桥梁与温泉拱券"
+    }
+  },
+  {
+    "id": "city-bratislava",
+    "type": "city",
+    "cityZh": "布拉迪斯拉发",
+    "cityEn": "Bratislava",
+    "countryZh": "斯洛伐克",
+    "countryEn": "Slovakia",
+    "countryCode": "SK",
+    "region": "欧洲",
+    "latitude": 48.1486,
+    "longitude": 17.1077,
+    "timezone": "Europe/Bratislava",
+    "summary": "布拉迪斯拉发把城堡高地、多瑙河与紧凑旧城展示了中欧边境首都在多国历史中的转换。以布拉迪斯拉发城堡为入口，再到旧城广场和多瑙河步道，能较完整地理解其为何适合边境史、小城尺度与河岸漫步。",
+    "highlights": [
+      "布拉迪斯拉发城堡",
+      "旧城广场",
+      "多瑙河步道"
+    ],
+    "bestFor": "边境史、小城尺度与河岸漫步",
+    "seasonNote": "布拉迪斯拉发适合步行，但舒适时段随季节而变；围绕布拉迪斯拉发城堡安排时请以当地近期信息为准。",
+    "culturalTip": "在多瑙河步道参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Bratislava",
+    "themeTags": [
+      "边境",
+      "河流",
+      "中欧历史"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "白堡与蓝河"
+    }
+  },
+  {
+    "id": "city-zagreb",
+    "type": "city",
+    "cityZh": "萨格勒布",
+    "cityEn": "Zagreb",
+    "countryZh": "克罗地亚",
+    "countryEn": "Croatia",
+    "countryCode": "HR",
+    "region": "欧洲",
+    "latitude": 45.815,
+    "longitude": 15.9819,
+    "timezone": "Europe/Zagreb",
+    "summary": "萨格勒布以上城石巷、下城公园轴线、市场和咖啡馆构成内陆克罗地亚的文化节奏。上城、绿色马蹄公园群与多拉茨市场提供三条互补线索，适合从城市规划、市场生活与克罗地亚文化展开。",
+    "highlights": [
+      "上城",
+      "绿色马蹄公园群",
+      "多拉茨市场"
+    ],
+    "bestFor": "城市规划、市场生活与克罗地亚文化",
+    "seasonNote": "在萨格勒布安排上城与步行街区时，应按旅行月份核对日照、降水和季节性开放时间。",
+    "culturalTip": "参访上城时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Zagreb",
+    "themeTags": [
+      "城市规划",
+      "市场",
+      "公共生活"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "彩瓦屋顶与公园轴"
+    }
+  },
+  {
+    "id": "city-dubrovnik",
+    "type": "city",
+    "cityZh": "杜布罗夫尼克",
+    "cityEn": "Dubrovnik",
+    "countryZh": "克罗地亚",
+    "countryEn": "Croatia",
+    "countryCode": "HR",
+    "region": "欧洲",
+    "latitude": 42.6507,
+    "longitude": 18.0944,
+    "timezone": "Europe/Zagreb",
+    "summary": "理解杜布罗夫尼克，可以从完整城墙、石灰岩街道和亚得里亚海航运史让古共和国遗产格外集中这条主线开始。由旧城城墙走向斯特拉敦大道，再观察海上共和国史，会看到地标之外的日常结构。",
+    "highlights": [
+      "旧城城墙",
+      "斯特拉敦大道",
+      "海上共和国史"
+    ],
+    "bestFor": "城防建筑、海洋贸易与清晨步行",
+    "seasonNote": "杜布罗夫尼克的冬夏日照与户外节奏可能不同；若重点参观斯特拉敦大道，出发前请查当地预报和开放安排。",
+    "culturalTip": "旧城与城墙承受集中客流，宜错峰步行并遵守单向或限流安排；住宅巷道内放低音量，不把居民门前当作布景。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Dubrovnik",
+    "themeTags": [
+      "海洋",
+      "城防",
+      "贸易"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "城墙与橙瓦"
+    }
+  },
+  {
+    "id": "city-split",
+    "type": "city",
+    "cityZh": "斯普利特",
+    "cityEn": "Split",
+    "countryZh": "克罗地亚",
+    "countryEn": "Croatia",
+    "countryCode": "HR",
+    "region": "欧洲",
+    "latitude": 43.5081,
+    "longitude": 16.4402,
+    "timezone": "Europe/Zagreb",
+    "summary": "戴克里先宫殿并非封闭遗址，而是商店、住宅和广场持续生长的城市核心，这是斯普利特最鲜明的城市性格。旅行不妨围绕戴克里先宫、里瓦海滨、马尔扬山组织，从而把罗马遗产、活态旧城与海岸生活连成一条可感知的路径。",
+    "highlights": [
+      "戴克里先宫",
+      "里瓦海滨",
+      "马尔扬山"
+    ],
+    "bestFor": "罗马遗产、活态旧城与海岸生活",
+    "seasonNote": "把马尔扬山纳入斯普利特行程前，按具体月份确认温度、降水和公共交通的季节变化。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在里瓦海滨则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Split",
+    "themeTags": [
+      "古代",
+      "活态遗产",
+      "海洋"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "宫墙与棕榈"
+    }
+  },
+  {
+    "id": "city-belgrade",
+    "type": "city",
+    "cityZh": "贝尔格莱德",
+    "cityEn": "Belgrade",
+    "countryZh": "塞尔维亚",
+    "countryEn": "Serbia",
+    "countryCode": "RS",
+    "region": "欧洲",
+    "latitude": 44.7866,
+    "longitude": 20.4489,
+    "timezone": "Europe/Belgrade",
+    "summary": "贝尔格莱德的吸引力来自萨瓦河与多瑙河交汇处的要塞、南斯拉夫现代主义和夜间文化呈现粗粝活力。卡莱梅格丹要塞呈现历史背景，现代主义建筑连接当代生活，泽蒙河岸则补足空间或文化尺度。",
+    "highlights": [
+      "卡莱梅格丹要塞",
+      "现代主义建筑",
+      "泽蒙河岸"
+    ],
+    "bestFor": "巴尔干历史、建筑与河岸社区",
+    "seasonNote": "贝尔格莱德适合步行，但舒适时段随季节而变；围绕卡莱梅格丹要塞安排时请以当地近期信息为准。",
+    "culturalTip": "涉及卡莱梅格丹要塞的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Belgrade",
+    "themeTags": [
+      "边境",
+      "现代主义",
+      "河流"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "双河与要塞"
+    }
+  },
+  {
+    "id": "city-sofia",
+    "type": "city",
+    "cityZh": "索菲亚",
+    "cityEn": "Sofia",
+    "countryZh": "保加利亚",
+    "countryEn": "Bulgaria",
+    "countryCode": "BG",
+    "region": "欧洲",
+    "latitude": 42.6977,
+    "longitude": 23.3219,
+    "timezone": "Europe/Sofia",
+    "summary": "在索菲亚，罗马遗迹、东正教建筑、奥斯曼痕迹和社会主义城市空间叠在维托沙山脚。与其只追逐单一地标，更值得把亚历山大·涅夫斯基教堂、地下罗马遗址和维托沙山放在同一段城市观察中。",
+    "highlights": [
+      "亚历山大·涅夫斯基教堂",
+      "地下罗马遗址",
+      "维托沙山"
+    ],
+    "bestFor": "宗教史、考古与城市近郊徒步",
+    "seasonNote": "在索菲亚安排亚历山大·涅夫斯基教堂与步行街区时，应按旅行月份核对日照、降水和季节性开放时间。",
+    "culturalTip": "使用公共交通或步行连接亚历山大·涅夫斯基教堂与维托沙山，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Sofia",
+    "themeTags": [
+      "历史层积",
+      "宗教",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "金顶与雪山"
+    }
+  },
+  {
+    "id": "city-bucharest",
+    "type": "city",
+    "cityZh": "布加勒斯特",
+    "cityEn": "Bucharest",
+    "countryZh": "罗马尼亚",
+    "countryEn": "Romania",
+    "countryCode": "RO",
+    "region": "欧洲",
+    "latitude": 44.4268,
+    "longitude": 26.1025,
+    "timezone": "Europe/Bucharest",
+    "summary": "布加勒斯特把法式大道、社会主义巨构、老住宅与新文化空间并置出强烈尺度反差。以罗马尼亚雅典娜神庙为入口，再到议会宫和旧城与住宅区，能较完整地理解其为何适合城市转型、建筑反差与东欧历史。",
+    "highlights": [
+      "罗马尼亚雅典娜神庙",
+      "议会宫",
+      "旧城与住宅区"
+    ],
+    "bestFor": "城市转型、建筑反差与东欧历史",
+    "seasonNote": "布加勒斯特的冬夏日照与户外节奏可能不同；若重点参观议会宫，出发前请查当地预报和开放安排。",
+    "culturalTip": "在旧城与住宅区参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Bucharest",
+    "themeTags": [
+      "城市转型",
+      "建筑",
+      "近现代史"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "林荫道与巨构"
+    }
+  },
+  {
+    "id": "city-porto",
+    "type": "city",
+    "cityZh": "波尔图",
+    "cityEn": "Porto",
+    "countryZh": "葡萄牙",
+    "countryEn": "Portugal",
+    "countryCode": "PT",
+    "region": "欧洲",
+    "latitude": 41.1579,
+    "longitude": -8.6291,
+    "timezone": "Europe/Lisbon",
+    "summary": "波尔图以陡坡街巷、杜罗河桥、彩釉砖和酒窖共同讲述大西洋贸易城市的日常肌理。里贝拉河岸、路易一世大桥与瓷砖建筑提供三条互补线索，适合从河港史、街巷摄影与地方饮食展开。",
+    "highlights": [
+      "里贝拉河岸",
+      "路易一世大桥",
+      "瓷砖建筑"
+    ],
+    "bestFor": "河港史、街巷摄影与地方饮食",
+    "seasonNote": "把瓷砖建筑纳入波尔图行程前，按具体月份确认温度、降水和公共交通的季节变化。",
+    "culturalTip": "参访里贝拉河岸时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Porto",
+    "themeTags": [
+      "河流",
+      "贸易",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "铁桥与蓝白瓷砖"
+    }
+  },
+  {
+    "id": "city-seville",
+    "type": "city",
+    "cityZh": "塞维利亚",
+    "cityEn": "Seville",
+    "countryZh": "西班牙",
+    "countryEn": "Spain",
+    "countryCode": "ES",
+    "region": "欧洲",
+    "latitude": 37.3891,
+    "longitude": -5.9845,
+    "timezone": "Europe/Madrid",
+    "summary": "理解塞维利亚，可以从伊斯兰建筑遗产、橙树庭院、航海贸易和弗拉门戈共同塑造安达卢西亚热烈气质这条主线开始。由塞维利亚王宫走向主教座堂，再观察特里亚纳，会看到地标之外的日常结构。",
+    "highlights": [
+      "塞维利亚王宫",
+      "主教座堂",
+      "特里亚纳"
+    ],
+    "bestFor": "建筑、航海史与表演文化",
+    "seasonNote": "塞维利亚适合步行，但舒适时段随季节而变；围绕塞维利亚王宫安排时请以当地近期信息为准。",
+    "culturalTip": "先核对塞维利亚王宫的开放与礼仪要求；体验特里亚纳时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Seville",
+    "themeTags": [
+      "多元历史",
+      "音乐",
+      "航海"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "橙树与马蹄拱"
+    }
+  },
+  {
+    "id": "city-granada",
+    "type": "city",
+    "cityZh": "格拉纳达",
+    "cityEn": "Granada",
+    "countryZh": "西班牙",
+    "countryEn": "Spain",
+    "countryCode": "ES",
+    "region": "欧洲",
+    "latitude": 37.1773,
+    "longitude": -3.5986,
+    "timezone": "Europe/Madrid",
+    "summary": "阿尔罕布拉宫、阿尔拜辛山坡和内华达山背景保存了安达卢斯文明的细密层次，这是格拉纳达最鲜明的城市性格。旅行不妨围绕阿尔罕布拉宫、阿尔拜辛、萨克罗蒙特组织，从而把伊斯兰艺术、山城步行与文化交汇连成一条可感知的路径。",
+    "highlights": [
+      "阿尔罕布拉宫",
+      "阿尔拜辛",
+      "萨克罗蒙特"
+    ],
+    "bestFor": "伊斯兰艺术、山城步行与文化交汇",
+    "seasonNote": "在格拉纳达安排阿尔罕布拉宫与步行街区时，应按旅行月份核对日照、降水和季节性开放时间。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在阿尔拜辛则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Granada",
+    "themeTags": [
+      "建筑",
+      "多元文化",
+      "山城"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "水渠与石榴纹"
+    }
+  },
+  {
+    "id": "city-bilbao",
+    "type": "city",
+    "cityZh": "毕尔巴鄂",
+    "cityEn": "Bilbao",
+    "countryZh": "西班牙",
+    "countryEn": "Spain",
+    "countryCode": "ES",
+    "region": "欧洲",
+    "latitude": 43.263,
+    "longitude": -2.935,
+    "timezone": "Europe/Madrid",
+    "summary": "毕尔巴鄂的吸引力来自工业河港通过当代建筑、公共交通和巴斯克文化实现了可见的城市转型。古根海姆博物馆呈现历史背景，内维翁河岸连接当代生活，老城市场则补足空间或文化尺度。",
+    "highlights": [
+      "古根海姆博物馆",
+      "内维翁河岸",
+      "老城市场"
+    ],
+    "bestFor": "工业更新、当代艺术与巴斯克饮食",
+    "seasonNote": "毕尔巴鄂的冬夏日照与户外节奏可能不同；若重点参观内维翁河岸，出发前请查当地预报和开放安排。",
+    "culturalTip": "涉及古根海姆博物馆的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Bilbao",
+    "themeTags": [
+      "工业转型",
+      "艺术",
+      "地方文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "钛金属曲面与河湾"
+    }
+  },
+  {
+    "id": "city-lyon",
+    "type": "city",
+    "cityZh": "里昂",
+    "cityEn": "Lyon",
+    "countryZh": "法国",
+    "countryEn": "France",
+    "countryCode": "FR",
+    "region": "欧洲",
+    "latitude": 45.764,
+    "longitude": 4.8357,
+    "timezone": "Europe/Paris",
+    "summary": "在里昂，罗讷河与索恩河之间的文艺复兴街区、隐秘通道和丝织传统构成精致城市层次。与其只追逐单一地标，更值得把里昂老城、串廊和汇流区放在同一段城市观察中。",
+    "highlights": [
+      "里昂老城",
+      "串廊",
+      "汇流区"
+    ],
+    "bestFor": "城市历史、饮食与建筑细节",
+    "seasonNote": "把汇流区纳入里昂行程前，按具体月份确认温度、降水和公共交通的季节变化。",
+    "culturalTip": "使用公共交通或步行连接里昂老城与汇流区，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Lyon",
+    "themeTags": [
+      "河流",
+      "手工业",
+      "饮食"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "双河与丝线"
+    }
+  },
+  {
+    "id": "city-marseille",
+    "type": "city",
+    "cityZh": "马赛",
+    "cityEn": "Marseille",
+    "countryZh": "法国",
+    "countryEn": "France",
+    "countryCode": "FR",
+    "region": "欧洲",
+    "latitude": 43.2965,
+    "longitude": 5.3698,
+    "timezone": "Europe/Paris",
+    "summary": "马赛把地中海港口、移民社区、古老市场和卡朗格海岸让法国最古老大城保持开放张力。以旧港为入口，再到欧洲与地中海文明博物馆和卡朗格峡湾，能较完整地理解其为何适合港口史、多元文化与海岸徒步。",
+    "highlights": [
+      "旧港",
+      "欧洲与地中海文明博物馆",
+      "卡朗格峡湾"
+    ],
+    "bestFor": "港口史、多元文化与海岸徒步",
+    "seasonNote": "马赛适合步行，但舒适时段随季节而变；围绕旧港安排时请以当地近期信息为准。",
+    "culturalTip": "在卡朗格峡湾参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Marseille",
+    "themeTags": [
+      "迁徙",
+      "海洋",
+      "多元文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "海港与石灰岩湾"
+    }
+  },
+  {
+    "id": "city-munich",
+    "type": "city",
+    "cityZh": "慕尼黑",
+    "cityEn": "Munich",
+    "countryZh": "德国",
+    "countryEn": "Germany",
+    "countryCode": "DE",
+    "region": "欧洲",
+    "latitude": 48.1351,
+    "longitude": 11.582,
+    "timezone": "Europe/Berlin",
+    "summary": "慕尼黑以王室收藏、啤酒馆传统、现代设计和通往阿尔卑斯的地理位置共同塑造巴伐利亚首府。艺术博物馆群、老城广场与英国花园提供三条互补线索，适合从艺术史、城市公园与巴伐利亚文化展开。",
+    "highlights": [
+      "艺术博物馆群",
+      "老城广场",
+      "英国花园"
+    ],
+    "bestFor": "艺术史、城市公园与巴伐利亚文化",
+    "seasonNote": "在慕尼黑安排艺术博物馆群与步行街区时，应按旅行月份核对日照、降水和季节性开放时间。",
+    "culturalTip": "参访艺术博物馆群时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Munich",
+    "themeTags": [
+      "艺术",
+      "公园",
+      "地方传统"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "洋葱顶与栗树"
+    }
+  },
+  {
+    "id": "city-hamburg",
+    "type": "city",
+    "cityZh": "汉堡",
+    "cityEn": "Hamburg",
+    "countryZh": "德国",
+    "countryEn": "Germany",
+    "countryCode": "DE",
+    "region": "欧洲",
+    "latitude": 53.5511,
+    "longitude": 9.9937,
+    "timezone": "Europe/Berlin",
+    "summary": "理解汉堡，可以从易北河港、仓库城、砖砌表现主义和音乐空间展现北德商贸城市的国际性这条主线开始。由仓库城走向易北爱乐厅，再观察港口渡轮，会看到地标之外的日常结构。",
+    "highlights": [
+      "仓库城",
+      "易北爱乐厅",
+      "港口渡轮"
+    ],
+    "bestFor": "港口工业史、建筑与音乐",
+    "seasonNote": "汉堡的冬夏日照与户外节奏可能不同；若重点参观易北爱乐厅，出发前请查当地预报和开放安排。",
+    "culturalTip": "先核对仓库城的开放与礼仪要求；体验港口渡轮时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Hamburg",
+    "themeTags": [
+      "海港",
+      "音乐",
+      "贸易"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "砖仓与港吊"
+    }
+  },
+  {
+    "id": "city-osaka",
+    "type": "city",
+    "cityZh": "大阪",
+    "cityEn": "Osaka",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "countryCode": "JP",
+    "region": "亚洲",
+    "latitude": 34.6937,
+    "longitude": 135.5023,
+    "timezone": "Asia/Tokyo",
+    "summary": "商人城市传统、运河、街头饮食和大胆幽默构成不同于东京的亲近节奏，这是大阪最鲜明的城市性格。旅行不妨围绕大阪城、道顿堀、中之岛组织，从而把城市商业史、饮食与夜间街区连成一条可感知的路径。",
+    "highlights": [
+      "大阪城",
+      "道顿堀",
+      "中之岛"
+    ],
+    "bestFor": "城市商业史、饮食与夜间街区",
+    "seasonNote": "大阪的季节体验受纬度、海拔或季风影响；计划中之岛时请使用当地近期预报。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在道顿堀则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Osaka",
+    "themeTags": [
+      "饮食",
+      "商业",
+      "城市文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "霓虹运河与城楼"
+    }
+  },
+  {
+    "id": "city-nara",
+    "type": "city",
+    "cityZh": "奈良",
+    "cityEn": "Nara",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "countryCode": "JP",
+    "region": "亚洲",
+    "latitude": 34.6851,
+    "longitude": 135.8048,
+    "timezone": "Asia/Tokyo",
+    "summary": "奈良的吸引力来自古寺、神社、森林与早期都城格局保存了日本国家形成期的宗教空间。东大寺呈现历史背景，春日大社连接当代生活，奈良公园则补足空间或文化尺度。",
+    "highlights": [
+      "东大寺",
+      "春日大社",
+      "奈良公园"
+    ],
+    "bestFor": "古代史、佛教艺术与林间步行",
+    "seasonNote": "到奈良体验东大寺，应按当地季节准备衣物并为降水或高温留出行程弹性。",
+    "culturalTip": "涉及东大寺的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Nara",
+    "themeTags": [
+      "古代",
+      "宗教",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "寺檐与鹿"
+    }
+  },
+  {
+    "id": "city-kanazawa",
+    "type": "city",
+    "cityZh": "金泽",
+    "cityEn": "Kanazawa",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "countryCode": "JP",
+    "region": "亚洲",
+    "latitude": 36.5613,
+    "longitude": 136.6562,
+    "timezone": "Asia/Tokyo",
+    "summary": "在金泽，城下町格局、庭园、金箔和茶屋街延续了北陆地区精细的手工艺传统。与其只追逐单一地标，更值得把兼六园、长町武家屋敷和东茶屋街放在同一段城市观察中。",
+    "highlights": [
+      "兼六园",
+      "长町武家屋敷",
+      "东茶屋街"
+    ],
+    "bestFor": "庭园、工艺与历史街区",
+    "seasonNote": "金泽的气候不能用统一“亚洲季节”概括；前往兼六园前应核对当地雨季、温度和天气风险。",
+    "culturalTip": "使用公共交通或步行连接兼六园与东茶屋街，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Kanazawa",
+    "themeTags": [
+      "手工艺",
+      "庭园",
+      "历史"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "雪吊与金箔"
+    }
+  },
+  {
+    "id": "city-sapporo",
+    "type": "city",
+    "cityZh": "札幌",
+    "cityEn": "Sapporo",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "countryCode": "JP",
+    "region": "亚洲",
+    "latitude": 43.0618,
+    "longitude": 141.3545,
+    "timezone": "Asia/Tokyo",
+    "summary": "札幌把棋盘城市、雪国生活、啤酒工业和北海道农业文化呈现日本北方现代开发史。以大通公园为入口，再到札幌啤酒博物馆和北海道大学，能较完整地理解其为何适合雪国城市、工业史与地方饮食。",
+    "highlights": [
+      "大通公园",
+      "札幌啤酒博物馆",
+      "北海道大学"
+    ],
+    "bestFor": "雪国城市、工业史与地方饮食",
+    "seasonNote": "围绕札幌啤酒博物馆安排札幌行程时，先查具体月份的降水、高温或寒冷情况，再搭配室内外活动。",
+    "culturalTip": "在北海道大学参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Sapporo",
+    "themeTags": [
+      "气候",
+      "工业",
+      "饮食"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "雪晶与钟楼"
+    }
+  },
+  {
+    "id": "city-fukuoka",
+    "type": "city",
+    "cityZh": "福冈",
+    "cityEn": "Fukuoka",
+    "countryZh": "日本",
+    "countryEn": "Japan",
+    "countryCode": "JP",
+    "region": "亚洲",
+    "latitude": 33.5902,
+    "longitude": 130.4017,
+    "timezone": "Asia/Tokyo",
+    "summary": "福冈以面向亚洲大陆的港口位置、屋台饮食和紧凑海湾让福冈兼具交流史与轻松日常。博多旧城、屋台与海滨百道提供三条互补线索，适合从港口交流、饮食与步行尺度展开。",
+    "highlights": [
+      "博多旧城",
+      "屋台",
+      "海滨百道"
+    ],
+    "bestFor": "港口交流、饮食与步行尺度",
+    "seasonNote": "福冈的季节体验受纬度、海拔或季风影响；计划海滨百道时请使用当地近期预报。",
+    "culturalTip": "参访博多旧城时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Fukuoka",
+    "themeTags": [
+      "贸易",
+      "饮食",
+      "海港"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "屋台灯笼与海湾"
+    }
+  },
+  {
+    "id": "city-taipei",
+    "type": "city",
+    "cityZh": "台北",
+    "cityEn": "Taipei",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "TW",
+    "region": "亚洲",
+    "latitude": 25.033,
+    "longitude": 121.5654,
+    "timezone": "Asia/Taipei",
+    "summary": "理解台北，可以从盆地地形、庙宇、市集、现代文化机构和便利山径使密集城市与自然迅速切换这条主线开始。由大稻埕走向故宫博物院，再观察阳明山，会看到地标之外的日常结构。",
+    "highlights": [
+      "大稻埕",
+      "故宫博物院",
+      "阳明山"
+    ],
+    "bestFor": "城市记忆、饮食与近郊自然",
+    "seasonNote": "到台北体验大稻埕，应按当地季节准备衣物并为降水或高温留出行程弹性。",
+    "culturalTip": "大稻埕是持续经营的开放街区；拍摄店家、庙宇仪式或居民前先询问，并给骑楼通行留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Taipei",
+    "themeTags": [
+      "城市记忆",
+      "饮食",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "山线与骑楼"
+    }
+  },
+  {
+    "id": "city-tainan",
+    "type": "city",
+    "cityZh": "台南",
+    "cityEn": "Tainan",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "TW",
+    "region": "亚洲",
+    "latitude": 22.9999,
+    "longitude": 120.2269,
+    "timezone": "Asia/Taipei",
+    "summary": "古城门、庙宇密度、街屋与小吃保存了台湾南部多层次的海洋交流史，这是台南最鲜明的城市性格。旅行不妨围绕赤崁楼、孔庙、传统市场组织，从而把地方史、宗教空间与饮食连成一条可感知的路径。",
+    "highlights": [
+      "赤崁楼",
+      "孔庙",
+      "传统市场"
+    ],
+    "bestFor": "地方史、宗教空间与饮食",
+    "seasonNote": "台南的气候不能用统一“亚洲季节”概括；前往赤崁楼前应核对当地雨季、温度和天气风险。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在孔庙则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Tainan",
+    "themeTags": [
+      "历史层积",
+      "宗教",
+      "饮食"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "庙檐与巷弄"
+    }
+  },
+  {
+    "id": "city-hong-kong",
+    "type": "city",
+    "cityZh": "香港",
+    "cityEn": "Hong Kong",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "HK",
+    "region": "亚洲",
+    "latitude": 22.3193,
+    "longitude": 114.1694,
+    "timezone": "Asia/Hong_Kong",
+    "summary": "香港的吸引力来自高密度街区、维多利亚港、山径和多语言商业文化在极短距离内强烈转换。维多利亚港呈现历史背景，中环建筑连接当代生活，郊野山径则补足空间或文化尺度。",
+    "highlights": [
+      "维多利亚港",
+      "中环建筑",
+      "郊野山径"
+    ],
+    "bestFor": "港口史、城市密度与山海步行",
+    "seasonNote": "围绕中环建筑安排香港行程时，先查具体月份的降水、高温或寒冷情况，再搭配室内外活动。",
+    "culturalTip": "涉及维多利亚港的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Hong_Kong",
+    "themeTags": [
+      "海港",
+      "城市密度",
+      "迁徙"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "天际线与山径"
+    }
+  },
+  {
+    "id": "city-macau",
+    "type": "city",
+    "cityZh": "澳门",
+    "cityEn": "Macao",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "MO",
+    "region": "亚洲",
+    "latitude": 22.1987,
+    "longitude": 113.5439,
+    "timezone": "Asia/Macau",
+    "summary": "在澳门，中葡建筑、宗教街区、海港贸易和社区饮食浓缩在步行可达的半岛空间。与其只追逐单一地标，更值得把历史城区、妈阁庙和路环村落放在同一段城市观察中。",
+    "highlights": [
+      "历史城区",
+      "妈阁庙",
+      "路环村落"
+    ],
+    "bestFor": "海洋交流史、建筑与地方饮食",
+    "seasonNote": "澳门的季节体验受纬度、海拔或季风影响；计划路环村落时请使用当地近期预报。",
+    "culturalTip": "使用公共交通或步行连接历史城区与路环村落，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Macau",
+    "themeTags": [
+      "多元文化",
+      "贸易",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "葡式碎石路与莲花"
+    }
+  },
+  {
+    "id": "city-chengdu",
+    "type": "city",
+    "cityZh": "成都",
+    "cityEn": "Chengdu",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "CN",
+    "region": "亚洲",
+    "latitude": 30.5728,
+    "longitude": 104.0668,
+    "timezone": "Asia/Shanghai",
+    "summary": "成都把平原水系、茶馆日常、川菜和古蜀遗产共同形成松弛又深厚的城市气质。以金沙遗址为入口，再到人民公园茶馆和成都博物馆，能较完整地理解其为何适合古蜀文明、饮食与公共生活。",
+    "highlights": [
+      "金沙遗址",
+      "人民公园茶馆",
+      "成都博物馆"
+    ],
+    "bestFor": "古蜀文明、饮食与公共生活",
+    "seasonNote": "到成都体验金沙遗址，应按当地季节准备衣物并为降水或高温留出行程弹性。",
+    "culturalTip": "在成都博物馆参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Chengdu",
+    "themeTags": [
+      "古代",
+      "饮食",
+      "公共生活"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "水纹与盖碗茶"
+    }
+  },
+  {
+    "id": "city-chongqing",
+    "type": "city",
+    "cityZh": "重庆",
+    "cityEn": "Chongqing",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "CN",
+    "region": "亚洲",
+    "latitude": 29.563,
+    "longitude": 106.5516,
+    "timezone": "Asia/Shanghai",
+    "summary": "重庆以两江交汇、立体山城交通、工业遗产和码头文化塑造极具辨识度的垂直景观。两江夜景、山城步道与工业博物馆提供三条互补线索，适合从城市地形、交通与码头史展开。",
+    "highlights": [
+      "两江夜景",
+      "山城步道",
+      "工业博物馆"
+    ],
+    "bestFor": "城市地形、交通与码头史",
+    "seasonNote": "重庆的气候不能用统一“亚洲季节”概括；前往两江夜景前应核对当地雨季、温度和天气风险。",
+    "culturalTip": "参访两江夜景时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Chongqing",
+    "themeTags": [
+      "山城",
+      "工业",
+      "河流"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "层叠轨道与双江"
+    }
+  },
+  {
+    "id": "city-nanjing",
+    "type": "city",
+    "cityZh": "南京",
+    "cityEn": "Nanjing",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "CN",
+    "region": "亚洲",
+    "latitude": 32.0603,
+    "longitude": 118.7969,
+    "timezone": "Asia/Shanghai",
+    "summary": "理解南京，可以从城墙、陵寝、民国建筑和战争记忆让多朝古都具有沉静的时间纵深这条主线开始。由明城墙走向中山陵，再观察南京博物院，会看到地标之外的日常结构。",
+    "highlights": [
+      "明城墙",
+      "中山陵",
+      "南京博物院"
+    ],
+    "bestFor": "都城史、近现代记忆与博物馆",
+    "seasonNote": "围绕中山陵安排南京行程时，先查具体月份的降水、高温或寒冷情况，再搭配室内外活动。",
+    "culturalTip": "先核对明城墙的开放与礼仪要求；体验南京博物院时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Nanjing",
+    "themeTags": [
+      "历史",
+      "记忆",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "城砖与梧桐"
+    }
+  },
+  {
+    "id": "city-suzhou",
+    "type": "city",
+    "cityZh": "苏州",
+    "cityEn": "Suzhou",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "CN",
+    "region": "亚洲",
+    "latitude": 31.2989,
+    "longitude": 120.5853,
+    "timezone": "Asia/Shanghai",
+    "summary": "园林、运河、丝绸与昆曲把江南审美转化为可步入的空间和声音，这是苏州最鲜明的城市性格。旅行不妨围绕古典园林、平江路、苏州博物馆组织，从而把园林艺术、水城与传统表演连成一条可感知的路径。",
+    "highlights": [
+      "古典园林",
+      "平江路",
+      "苏州博物馆"
+    ],
+    "bestFor": "园林艺术、水城与传统表演",
+    "seasonNote": "苏州的季节体验受纬度、海拔或季风影响；计划苏州博物馆时请使用当地近期预报。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在平江路则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Suzhou",
+    "themeTags": [
+      "园林",
+      "水利",
+      "艺术"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "漏窗与水巷"
+    }
+  },
+  {
+    "id": "city-hangzhou",
+    "type": "city",
+    "cityZh": "杭州",
+    "cityEn": "Hangzhou",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "CN",
+    "region": "亚洲",
+    "latitude": 30.2741,
+    "longitude": 120.1551,
+    "timezone": "Asia/Shanghai",
+    "summary": "杭州的吸引力来自西湖景观、茶园、运河和数字产业在同一城市中形成古典与当代的反差。西湖呈现历史背景，龙井茶园连接当代生活，中国丝绸博物馆则补足空间或文化尺度。",
+    "highlights": [
+      "西湖",
+      "龙井茶园",
+      "中国丝绸博物馆"
+    ],
+    "bestFor": "山水传统、茶文化与城市转型",
+    "seasonNote": "到杭州体验西湖，应按当地季节准备衣物并为降水或高温留出行程弹性。",
+    "culturalTip": "涉及西湖的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Hangzhou",
+    "themeTags": [
+      "自然",
+      "手工艺",
+      "现代化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "湖堤与茶叶"
+    }
+  },
+  {
+    "id": "city-guangzhou",
+    "type": "city",
+    "cityZh": "广州",
+    "cityEn": "Guangzhou",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "CN",
+    "region": "亚洲",
+    "latitude": 23.1291,
+    "longitude": 113.2644,
+    "timezone": "Asia/Shanghai",
+    "summary": "在广州，珠江港口、岭南建筑、早茶和长期对外贸易塑造务实开放的南方都会。与其只追逐单一地标，更值得把陈家祠、沙面和珠江沿岸放在同一段城市观察中。",
+    "highlights": [
+      "陈家祠",
+      "沙面",
+      "珠江沿岸"
+    ],
+    "bestFor": "海上贸易、岭南文化与饮食",
+    "seasonNote": "广州的气候不能用统一“亚洲季节”概括；前往陈家祠前应核对当地雨季、温度和天气风险。",
+    "culturalTip": "使用公共交通或步行连接陈家祠与珠江沿岸，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Guangzhou",
+    "themeTags": [
+      "贸易",
+      "饮食",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "骑楼与木棉"
+    }
+  },
+  {
+    "id": "city-kashgar",
+    "type": "city",
+    "cityZh": "喀什",
+    "cityEn": "Kashgar",
+    "countryZh": "中国",
+    "countryEn": "China",
+    "countryCode": "CN",
+    "region": "亚洲",
+    "latitude": 39.4704,
+    "longitude": 75.9898,
+    "timezone": "Asia/Shanghai",
+    "summary": "喀什把绿洲市集、土坯街巷、清真寺和多民族手工艺体现丝路节点的生活连续性。以喀什古城为入口，再到艾提尕尔清真寺和手工艺市集，能较完整地理解其为何适合丝路史、绿洲城市与手工艺。",
+    "highlights": [
+      "喀什古城",
+      "艾提尕尔清真寺",
+      "手工艺市集"
+    ],
+    "bestFor": "丝路史、绿洲城市与手工艺",
+    "seasonNote": "围绕艾提尕尔清真寺安排喀什行程时，先查具体月份的降水、高温或寒冷情况，再搭配室内外活动。",
+    "culturalTip": "在手工艺市集参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Kashgar",
+    "themeTags": [
+      "丝路",
+      "多元文化",
+      "手工艺"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "土墙与石榴"
+    }
+  },
+  {
+    "id": "city-kathmandu",
+    "type": "city",
+    "cityZh": "加德满都",
+    "cityEn": "Kathmandu",
+    "countryZh": "尼泊尔",
+    "countryEn": "Nepal",
+    "countryCode": "NP",
+    "region": "亚洲",
+    "latitude": 27.7172,
+    "longitude": 85.324,
+    "timezone": "Asia/Kathmandu",
+    "summary": "加德满都以谷地王城、佛塔、印度教圣地与地震修复现场密集呈现喜马拉雅文明交流。杜巴广场、斯瓦扬布纳特与博达哈大佛塔提供三条互补线索，适合从宗教艺术、城市修复与山地文明展开。",
+    "highlights": [
+      "杜巴广场",
+      "斯瓦扬布纳特",
+      "博达哈大佛塔"
+    ],
+    "bestFor": "宗教艺术、城市修复与山地文明",
+    "seasonNote": "加德满都的季节体验受纬度、海拔或季风影响；计划博达哈大佛塔时请使用当地近期预报。",
+    "culturalTip": "参访杜巴广场时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Kathmandu",
+    "themeTags": [
+      "宗教",
+      "修复",
+      "山地"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "佛眼与雪峰"
+    }
+  },
+  {
+    "id": "city-varanasi",
+    "type": "city",
+    "cityZh": "瓦拉纳西",
+    "cityEn": "Varanasi",
+    "countryZh": "印度",
+    "countryEn": "India",
+    "countryCode": "IN",
+    "region": "亚洲",
+    "latitude": 25.3176,
+    "longitude": 82.9739,
+    "timezone": "Asia/Kolkata",
+    "summary": "理解瓦拉纳西，可以从恒河阶梯、古老巷道、仪式和音乐传统使生死观念直接进入城市日常这条主线开始。由恒河河坛走向老城巷道，再观察古典音乐传统，会看到地标之外的日常结构。",
+    "highlights": [
+      "恒河河坛",
+      "老城巷道",
+      "古典音乐传统"
+    ],
+    "bestFor": "宗教文化、河流城市与生命观",
+    "seasonNote": "到瓦拉纳西体验恒河河坛，应按当地季节准备衣物并为降水或高温留出行程弹性。",
+    "culturalTip": "先核对恒河河坛的开放与礼仪要求；体验古典音乐传统时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Varanasi",
+    "themeTags": [
+      "宗教",
+      "河流",
+      "生命礼仪"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "河阶与油灯"
+    }
+  },
+  {
+    "id": "city-mumbai",
+    "type": "city",
+    "cityZh": "孟买",
+    "cityEn": "Mumbai",
+    "countryZh": "印度",
+    "countryEn": "India",
+    "countryCode": "IN",
+    "region": "亚洲",
+    "latitude": 19.076,
+    "longitude": 72.8777,
+    "timezone": "Asia/Kolkata",
+    "summary": "海港、殖民建筑、电影产业、纺织工业遗产和移民社区共同驱动这座高密度都会，这是孟买最鲜明的城市性格。旅行不妨围绕印度门、维多利亚终点站、电影与市场街区组织，从而把城市史、电影文化与社会观察连成一条可感知的路径。",
+    "highlights": [
+      "印度门",
+      "维多利亚终点站",
+      "电影与市场街区"
+    ],
+    "bestFor": "城市史、电影文化与社会观察",
+    "seasonNote": "孟买的气候不能用统一“亚洲季节”概括；前往印度门前应核对当地雨季、温度和天气风险。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在维多利亚终点站则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Mumbai",
+    "themeTags": [
+      "电影",
+      "迁徙",
+      "工业"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "拱门与本地列车"
+    }
+  },
+  {
+    "id": "city-kolkata",
+    "type": "city",
+    "cityZh": "加尔各答",
+    "cityEn": "Kolkata",
+    "countryZh": "印度",
+    "countryEn": "India",
+    "countryCode": "IN",
+    "region": "亚洲",
+    "latitude": 22.5726,
+    "longitude": 88.3639,
+    "timezone": "Asia/Kolkata",
+    "summary": "加尔各答的吸引力来自殖民时期公共建筑、孟加拉文艺传统、书市和河港共同保存知识城市气质。维多利亚纪念堂呈现历史背景，学院街连接当代生活，胡格利河岸则补足空间或文化尺度。",
+    "highlights": [
+      "维多利亚纪念堂",
+      "学院街",
+      "胡格利河岸"
+    ],
+    "bestFor": "文学、近代史与街区文化",
+    "seasonNote": "围绕学院街安排加尔各答行程时，先查具体月份的降水、高温或寒冷情况，再搭配室内外活动。",
+    "culturalTip": "涉及维多利亚纪念堂的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Kolkata",
+    "themeTags": [
+      "文学",
+      "历史",
+      "河港"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "书页与黄出租车"
+    }
+  },
+  {
+    "id": "city-delhi",
+    "type": "city",
+    "cityZh": "德里",
+    "cityEn": "Delhi",
+    "countryZh": "印度",
+    "countryEn": "India",
+    "countryCode": "IN",
+    "region": "亚洲",
+    "latitude": 28.6139,
+    "longitude": 77.209,
+    "timezone": "Asia/Kolkata",
+    "summary": "在德里，苏丹王朝、莫卧儿帝国、殖民规划和当代都会在多个城市层次中叠加。与其只追逐单一地标，更值得把胡马雍陵、旧德里和新德里轴线放在同一段城市观察中。",
+    "highlights": [
+      "胡马雍陵",
+      "旧德里",
+      "新德里轴线"
+    ],
+    "bestFor": "帝国史、建筑与市井生活",
+    "seasonNote": "德里的季节体验受纬度、海拔或季风影响；计划新德里轴线时请使用当地近期预报。",
+    "culturalTip": "使用公共交通或步行连接胡马雍陵与新德里轴线，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Delhi",
+    "themeTags": [
+      "历史层积",
+      "建筑",
+      "市场"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "红砂岩与林荫轴线"
+    }
+  },
+  {
+    "id": "city-udaipur",
+    "type": "city",
+    "cityZh": "乌代布尔",
+    "cityEn": "Udaipur",
+    "countryZh": "印度",
+    "countryEn": "India",
+    "countryCode": "IN",
+    "region": "亚洲",
+    "latitude": 24.5854,
+    "longitude": 73.7125,
+    "timezone": "Asia/Kolkata",
+    "summary": "乌代布尔把人工湖、拉其普特宫殿和阿拉瓦利山地构成拉贾斯坦少见的水城景观。以城市宫殿为入口，再到皮丘拉湖和老城工坊，能较完整地理解其为何适合王国史、湖景与手工艺。",
+    "highlights": [
+      "城市宫殿",
+      "皮丘拉湖",
+      "老城工坊"
+    ],
+    "bestFor": "王国史、湖景与手工艺",
+    "seasonNote": "到乌代布尔体验城市宫殿，应按当地季节准备衣物并为降水或高温留出行程弹性。",
+    "culturalTip": "在老城工坊参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Udaipur",
+    "themeTags": [
+      "王国史",
+      "水利",
+      "手工艺"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "湖宫与山线"
+    }
+  },
+  {
+    "id": "city-yogyakarta",
+    "type": "city",
+    "cityZh": "日惹",
+    "cityEn": "Yogyakarta",
+    "countryZh": "印度尼西亚",
+    "countryEn": "Indonesia",
+    "countryCode": "ID",
+    "region": "亚洲",
+    "latitude": -7.7956,
+    "longitude": 110.3695,
+    "timezone": "Asia/Jakarta",
+    "summary": "日惹以爪哇王宫传统、蜡染、当代艺术和邻近古寺群让日惹兼具学院与古都气质。日惹王宫、蜡染工坊与婆罗浮屠与普兰巴南提供三条互补线索，适合从爪哇文化、手工艺与古代宗教展开。",
+    "highlights": [
+      "日惹王宫",
+      "蜡染工坊",
+      "婆罗浮屠与普兰巴南"
+    ],
+    "bestFor": "爪哇文化、手工艺与古代宗教",
+    "seasonNote": "日惹的气候不能用统一“亚洲季节”概括；前往日惹王宫前应核对当地雨季、温度和天气风险。",
+    "culturalTip": "参访日惹王宫时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Yogyakarta",
+    "themeTags": [
+      "手工艺",
+      "宗教",
+      "艺术"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "蜡染纹与火山"
+    }
+  },
+  {
+    "id": "city-chiang-mai",
+    "type": "city",
+    "cityZh": "清迈",
+    "cityEn": "Chiang Mai",
+    "countryZh": "泰国",
+    "countryEn": "Thailand",
+    "countryCode": "TH",
+    "region": "亚洲",
+    "latitude": 18.7883,
+    "longitude": 98.9853,
+    "timezone": "Asia/Bangkok",
+    "summary": "理解清迈，可以从兰纳寺院、城墙水渠、山地文化和当代创意社区构成泰北文化中心这条主线开始。由古城寺院走向素贴山，再观察手工艺街区，会看到地标之外的日常结构。",
+    "highlights": [
+      "古城寺院",
+      "素贴山",
+      "手工艺街区"
+    ],
+    "bestFor": "宗教建筑、地方工艺与慢旅行",
+    "seasonNote": "围绕素贴山安排清迈行程时，先查具体月份的降水、高温或寒冷情况，再搭配室内外活动。",
+    "culturalTip": "先核对古城寺院的开放与礼仪要求；体验手工艺街区时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Chiang_Mai",
+    "themeTags": [
+      "宗教",
+      "手工艺",
+      "山地"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "兰纳屋顶与山花"
+    }
+  },
+  {
+    "id": "city-phnom-penh",
+    "type": "city",
+    "cityZh": "金边",
+    "cityEn": "Phnom Penh",
+    "countryZh": "柬埔寨",
+    "countryEn": "Cambodia",
+    "countryCode": "KH",
+    "region": "亚洲",
+    "latitude": 11.5564,
+    "longitude": 104.9282,
+    "timezone": "Asia/Phnom_Penh",
+    "summary": "湄公河水系、王宫、殖民街区与二十世纪创伤记忆构成需要耐心阅读的首都，这是金边最鲜明的城市性格。旅行不妨围绕王宫、国家博物馆、吐斯廉屠杀博物馆组织，从而把高棉艺术、河港与历史反思连成一条可感知的路径。",
+    "highlights": [
+      "王宫",
+      "国家博物馆",
+      "吐斯廉屠杀博物馆"
+    ],
+    "bestFor": "高棉艺术、河港与历史反思",
+    "seasonNote": "金边的季节体验受纬度、海拔或季风影响；计划吐斯廉屠杀博物馆时请使用当地近期预报。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在国家博物馆则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Phnom_Penh",
+    "themeTags": [
+      "记忆",
+      "河流",
+      "艺术"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "四臂河与王宫尖顶"
+    }
+  },
+  {
+    "id": "city-alexandria",
+    "type": "city",
+    "cityZh": "亚历山大",
+    "cityEn": "Alexandria",
+    "countryZh": "埃及",
+    "countryEn": "Egypt",
+    "countryCode": "EG",
+    "region": "非洲",
+    "latitude": 31.2001,
+    "longitude": 29.9187,
+    "timezone": "Africa/Cairo",
+    "summary": "亚历山大的吸引力来自地中海海岸、希腊罗马遗产、图书馆意象和近代多元社区构成埃及的海洋窗口。亚历山大图书馆呈现历史背景，盖特贝城堡连接当代生活，海滨大道则补足空间或文化尺度。",
+    "highlights": [
+      "亚历山大图书馆",
+      "盖特贝城堡",
+      "海滨大道"
+    ],
+    "bestFor": "古代知识史、地中海与城市记忆",
+    "seasonNote": "亚历山大受地中海影响，夏季偏热干，冬季较凉且更可能有风雨；海滨步行前请核对风浪与当地预报。",
+    "culturalTip": "涉及亚历山大图书馆的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Alexandria",
+    "themeTags": [
+      "古代",
+      "知识",
+      "海洋"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "灯塔与海卷"
+    }
+  },
+  {
+    "id": "city-luxor",
+    "type": "city",
+    "cityZh": "卢克索",
+    "cityEn": "Luxor",
+    "countryZh": "埃及",
+    "countryEn": "Egypt",
+    "countryCode": "EG",
+    "region": "非洲",
+    "latitude": 25.6872,
+    "longitude": 32.6396,
+    "timezone": "Africa/Cairo",
+    "summary": "在卢克索，尼罗河两岸密集分布神庙、王陵和古城遗址，是理解新王国空间秩序的核心地点。与其只追逐单一地标，更值得把卡尔纳克神庙、帝王谷和卢克索神庙放在同一段城市观察中。",
+    "highlights": [
+      "卡尔纳克神庙",
+      "帝王谷",
+      "卢克索神庙"
+    ],
+    "bestFor": "古埃及文明、考古与河谷景观",
+    "seasonNote": "卢克索的季节条件受纬度、海拔与海陆位置共同影响；参观卡尔纳克神庙前请核对当地降水和温度。",
+    "culturalTip": "使用公共交通或步行连接卡尔纳克神庙与卢克索神庙，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Luxor",
+    "themeTags": [
+      "古代",
+      "考古",
+      "河流"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "方尖碑与河舟"
+    }
+  },
+  {
+    "id": "city-aswan",
+    "type": "city",
+    "cityZh": "阿斯旺",
+    "cityEn": "Aswan",
+    "countryZh": "埃及",
+    "countryEn": "Egypt",
+    "countryCode": "EG",
+    "region": "非洲",
+    "latitude": 24.0889,
+    "longitude": 32.8998,
+    "timezone": "Africa/Cairo",
+    "summary": "阿斯旺把尼罗河岛屿、努比亚文化、花岗岩遗址与大坝工程展示南部边疆的历史和水利变化。以菲莱神庙为入口，再到努比亚博物馆和象岛，能较完整地理解其为何适合努比亚文化、水利史与河上慢行。",
+    "highlights": [
+      "菲莱神庙",
+      "努比亚博物馆",
+      "象岛"
+    ],
+    "bestFor": "努比亚文化、水利史与河上慢行",
+    "seasonNote": "计划阿斯旺的努比亚博物馆时，不宜套用统一旱雨季印象；请按目的地和月份准备防晒、饮水与雨具。",
+    "culturalTip": "在象岛参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Aswan",
+    "themeTags": [
+      "水利",
+      "努比亚",
+      "河流"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "帆船与花岗岩"
+    }
+  },
+  {
+    "id": "city-nairobi",
+    "type": "city",
+    "cityZh": "内罗毕",
+    "cityEn": "Nairobi",
+    "countryZh": "肯尼亚",
+    "countryEn": "Kenya",
+    "countryCode": "KE",
+    "region": "非洲",
+    "latitude": -1.2921,
+    "longitude": 36.8219,
+    "timezone": "Africa/Nairobi",
+    "summary": "内罗毕以铁路建城史、独立记忆、当代艺术与城市边缘野生生态形成鲜明并置。内罗毕国家博物馆、铁路博物馆与内罗毕国家公园提供三条互补线索，适合从东非城市史、艺术与城市生态展开。",
+    "highlights": [
+      "内罗毕国家博物馆",
+      "铁路博物馆",
+      "内罗毕国家公园"
+    ],
+    "bestFor": "东非城市史、艺术与城市生态",
+    "seasonNote": "内罗毕的户外节奏会随降水、热度和昼夜温差变化；前往内罗毕国家公园前以当地近期信息为准。",
+    "culturalTip": "参访内罗毕国家博物馆时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Nairobi",
+    "themeTags": [
+      "铁路",
+      "独立",
+      "生态"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "铁路与金合欢"
+    }
+  },
+  {
+    "id": "city-mombasa",
+    "type": "city",
+    "cityZh": "蒙巴萨",
+    "cityEn": "Mombasa",
+    "countryZh": "肯尼亚",
+    "countryEn": "Kenya",
+    "countryCode": "KE",
+    "region": "非洲",
+    "latitude": -4.0435,
+    "longitude": 39.6682,
+    "timezone": "Africa/Nairobi",
+    "summary": "理解蒙巴萨，可以从斯瓦希里旧城、葡萄牙要塞、印度洋贸易和多元饮食留下层层海岸交流痕迹这条主线开始。由耶稣堡走向斯瓦希里老城，再观察印度洋海岸，会看到地标之外的日常结构。",
+    "highlights": [
+      "耶稣堡",
+      "斯瓦希里老城",
+      "印度洋海岸"
+    ],
+    "bestFor": "海洋贸易、斯瓦希里文化与建筑",
+    "seasonNote": "把耶稣堡纳入蒙巴萨行程时，先查具体月份的气候与交通条件，再决定清晨、午后或室内安排。",
+    "culturalTip": "先核对耶稣堡的开放与礼仪要求；体验印度洋海岸时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Mombasa",
+    "themeTags": [
+      "贸易",
+      "海洋",
+      "多元文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "珊瑚石门与帆船"
+    }
+  },
+  {
+    "id": "city-addis-ababa",
+    "type": "city",
+    "cityZh": "亚的斯亚贝巴",
+    "cityEn": "Addis Ababa",
+    "countryZh": "埃塞俄比亚",
+    "countryEn": "Ethiopia",
+    "countryCode": "ET",
+    "region": "非洲",
+    "latitude": 9.032,
+    "longitude": 38.7469,
+    "timezone": "Africa/Addis_Ababa",
+    "summary": "高原首都以国家博物馆、泛非机构、咖啡文化和快速城市化连接古代与当代非洲，这是亚的斯亚贝巴最鲜明的城市性格。旅行不妨围绕国家博物馆、非洲联盟区、咖啡文化组织，从而把人类史、泛非政治与高原城市连成一条可感知的路径。",
+    "highlights": [
+      "国家博物馆",
+      "非洲联盟区",
+      "咖啡文化"
+    ],
+    "bestFor": "人类史、泛非政治与高原城市",
+    "seasonNote": "亚的斯亚贝巴的季节条件受纬度、海拔与海陆位置共同影响；参观国家博物馆前请核对当地降水和温度。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在非洲联盟区则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Addis_Ababa",
+    "themeTags": [
+      "人类史",
+      "泛非",
+      "现代化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "咖啡枝与高原"
+    }
+  },
+  {
+    "id": "city-gondar",
+    "type": "city",
+    "cityZh": "贡德尔",
+    "cityEn": "Gondar",
+    "countryZh": "埃塞俄比亚",
+    "countryEn": "Ethiopia",
+    "countryCode": "ET",
+    "region": "非洲",
+    "latitude": 12.603,
+    "longitude": 37.4521,
+    "timezone": "Africa/Addis_Ababa",
+    "summary": "贡德尔的吸引力来自石砌王宫群、教堂壁画和高原景观保存埃塞俄比亚帝国时期独特的都城遗产。法西尔盖比城堡群呈现历史背景，德布雷·伯罕·塞拉西教堂连接当代生活，高原街区则补足空间或文化尺度。",
+    "highlights": [
+      "法西尔盖比城堡群",
+      "德布雷·伯罕·塞拉西教堂",
+      "高原街区"
+    ],
+    "bestFor": "帝国史、宗教艺术与高原文化",
+    "seasonNote": "计划贡德尔的德布雷·伯罕·塞拉西教堂时，不宜套用统一旱雨季印象；请按目的地和月份准备防晒、饮水与雨具。",
+    "culturalTip": "涉及法西尔盖比城堡群的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Gondar",
+    "themeTags": [
+      "帝国史",
+      "宗教",
+      "高原"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "石堡与壁画天使"
+    }
+  },
+  {
+    "id": "city-johannesburg",
+    "type": "city",
+    "cityZh": "约翰内斯堡",
+    "cityEn": "Johannesburg",
+    "countryZh": "南非",
+    "countryEn": "South Africa",
+    "countryCode": "ZA",
+    "region": "非洲",
+    "latitude": -26.2041,
+    "longitude": 28.0473,
+    "timezone": "Africa/Johannesburg",
+    "summary": "在约翰内斯堡，金矿建城、种族隔离史、宪法转型和活跃创意街区共同定义南非最大都会。与其只追逐单一地标，更值得把种族隔离博物馆、宪法山和马邦内创意区放在同一段城市观察中。",
+    "highlights": [
+      "种族隔离博物馆",
+      "宪法山",
+      "马邦内创意区"
+    ],
+    "bestFor": "近现代史、社会转型与城市文化",
+    "seasonNote": "约翰内斯堡的户外节奏会随降水、热度和昼夜温差变化；前往马邦内创意区前以当地近期信息为准。",
+    "culturalTip": "使用公共交通或步行连接种族隔离博物馆与马邦内创意区，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Johannesburg",
+    "themeTags": [
+      "社会转型",
+      "记忆",
+      "工业"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "矿井架与城市网格"
+    }
+  },
+  {
+    "id": "city-durban",
+    "type": "city",
+    "cityZh": "德班",
+    "cityEn": "Durban",
+    "countryZh": "南非",
+    "countryEn": "South Africa",
+    "countryCode": "ZA",
+    "region": "非洲",
+    "latitude": -29.8587,
+    "longitude": 31.0218,
+    "timezone": "Africa/Johannesburg",
+    "summary": "德班把印度洋海岸、祖鲁文化、印度裔社区和港口贸易形成温暖而多层的城市身份。以金色里程海滩为入口，再到夸穆赫博物馆和维多利亚市场，能较完整地理解其为何适合海岸生活、迁徙史与多元饮食。",
+    "highlights": [
+      "金色里程海滩",
+      "夸穆赫博物馆",
+      "维多利亚市场"
+    ],
+    "bestFor": "海岸生活、迁徙史与多元饮食",
+    "seasonNote": "把金色里程海滩纳入德班行程时，先查具体月份的气候与交通条件，再决定清晨、午后或室内安排。",
+    "culturalTip": "在维多利亚市场参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Durban",
+    "themeTags": [
+      "海洋",
+      "迁徙",
+      "多元文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "海浪与珠饰"
+    }
+  },
+  {
+    "id": "city-pretoria",
+    "type": "city",
+    "cityZh": "比勒陀利亚",
+    "cityEn": "Pretoria",
+    "countryZh": "南非",
+    "countryEn": "South Africa",
+    "countryCode": "ZA",
+    "region": "非洲",
+    "latitude": -25.7479,
+    "longitude": 28.2293,
+    "timezone": "Africa/Johannesburg",
+    "summary": "比勒陀利亚以行政建筑、蓝花楹大道、布尔历史和自由公园呈现国家权力与记忆的多种版本。联合大厦、自由公园与蓝花楹街道提供三条互补线索，适合从政治史、纪念空间与城市花季展开。",
+    "highlights": [
+      "联合大厦",
+      "自由公园",
+      "蓝花楹街道"
+    ],
+    "bestFor": "政治史、纪念空间与城市花季",
+    "seasonNote": "比勒陀利亚的季节条件受纬度、海拔与海陆位置共同影响；参观联合大厦前请核对当地降水和温度。",
+    "culturalTip": "参访联合大厦时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Pretoria",
+    "themeTags": [
+      "政治",
+      "记忆",
+      "城市景观"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "紫花与台阶"
+    }
+  },
+  {
+    "id": "city-gaborone",
+    "type": "city",
+    "cityZh": "哈博罗内",
+    "cityEn": "Gaborone",
+    "countryZh": "博茨瓦纳",
+    "countryEn": "Botswana",
+    "countryCode": "BW",
+    "region": "非洲",
+    "latitude": -24.6282,
+    "longitude": 25.9231,
+    "timezone": "Africa/Gaborone",
+    "summary": "理解哈博罗内，可以从独立后规划的首都通过国家机构、当代艺术和临近自然保护区展示博茨瓦纳发展路径这条主线开始。由三酋长纪念碑走向国家博物馆，再观察哈博罗内保护区，会看到地标之外的日常结构。",
+    "highlights": [
+      "三酋长纪念碑",
+      "国家博物馆",
+      "哈博罗内保护区"
+    ],
+    "bestFor": "独立史、城市治理与自然衔接",
+    "seasonNote": "计划哈博罗内的国家博物馆时，不宜套用统一旱雨季印象；请按目的地和月份准备防晒、饮水与雨具。",
+    "culturalTip": "先核对三酋长纪念碑的开放与礼仪要求；体验哈博罗内保护区时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Gaborone",
+    "themeTags": [
+      "独立",
+      "治理",
+      "生态"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "三人铜像与旱地树"
+    }
+  },
+  {
+    "id": "city-victoria-falls",
+    "type": "city",
+    "cityZh": "维多利亚瀑布城",
+    "cityEn": "Victoria Falls",
+    "countryZh": "津巴布韦",
+    "countryEn": "Zimbabwe",
+    "countryCode": "ZW",
+    "region": "非洲",
+    "latitude": -17.9243,
+    "longitude": 25.8572,
+    "timezone": "Africa/Harare",
+    "summary": "城市因赞比西河巨瀑而生，但铁路遗产、峡谷生态与跨境文化让它不只是观景入口，这是维多利亚瀑布城最鲜明的城市性格。旅行不妨围绕维多利亚瀑布、赞比西峡谷、历史铁路桥组织，从而把地质奇观、生态与跨境旅行连成一条可感知的路径。",
+    "highlights": [
+      "维多利亚瀑布",
+      "赞比西峡谷",
+      "历史铁路桥"
+    ],
+    "bestFor": "地质奇观、生态与跨境旅行",
+    "seasonNote": "瀑布水量、喷雾强度与能见度会随赞比西河水文季节变化；观景和峡谷活动前请查公园及运营方的当期安全信息。",
+    "culturalTip": "在瀑布和峡谷范围遵守步道、护栏与野生动物距离要求；跨境或参加高风险活动前核对证件、保险和持证运营方。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Victoria_Falls",
+    "themeTags": [
+      "自然",
+      "铁路",
+      "跨境"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "水雾与峡谷桥"
+    }
+  },
+  {
+    "id": "city-harare",
+    "type": "city",
+    "cityZh": "哈拉雷",
+    "cityEn": "Harare",
+    "countryZh": "津巴布韦",
+    "countryEn": "Zimbabwe",
+    "countryCode": "ZW",
+    "region": "非洲",
+    "latitude": -17.8252,
+    "longitude": 31.0335,
+    "timezone": "Africa/Harare",
+    "summary": "哈拉雷的吸引力来自林荫大道、石雕传统、国家美术馆和城市市场展现津巴布韦的当代创造力。国家美术馆呈现历史背景，绍纳石雕连接当代生活，姆巴雷市场则补足空间或文化尺度。",
+    "highlights": [
+      "国家美术馆",
+      "绍纳石雕",
+      "姆巴雷市场"
+    ],
+    "bestFor": "当代非洲艺术、城市生活与历史",
+    "seasonNote": "把国家美术馆纳入哈拉雷行程时，先查具体月份的气候与交通条件，再决定清晨、午后或室内安排。",
+    "culturalTip": "涉及国家美术馆的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Harare",
+    "themeTags": [
+      "艺术",
+      "市场",
+      "当代非洲"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "石雕与紫葳花"
+    }
+  },
+  {
+    "id": "city-lusaka",
+    "type": "city",
+    "cityZh": "卢萨卡",
+    "cityEn": "Lusaka",
+    "countryZh": "赞比亚",
+    "countryEn": "Zambia",
+    "countryCode": "ZM",
+    "region": "非洲",
+    "latitude": -15.3875,
+    "longitude": 28.3228,
+    "timezone": "Africa/Lusaka",
+    "summary": "在卢萨卡，独立历史、快速扩张的商业区、市场和艺术空间使卢萨卡成为理解当代赞比亚的起点。与其只追逐单一地标，更值得把卢萨卡国家博物馆、卡宾瓦塔文化村和城市市场放在同一段城市观察中。",
+    "highlights": [
+      "卢萨卡国家博物馆",
+      "卡宾瓦塔文化村",
+      "城市市场"
+    ],
+    "bestFor": "独立史、手工艺与社会观察",
+    "seasonNote": "卢萨卡的季节条件受纬度、海拔与海陆位置共同影响；参观卢萨卡国家博物馆前请核对当地降水和温度。",
+    "culturalTip": "使用公共交通或步行连接卢萨卡国家博物馆与城市市场，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Lusaka",
+    "themeTags": [
+      "独立",
+      "手工艺",
+      "现代化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "织篮与大道"
+    }
+  },
+  {
+    "id": "city-kampala",
+    "type": "city",
+    "cityZh": "坎帕拉",
+    "cityEn": "Kampala",
+    "countryZh": "乌干达",
+    "countryEn": "Uganda",
+    "countryCode": "UG",
+    "region": "非洲",
+    "latitude": 0.3476,
+    "longitude": 32.5825,
+    "timezone": "Africa/Kampala",
+    "summary": "坎帕拉把七丘地形、布干达王国遗产、宗教建筑和活跃市场构成东非内陆首都的层次。以卡苏比王陵为入口，再到国家清真寺和奥维诺市场，能较完整地理解其为何适合王国史、宗教与城市市场。",
+    "highlights": [
+      "卡苏比王陵",
+      "国家清真寺",
+      "奥维诺市场"
+    ],
+    "bestFor": "王国史、宗教与城市市场",
+    "seasonNote": "计划坎帕拉的国家清真寺时，不宜套用统一旱雨季印象；请按目的地和月份准备防晒、饮水与雨具。",
+    "culturalTip": "在奥维诺市场参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Kampala",
+    "themeTags": [
+      "王国史",
+      "宗教",
+      "市场"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "丘陵与鼓"
+    }
+  },
+  {
+    "id": "city-arusha",
+    "type": "city",
+    "cityZh": "阿鲁沙",
+    "cityEn": "Arusha",
+    "countryZh": "坦桑尼亚",
+    "countryEn": "Tanzania",
+    "countryCode": "TZ",
+    "region": "非洲",
+    "latitude": -3.3869,
+    "longitude": 36.683,
+    "timezone": "Africa/Dar_es_Salaam",
+    "summary": "阿鲁沙以梅鲁山脚的外交传统、咖啡农业、多族群市场和自然保护区门户角色相互交织。阿鲁沙宣言博物馆、文化遗产中心与梅鲁山景观提供三条互补线索，适合从东非政治史、地方文化与自然旅行展开。",
+    "highlights": [
+      "阿鲁沙宣言博物馆",
+      "文化遗产中心",
+      "梅鲁山景观"
+    ],
+    "bestFor": "东非政治史、地方文化与自然旅行",
+    "seasonNote": "阿鲁沙的户外节奏会随降水、热度和昼夜温差变化；前往梅鲁山景观前以当地近期信息为准。",
+    "culturalTip": "参访阿鲁沙宣言博物馆时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Arusha",
+    "themeTags": [
+      "政治",
+      "农业",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "山峰与咖啡果"
+    }
+  },
+  {
+    "id": "city-dar-es-salaam",
+    "type": "city",
+    "cityZh": "达累斯萨拉姆",
+    "cityEn": "Dar es Salaam",
+    "countryZh": "坦桑尼亚",
+    "countryEn": "Tanzania",
+    "countryCode": "TZ",
+    "region": "非洲",
+    "latitude": -6.7924,
+    "longitude": 39.2083,
+    "timezone": "Africa/Dar_es_Salaam",
+    "summary": "理解达累斯萨拉姆，可以从印度洋港口、斯瓦希里文化、现代艺术和快速扩张的社区呈现坦桑尼亚城市化节奏这条主线开始。由国家博物馆走向卡里亚库市场，再观察海滨与艺术空间，会看到地标之外的日常结构。",
+    "highlights": [
+      "国家博物馆",
+      "卡里亚库市场",
+      "海滨与艺术空间"
+    ],
+    "bestFor": "港口史、斯瓦希里文化与当代艺术",
+    "seasonNote": "把国家博物馆纳入达累斯萨拉姆行程时，先查具体月份的气候与交通条件，再决定清晨、午后或室内安排。",
+    "culturalTip": "先核对国家博物馆的开放与礼仪要求；体验海滨与艺术空间时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Dar_es_Salaam",
+    "themeTags": [
+      "海港",
+      "艺术",
+      "现代化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "独桅帆船与城市线"
+    }
+  },
+  {
+    "id": "city-antananarivo",
+    "type": "city",
+    "cityZh": "塔那那利佛",
+    "cityEn": "Antananarivo",
+    "countryZh": "马达加斯加",
+    "countryEn": "Madagascar",
+    "countryCode": "MG",
+    "region": "非洲",
+    "latitude": -18.8792,
+    "longitude": 47.5079,
+    "timezone": "Indian/Antananarivo",
+    "summary": "层叠稻田、红土高地、王宫遗址和密集市区展示马达加斯加独特的岛屿历史，这是塔那那利佛最鲜明的城市性格。旅行不妨围绕女王宫高地、安达菲亚瓦拉特拉宫、城市梯田组织，从而把岛屿王国史、高地景观与市场生活连成一条可感知的路径。",
+    "highlights": [
+      "女王宫高地",
+      "安达菲亚瓦拉特拉宫",
+      "城市梯田"
+    ],
+    "bestFor": "岛屿王国史、高地景观与市场生活",
+    "seasonNote": "塔那那利佛的季节条件受纬度、海拔与海陆位置共同影响；参观女王宫高地前请核对当地降水和温度。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在安达菲亚瓦拉特拉宫则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Antananarivo",
+    "themeTags": [
+      "王国史",
+      "岛屿",
+      "农业"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "红土屋与稻田"
+    }
+  },
+  {
+    "id": "city-port-louis",
+    "type": "city",
+    "cityZh": "路易港",
+    "cityEn": "Port Louis",
+    "countryZh": "毛里求斯",
+    "countryEn": "Mauritius",
+    "countryCode": "MU",
+    "region": "非洲",
+    "latitude": -20.1609,
+    "longitude": 57.5012,
+    "timezone": "Indian/Mauritius",
+    "summary": "路易港的吸引力来自山海夹峙的港口、契约劳工记忆、多族群市场和殖民建筑浓缩印度洋迁徙史。阿普拉瓦西码头呈现历史背景，中央市场连接当代生活，炮台山则补足空间或文化尺度。",
+    "highlights": [
+      "阿普拉瓦西码头",
+      "中央市场",
+      "炮台山"
+    ],
+    "bestFor": "迁徙史、印度洋贸易与多元饮食",
+    "seasonNote": "计划路易港的中央市场时，不宜套用统一旱雨季印象；请按目的地和月份准备防晒、饮水与雨具。",
+    "culturalTip": "涉及阿普拉瓦西码头的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Port_Louis",
+    "themeTags": [
+      "迁徙",
+      "贸易",
+      "多元文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "山门与港帆"
+    }
+  },
+  {
+    "id": "city-casablanca",
+    "type": "city",
+    "cityZh": "卡萨布兰卡",
+    "cityEn": "Casablanca",
+    "countryZh": "摩洛哥",
+    "countryEn": "Morocco",
+    "countryCode": "MA",
+    "region": "非洲",
+    "latitude": 33.5731,
+    "longitude": -7.5898,
+    "timezone": "Africa/Casablanca",
+    "summary": "在卡萨布兰卡，大西洋港口、装饰艺术街区、现代主义规划和巨大清真寺展示摩洛哥的都会面貌。与其只追逐单一地标，更值得把哈桑二世清真寺、装饰艺术中心区和中央市场放在同一段城市观察中。",
+    "highlights": [
+      "哈桑二世清真寺",
+      "装饰艺术中心区",
+      "中央市场"
+    ],
+    "bestFor": "现代建筑、港口城市与都市文化",
+    "seasonNote": "卡萨布兰卡的户外节奏会随降水、热度和昼夜温差变化；前往中央市场前以当地近期信息为准。",
+    "culturalTip": "使用公共交通或步行连接哈桑二世清真寺与中央市场，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Casablanca",
+    "themeTags": [
+      "现代主义",
+      "海港",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "白色立面与海线"
+    }
+  },
+  {
+    "id": "city-rabat",
+    "type": "city",
+    "cityZh": "拉巴特",
+    "cityEn": "Rabat",
+    "countryZh": "摩洛哥",
+    "countryEn": "Morocco",
+    "countryCode": "MA",
+    "region": "非洲",
+    "latitude": 34.0209,
+    "longitude": -6.8416,
+    "timezone": "Africa/Casablanca",
+    "summary": "拉巴特把古城、安达卢斯花园、王室与现代行政区在布雷格雷格河口形成从容首都尺度。以乌达雅堡为入口，再到哈桑塔和穆罕默德六世现代艺术博物馆，能较完整地理解其为何适合王朝史、花园与当代艺术。",
+    "highlights": [
+      "乌达雅堡",
+      "哈桑塔",
+      "穆罕默德六世现代艺术博物馆"
+    ],
+    "bestFor": "王朝史、花园与当代艺术",
+    "seasonNote": "把乌达雅堡纳入拉巴特行程时，先查具体月份的气候与交通条件，再决定清晨、午后或室内安排。",
+    "culturalTip": "在穆罕默德六世现代艺术博物馆参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Rabat",
+    "themeTags": [
+      "王朝史",
+      "艺术",
+      "河流"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "蓝白堡门与河口"
+    }
+  },
+  {
+    "id": "city-essaouira",
+    "type": "city",
+    "cityZh": "索维拉",
+    "cityEn": "Essaouira",
+    "countryZh": "摩洛哥",
+    "countryEn": "Morocco",
+    "countryCode": "MA",
+    "region": "非洲",
+    "latitude": 31.5085,
+    "longitude": -9.7595,
+    "timezone": "Africa/Casablanca",
+    "summary": "索维拉以大西洋风、城墙港口、蓝白巷道和格纳瓦音乐赋予这座小城开放的跨文化气质。麦地那城墙、渔港与格纳瓦音乐传统提供三条互补线索，适合从海港建筑、音乐与慢旅行展开。",
+    "highlights": [
+      "麦地那城墙",
+      "渔港",
+      "格纳瓦音乐传统"
+    ],
+    "bestFor": "海港建筑、音乐与慢旅行",
+    "seasonNote": "索维拉的季节条件受纬度、海拔与海陆位置共同影响；参观麦地那城墙前请核对当地降水和温度。",
+    "culturalTip": "参访麦地那城墙时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Essaouira",
+    "themeTags": [
+      "音乐",
+      "海洋",
+      "多元文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "蓝门与海鸥"
+    }
+  },
+  {
+    "id": "city-abidjan",
+    "type": "city",
+    "cityZh": "阿比让",
+    "cityEn": "Abidjan",
+    "countryZh": "科特迪瓦",
+    "countryEn": "Côte d’Ivoire",
+    "countryCode": "CI",
+    "region": "非洲",
+    "latitude": 5.36,
+    "longitude": -4.0083,
+    "timezone": "Africa/Abidjan",
+    "summary": "理解阿比让，可以从潟湖地形、现代主义天际线、市场、音乐和当代艺术展示西非商业都会的创造力这条主线开始。由普拉托现代建筑走向文明博物馆，再观察潟湖与市场，会看到地标之外的日常结构。",
+    "highlights": [
+      "普拉托现代建筑",
+      "文明博物馆",
+      "潟湖与市场"
+    ],
+    "bestFor": "当代非洲、城市建筑与音乐",
+    "seasonNote": "阿比让全年湿热，强降雨时段可能影响潟湖交通与城市道路；户外行程宜准备防雨并保留室内替代。",
+    "culturalTip": "先核对普拉托现代建筑的开放与礼仪要求；体验潟湖与市场时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Abidjan",
+    "themeTags": [
+      "现代主义",
+      "音乐",
+      "市场"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "潟湖与高塔"
+    }
+  },
+  {
+    "id": "city-boston",
+    "type": "city",
+    "cityZh": "波士顿",
+    "cityEn": "Boston",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 42.3601,
+    "longitude": -71.0589,
+    "timezone": "America/New_York",
+    "summary": "殖民与革命遗址、大学群、港湾和步行社区把美国历史与知识产业紧密连接，这是波士顿最鲜明的城市性格。旅行不妨围绕自由之路、美术博物馆、查尔斯河组织，从而把美国史、学术文化与城市步行连成一条可感知的路径。",
+    "highlights": [
+      "自由之路",
+      "美术博物馆",
+      "查尔斯河"
+    ],
+    "bestFor": "美国史、学术文化与城市步行",
+    "seasonNote": "波士顿四季差异明显：冬季可能有雪冰，夏季可炎热潮湿，春秋天气也会快速变化；港湾步行前请查当地预报。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在美术博物馆则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Boston",
+    "themeTags": [
+      "历史",
+      "知识",
+      "海港"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "红砖与灯塔"
+    }
+  },
+  {
+    "id": "city-washington-dc",
+    "type": "city",
+    "cityZh": "华盛顿",
+    "cityEn": "Washington, D.C.",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 38.9072,
+    "longitude": -77.0369,
+    "timezone": "America/New_York",
+    "summary": "华盛顿的吸引力来自国家纪念轴线、免费博物馆群和多元社区让政治制度与公共记忆可以在城市中直接观察。国家广场呈现历史背景，史密森尼博物馆群连接当代生活，国会山则补足空间或文化尺度。",
+    "highlights": [
+      "国家广场",
+      "史密森尼博物馆群",
+      "国会山"
+    ],
+    "bestFor": "政治史、博物馆与公共空间",
+    "seasonNote": "到华盛顿围绕国家广场活动，应按具体月份准备衣物，并给突发天气保留替代安排。",
+    "culturalTip": "涉及国家广场的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Washington%2C_D.C.",
+    "themeTags": [
+      "政治",
+      "博物馆",
+      "公共空间"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "圆顶与纪念轴线"
+    }
+  },
+  {
+    "id": "city-philadelphia",
+    "type": "city",
+    "cityZh": "费城",
+    "cityEn": "Philadelphia",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 39.9526,
+    "longitude": -75.1652,
+    "timezone": "America/New_York",
+    "summary": "在费城，建国遗址、工业街区、公共艺术和市场共同展示美国城市的历史连续与转型。与其只追逐单一地标，更值得把独立厅、费城艺术博物馆和雷丁车站市场放在同一段城市观察中。",
+    "highlights": [
+      "独立厅",
+      "费城艺术博物馆",
+      "雷丁车站市场"
+    ],
+    "bestFor": "建国史、艺术与社区饮食",
+    "seasonNote": "费城不能套用同一套北美风雪或高温预期；前往独立厅前请按当地月份核对天气。",
+    "culturalTip": "使用公共交通或步行连接独立厅与雷丁车站市场，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Philadelphia",
+    "themeTags": [
+      "历史",
+      "艺术",
+      "市场"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "自由钟与砖街"
+    }
+  },
+  {
+    "id": "city-savannah",
+    "type": "city",
+    "cityZh": "萨凡纳",
+    "cityEn": "Savannah",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 32.0809,
+    "longitude": -81.0912,
+    "timezone": "America/New_York",
+    "summary": "萨凡纳把规则广场、橡树林荫、港口建筑和复杂的奴隶制记忆构成美国南方独特城市纹理。以历史广场体系为入口，再到河街和非裔美国人遗产地，能较完整地理解其为何适合城市规划、南方史与树荫步行。",
+    "highlights": [
+      "历史广场体系",
+      "河街",
+      "非裔美国人遗产地"
+    ],
+    "bestFor": "城市规划、南方史与树荫步行",
+    "seasonNote": "安排萨凡纳的河街时，需分别考虑当地冬季、炎热期或降水变化，并以近期预报为准。",
+    "culturalTip": "在非裔美国人遗产地参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Savannah",
+    "themeTags": [
+      "规划",
+      "记忆",
+      "海港"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "橡树与方格广场"
+    }
+  },
+  {
+    "id": "city-charleston",
+    "type": "city",
+    "cityZh": "查尔斯顿",
+    "cityEn": "Charleston",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 32.7765,
+    "longitude": -79.9311,
+    "timezone": "America/New_York",
+    "summary": "查尔斯顿以海港宅邸、教堂尖塔、低地饮食与非裔历史要求旅行者同时阅读美景和权力结构。历史街区、国际非裔美国人博物馆与港湾提供三条互补线索，适合从大西洋史、建筑与非裔文化展开。",
+    "highlights": [
+      "历史街区",
+      "国际非裔美国人博物馆",
+      "港湾"
+    ],
+    "bestFor": "大西洋史、建筑与非裔文化",
+    "seasonNote": "查尔斯顿的步行条件随季节和天气系统变化；体验港湾前应核对温度、降水与空气质量。",
+    "culturalTip": "参访历史街区时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Charleston%2C_South_Carolina",
+    "themeTags": [
+      "海港",
+      "记忆",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "彩屋与沼泽草"
+    }
+  },
+  {
+    "id": "city-nashville",
+    "type": "city",
+    "cityZh": "纳什维尔",
+    "cityEn": "Nashville",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 36.1627,
+    "longitude": -86.7816,
+    "timezone": "America/Chicago",
+    "summary": "理解纳什维尔，可以从乡村音乐产业、民权历史、录音棚和快速更新的街区共同塑造声音之城这条主线开始。由乡村音乐名人堂走向国家非裔美国音乐博物馆，再观察音乐街，会看到地标之外的日常结构。",
+    "highlights": [
+      "乡村音乐名人堂",
+      "国家非裔美国音乐博物馆",
+      "音乐街"
+    ],
+    "bestFor": "音乐产业、民权史与现场演出",
+    "seasonNote": "到纳什维尔围绕乡村音乐名人堂活动，应按具体月份准备衣物，并给突发天气保留替代安排。",
+    "culturalTip": "先核对乡村音乐名人堂的开放与礼仪要求；体验音乐街时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Nashville%2C_Tennessee",
+    "themeTags": [
+      "音乐",
+      "民权",
+      "产业"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "吉他与霓虹"
+    }
+  },
+  {
+    "id": "city-memphis",
+    "type": "city",
+    "cityZh": "孟菲斯",
+    "cityEn": "Memphis",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 35.1495,
+    "longitude": -90.049,
+    "timezone": "America/Chicago",
+    "summary": "密西西比河、蓝调、灵魂乐和民权运动记忆在这座交通城市交汇，这是孟菲斯最鲜明的城市性格。旅行不妨围绕国家民权博物馆、太阳录音室、比尔街组织，从而把音乐史、民权与河流城市连成一条可感知的路径。",
+    "highlights": [
+      "国家民权博物馆",
+      "太阳录音室",
+      "比尔街"
+    ],
+    "bestFor": "音乐史、民权与河流城市",
+    "seasonNote": "孟菲斯不能套用同一套北美风雪或高温预期；前往国家民权博物馆前请按当地月份核对天气。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在太阳录音室则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Memphis%2C_Tennessee",
+    "themeTags": [
+      "音乐",
+      "民权",
+      "河流"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "唱片与河轮"
+    }
+  },
+  {
+    "id": "city-seattle",
+    "type": "city",
+    "cityZh": "西雅图",
+    "cityEn": "Seattle",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 47.6062,
+    "longitude": -122.3321,
+    "timezone": "America/Los_Angeles",
+    "summary": "西雅图的吸引力来自普吉特海湾、市场、航空与科技产业和邻近山地共同定义太平洋西北都会。派克市场呈现历史背景，流行文化博物馆连接当代生活，渡轮海湾则补足空间或文化尺度。",
+    "highlights": [
+      "派克市场",
+      "流行文化博物馆",
+      "渡轮海湾"
+    ],
+    "bestFor": "产业创新、音乐与山海城市",
+    "seasonNote": "安排西雅图的流行文化博物馆时，需分别考虑当地冬季、炎热期或降水变化，并以近期预报为准。",
+    "culturalTip": "涉及派克市场的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Seattle",
+    "themeTags": [
+      "技术",
+      "音乐",
+      "海洋"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "渡轮与雪峰"
+    }
+  },
+  {
+    "id": "city-portland-oregon",
+    "type": "city",
+    "cityZh": "波特兰",
+    "cityEn": "Portland",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 45.5152,
+    "longitude": -122.6784,
+    "timezone": "America/Los_Angeles",
+    "summary": "在波特兰，河流、街车、自行车文化、独立书店和邻里商业构成强调尺度与社区的城市体验。与其只追逐单一地标，更值得把鲍威尔书城、华盛顿公园和社区商业街放在同一段城市观察中。",
+    "highlights": [
+      "鲍威尔书城",
+      "华盛顿公园",
+      "社区商业街"
+    ],
+    "bestFor": "书店、城市生态与社区漫游",
+    "seasonNote": "波特兰的步行条件随季节和天气系统变化；体验社区商业街前应核对温度、降水与空气质量。",
+    "culturalTip": "使用公共交通或步行连接鲍威尔书城与社区商业街，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Portland%2C_Oregon",
+    "themeTags": [
+      "文学",
+      "生态",
+      "社区"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "玫瑰与桥"
+    }
+  },
+  {
+    "id": "city-san-francisco",
+    "type": "city",
+    "cityZh": "旧金山",
+    "cityEn": "San Francisco",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 37.7749,
+    "longitude": -122.4194,
+    "timezone": "America/Los_Angeles",
+    "summary": "旧金山把陡坡、海湾、移民街区、社会运动和科技产业让城市景观与观念史同样醒目。以金门大桥为入口，再到唐人街和渡轮大厦，能较完整地理解其为何适合迁徙史、社会文化与湾区步行。",
+    "highlights": [
+      "金门大桥",
+      "唐人街",
+      "渡轮大厦"
+    ],
+    "bestFor": "迁徙史、社会文化与湾区步行",
+    "seasonNote": "到旧金山围绕金门大桥活动，应按具体月份准备衣物，并给突发天气保留替代安排。",
+    "culturalTip": "在渡轮大厦参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/San_Francisco",
+    "themeTags": [
+      "迁徙",
+      "社会运动",
+      "海湾"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "雾桥与缆车"
+    }
+  },
+  {
+    "id": "city-los-angeles",
+    "type": "city",
+    "cityZh": "洛杉矶",
+    "cityEn": "Los Angeles",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 34.0522,
+    "longitude": -118.2437,
+    "timezone": "America/Los_Angeles",
+    "summary": "洛杉矶以电影工业、现代主义住宅、多语言社区和山海地理构成分散但极富影响力的都市。电影博物馆、盖蒂中心与多元社区市场提供三条互补线索，适合从电影、建筑与移民文化展开。",
+    "highlights": [
+      "电影博物馆",
+      "盖蒂中心",
+      "多元社区市场"
+    ],
+    "bestFor": "电影、建筑与移民文化",
+    "seasonNote": "洛杉矶不能套用同一套北美风雪或高温预期；前往电影博物馆前请按当地月份核对天气。",
+    "culturalTip": "参访电影博物馆时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Los_Angeles",
+    "themeTags": [
+      "电影",
+      "建筑",
+      "迁徙"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "胶片与棕榈"
+    }
+  },
+  {
+    "id": "city-santa-fe",
+    "type": "city",
+    "cityZh": "圣菲",
+    "cityEn": "Santa Fe",
+    "countryZh": "美国",
+    "countryEn": "United States",
+    "countryCode": "US",
+    "region": "北美洲",
+    "latitude": 35.687,
+    "longitude": -105.9378,
+    "timezone": "America/Denver",
+    "summary": "理解圣菲，可以从土坯建筑、普韦布洛文化、西班牙殖民史和当代艺术在高原光线中交汇这条主线开始。由总督宫走向峡谷路艺术区，再观察普韦布洛文化博物馆，会看到地标之外的日常结构。",
+    "highlights": [
+      "总督宫",
+      "峡谷路艺术区",
+      "普韦布洛文化博物馆"
+    ],
+    "bestFor": "原住民文化、建筑与艺术",
+    "seasonNote": "安排圣菲的峡谷路艺术区时，需分别考虑当地冬季、炎热期或降水变化，并以近期预报为准。",
+    "culturalTip": "先核对总督宫的开放与礼仪要求；体验普韦布洛文化博物馆时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Santa_Fe%2C_New_Mexico",
+    "themeTags": [
+      "原住民文化",
+      "艺术",
+      "高原"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "土坯墙与高原星"
+    }
+  },
+  {
+    "id": "city-toronto",
+    "type": "city",
+    "cityZh": "多伦多",
+    "cityEn": "Toronto",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "countryCode": "CA",
+    "region": "北美洲",
+    "latitude": 43.6532,
+    "longitude": -79.3832,
+    "timezone": "America/Toronto",
+    "summary": "湖滨、移民社区、公共市场和多层交通网络体现加拿大最大都会的多元结构，这是多伦多最鲜明的城市性格。旅行不妨围绕安大略美术馆、肯辛顿市场、多伦多群岛组织，从而把移民文化、艺术与湖滨城市连成一条可感知的路径。",
+    "highlights": [
+      "安大略美术馆",
+      "肯辛顿市场",
+      "多伦多群岛"
+    ],
+    "bestFor": "移民文化、艺术与湖滨城市",
+    "seasonNote": "多伦多的步行条件随季节和天气系统变化；体验多伦多群岛前应核对温度、降水与空气质量。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在肯辛顿市场则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Toronto",
+    "themeTags": [
+      "迁徙",
+      "艺术",
+      "湖泊"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "高塔与湖岛"
+    }
+  },
+  {
+    "id": "city-ottawa",
+    "type": "city",
+    "cityZh": "渥太华",
+    "cityEn": "Ottawa",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "countryCode": "CA",
+    "region": "北美洲",
+    "latitude": 45.4215,
+    "longitude": -75.6972,
+    "timezone": "America/Toronto",
+    "summary": "渥太华的吸引力来自国会山、国家博物馆、运河和双语城市生活使加拿大政治与文化制度集中可见。国会山呈现历史背景，加拿大历史博物馆连接当代生活，里多运河则补足空间或文化尺度。",
+    "highlights": [
+      "国会山",
+      "加拿大历史博物馆",
+      "里多运河"
+    ],
+    "bestFor": "国家史、博物馆与双语文化",
+    "seasonNote": "到渥太华围绕国会山活动，应按具体月份准备衣物，并给突发天气保留替代安排。",
+    "culturalTip": "涉及国会山的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Ottawa",
+    "themeTags": [
+      "政治",
+      "语言",
+      "博物馆"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "钟楼与运河"
+    }
+  },
+  {
+    "id": "city-halifax",
+    "type": "city",
+    "cityZh": "哈利法克斯",
+    "cityEn": "Halifax",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "countryCode": "CA",
+    "region": "北美洲",
+    "latitude": 44.6488,
+    "longitude": -63.5752,
+    "timezone": "America/Halifax",
+    "summary": "在哈利法克斯，大西洋深水港、移民与海难记忆、木屋街区和海事文化塑造加拿大东岸气质。与其只追逐单一地标，更值得把海事博物馆、二十一号码头和滨水步道放在同一段城市观察中。",
+    "highlights": [
+      "海事博物馆",
+      "二十一号码头",
+      "滨水步道"
+    ],
+    "bestFor": "海洋史、迁徙与港口生活",
+    "seasonNote": "哈利法克斯不能套用同一套北美风雪或高温预期；前往海事博物馆前请按当地月份核对天气。",
+    "culturalTip": "使用公共交通或步行连接海事博物馆与滨水步道，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Halifax",
+    "themeTags": [
+      "海洋",
+      "迁徙",
+      "记忆"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "灯塔与深水港"
+    }
+  },
+  {
+    "id": "city-victoria-bc",
+    "type": "city",
+    "cityZh": "维多利亚",
+    "cityEn": "Victoria",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "countryCode": "CA",
+    "region": "北美洲",
+    "latitude": 48.4284,
+    "longitude": -123.3656,
+    "timezone": "America/Vancouver",
+    "summary": "维多利亚把内港、历史建筑、海岸花园和原住民文化让不列颠哥伦比亚首府兼具精致与自然。以皇家不列颠哥伦比亚博物馆为入口，再到内港和海岸步道，能较完整地理解其为何适合博物馆、花园与太平洋文化。",
+    "highlights": [
+      "皇家不列颠哥伦比亚博物馆",
+      "内港",
+      "海岸步道"
+    ],
+    "bestFor": "博物馆、花园与太平洋文化",
+    "seasonNote": "安排维多利亚的内港时，需分别考虑当地冬季、炎热期或降水变化，并以近期预报为准。",
+    "culturalTip": "在海岸步道参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Victoria_(British_Columbia)",
+    "themeTags": [
+      "原住民文化",
+      "海洋",
+      "花园"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "内港与图腾"
+    }
+  },
+  {
+    "id": "city-banff",
+    "type": "city",
+    "cityZh": "班夫",
+    "cityEn": "Banff",
+    "countryZh": "加拿大",
+    "countryEn": "Canada",
+    "countryCode": "CA",
+    "region": "北美洲",
+    "latitude": 51.1784,
+    "longitude": -115.5708,
+    "timezone": "America/Edmonton",
+    "summary": "班夫以国家公园小镇被落基山、冰川河流和铁路旅游史包围，核心价值在负责任地接近高山生态。班夫公园博物馆、弓河与落基山步道提供三条互补线索，适合从高山生态、铁路史与户外教育展开。",
+    "highlights": [
+      "班夫公园博物馆",
+      "弓河",
+      "落基山步道"
+    ],
+    "bestFor": "高山生态、铁路史与户外教育",
+    "seasonNote": "班夫的步行条件随季节和天气系统变化；体验落基山步道前应核对温度、降水与空气质量。",
+    "culturalTip": "参访班夫公园博物馆时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Banff",
+    "themeTags": [
+      "自然",
+      "铁路",
+      "生态"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "雪峰与弓河"
+    }
+  },
+  {
+    "id": "city-guadalajara",
+    "type": "city",
+    "cityZh": "瓜达拉哈拉",
+    "cityEn": "Guadalajara",
+    "countryZh": "墨西哥",
+    "countryEn": "Mexico",
+    "countryCode": "MX",
+    "region": "北美洲",
+    "latitude": 20.6597,
+    "longitude": -103.3496,
+    "timezone": "America/Mexico_City",
+    "summary": "理解瓜达拉哈拉，可以从殖民广场、壁画、龙舌兰酒文化和马里亚奇音乐共同展示哈利斯科身份这条主线开始。由卡瓦尼亚斯救济院走向历史中心，再观察马里亚奇广场，会看到地标之外的日常结构。",
+    "highlights": [
+      "卡瓦尼亚斯救济院",
+      "历史中心",
+      "马里亚奇广场"
+    ],
+    "bestFor": "壁画艺术、音乐与地方饮食",
+    "seasonNote": "到瓜达拉哈拉围绕卡瓦尼亚斯救济院活动，应按具体月份准备衣物，并给突发天气保留替代安排。",
+    "culturalTip": "先核对卡瓦尼亚斯救济院的开放与礼仪要求；体验马里亚奇广场时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Guadalajara",
+    "themeTags": [
+      "艺术",
+      "音乐",
+      "地方传统"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "壁画与龙舌兰"
+    }
+  },
+  {
+    "id": "city-puebla",
+    "type": "city",
+    "cityZh": "普埃布拉",
+    "cityEn": "Puebla",
+    "countryZh": "墨西哥",
+    "countryEn": "Mexico",
+    "countryCode": "MX",
+    "region": "北美洲",
+    "latitude": 19.0414,
+    "longitude": -98.2063,
+    "timezone": "America/Mexico_City",
+    "summary": "彩釉砖立面、修道院、火山背景和复杂饮食传统使普埃布拉兼具视觉与味觉辨识度，这是普埃布拉最鲜明的城市性格。旅行不妨围绕历史中心、安帕罗博物馆、乔卢拉邻近遗址组织，从而把建筑、地方饮食与火山地理连成一条可感知的路径。",
+    "highlights": [
+      "历史中心",
+      "安帕罗博物馆",
+      "乔卢拉邻近遗址"
+    ],
+    "bestFor": "建筑、地方饮食与火山地理",
+    "seasonNote": "普埃布拉不能套用同一套北美风雪或高温预期；前往历史中心前请按当地月份核对天气。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在安帕罗博物馆则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Puebla",
+    "themeTags": [
+      "建筑",
+      "饮食",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "彩釉砖与火山"
+    }
+  },
+  {
+    "id": "city-guanajuato",
+    "type": "city",
+    "cityZh": "瓜纳华托",
+    "cityEn": "Guanajuato",
+    "countryZh": "墨西哥",
+    "countryEn": "Mexico",
+    "countryCode": "MX",
+    "region": "北美洲",
+    "latitude": 21.019,
+    "longitude": -101.2574,
+    "timezone": "America/Mexico_City",
+    "summary": "瓜纳华托的吸引力来自彩色山城、银矿隧道、大学文化和独立历史形成戏剧性的步行空间。地下街道呈现历史背景，银矿遗产连接当代生活，阿隆迪加博物馆则补足空间或文化尺度。",
+    "highlights": [
+      "地下街道",
+      "银矿遗产",
+      "阿隆迪加博物馆"
+    ],
+    "bestFor": "矿业史、城市地形与艺术节",
+    "seasonNote": "高原昼夜温差与雨季会影响陡坡山城步行；强日照或雨后石路湿滑时应放慢，并在出发前核对当地预报。",
+    "culturalTip": "涉及地下街道的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Guanajuato_City",
+    "themeTags": [
+      "工业",
+      "独立",
+      "山城"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "彩屋与隧道"
+    }
+  },
+  {
+    "id": "city-lima",
+    "type": "city",
+    "cityZh": "利马",
+    "cityEn": "Lima",
+    "countryZh": "秘鲁",
+    "countryEn": "Peru",
+    "countryCode": "PE",
+    "region": "南美洲",
+    "latitude": -12.0464,
+    "longitude": -77.0428,
+    "timezone": "America/Lima",
+    "summary": "在利马，太平洋沙漠海岸、殖民中心、前哥伦布遗址和多元饮食构成秘鲁首都的长期连续。与其只追逐单一地标，更值得把历史中心、拉尔科博物馆和米拉弗洛雷斯海岸放在同一段城市观察中。",
+    "highlights": [
+      "历史中心",
+      "拉尔科博物馆",
+      "米拉弗洛雷斯海岸"
+    ],
+    "bestFor": "安第斯文明、博物馆与饮食",
+    "seasonNote": "利马位于太平洋海岸沙漠，少雨不等于始终晴朗干爽；凉季常见低云与湿冷感，海崖活动前应核对雾和风。",
+    "culturalTip": "使用公共交通或步行连接历史中心与米拉弗洛雷斯海岸，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Lima",
+    "themeTags": [
+      "古代",
+      "饮食",
+      "海洋"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "海崖与陶纹"
+    }
+  },
+  {
+    "id": "city-arequipa",
+    "type": "city",
+    "cityZh": "阿雷基帕",
+    "cityEn": "Arequipa",
+    "countryZh": "秘鲁",
+    "countryEn": "Peru",
+    "countryCode": "PE",
+    "region": "南美洲",
+    "latitude": -16.409,
+    "longitude": -71.5375,
+    "timezone": "America/Lima",
+    "summary": "阿雷基帕把白色火山岩建筑、修道院、山峰和南部安第斯饮食塑造明亮高原城市。以圣卡塔利娜修道院为入口，再到武器广场和米斯蒂火山景观，能较完整地理解其为何适合建筑、高原文化与火山地理。",
+    "highlights": [
+      "圣卡塔利娜修道院",
+      "武器广场",
+      "米斯蒂火山景观"
+    ],
+    "bestFor": "建筑、高原文化与火山地理",
+    "seasonNote": "在阿雷基帕参观圣卡塔利娜修道院，请按具体月份准备防晒、雨具或保暖层，并保留室内备选。",
+    "culturalTip": "在米斯蒂火山景观参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Arequipa",
+    "themeTags": [
+      "建筑",
+      "高原",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "白石拱与火山"
+    }
+  },
+  {
+    "id": "city-trujillo-peru",
+    "type": "city",
+    "cityZh": "特鲁希略",
+    "cityEn": "Trujillo",
+    "countryZh": "秘鲁",
+    "countryEn": "Peru",
+    "countryCode": "PE",
+    "region": "南美洲",
+    "latitude": -8.1091,
+    "longitude": -79.0215,
+    "timezone": "America/Lima",
+    "summary": "特鲁希略以殖民广场之外，昌昌城与莫切遗址揭示北海岸前哥伦布文明的规模。昌昌古城、太阳月亮神庙与历史中心提供三条互补线索，适合从考古、北海岸文明与城市史展开。",
+    "highlights": [
+      "昌昌古城",
+      "太阳月亮神庙",
+      "历史中心"
+    ],
+    "bestFor": "考古、北海岸文明与城市史",
+    "seasonNote": "特鲁希略的季节感受取决于半球、海拔和海陆位置；前往昌昌古城前请核对当地月份与天气。",
+    "culturalTip": "参访昌昌古城时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Trujillo_(Peru)",
+    "themeTags": [
+      "古代",
+      "考古",
+      "海岸"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "土城浮雕与海鸟"
+    }
+  },
+  {
+    "id": "city-bogota",
+    "type": "city",
+    "cityZh": "波哥大",
+    "cityEn": "Bogotá",
+    "countryZh": "哥伦比亚",
+    "countryEn": "Colombia",
+    "countryCode": "CO",
+    "region": "南美洲",
+    "latitude": 4.711,
+    "longitude": -74.0721,
+    "timezone": "America/Bogota",
+    "summary": "理解波哥大，可以从安第斯高原、黄金博物馆、壁画街区和公共自行车文化构成高海拔知识都会这条主线开始。由黄金博物馆走向拉坎德拉里亚，再观察蒙塞拉特山，会看到地标之外的日常结构。",
+    "highlights": [
+      "黄金博物馆",
+      "拉坎德拉里亚",
+      "蒙塞拉特山"
+    ],
+    "bestFor": "博物馆、街头艺术与高原城市",
+    "seasonNote": "围绕拉坎德拉里亚安排波哥大行程时，应单独确认当地雨季、风力或高原条件，不套用洲际概括。",
+    "culturalTip": "先核对黄金博物馆的开放与礼仪要求；体验蒙塞拉特山时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Bogota",
+    "themeTags": [
+      "艺术",
+      "高原",
+      "公共空间"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "金饰与山脊"
+    }
+  },
+  {
+    "id": "city-medellin",
+    "type": "city",
+    "cityZh": "麦德林",
+    "cityEn": "Medellín",
+    "countryZh": "哥伦比亚",
+    "countryEn": "Colombia",
+    "countryCode": "CO",
+    "region": "南美洲",
+    "latitude": 6.2442,
+    "longitude": -75.5812,
+    "timezone": "America/Bogota",
+    "summary": "山谷地形、公共交通、社区图书馆和花卉传统展示城市更新的复杂实践，这是麦德林最鲜明的城市性格。旅行不妨围绕城市缆车、记忆之家博物馆、植物园组织，从而把城市转型、公共交通与社会记忆连成一条可感知的路径。",
+    "highlights": [
+      "城市缆车",
+      "记忆之家博物馆",
+      "植物园"
+    ],
+    "bestFor": "城市转型、公共交通与社会记忆",
+    "seasonNote": "麦德林的户外节奏可能受海岸、山地或热带降水影响；体验植物园前以近期预报为准。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在记忆之家博物馆则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Medellin",
+    "themeTags": [
+      "城市转型",
+      "交通",
+      "记忆"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "缆车与花朵"
+    }
+  },
+  {
+    "id": "city-cali",
+    "type": "city",
+    "cityZh": "卡利",
+    "cityEn": "Cali",
+    "countryZh": "哥伦比亚",
+    "countryEn": "Colombia",
+    "countryCode": "CO",
+    "region": "南美洲",
+    "latitude": 3.4516,
+    "longitude": -76.532,
+    "timezone": "America/Bogota",
+    "summary": "卡利的吸引力来自萨尔萨音乐、非裔太平洋文化、河岸和现代艺术构成强烈身体节奏。萨尔萨舞校呈现历史背景，拉泰尔图利亚博物馆连接当代生活，圣安东尼奥区则补足空间或文化尺度。",
+    "highlights": [
+      "萨尔萨舞校",
+      "拉泰尔图利亚博物馆",
+      "圣安东尼奥区"
+    ],
+    "bestFor": "音乐、非裔文化与城市夜生活",
+    "seasonNote": "在卡利参观萨尔萨舞校，请按具体月份准备防晒、雨具或保暖层，并保留室内备选。",
+    "culturalTip": "涉及萨尔萨舞校的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Cali",
+    "themeTags": [
+      "音乐",
+      "非洲离散",
+      "艺术"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "舞步与河线"
+    }
+  },
+  {
+    "id": "city-santa-marta",
+    "type": "city",
+    "cityZh": "圣玛尔塔",
+    "cityEn": "Santa Marta",
+    "countryZh": "哥伦比亚",
+    "countryEn": "Colombia",
+    "countryCode": "CO",
+    "region": "南美洲",
+    "latitude": 11.2408,
+    "longitude": -74.199,
+    "timezone": "America/Bogota",
+    "summary": "在圣玛尔塔，加勒比海港、泰罗纳文化、殖民历史和内华达雪山在罕见短距离内相遇。与其只追逐单一地标，更值得把黄金博物馆泰罗纳馆、历史中心和雪山海岸放在同一段城市观察中。",
+    "highlights": [
+      "黄金博物馆泰罗纳馆",
+      "历史中心",
+      "雪山海岸"
+    ],
+    "bestFor": "原住民文化、海港史与山海生态",
+    "seasonNote": "圣玛尔塔的季节感受取决于半球、海拔和海陆位置；前往黄金博物馆泰罗纳馆前请核对当地月份与天气。",
+    "culturalTip": "使用公共交通或步行连接黄金博物馆泰罗纳馆与雪山海岸，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Santa_Marta",
+    "themeTags": [
+      "原住民文化",
+      "海洋",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "雪峰与加勒比浪"
+    }
+  },
+  {
+    "id": "city-santiago",
+    "type": "city",
+    "cityZh": "圣地亚哥",
+    "cityEn": "Santiago",
+    "countryZh": "智利",
+    "countryEn": "Chile",
+    "countryCode": "CL",
+    "region": "南美洲",
+    "latitude": -33.4489,
+    "longitude": -70.6693,
+    "timezone": "America/Santiago",
+    "summary": "圣地亚哥把安第斯山幕、共和国建筑、记忆场所和活跃文化街区呈现智利现代历史。以记忆与人权博物馆为入口，再到圣卢西亚山和中央市场，能较完整地理解其为何适合近现代史、城市文化与山地景观。",
+    "highlights": [
+      "记忆与人权博物馆",
+      "圣卢西亚山",
+      "中央市场"
+    ],
+    "bestFor": "近现代史、城市文化与山地景观",
+    "seasonNote": "围绕圣卢西亚山安排圣地亚哥行程时，应单独确认当地雨季、风力或高原条件，不套用洲际概括。",
+    "culturalTip": "在中央市场参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Santiago",
+    "themeTags": [
+      "记忆",
+      "现代化",
+      "山地"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "山墙与地铁线"
+    }
+  },
+  {
+    "id": "city-cordoba-argentina",
+    "type": "city",
+    "cityZh": "科尔多瓦",
+    "cityEn": "Córdoba",
+    "countryZh": "阿根廷",
+    "countryEn": "Argentina",
+    "countryCode": "AR",
+    "region": "南美洲",
+    "latitude": -31.4201,
+    "longitude": -64.1888,
+    "timezone": "America/Argentina/Cordoba",
+    "summary": "科尔多瓦以耶稣会大学遗产、学生文化、殖民街区和周边山地使内陆城市保持思想活力。耶稣会街区、大学文化与瓜埃梅斯区提供三条互补线索，适合从教育史、建筑与青年文化展开。",
+    "highlights": [
+      "耶稣会街区",
+      "大学文化",
+      "瓜埃梅斯区"
+    ],
+    "bestFor": "教育史、建筑与青年文化",
+    "seasonNote": "科尔多瓦的户外节奏可能受海岸、山地或热带降水影响；体验瓜埃梅斯区前以近期预报为准。",
+    "culturalTip": "参访耶稣会街区时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/C%C3%B3rdoba_(city%2C_Argentina)",
+    "themeTags": [
+      "知识",
+      "建筑",
+      "社区"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "钟塔与书页"
+    }
+  },
+  {
+    "id": "city-mendoza",
+    "type": "city",
+    "cityZh": "门多萨",
+    "cityEn": "Mendoza",
+    "countryZh": "阿根廷",
+    "countryEn": "Argentina",
+    "countryCode": "AR",
+    "region": "南美洲",
+    "latitude": -32.8895,
+    "longitude": -68.8458,
+    "timezone": "America/Argentina/Mendoza",
+    "summary": "理解门多萨，可以从灌溉水渠、林荫街道、葡萄园和安第斯山门户角色展示干旱地区的城市适应这条主线开始。由城市水渠走向葡萄酒博物馆，再观察安第斯山景观，会看到地标之外的日常结构。",
+    "highlights": [
+      "城市水渠",
+      "葡萄酒博物馆",
+      "安第斯山景观"
+    ],
+    "bestFor": "水利、农业文化与山地旅行",
+    "seasonNote": "门多萨处于干旱山麓环境，日照、昼夜温差与安第斯山天气都需分别准备；山地行程应另查高海拔预报。",
+    "culturalTip": "林荫街道旁的灌溉水渠是仍在运作的城市水利系统；步行时留意开放渠口，不踩踏，也不要向渠内投入杂物。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Mendoza",
+    "themeTags": [
+      "水利",
+      "农业",
+      "山地"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "葡萄藤与雪峰"
+    }
+  },
+  {
+    "id": "city-salta",
+    "type": "city",
+    "cityZh": "萨尔塔",
+    "cityEn": "Salta",
+    "countryZh": "阿根廷",
+    "countryEn": "Argentina",
+    "countryCode": "AR",
+    "region": "南美洲",
+    "latitude": -24.7821,
+    "longitude": -65.4232,
+    "timezone": "America/Argentina/Salta",
+    "summary": "殖民建筑、高原铁路、安第斯原住民遗产和民谣传统定义阿根廷西北文化，这是萨尔塔最鲜明的城市性格。旅行不妨围绕高山考古博物馆、历史中心、云端列车文化组织，从而把高原考古、音乐与殖民史连成一条可感知的路径。",
+    "highlights": [
+      "高山考古博物馆",
+      "历史中心",
+      "云端列车文化"
+    ],
+    "bestFor": "高原考古、音乐与殖民史",
+    "seasonNote": "萨尔塔的季节感受取决于半球、海拔和海陆位置；前往高山考古博物馆前请核对当地月份与天气。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在历史中心则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Salta",
+    "themeTags": [
+      "考古",
+      "音乐",
+      "高原"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "高原列车与红土"
+    }
+  },
+  {
+    "id": "city-ushuaia",
+    "type": "city",
+    "cityZh": "乌斯怀亚",
+    "cityEn": "Ushuaia",
+    "countryZh": "阿根廷",
+    "countryEn": "Argentina",
+    "countryCode": "AR",
+    "region": "南美洲",
+    "latitude": -54.8019,
+    "longitude": -68.303,
+    "timezone": "America/Argentina/Ushuaia",
+    "summary": "乌斯怀亚的吸引力来自比格尔海峡、监狱殖民史、火地岛森林和南极门户身份共同塑造极南城市。世界尽头博物馆呈现历史背景，比格尔海峡连接当代生活，火地岛国家公园则补足空间或文化尺度。",
+    "highlights": [
+      "世界尽头博物馆",
+      "比格尔海峡",
+      "火地岛国家公园"
+    ],
+    "bestFor": "极地史、航海与亚南极生态",
+    "seasonNote": "围绕比格尔海峡安排乌斯怀亚行程时，应单独确认当地雨季、风力或高原条件，不套用洲际概括。",
+    "culturalTip": "涉及世界尽头博物馆的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Ushuaia",
+    "themeTags": [
+      "航海",
+      "生态",
+      "边疆"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "灯塔与雪湾"
+    }
+  },
+  {
+    "id": "city-sao-paulo",
+    "type": "city",
+    "cityZh": "圣保罗",
+    "cityEn": "São Paulo",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "countryCode": "BR",
+    "region": "南美洲",
+    "latitude": -23.5505,
+    "longitude": -46.6333,
+    "timezone": "America/Sao_Paulo",
+    "summary": "在圣保罗，移民社区、现代主义建筑、街头艺术和巨大文化机构构成南美洲最具密度的都会之一。与其只追逐单一地标，更值得把圣保罗艺术博物馆、伊比拉普埃拉公园和自由区放在同一段城市观察中。",
+    "highlights": [
+      "圣保罗艺术博物馆",
+      "伊比拉普埃拉公园",
+      "自由区"
+    ],
+    "bestFor": "当代艺术、移民文化与城市尺度",
+    "seasonNote": "圣保罗的户外节奏可能受海岸、山地或热带降水影响；体验自由区前以近期预报为准。",
+    "culturalTip": "使用公共交通或步行连接圣保罗艺术博物馆与自由区，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Sao_Paulo",
+    "themeTags": [
+      "现代主义",
+      "迁徙",
+      "艺术"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "混凝土架与涂鸦"
+    }
+  },
+  {
+    "id": "city-brasilia",
+    "type": "city",
+    "cityZh": "巴西利亚",
+    "cityEn": "Brasília",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "countryCode": "BR",
+    "region": "南美洲",
+    "latitude": -15.7939,
+    "longitude": -47.8828,
+    "timezone": "America/Sao_Paulo",
+    "summary": "巴西利亚把现代主义总体规划、纪念性建筑和塞拉多地景使首都成为观察规划理想与日常生活张力的现场。以三权广场为入口，再到巴西利亚大教堂和超级街区，能较完整地理解其为何适合现代主义、政治与城市规划。",
+    "highlights": [
+      "三权广场",
+      "巴西利亚大教堂",
+      "超级街区"
+    ],
+    "bestFor": "现代主义、政治与城市规划",
+    "seasonNote": "在巴西利亚参观三权广场，请按具体月份准备防晒、雨具或保暖层，并保留室内备选。",
+    "culturalTip": "在超级街区参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Brasilia",
+    "themeTags": [
+      "规划",
+      "政治",
+      "现代主义"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "翼形轴线与穹顶"
+    }
+  },
+  {
+    "id": "city-recife",
+    "type": "city",
+    "cityZh": "累西腓",
+    "cityEn": "Recife",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "countryCode": "BR",
+    "region": "南美洲",
+    "latitude": -8.0476,
+    "longitude": -34.877,
+    "timezone": "America/Recife",
+    "summary": "累西腓以河网、桥梁、荷兰殖民痕迹、弗雷沃音乐和东北海岸文化形成鲜明节奏。老累西腓、卡伊斯杜塞尔唐博物馆与河岸桥梁提供三条互补线索，适合从东北历史、音乐与水城景观展开。",
+    "highlights": [
+      "老累西腓",
+      "卡伊斯杜塞尔唐博物馆",
+      "河岸桥梁"
+    ],
+    "bestFor": "东北历史、音乐与水城景观",
+    "seasonNote": "累西腓的季节感受取决于半球、海拔和海陆位置；前往老累西腓前请核对当地月份与天气。",
+    "culturalTip": "参访老累西腓时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Recife",
+    "themeTags": [
+      "音乐",
+      "河流",
+      "历史"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "彩伞与桥"
+    }
+  },
+  {
+    "id": "city-olinda",
+    "type": "city",
+    "cityZh": "奥林达",
+    "cityEn": "Olinda",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "countryCode": "BR",
+    "region": "南美洲",
+    "latitude": -8.0089,
+    "longitude": -34.8553,
+    "timezone": "America/Recife",
+    "summary": "理解奥林达，可以从山坡彩屋、巴洛克教堂、艺术家工坊和狂欢节巨偶形成紧凑而绚丽的历史城镇这条主线开始。由历史中心走向教堂群，再观察巨偶工坊，会看到地标之外的日常结构。",
+    "highlights": [
+      "历史中心",
+      "教堂群",
+      "巨偶工坊"
+    ],
+    "bestFor": "巴洛克建筑、工艺与节庆",
+    "seasonNote": "围绕教堂群安排奥林达行程时，应单独确认当地雨季、风力或高原条件，不套用洲际概括。",
+    "culturalTip": "先核对历史中心的开放与礼仪要求；体验巨偶工坊时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Olinda",
+    "themeTags": [
+      "节庆",
+      "艺术",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "彩屋与巨偶"
+    }
+  },
+  {
+    "id": "city-belo-horizonte",
+    "type": "city",
+    "cityZh": "贝洛奥里藏特",
+    "cityEn": "Belo Horizonte",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "countryCode": "BR",
+    "region": "南美洲",
+    "latitude": -19.9167,
+    "longitude": -43.9345,
+    "timezone": "America/Sao_Paulo",
+    "summary": "规划大道、潘普利亚现代建筑、市场饮食和矿区文化展示巴西内陆现代化，这是贝洛奥里藏特最鲜明的城市性格。旅行不妨围绕潘普利亚建筑群、中央市场、自由广场组织，从而把现代主义、地方饮食与规划史连成一条可感知的路径。",
+    "highlights": [
+      "潘普利亚建筑群",
+      "中央市场",
+      "自由广场"
+    ],
+    "bestFor": "现代主义、地方饮食与规划史",
+    "seasonNote": "贝洛奥里藏特的户外节奏可能受海岸、山地或热带降水影响；体验自由广场前以近期预报为准。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在中央市场则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Belo_Horizonte",
+    "themeTags": [
+      "现代主义",
+      "饮食",
+      "规划"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "曲线屋顶与山线"
+    }
+  },
+  {
+    "id": "city-manaus",
+    "type": "city",
+    "cityZh": "马瑙斯",
+    "cityEn": "Manaus",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "countryCode": "BR",
+    "region": "南美洲",
+    "latitude": -3.119,
+    "longitude": -60.0217,
+    "timezone": "America/Manaus",
+    "summary": "马瑙斯的吸引力来自橡胶繁荣留下的剧院、黑河港口、河流交汇和亚马孙研究机构构成雨林都会。亚马孙剧院呈现历史背景，两河交汇连接当代生活，亚马孙博物馆则补足空间或文化尺度。",
+    "highlights": [
+      "亚马孙剧院",
+      "两河交汇",
+      "亚马孙博物馆"
+    ],
+    "bestFor": "橡胶史、河流生态与雨林城市",
+    "seasonNote": "在马瑙斯参观亚马孙剧院，请按具体月份准备防晒、雨具或保暖层，并保留室内备选。",
+    "culturalTip": "涉及亚马孙剧院的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Manaus",
+    "themeTags": [
+      "生态",
+      "河流",
+      "工业史"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "剧院穹顶与黑水"
+    }
+  },
+  {
+    "id": "city-belem",
+    "type": "city",
+    "cityZh": "贝伦",
+    "cityEn": "Belém",
+    "countryZh": "巴西",
+    "countryEn": "Brazil",
+    "countryCode": "BR",
+    "region": "南美洲",
+    "latitude": -1.4558,
+    "longitude": -48.4902,
+    "timezone": "America/Belem",
+    "summary": "在贝伦，亚马孙河口、香料市场、殖民街区和雨林食材使贝伦成为大河与大西洋的文化接口。与其只追逐单一地标，更值得把维罗佩索市场、老城和河口博物馆空间放在同一段城市观察中。",
+    "highlights": [
+      "维罗佩索市场",
+      "老城",
+      "河口博物馆空间"
+    ],
+    "bestFor": "亚马孙饮食、港口史与河口生态",
+    "seasonNote": "贝伦的季节感受取决于半球、海拔和海陆位置；前往维罗佩索市场前请核对当地月份与天气。",
+    "culturalTip": "使用公共交通或步行连接维罗佩索市场与河口博物馆空间，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Belem",
+    "themeTags": [
+      "饮食",
+      "海港",
+      "生态"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "市场棚与河果"
+    }
+  },
+  {
+    "id": "city-asuncion",
+    "type": "city",
+    "cityZh": "亚松森",
+    "cityEn": "Asunción",
+    "countryZh": "巴拉圭",
+    "countryEn": "Paraguay",
+    "countryCode": "PY",
+    "region": "南美洲",
+    "latitude": -25.2637,
+    "longitude": -57.5759,
+    "timezone": "America/Asuncion",
+    "summary": "亚松森把巴拉圭河、独立建筑、瓜拉尼语言和滨水更新呈现南美内陆国家的历史尺度。以英雄祠为入口，再到河湾滨水和黏土博物馆，能较完整地理解其为何适合语言文化、国家史与河流城市。",
+    "highlights": [
+      "英雄祠",
+      "河湾滨水",
+      "黏土博物馆"
+    ],
+    "bestFor": "语言文化、国家史与河流城市",
+    "seasonNote": "围绕河湾滨水安排亚松森行程时，应单独确认当地雨季、风力或高原条件，不套用洲际概括。",
+    "culturalTip": "在黏土博物馆参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Asuncion",
+    "themeTags": [
+      "语言",
+      "河流",
+      "独立"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "河湾与南迪绣纹"
+    }
+  },
+  {
+    "id": "city-paramaribo",
+    "type": "city",
+    "cityZh": "帕拉马里博",
+    "cityEn": "Paramaribo",
+    "countryZh": "苏里南",
+    "countryEn": "Suriname",
+    "countryCode": "SR",
+    "region": "南美洲",
+    "latitude": 5.852,
+    "longitude": -55.2038,
+    "timezone": "America/Paramaribo",
+    "summary": "帕拉马里博以木结构殖民建筑、犹太与穆斯林遗产、多族群饮食和热带河岸浓缩独特迁徙史。历史内城、泽兰迪亚堡与中央市场提供三条互补线索，适合从木建筑、多元宗教与河港文化展开。",
+    "highlights": [
+      "历史内城",
+      "泽兰迪亚堡",
+      "中央市场"
+    ],
+    "bestFor": "木建筑、多元宗教与河港文化",
+    "seasonNote": "帕拉马里博全年偏湿热，降雨旺季会影响河岸、道路和户外安排；行程应预留避雨与积水交通弹性。",
+    "culturalTip": "参访历史内城时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Paramaribo",
+    "themeTags": [
+      "迁徙",
+      "宗教",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "白木屋与棕榈"
+    }
+  },
+  {
+    "id": "city-brisbane",
+    "type": "city",
+    "cityZh": "布里斯班",
+    "cityEn": "Brisbane",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -27.4698,
+    "longitude": 153.0251,
+    "timezone": "Australia/Brisbane",
+    "summary": "理解布里斯班，可以从河流弯道、亚热带公共空间、昆士兰建筑和当代艺术构成轻盈城市节奏这条主线开始。由南岸走向昆士兰文化中心，再观察城市河渡，会看到地标之外的日常结构。",
+    "highlights": [
+      "南岸",
+      "昆士兰文化中心",
+      "城市河渡"
+    ],
+    "bestFor": "河流城市、当代艺术与亚热带生活",
+    "seasonNote": "布里斯班为亚热带河城，暖季可能炎热潮湿并伴强降雨或雷暴，凉季通常更温和；河岸活动前查当地预报。",
+    "culturalTip": "南岸是公共文化与休闲空间；使用步道、泳区和活动场地时遵守现场规则，并为通勤者留路。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Brisbane",
+    "themeTags": [
+      "河流",
+      "艺术",
+      "气候"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "河弯与高脚屋"
+    }
+  },
+  {
+    "id": "city-canberra",
+    "type": "city",
+    "cityZh": "堪培拉",
+    "cityEn": "Canberra",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -35.2809,
+    "longitude": 149.13,
+    "timezone": "Australia/Sydney",
+    "summary": "人工湖、国家博物馆、纪念空间和丛林保护区展示规划首都如何组织国家叙事，这是堪培拉最鲜明的城市性格。旅行不妨围绕国会大厦、澳大利亚战争纪念馆、格里芬湖组织，从而把国家史、建筑与规划景观连成一条可感知的路径。",
+    "highlights": [
+      "国会大厦",
+      "澳大利亚战争纪念馆",
+      "格里芬湖"
+    ],
+    "bestFor": "国家史、建筑与规划景观",
+    "seasonNote": "堪培拉可能属于热带、温带或山地环境；前往国会大厦前应按当地月份核对紫外线、降水和温度。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在澳大利亚战争纪念馆则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Canberra",
+    "themeTags": [
+      "政治",
+      "博物馆",
+      "规划"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "湖轴与旗杆"
+    }
+  },
+  {
+    "id": "city-darwin",
+    "type": "city",
+    "cityZh": "达尔文",
+    "cityEn": "Darwin",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -12.4634,
+    "longitude": 130.8456,
+    "timezone": "Australia/Darwin",
+    "summary": "达尔文的吸引力来自热带海港、原住民文化、二战记忆和多次灾后重建塑造澳大利亚北端城市。北领地博物馆呈现历史背景，二战遗址连接当代生活，明迪尔海滩市场则补足空间或文化尺度。",
+    "highlights": [
+      "北领地博物馆",
+      "二战遗址",
+      "明迪尔海滩市场"
+    ],
+    "bestFor": "原住民文化、战争史与热带适应",
+    "seasonNote": "安排达尔文的二战遗址时，请确认当地季节与天气风险，不只按“南半球”作统一判断。",
+    "culturalTip": "涉及北领地博物馆的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Darwin",
+    "themeTags": [
+      "原住民文化",
+      "重建",
+      "海洋"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "季风云与海港"
+    }
+  },
+  {
+    "id": "city-cairns",
+    "type": "city",
+    "cityZh": "凯恩斯",
+    "cityEn": "Cairns",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -16.9186,
+    "longitude": 145.7781,
+    "timezone": "Australia/Brisbane",
+    "summary": "在凯恩斯，珊瑚海、热带雨林、原住民文化和滨海城市共同构成两项世界遗产之间的入口。与其只追逐单一地标，更值得把凯恩斯滨海大道、雨林文化中心和大堡礁门户放在同一段城市观察中。",
+    "highlights": [
+      "凯恩斯滨海大道",
+      "雨林文化中心",
+      "大堡礁门户"
+    ],
+    "bestFor": "海洋生态、雨林与文化教育",
+    "seasonNote": "凯恩斯的户外体验会受海风、热带降水或山区变化影响；体验大堡礁门户前请查近期预报。",
+    "culturalTip": "使用公共交通或步行连接凯恩斯滨海大道与大堡礁门户，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Cairns",
+    "themeTags": [
+      "海洋",
+      "生态",
+      "原住民文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "珊瑚与蕨叶"
+    }
+  },
+  {
+    "id": "city-fremantle",
+    "type": "city",
+    "cityZh": "弗里曼特尔",
+    "cityEn": "Fremantle",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -32.0569,
+    "longitude": 115.7439,
+    "timezone": "Australia/Perth",
+    "summary": "弗里曼特尔把石灰岩港区、监狱遗产、海事博物馆和市场保留西澳门户城市的独立气质。以弗里曼特尔监狱为入口，再到海事博物馆和卡布奇诺街区，能较完整地理解其为何适合海事史、建筑与港口生活。",
+    "highlights": [
+      "弗里曼特尔监狱",
+      "海事博物馆",
+      "卡布奇诺街区"
+    ],
+    "bestFor": "海事史、建筑与港口生活",
+    "seasonNote": "到弗里曼特尔围绕弗里曼特尔监狱活动，应按具体月份准备防晒、雨具或保暖层，并留出天气备选。",
+    "culturalTip": "在卡布奇诺街区参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Fremantle",
+    "themeTags": [
+      "海洋",
+      "移民",
+      "建筑"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "锚与石灰岩墙"
+    }
+  },
+  {
+    "id": "city-alice-springs",
+    "type": "city",
+    "cityZh": "爱丽斯泉",
+    "cityEn": "Alice Springs",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -23.698,
+    "longitude": 133.8807,
+    "timezone": "Australia/Darwin",
+    "summary": "爱丽斯泉以红土沙漠、阿伦特文化、内陆通信史和艺术中心使小城成为理解澳洲腹地的关键节点。阿拉伦文化中心、皇家飞行医疗服务博物馆与西麦克唐奈山脉提供三条互补线索，适合从沙漠文化、通信史与原住民艺术展开。",
+    "highlights": [
+      "阿拉伦文化中心",
+      "皇家飞行医疗服务博物馆",
+      "西麦克唐奈山脉"
+    ],
+    "bestFor": "沙漠文化、通信史与原住民艺术",
+    "seasonNote": "爱丽斯泉可能属于热带、温带或山地环境；前往阿拉伦文化中心前应按当地月份核对紫外线、降水和温度。",
+    "culturalTip": "参访阿拉伦文化中心时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Alice_Springs",
+    "themeTags": [
+      "原住民文化",
+      "沙漠",
+      "通信"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "红土与无线电塔"
+    }
+  },
+  {
+    "id": "city-geelong",
+    "type": "city",
+    "cityZh": "吉朗",
+    "cityEn": "Geelong",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -38.1499,
+    "longitude": 144.3617,
+    "timezone": "Australia/Melbourne",
+    "summary": "理解吉朗，可以从科里奥湾、羊毛工业遗产、海滨公共艺术和通往大洋路的位置定义维州第二城这条主线开始。由国家羊毛博物馆走向海滨木偶柱，再观察艺术区，会看到地标之外的日常结构。",
+    "highlights": [
+      "国家羊毛博物馆",
+      "海滨木偶柱",
+      "艺术区"
+    ],
+    "bestFor": "工业史、海湾生活与区域旅行",
+    "seasonNote": "安排吉朗的海滨木偶柱时，请确认当地季节与天气风险，不只按“南半球”作统一判断。",
+    "culturalTip": "先核对国家羊毛博物馆的开放与礼仪要求；体验艺术区时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Geelong",
+    "themeTags": [
+      "工业",
+      "艺术",
+      "海洋"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "羊毛纹与海湾"
+    }
+  },
+  {
+    "id": "city-newcastle-australia",
+    "type": "city",
+    "cityZh": "纽卡斯尔",
+    "cityEn": "Newcastle",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -32.9283,
+    "longitude": 151.7817,
+    "timezone": "Australia/Sydney",
+    "summary": "煤港工业、冲浪海岸、海滨步道和艺术空间展示资源城市的持续转型，这是纽卡斯尔最鲜明的城市性格。旅行不妨围绕纽卡斯尔博物馆、海岸步道、港口遗产组织，从而把工业转型、海岸与公共文化连成一条可感知的路径。",
+    "highlights": [
+      "纽卡斯尔博物馆",
+      "海岸步道",
+      "港口遗产"
+    ],
+    "bestFor": "工业转型、海岸与公共文化",
+    "seasonNote": "纽卡斯尔的户外体验会受海风、热带降水或山区变化影响；体验港口遗产前请查近期预报。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在海岸步道则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Newcastle%2C_New_South_Wales",
+    "themeTags": [
+      "工业",
+      "海洋",
+      "城市转型"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "煤塔与海浪"
+    }
+  },
+  {
+    "id": "city-gold-coast",
+    "type": "city",
+    "cityZh": "黄金海岸",
+    "cityEn": "Gold Coast",
+    "countryZh": "澳大利亚",
+    "countryEn": "Australia",
+    "countryCode": "AU",
+    "region": "大洋洲",
+    "latitude": -28.0167,
+    "longitude": 153.4,
+    "timezone": "Australia/Brisbane",
+    "summary": "黄金海岸的吸引力来自长海滩、高层度假区、冲浪文化与腹地雨林构成商业旅游之外的多样环境。冲浪者天堂呈现历史背景，伯利角连接当代生活，内陆雨林则补足空间或文化尺度。",
+    "highlights": [
+      "冲浪者天堂",
+      "伯利角",
+      "内陆雨林"
+    ],
+    "bestFor": "海岸文化、城市旅游与生态转换",
+    "seasonNote": "到黄金海岸围绕冲浪者天堂活动，应按具体月份准备防晒、雨具或保暖层，并留出天气备选。",
+    "culturalTip": "涉及冲浪者天堂的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Gold_Coast",
+    "themeTags": [
+      "海洋",
+      "旅游",
+      "生态"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "冲浪线与雨林叶"
+    }
+  },
+  {
+    "id": "city-dunedin",
+    "type": "city",
+    "cityZh": "达尼丁",
+    "cityEn": "Dunedin",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "countryCode": "NZ",
+    "region": "大洋洲",
+    "latitude": -45.8788,
+    "longitude": 170.5028,
+    "timezone": "Pacific/Auckland",
+    "summary": "在达尼丁，苏格兰移民建筑、大学文化、港湾和奥塔哥半岛野生生态共同塑造南岛学术城市。与其只追逐单一地标，更值得把奥塔哥博物馆、火车站和奥塔哥半岛放在同一段城市观察中。",
+    "highlights": [
+      "奥塔哥博物馆",
+      "火车站",
+      "奥塔哥半岛"
+    ],
+    "bestFor": "移民史、建筑与海岸生态",
+    "seasonNote": "达尼丁可能属于热带、温带或山地环境；前往奥塔哥博物馆前应按当地月份核对紫外线、降水和温度。",
+    "culturalTip": "使用公共交通或步行连接奥塔哥博物馆与奥塔哥半岛，并给通勤者和居民保留通道。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Dunedin",
+    "themeTags": [
+      "迁徙",
+      "知识",
+      "生态"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#39736d",
+        "#c87355"
+      ],
+      "motif": "石塔与信天翁"
+    }
+  },
+  {
+    "id": "city-queenstown",
+    "type": "city",
+    "cityZh": "皇后镇",
+    "cityEn": "Queenstown",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "countryCode": "NZ",
+    "region": "大洋洲",
+    "latitude": -45.0312,
+    "longitude": 168.6626,
+    "timezone": "Pacific/Auckland",
+    "summary": "皇后镇把瓦卡蒂普湖、南阿尔卑斯山、毛利地名和探险旅游共同塑造高强度山地目的地。以瓦卡蒂普湖为入口，再到皇后镇山步道和历史采金地，能较完整地理解其为何适合山地景观、户外文化与旅游治理。",
+    "highlights": [
+      "瓦卡蒂普湖",
+      "皇后镇山步道",
+      "历史采金地"
+    ],
+    "bestFor": "山地景观、户外文化与旅游治理",
+    "seasonNote": "安排皇后镇的皇后镇山步道时，请确认当地季节与天气风险，不只按“南半球”作统一判断。",
+    "culturalTip": "在历史采金地参加活动或消费时尊重当地节奏，不把宗教、创伤或社区生活当作猎奇素材。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Queenstown_(New_Zealand)",
+    "themeTags": [
+      "自然",
+      "旅游",
+      "毛利文化"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#5b6176",
+        "#c89154"
+      ],
+      "motif": "湖峰与缆车"
+    }
+  },
+  {
+    "id": "city-rotorua",
+    "type": "city",
+    "cityZh": "罗托鲁瓦",
+    "cityEn": "Rotorua",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "countryCode": "NZ",
+    "region": "大洋洲",
+    "latitude": -38.1368,
+    "longitude": 176.2497,
+    "timezone": "Pacific/Auckland",
+    "summary": "罗托鲁瓦以地热活动、毛利文化机构、湖泊和森林让自然过程与活态文化同时可见。地热谷、毛利文化中心与红木森林提供三条互补线索，适合从地质、毛利文化与森林活动展开。",
+    "highlights": [
+      "地热谷",
+      "毛利文化中心",
+      "红木森林"
+    ],
+    "bestFor": "地质、毛利文化与森林活动",
+    "seasonNote": "罗托鲁瓦的户外体验会受海风、热带降水或山区变化影响；体验红木森林前请查近期预报。",
+    "culturalTip": "参访地热谷时遵守现场拍摄与通行规则；若路线经过生活街区，也应给居民和行人留出空间。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Rotorua",
+    "themeTags": [
+      "地质",
+      "毛利文化",
+      "自然"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#355f68",
+        "#c48651"
+      ],
+      "motif": "蒸汽与银蕨"
+    }
+  },
+  {
+    "id": "city-napier",
+    "type": "city",
+    "cityZh": "内皮尔",
+    "cityEn": "Napier",
+    "countryZh": "新西兰",
+    "countryEn": "New Zealand",
+    "countryCode": "NZ",
+    "region": "大洋洲",
+    "latitude": -39.4928,
+    "longitude": 176.912,
+    "timezone": "Pacific/Auckland",
+    "summary": "理解内皮尔，可以从地震重建后的装饰艺术街区、海滨与霍克湾农业形成统一而易读的城市风格这条主线开始。由装饰艺术中心走向海滨长廊，再观察霍克湾博物馆，会看到地标之外的日常结构。",
+    "highlights": [
+      "装饰艺术中心",
+      "海滨长廊",
+      "霍克湾博物馆"
+    ],
+    "bestFor": "重建史、建筑与地方农业",
+    "seasonNote": "到内皮尔围绕装饰艺术中心活动，应按具体月份准备防晒、雨具或保暖层，并留出天气备选。",
+    "culturalTip": "先核对装饰艺术中心的开放与礼仪要求；体验霍克湾博物馆时优先支持当地经营者。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Napier",
+    "themeTags": [
+      "重建",
+      "建筑",
+      "农业"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#496b5d",
+        "#d09a55"
+      ],
+      "motif": "日光纹与海堤"
+    }
+  },
+  {
+    "id": "city-nadi",
+    "type": "city",
+    "cityZh": "楠迪",
+    "cityEn": "Nadi",
+    "countryZh": "斐济",
+    "countryEn": "Fiji",
+    "countryCode": "FJ",
+    "region": "大洋洲",
+    "latitude": -17.7765,
+    "longitude": 177.4356,
+    "timezone": "Pacific/Fiji",
+    "summary": "多族群市场、印度教寺庙、甘蔗地区与岛屿交通门户角色展示斐济日常社会，这是楠迪最鲜明的城市性格。旅行不妨围绕楠迪市场、斯里·湿婆·苏布拉马尼亚神庙、沉睡巨人花园组织，从而把多元文化、市场与岛屿旅行准备连成一条可感知的路径。",
+    "highlights": [
+      "楠迪市场",
+      "斯里·湿婆·苏布拉马尼亚神庙",
+      "沉睡巨人花园"
+    ],
+    "bestFor": "多元文化、市场与岛屿旅行准备",
+    "seasonNote": "楠迪可能属于热带、温带或山地环境；前往楠迪市场前应按当地月份核对紫外线、降水和温度。",
+    "culturalTip": "拍摄人物、宗教仪式或居民空间前先征得同意；在斯里·湿婆·苏布拉马尼亚神庙则遵守对应场地规则。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Nadi",
+    "themeTags": [
+      "多元文化",
+      "市场",
+      "岛屿"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#425d78",
+        "#c97858"
+      ],
+      "motif": "花环与蔗叶"
+    }
+  },
+  {
+    "id": "city-apia",
+    "type": "city",
+    "cityZh": "阿皮亚",
+    "cityEn": "Apia",
+    "countryZh": "萨摩亚",
+    "countryEn": "Samoa",
+    "countryCode": "WS",
+    "region": "大洋洲",
+    "latitude": -13.8507,
+    "longitude": -171.7514,
+    "timezone": "Pacific/Apia",
+    "summary": "阿皮亚的吸引力来自海港、萨摩亚村社文化、文学记忆和殖民历史共同构成波利尼西亚首都。萨摩亚博物馆呈现历史背景，罗伯特·路易斯·史蒂文森故居连接当代生活，海滨则补足空间或文化尺度。",
+    "highlights": [
+      "萨摩亚博物馆",
+      "罗伯特·路易斯·史蒂文森故居",
+      "海滨"
+    ],
+    "bestFor": "波利尼西亚文化、文学与海港史",
+    "seasonNote": "阿皮亚属热带海洋环境，湿季的强降雨与热带气旋风险会影响航班和户外活动；出发前应查萨摩亚官方天气信息。",
+    "culturalTip": "涉及萨摩亚博物馆的历史与社群叙事时，优先采用当地机构和当事人的表述。",
+    "sourceUrl": "https://en.wikivoyage.org/wiki/Apia",
+    "themeTags": [
+      "文学",
+      "海洋",
+      "社区"
+    ],
+    "visual": {
+      "type": "procedural-svg",
+      "palette": [
+        "#68614d",
+        "#d1a05b"
+      ],
+      "motif": "海港与树皮布纹"
+    }
+  }
+]

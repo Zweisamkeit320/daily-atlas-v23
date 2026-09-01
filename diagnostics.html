@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f2eee4" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://images.weserv.nl https://covers.openlibrary.org https://archive.org https://*.us.archive.org https://images.metahub.space; connect-src 'self' https://cdn.jsdelivr.net; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta name="daily-atlas-version" content="2.4.1" />
+    <title>今日万象｜设备与网络诊断</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./diagnostics.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#diagnosticResults">跳到诊断结果</a>
+    <header class="diagnostic-header">
+      <a class="brand" href="./" aria-label="返回今日万象首页"><span aria-hidden="true">象</span><strong>今日万象</strong></a>
+      <nav class="header-links" aria-label="说明页面"><a class="back-link" href="./">返回首页</a><a class="back-link" href="./privacy.html">隐私</a><a class="back-link" href="./sources-and-licenses.html">来源</a></nav>
+    </header>
+
+    <main id="diagnosticResults">
+      <section class="intro" aria-labelledby="pageTitle">
+        <p class="kicker">DEVICE &amp; NETWORK CHECK</p>
+        <h1 id="pageTitle">设备与网络诊断</h1>
+        <p>这个页面不加载 2,200 项内容库，也不读取收藏、偏好、搜索词或医学关注方向。它只检查当前 Origin、浏览器能力、应用缓存、可用存储和公开静态文件。</p>
+        <div class="overall" id="overallStatus" role="status" aria-live="polite" data-status="running">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div><strong id="overallTitle">正在检测…</strong><small id="overallDetail">通常需要 3–10 秒；网络超时会明确标出。</small></div>
+        </div>
+        <div class="actions">
+          <button id="rerunButton" type="button">重新检测</button>
+          <button id="copyButton" type="button">复制诊断摘要</button>
+          <button class="danger" id="repairButton" type="button">修复应用缓存</button>
+        </div>
+        <p class="action-status" id="actionStatus" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="diagnostic-grid" aria-label="诊断分类">
+        <article>
+          <h2>连接与 Origin</h2>
+          <dl id="environmentList"><div><dt>状态</dt><dd>等待检测</dd></div></dl>
+        </article>
+        <article>
+          <h2>浏览器能力</h2>
+          <div class="check-list" id="capabilityList"><p>等待检测</p></div>
+        </article>
+        <article>
+          <h2>存储与缓存</h2>
+          <dl id="storageList"><div><dt>状态</dt><dd>等待检测</dd></div></dl>
+          <div class="cache-list" id="cacheList"></div>
+        </article>
+        <article>
+          <h2>关键文件探测</h2>
+          <div class="probe-list" id="probeList"><p>等待检测</p></div>
+        </article>
+        <article>
+          <h2>外部图片连通性（可选）</h2>
+          <p class="privacy-note" id="externalImagePrivacy">此项默认不运行，也不会自动连接第三方。点击后，浏览器才会分别向 images.weserv.nl、covers.openlibrary.org 和 images.metahub.space 请求一张测试图片；Open Library 封面响应可能继续跳转至其 Internet Archive 后端 archive.org 及受控的 us.archive.org 存储子域。这些服务可能看到你的公网 IP、请求时间及常规网络／浏览器信息。不会发送收藏、偏好、搜索词或医学关注方向。</p>
+          <button id="externalImageTestButton" type="button" aria-describedby="externalImagePrivacy">我已了解，检测三个外部图源</button>
+          <div class="probe-list" id="externalImageProbeList" aria-live="polite"><p>未运行；尚未向上述第三方发出诊断请求。</p></div>
+        </article>
+        <article>
+          <h2>加载计时</h2>
+          <dl id="timingList"><div><dt>状态</dt><dd>等待检测</dd></div></dl>
+        </article>
+        <article>
+          <h2>最近的运行错误码</h2>
+          <p class="privacy-note">最多保留 20 条“时间／阶段／错误码”，不保存错误正文、访问网址或个人内容。</p>
+          <ol class="error-list" id="errorList"><li>暂无记录</li></ol>
+          <button class="text-button" id="clearErrorsButton" type="button">清除错误码记录</button>
+        </article>
+      </section>
+
+      <aside class="boundary">
+        <strong>如何理解结果</strong>
+        <p>“通过”表示本次真实请求或能力检查成功；“降级”表示今日五项仍可能可用，但安装、离线、语音或搜索 Worker 会受限；“失败”表示关键同源文件不可达。这里不能替代 Android Chrome、夸克、微信内置浏览器和 iPhone Safari 的实体真机八格验收。</p>
+      </aside>
+    </main>
+
+    <script src="./public-config.js" defer></script>
+    <script src="./asset-routing.js" defer></script>
+    <script src="./runtime-health.js" defer></script>
+    <script src="./diagnostics.js" defer></script>
+  </body>
+</html>

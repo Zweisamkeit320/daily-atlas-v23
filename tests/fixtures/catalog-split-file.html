@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <base href="../../" />
+    <title>Daily Atlas split catalog file-mode fixture</title>
+  </head>
+  <body>
+    <script src="./engine.js"></script>
+    <script src="./catalog-loader.js"></script>
+    <script>
+      globalThis.catalogFileResult = (async () => {
+        const store = DailyAtlasCatalogData.createStore({ baseUrl: document.baseURI });
+        const selection = await store.loadSelection();
+        const pick = DailyAtlasEngine.chooseInitial(selection.books, { dateKey: "2026-08-28", type: "book" });
+        const detail = await store.getDetail(pick);
+        const search = await store.query({ q: "Berlin", pageSize: 3 });
+        store.close();
+        return {
+          count: Object.values(DailyAtlasCatalogData.COLLECTIONS).reduce((sum, key) => sum + selection[key].length, 0),
+          detail: { id: detail.id, title: detail.title, selectionOnly: Boolean(detail.selectionOnly) },
+          search: { total: search.total, count: search.items.length, mainThread: Boolean(globalThis.DAILY_ATLAS_SEARCH_INDEX) }
+        };
+      })();
+    </script>
+  </body>
+</html>

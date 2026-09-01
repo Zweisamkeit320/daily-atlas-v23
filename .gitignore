@@ -1,0 +1,19 @@
+node_modules/
+.wrangler/
+.playwright-cli/
+test-results/
+__pycache__/
+*.pyc
+
+# Reproducible local and public release artifacts.
+*.zip
+*.tmp
+*.log
+
+# Raw upstream response archives are intentionally kept outside source history.
+data/upstream/
+
+# Operating-system and editor noise.
+.DS_Store
+Thumbs.db
+desktop.ini

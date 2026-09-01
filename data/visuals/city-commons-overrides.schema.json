@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://daily-atlas.example/schemas/city-commons-overrides.schema.json",
+  "title": "Daily Atlas reviewed Wikimedia Commons city images",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "scope", "items"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "scope": { "type": "string", "minLength": 1 },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "reviewStatus",
+          "fileTitle",
+          "pageUrl",
+          "originalUrl",
+          "thumbnailUrl",
+          "author",
+          "attribution",
+          "license",
+          "sourceMetadataRetrievedAt",
+          "sourceMetadataSha256",
+          "subjectReview",
+          "local"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^city-[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "reviewStatus": { "const": "approved" },
+          "fileTitle": { "type": "string", "pattern": "^File:.+" },
+          "pageUrl": { "type": "string", "pattern": "^https://commons\\.wikimedia\\.org/" },
+          "originalUrl": { "type": "string", "pattern": "^https://upload\\.wikimedia\\.org/" },
+          "thumbnailUrl": { "type": "string", "pattern": "^https://upload\\.wikimedia\\.org/" },
+          "author": { "type": "string", "minLength": 1 },
+          "attribution": { "type": "string", "minLength": 1 },
+          "license": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "name", "url"],
+            "properties": {
+              "code": {
+                "enum": [
+                  "CC0-1.0",
+                  "PDM-1.0",
+                  "CC-BY-2.0",
+                  "CC-BY-2.5",
+                  "CC-BY-3.0",
+                  "CC-BY-4.0",
+                  "CC-BY-SA-2.0",
+                  "CC-BY-SA-2.5",
+                  "CC-BY-SA-3.0",
+                  "CC-BY-SA-4.0",
+                  "CC-BY-SA-3.0-DE",
+                  "CC-BY-SA-3.0-EE",
+                  "CC-BY-3.0-PL",
+                  "CC-BY-3.0-BR",
+                  "CC-BY-2.5-AU"
+                ]
+              },
+              "name": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "format": "uri" }
+            }
+          },
+          "sourceMetadataRetrievedAt": { "type": "string", "format": "date-time" },
+          "sourceMetadataSha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+          "subjectReview": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "checkedAt", "note"],
+            "properties": {
+              "status": { "const": "approved" },
+              "checkedAt": { "type": "string", "format": "date" },
+              "note": { "type": "string", "minLength": 1 }
+            }
+          },
+          "local": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["file", "sha256", "bytes", "width", "height"],
+            "properties": {
+              "file": { "type": "string", "pattern": "^assets/visuals/cities/city-[a-z0-9-]+\\.webp$" },
+              "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+              "bytes": { "type": "integer", "minimum": 1 },
+              "width": { "type": "integer", "minimum": 640 },
+              "height": { "type": "integer", "minimum": 360 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

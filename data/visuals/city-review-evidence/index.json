@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "sourceManifestSha256": "3A89A47B651EDF541A8B9CD024E223FE4B4D4B3EC231EE42A5D8BC400AC5B851",
+  "pages": [
+    "data/visuals/city-review-evidence/contact-01.jpg",
+    "data/visuals/city-review-evidence/contact-02.jpg",
+    "data/visuals/city-review-evidence/contact-03.jpg",
+    "data/visuals/city-review-evidence/contact-04.jpg",
+    "data/visuals/city-review-evidence/contact-05.jpg",
+    "data/visuals/city-review-evidence/contact-06.jpg",
+    "data/visuals/city-review-evidence/contact-07.jpg",
+    "data/visuals/city-review-evidence/contact-08.jpg",
+    "data/visuals/city-review-evidence/contact-09.jpg",
+    "data/visuals/city-review-evidence/contact-10.jpg",
+    "data/visuals/city-review-evidence/contact-11.jpg",
+    "data/visuals/city-review-evidence/contact-12.jpg",
+    "data/visuals/city-review-evidence/contact-13.jpg"
+  ],
+  "pageEvidence": [
+    {
+      "file": "data/visuals/city-review-evidence/contact-01.jpg",
+      "sha256": "FA82389EAB8636FFB7ADE0126B9E588B9F22ACC89AD162BB7AE7390B82A74556",
+      "bytes": 742700
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-02.jpg",
+      "sha256": "4DD5887C740679546436DC27C174DA7221215F1986A6D1AA0E27F6FC6AB79B7B",
+      "bytes": 656941
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-03.jpg",
+      "sha256": "061AA309D8D6882FB5D61D3DE954FC2CEA5C02CFCB10768D43F4417CB47A685C",
+      "bytes": 717529
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-04.jpg",
+      "sha256": "819E82C3C92639D25400978B3EF71570F6152325F5454799A840E7FBE5327306",
+      "bytes": 744060
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-05.jpg",
+      "sha256": "D605FC264B5A13E676A2652D673083E9FFBCF950FC8871C01B33B7579FDA10AA",
+      "bytes": 726432
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-06.jpg",
+      "sha256": "7F4480194C63B2EE4E4477B0EF88AEDF097F263A0044B45838B5097399710BA0",
+      "bytes": 754105
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-07.jpg",
+      "sha256": "96238236AFA4722E2F1084AF055F5A83B84A22BEA108781882D92358127E6416",
+      "bytes": 733249
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-08.jpg",
+      "sha256": "36AB0746C0D6C03A5B2215E6BC77B7A8AA215300013425CFAB400672BC127C20",
+      "bytes": 714783
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-09.jpg",
+      "sha256": "A8B16E3EC32D36B146D587252DE7862F358FF88B05F63906E1956C042CA4AB42",
+      "bytes": 740910
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-10.jpg",
+      "sha256": "42DF45AB409EE7F5A8614D3EE78CEC95C4B9773E6EE6294B485A0AA59D39DB4B",
+      "bytes": 718810
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-11.jpg",
+      "sha256": "B751209270DB6D35102F37E56CBB49F7E1B45373A2B8A946475B41189130E493",
+      "bytes": 756940
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-12.jpg",
+      "sha256": "61C32A083F0106E5DD5CEFFF5C390FDBEA50736DE58250B50EF45E2BBADFE539",
+      "bytes": 807584
+    },
+    {
+      "file": "data/visuals/city-review-evidence/contact-13.jpg",
+      "sha256": "C245BF10E05419A66199BDE2030977D3787D39A9ED7ED401A88E197408D53496",
+      "bytes": 365221
+    }
+  ],
+  "itemsPerPage": 16,
+  "count": 200
+}

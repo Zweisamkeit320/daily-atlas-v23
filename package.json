@@ -1,0 +1,50 @@
+{
+  "name": "daily-atlas",
+  "version": "2.4.1",
+  "private": true,
+  "description": "今日万象静态每日五项精选应用",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "refresh:data": "node scripts/refresh-sources.cjs",
+    "refresh:media500": "node scripts/refresh-media500-sources.cjs && node scripts/refresh-media500-sources.cjs --supplemental && node scripts/refresh-media500-sources.cjs --mystery-book && node scripts/refresh-media500-sources.cjs --books-with-subjects && node scripts/refresh-media500-sources.cjs --precision-books && node scripts/refresh-media500-sources.cjs --depth-books && node scripts/refresh-media500-sources.cjs --classic-books && node scripts/refresh-media500-sources.cjs --classic-depth-books",
+    "build:media": "node scripts/build-media500.cjs",
+    "check:media": "node scripts/build-media500.cjs --check",
+    "build:extras": "node scripts/build-v2-extras.cjs",
+    "check:extras": "node scripts/validate-v2-extras.cjs",
+    "build:visuals": "node scripts/build-visual-manifest.cjs",
+    "check:visuals": "node scripts/build-visual-manifest.cjs --check",
+    "assemble": "node scripts/assemble-catalog.cjs",
+    "build": "node scripts/build-catalog.cjs",
+    "check": "node scripts/build-catalog.cjs --check",
+    "build:pwa": "node scripts/build-service-worker.cjs",
+    "check:pwa": "node scripts/build-service-worker.cjs --check",
+    "verify:pinned-assets": "node scripts/verify-pinned-assets.cjs",
+    "review:medical": "node scripts/review-medical-high-risk.cjs",
+    "release:package": "node scripts/release-package.cjs create",
+    "release:verify": "node scripts/release-package.cjs verify",
+    "deploy:package": "node scripts/static-deploy-package.cjs create",
+    "deploy:verify": "node scripts/static-deploy-package.cjs verify",
+    "release:preflight": "npm test",
+    "test:unit": "node --test tests/engine.test.cjs tests/state.test.cjs tests/profile-backup.test.cjs tests/profile-generation.test.cjs tests/backup-journal.test.cjs tests/platform-modules.test.cjs tests/appearance.test.cjs tests/asset-routing.test.cjs tests/visuals.test.cjs tests/visual-manifest.test.cjs tests/city-commons-pipeline.test.cjs tests/v24-city-visual-package-contract.test.cjs tests/pinned-assets.test.cjs tests/lock.test.cjs tests/media-curation.test.cjs tests/media500.test.cjs tests/catalog-audit.test.cjs tests/catalog-split.test.cjs tests/release-package.test.cjs tests/static-deploy-package.test.cjs tests/explore.test.cjs tests/weekly.test.cjs tests/backup-crypto.test.cjs tests/runtime-health.test.cjs tests/security-contract.test.cjs tests/medical-high-risk-review.test.cjs tests/medical-v24-content.test.cjs tests/verify-origin.test.cjs",
+    "test:e2e": "node tests/browser-smoke.cjs",
+    "test:e2e:catalog": "node tests/catalog-split-browser.cjs",
+    "test:e2e:import": "node tests/import-concurrency-browser.cjs",
+    "test:e2e:lock": "node tests/lock-browser.cjs",
+    "test:e2e:profile": "node tests/profile-browser.cjs",
+    "test:e2e:exhaustion": "node tests/exhaustion-browser.cjs",
+    "test:e2e:optional": "node tests/optional-transaction-browser.cjs",
+    "test:e2e:storage": "node tests/storage-failure-browser.cjs",
+    "test:e2e:v2": "node tests/v2-browser.cjs",
+    "test:e2e:v22": "node tests/v22-browser.cjs",
+    "test:e2e:v23": "node tests/v23-cross-browser.cjs",
+    "test:e2e:v24": "node tests/v24-dual-origin-browser.cjs",
+    "test:e2e:v241": "node tests/v241-mobile-reliability-browser.cjs",
+    "test": "npm run check:media && npm run check:extras && npm run check:visuals && npm run assemble && npm run build && npm run check && npm run review:medical && npm run build:pwa && npm run check:pwa && npm run test:unit && npm run test:e2e:catalog && npm run test:e2e && npm run test:e2e:lock && npm run test:e2e:profile && npm run test:e2e:import && npm run test:e2e:exhaustion && npm run test:e2e:optional && npm run test:e2e:storage && npm run test:e2e:v2 && npm run test:e2e:v22 && npm run test:e2e:v23 && npm run test:e2e:v24 && npm run test:e2e:v241"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "playwright": "1.57.0"
+  }
+}

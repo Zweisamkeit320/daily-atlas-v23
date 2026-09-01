@@ -1,0 +1,4412 @@
+[
+  {
+    "id": "de-feierabend",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Feierabend",
+    "chinese": "下班后的休息时间；收工",
+    "explanation": "不是单指下班那一刻，也常指工作结束后属于自己的整段时间。",
+    "exampleGerman": "Nach der Arbeit mache ich Feierabend und gehe spazieren.",
+    "exampleChinese": "下班后我就收工，出去散步。",
+    "level": "A2",
+    "pronunciationHint": "大致读作：Fai-er-a-bent",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/Feierabend",
+    "themeTags": [
+      "词汇",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-feierabend.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-fernweh",
+    "type": "german",
+    "kind": "词汇",
+    "german": "das Fernweh",
+    "chinese": "对远方的向往；旅行渴望",
+    "explanation": "与 Heimweh（思乡）方向相反，表示想离开熟悉环境去远方。",
+    "exampleGerman": "Im Winter bekomme ich oft Fernweh.",
+    "exampleChinese": "冬天我常常会向往远方。",
+    "level": "B1",
+    "pronunciationHint": "大致读作：Fern-vei",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/Fernweh",
+    "themeTags": [
+      "词汇",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-fernweh.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-gemuetlich",
+    "type": "german",
+    "kind": "词汇",
+    "german": "gemütlich",
+    "chinese": "舒适惬意的；从容的",
+    "explanation": "可形容空间温暖舒适，也可形容节奏不匆忙；具体含义由语境决定。",
+    "exampleGerman": "Das kleine Café ist sehr gemütlich.",
+    "exampleChinese": "这家小咖啡馆很温馨。",
+    "level": "A2",
+    "pronunciationHint": "ü 类似噘嘴发 i；结尾 ch 轻柔",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/gemuetlich",
+    "themeTags": [
+      "词汇",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-gemuetlich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-zuverlaessig",
+    "type": "german",
+    "kind": "词汇",
+    "german": "zuverlässig",
+    "chinese": "可靠的；守信的",
+    "explanation": "常用于评价人、交通、设备或信息能否稳定履行预期。",
+    "exampleGerman": "Unsere Kollegin ist freundlich und zuverlässig.",
+    "exampleChinese": "我们的同事既友善又可靠。",
+    "level": "B1",
+    "pronunciationHint": "重音多在 läs 一段",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/zuverlaessig",
+    "themeTags": [
+      "词汇",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-zuverlaessig.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-neugierig",
+    "type": "german",
+    "kind": "词汇",
+    "german": "neugierig",
+    "chinese": "好奇的",
+    "explanation": "既可表示积极求知，也可能指过度打听；要结合对象与语气判断。",
+    "exampleGerman": "Kinder sind neugierig und stellen viele Fragen.",
+    "exampleChinese": "孩子们很好奇，会问很多问题。",
+    "level": "A2",
+    "pronunciationHint": "neu 近似 noy",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/neugierig",
+    "themeTags": [
+      "词汇",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-neugierig.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-achtsam",
+    "type": "german",
+    "kind": "词汇",
+    "german": "achtsam",
+    "chinese": "留心的；正念而专注的",
+    "explanation": "表示对当下、人或环境有意识地关注，不等同于紧张戒备。",
+    "exampleGerman": "Wir gehen achtsam mit unserer Zeit um.",
+    "exampleChinese": "我们有意识地珍惜并安排自己的时间。",
+    "level": "B2",
+    "pronunciationHint": "ch 为轻摩擦音",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/achtsam",
+    "themeTags": [
+      "词汇",
+      "B2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-achtsam.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-eigentlich",
+    "type": "german",
+    "kind": "词汇",
+    "german": "eigentlich",
+    "chinese": "其实；本来；究竟",
+    "explanation": "高频语气词，可柔化问题，也可表示现实与原计划的对照。",
+    "exampleGerman": "Was möchtest du eigentlich lernen?",
+    "exampleChinese": "你究竟想学什么呢？",
+    "level": "B1",
+    "pronunciationHint": "ei 读近似 ai",
+    "sourceUrl": "https://www.duden.de/suchen/dudenonline/eigentlich",
+    "themeTags": [
+      "词汇",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-eigentlich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-immerhin",
+    "type": "german",
+    "kind": "词汇",
+    "german": "immerhin",
+    "chinese": "毕竟；至少还",
+    "explanation": "用于指出在不理想情形中仍值得肯定的一点。",
+    "exampleGerman": "Es regnet, aber immerhin ist es warm.",
+    "exampleChinese": "虽然下雨，但至少天气还暖和。",
+    "level": "B1",
+    "pronunciationHint": "重音通常在 im",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/immerhin",
+    "themeTags": [
+      "词汇",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-immerhin.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-doch",
+    "type": "german",
+    "kind": "词汇",
+    "german": "doch",
+    "chinese": "却；还是；可不是吗",
+    "explanation": "作用随语境变化：可反驳否定、强调转折，或把请求说得更亲切。",
+    "exampleGerman": "Du hast keinen Kaffee? – Doch, hier ist noch etwas.",
+    "exampleChinese": "你没有咖啡了吗？——有的，这里还剩一点。",
+    "level": "B1",
+    "pronunciationHint": "ch 为较靠后的摩擦音",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/doch_Adverb",
+    "themeTags": [
+      "词汇",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-doch.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-wahrscheinlich",
+    "type": "german",
+    "kind": "词汇",
+    "german": "wahrscheinlich",
+    "chinese": "很可能；大概",
+    "explanation": "表示较高但并非确定的可能性，比 vielleicht 通常更有把握。",
+    "exampleGerman": "Der Zug kommt wahrscheinlich zehn Minuten später.",
+    "exampleChinese": "火车很可能晚到十分钟。",
+    "level": "B1",
+    "pronunciationHint": "开头 w 发 v 音",
+    "sourceUrl": "https://www.duden.de/rechtschreibung/wahrscheinlich_voraussichtlich_denkbar",
+    "themeTags": [
+      "词汇",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-wahrscheinlich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-guten-morgen",
+    "type": "german",
+    "kind": "表达",
+    "german": "Guten Morgen!",
+    "chinese": "早上好！",
+    "explanation": "早晨的常用问候；正式与非正式场合都可使用。",
+    "exampleGerman": "Guten Morgen! Haben Sie gut geschlafen?",
+    "exampleChinese": "早上好！您睡得好吗？",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-guten-morgen.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-wie-geht-es",
+    "type": "german",
+    "kind": "表达",
+    "german": "Wie geht es dir?",
+    "chinese": "你怎么样？",
+    "explanation": "dir 用于熟人；礼貌形式为 Wie geht es Ihnen?。",
+    "exampleGerman": "Hallo Mia, wie geht es dir heute?",
+    "exampleChinese": "你好，米娅，你今天怎么样？",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-wie-geht-es.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-ich-haette-gern",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich hätte gern …",
+    "chinese": "我想要……",
+    "explanation": "在商店或餐馆中比直接说 Ich will 更礼貌，后面接所需事物。",
+    "exampleGerman": "Ich hätte gern einen Tee ohne Zucker.",
+    "exampleChinese": "我想要一杯不加糖的茶。",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-ich-haette-gern.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-koennten-sie-helfen",
+    "type": "german",
+    "kind": "表达",
+    "german": "Könnten Sie mir helfen?",
+    "chinese": "您能帮我一下吗？",
+    "explanation": "使用第二虚拟式构成礼貌请求；对熟人可说 Könntest du …?。",
+    "exampleGerman": "Entschuldigung, könnten Sie mir kurz helfen?",
+    "exampleChinese": "不好意思，您能简单帮我一下吗？",
+    "level": "A2",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-koennten-sie-helfen.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-weg-bahnhof",
+    "type": "german",
+    "kind": "表达",
+    "german": "Wie komme ich zum Bahnhof?",
+    "chinese": "我怎么去火车站？",
+    "explanation": "zum 是 zu dem 的缩合；可把 Bahnhof 换成其他阳性或中性地点。",
+    "exampleGerman": "Wie komme ich von hier zum Bahnhof?",
+    "exampleChinese": "从这里怎么去火车站？",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-weg-bahnhof.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-nicht-verstanden",
+    "type": "german",
+    "kind": "表达",
+    "german": "Entschuldigung, ich habe das nicht verstanden.",
+    "chinese": "抱歉，我没有听懂。",
+    "explanation": "明确表达理解困难，比沉默猜测更有效；可再补充具体问题。",
+    "exampleGerman": "Ich habe das letzte Wort nicht verstanden.",
+    "exampleChinese": "最后一个词我没听懂。",
+    "level": "A2",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-nicht-verstanden.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-bitte-wiederholen",
+    "type": "german",
+    "kind": "表达",
+    "german": "Könnten Sie das bitte wiederholen?",
+    "chinese": "请您再说一遍好吗？",
+    "explanation": "礼貌请对方重复；口语中也常说 Noch einmal, bitte。",
+    "exampleGerman": "Könnten Sie die Nummer bitte wiederholen?",
+    "exampleChinese": "请您把号码再说一遍好吗？",
+    "level": "A2",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-bitte-wiederholen.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-was-bedeutet",
+    "type": "german",
+    "kind": "表达",
+    "german": "Was bedeutet …?",
+    "chinese": "……是什么意思？",
+    "explanation": "询问词义的基本句型；若问一句话，可用 Was bedeutet dieser Satz?。",
+    "exampleGerman": "Was bedeutet das Wort „Umwelt“?",
+    "exampleChinese": "Umwelt 这个词是什么意思？",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-was-bedeutet.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-lerne-noch",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich lerne noch Deutsch.",
+    "chinese": "我还在学习德语。",
+    "explanation": "noch 表示过程尚未结束，可自然地向对方说明自己的语言水平。",
+    "exampleGerman": "Bitte sprechen Sie langsam, ich lerne noch Deutsch.",
+    "exampleChinese": "请说慢一点，我还在学德语。",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-lerne-noch.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-klingt-gut",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das klingt gut.",
+    "chinese": "这听起来不错。",
+    "explanation": "用于积极回应建议；klingen 在这里描述给人的听觉或整体印象。",
+    "exampleGerman": "Treffen wir uns um sechs? – Das klingt gut.",
+    "exampleChinese": "我们六点见？——听起来不错。",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-klingt-gut.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-kommt-darauf-an",
+    "type": "german",
+    "kind": "表达",
+    "german": "Es kommt darauf an.",
+    "chinese": "这要看情况。",
+    "explanation": "常接 auf + Akkusativ，或接带疑问词的从句说明取决于什么。",
+    "exampleGerman": "Es kommt darauf an, wie viel Zeit wir haben.",
+    "exampleChinese": "这取决于我们有多少时间。",
+    "level": "B1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-kommt-darauf-an.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-keine-sorge",
+    "type": "german",
+    "kind": "表达",
+    "german": "Keine Sorge!",
+    "chinese": "别担心！",
+    "explanation": "简洁的安慰语；更完整可说 Mach dir keine Sorgen。",
+    "exampleGerman": "Keine Sorge, wir haben noch genug Zeit.",
+    "exampleChinese": "别担心，我们还有足够的时间。",
+    "level": "A2",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-keine-sorge.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-einverstanden",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich bin damit einverstanden.",
+    "chinese": "我同意这个。",
+    "explanation": "用于较明确或正式地表示同意；damit 指前面提到的方案或决定。",
+    "exampleGerman": "Der Plan ist vernünftig. Ich bin damit einverstanden.",
+    "exampleChinese": "这个计划合理，我同意。",
+    "level": "B1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-einverstanden.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-anderer-meinung",
+    "type": "german",
+    "kind": "表达",
+    "german": "Da bin ich anderer Meinung.",
+    "chinese": "这一点我有不同意见。",
+    "explanation": "一种直接但不粗鲁的异议表达，适合讨论中使用。",
+    "exampleGerman": "Da bin ich anderer Meinung, weil die Daten noch fehlen.",
+    "exampleChinese": "这一点我看法不同，因为数据还不完整。",
+    "level": "B1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-anderer-meinung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-lass-uns",
+    "type": "german",
+    "kind": "表达",
+    "german": "Lass uns anfangen.",
+    "chinese": "我们开始吧。",
+    "explanation": "Lass uns + 不定式用于向熟人提出共同做某事。",
+    "exampleGerman": "Alle sind da. Lass uns anfangen.",
+    "exampleChinese": "大家都到了，我们开始吧。",
+    "level": "A2",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-lass-uns.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-freue-darauf",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich freue mich darauf.",
+    "chinese": "我很期待。",
+    "explanation": "sich auf etwas freuen 表示期待未来；sich über etwas freuen 多表示为已发生之事高兴。",
+    "exampleGerman": "Nächste Woche beginnt der Kurs. Ich freue mich darauf.",
+    "exampleChinese": "课程下周开始，我很期待。",
+    "level": "B1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-freue-darauf.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-vielen-dank",
+    "type": "german",
+    "kind": "表达",
+    "german": "Vielen Dank für Ihre Hilfe.",
+    "chinese": "非常感谢您的帮助。",
+    "explanation": "für 后接第四格；Ihre 是对对方的礼貌称呼。",
+    "exampleGerman": "Vielen Dank für Ihre schnelle Antwort.",
+    "exampleChinese": "非常感谢您的快速回复。",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-vielen-dank.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-gute-besserung",
+    "type": "german",
+    "kind": "表达",
+    "german": "Gute Besserung!",
+    "chinese": "祝你早日康复！",
+    "explanation": "对生病或受伤的人表达祝愿，正式与非正式场合都常见。",
+    "exampleGerman": "Du bist erkältet? Gute Besserung!",
+    "exampleChinese": "你感冒了吗？祝早日康复！",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-gute-besserung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-bis-bald",
+    "type": "german",
+    "kind": "表达",
+    "german": "Bis bald!",
+    "chinese": "回头见！",
+    "explanation": "适用于预计不久后再见；若明确日期，也可说 Bis morgen 或 Bis Montag。",
+    "exampleGerman": "Danke für das Gespräch. Bis bald!",
+    "exampleChinese": "谢谢这次交谈，回头见！",
+    "level": "A1",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-bis-bald.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-zeit-lassen",
+    "type": "german",
+    "kind": "表达",
+    "german": "Lass dir Zeit.",
+    "chinese": "慢慢来。",
+    "explanation": "字面是“给自己时间”，用于安慰对方不必匆忙。",
+    "exampleGerman": "Du musst nicht sofort antworten. Lass dir Zeit.",
+    "exampleChinese": "你不必马上回答，慢慢来。",
+    "level": "A2",
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "themeTags": [
+      "表达",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-zeit-lassen.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-nouns",
+    "type": "german",
+    "kind": "语法",
+    "german": "名词首字母大写",
+    "chinese": "德语所有名词都以大写字母开头。",
+    "explanation": "不仅专有名词如此，普通名词和名词化词语也大写。",
+    "exampleGerman": "Lesen macht mir Freude.",
+    "exampleChinese": "阅读给我带来快乐；Lesen 在此名词化并大写。",
+    "level": "A1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-nouns.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-gender",
+    "type": "german",
+    "kind": "语法",
+    "german": "der / die / das 与名词一起记",
+    "chinese": "德语名词有语法性，最好连冠词一起学习。",
+    "explanation": "自然性别不能完全预测语法性；例如 das Mädchen 是中性。",
+    "exampleGerman": "Auf dem Tisch stehen eine Lampe und ein kleines Modellhaus.",
+    "exampleChinese": "桌上放着一盏灯和一个小模型屋；三个名词分别展示不同冠词。",
+    "level": "A1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-gender.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-v2",
+    "type": "german",
+    "kind": "语法",
+    "german": "陈述句中的动词第二位",
+    "chinese": "主句变位动词通常占第二个句子成分的位置。",
+    "explanation": "第一位可以是主语、时间或其他成分；主语不一定永远在最前。",
+    "exampleGerman": "Heute lerne ich Deutsch.",
+    "exampleChinese": "今天我学习德语。",
+    "level": "A1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-v2.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-yes-no",
+    "type": "german",
+    "kind": "语法",
+    "german": "一般疑问句：动词在前",
+    "chinese": "不带疑问词的是非问句通常以变位动词开头。",
+    "explanation": "回答可用 ja、nein，或用完整句说明。",
+    "exampleGerman": "Kommst du morgen?",
+    "exampleChinese": "你明天来吗？",
+    "level": "A1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-yes-no.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-w-question",
+    "type": "german",
+    "kind": "语法",
+    "german": "W-Frage",
+    "chinese": "特殊疑问句常以 wer、was、wo、wann、warum、wie 等开头。",
+    "explanation": "疑问词后通常紧跟变位动词。",
+    "exampleGerman": "Warum lernst du Deutsch?",
+    "exampleChinese": "你为什么学德语？",
+    "level": "A1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-w-question.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-present",
+    "type": "german",
+    "kind": "语法",
+    "german": "现在时词尾",
+    "chinese": "规则动词随人称变化，如 ich lerne、du lernst、er lernt。",
+    "explanation": "德语现在时也常表达有时间标记的未来安排。",
+    "exampleGerman": "Morgen arbeite ich zu Hause.",
+    "exampleChinese": "明天我在家工作。",
+    "level": "A1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-present.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-sein-haben",
+    "type": "german",
+    "kind": "语法",
+    "german": "sein 与 haben",
+    "chinese": "“是”和“有”都是高频不规则动词，也用来构成其他时态。",
+    "explanation": "需要优先熟记其人称变化，如 ich bin、du bist、ich habe、du hast。",
+    "exampleGerman": "Ich bin müde, aber ich habe noch Zeit.",
+    "exampleChinese": "我很累，但我还有时间。",
+    "level": "A1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-sein-haben.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-modal",
+    "type": "german",
+    "kind": "语法",
+    "german": "情态动词 + 句末不定式",
+    "chinese": "有情态动词时，情态动词变位，主要动词原形通常放句末。",
+    "explanation": "常见情态动词有 können、müssen、dürfen、wollen、sollen、mögen。",
+    "exampleGerman": "Ich kann heute länger bleiben.",
+    "exampleChinese": "我今天可以多待一会儿。",
+    "level": "A1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-modal.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-separable",
+    "type": "german",
+    "kind": "语法",
+    "german": "可分动词",
+    "chinese": "主句中可分前缀常移到句末。",
+    "explanation": "例如 anrufen 在现在时主句中变成 ruft ... an。",
+    "exampleGerman": "Ich rufe dich heute Abend an.",
+    "exampleChinese": "我今晚给你打电话。",
+    "level": "A2",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-separable.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-negation",
+    "type": "german",
+    "kind": "语法",
+    "german": "nicht 与 kein",
+    "chinese": "kein 常否定无定冠词名词；nicht 否定动词、形容词、特定成分或整句。",
+    "explanation": "判断关键是被否定对象，而不是机械翻译成同一个“不”。",
+    "exampleGerman": "Ich habe kein Auto, aber ich wohne nicht weit weg.",
+    "exampleChinese": "我没有汽车，但我住得不远。",
+    "level": "A2",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-negation.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-accusative",
+    "type": "german",
+    "kind": "语法",
+    "german": "第四格 Akkusativ",
+    "chinese": "常标记直接宾语；阳性冠词 der 变为 den。",
+    "explanation": "中性、阴性和复数定冠词在第四格形式与第一格相同。",
+    "exampleGerman": "Ich sehe den Film.",
+    "exampleChinese": "我看这部电影。",
+    "level": "A2",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-accusative.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-dative",
+    "type": "german",
+    "kind": "语法",
+    "german": "第三格 Dativ",
+    "chinese": "常标记间接宾语，也由 mit、nach、bei、seit、von、zu 等介词支配。",
+    "explanation": "复数名词在第三格通常还加 -n，已有 n 或 s 结尾时除外。",
+    "exampleGerman": "Ich helfe meiner Nachbarin.",
+    "exampleChinese": "我帮助我的女邻居。",
+    "level": "A2",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-dative.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-two-way",
+    "type": "german",
+    "kind": "语法",
+    "german": "双向介词 Wechselpräpositionen",
+    "chinese": "an、auf、in 等表示位置时常用第三格，表示方向变化时常用第四格。",
+    "explanation": "可用“在哪里”与“去哪里”帮助判断，但仍要结合动词意义。",
+    "exampleGerman": "Das Buch liegt auf dem Tisch. Ich lege es auf den Tisch.",
+    "exampleChinese": "书在桌上。我把它放到桌上。",
+    "level": "A2",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-two-way.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-perfect",
+    "type": "german",
+    "kind": "语法",
+    "german": "完成时 Perfekt",
+    "chinese": "口语叙述过去常用 haben 或 sein 加第二分词。",
+    "explanation": "多数动词用 haben；许多表示位置变化或状态变化的不及物动词用 sein。",
+    "exampleGerman": "Wir sind nach Hause gegangen.",
+    "exampleChinese": "我们回家了。",
+    "level": "A2",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-perfect.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-preterite",
+    "type": "german",
+    "kind": "语法",
+    "german": "sein、haben 的过去时",
+    "chinese": "口语中 war 与 hatte 也非常常见，不必总用完成时。",
+    "explanation": "叙述背景状态时，简单过去时往往更自然。",
+    "exampleGerman": "Gestern war ich müde und hatte keine Zeit.",
+    "exampleChinese": "昨天我很累，也没有时间。",
+    "level": "A2",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-preterite.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-subordinate",
+    "type": "german",
+    "kind": "语法",
+    "german": "从句动词后置",
+    "chinese": "weil、dass 等连词引导的从句中，变位动词通常移到句末。",
+    "explanation": "从句放在主句前时，后面的主句仍遵守动词第二位。",
+    "exampleGerman": "Ich bleibe zu Hause, weil ich krank bin.",
+    "exampleChinese": "我待在家里，因为我生病了。",
+    "level": "B1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-subordinate.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-wuerde",
+    "type": "german",
+    "kind": "语法",
+    "german": "würde + 不定式",
+    "chinese": "常用来表达假设、愿望或礼貌语气。",
+    "explanation": "部分常用动词有独立第二虚拟式，如 wäre、hätte、könnte。",
+    "exampleGerman": "Ich würde gern länger bleiben.",
+    "exampleChinese": "我很想多待一会儿。",
+    "level": "B1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-wuerde.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-comparative",
+    "type": "german",
+    "kind": "语法",
+    "german": "比较级与最高级",
+    "chinese": "许多形容词用 -er 构成比较级，用 am ...-sten 表示表语最高级。",
+    "explanation": "部分高频词不规则，如 gut – besser – am besten。",
+    "exampleGerman": "Heute ist es wärmer als gestern.",
+    "exampleChinese": "今天比昨天暖和。",
+    "level": "A2",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "A2"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-comparative.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-tmp",
+    "type": "german",
+    "kind": "语法",
+    "german": "时间—方式—地点",
+    "chinese": "多个状语同时出现时，常见顺序是时间、方式、地点，但重点与语境可改变顺序。",
+    "explanation": "这是实用倾向，不是绝对不可打破的公式。",
+    "exampleGerman": "Ich fahre morgen mit dem Zug nach Berlin.",
+    "exampleChinese": "我明天坐火车去柏林。",
+    "level": "B1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-tmp.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-relative",
+    "type": "german",
+    "kind": "语法",
+    "german": "关系从句",
+    "chinese": "关系代词承接前面的名词，其格由它在关系从句中的作用决定。",
+    "explanation": "关系从句以逗号隔开，变位动词通常在从句末尾。",
+    "exampleGerman": "Das ist die Frau, die mir geholfen hat.",
+    "exampleChinese": "这就是帮助过我的那位女士。",
+    "level": "B1",
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "themeTags": [
+      "语法",
+      "B1"
+    ],
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-relative.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-termin",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Termin",
+    "chinese": "约定的时间；预约",
+    "explanation": "Termin 指已经安排好的会面或时间点，常用于看医生、办事和工作约见。",
+    "exampleGerman": "Ich habe morgen um zehn Uhr einen Termin.",
+    "exampleChinese": "我明天十点有一个预约。",
+    "level": "A1",
+    "themeTags": [
+      "时间",
+      "日常办事"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-termin.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-wohnung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Wohnung",
+    "chinese": "住宅；公寓",
+    "explanation": "Wohnung 是一套供人居住的房屋空间，注意阴性冠词 die。",
+    "exampleGerman": "Unsere Wohnung hat zwei Zimmer und einen Balkon.",
+    "exampleChinese": "我们的公寓有两个房间和一个阳台。",
+    "level": "A1",
+    "themeTags": [
+      "居住",
+      "日常生活"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-wohnung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-fahrplan",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Fahrplan",
+    "chinese": "时刻表；运行计划",
+    "explanation": "Fahrplan 可指公交、火车等交通工具公布的班次时间。",
+    "exampleGerman": "Der Fahrplan hängt neben dem Eingang.",
+    "exampleChinese": "时刻表贴在入口旁边。",
+    "level": "A1",
+    "themeTags": [
+      "旅行",
+      "交通"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-fahrplan.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-quittung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Quittung",
+    "chinese": "收据；付款凭证",
+    "explanation": "Quittung 是确认已经付款的凭证，与尚待支付的 Rechnung 不同。",
+    "exampleGerman": "Kann ich bitte eine Quittung bekommen?",
+    "exampleChinese": "请问我可以拿一张收据吗？",
+    "level": "A1",
+    "themeTags": [
+      "购物",
+      "日常办事"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-quittung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-schluessel",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Schlüssel",
+    "chinese": "钥匙",
+    "explanation": "复数是 die Schlüssel，元音不再变化。",
+    "exampleGerman": "Der Schlüssel liegt auf dem kleinen Tisch.",
+    "exampleChinese": "钥匙放在小桌子上。",
+    "level": "A1",
+    "themeTags": [
+      "居住",
+      "物品"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-schluessel.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-wetter",
+    "type": "german",
+    "kind": "词汇",
+    "german": "das Wetter",
+    "chinese": "天气",
+    "explanation": "Wetter 通常使用单数，用形容词描述当天或一段时间的天气状况。",
+    "exampleGerman": "Heute ist das Wetter sonnig, aber kühl.",
+    "exampleChinese": "今天天气晴朗，但有点凉。",
+    "level": "A1",
+    "themeTags": [
+      "自然",
+      "日常交流"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-wetter.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-nachbar",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Nachbar / die Nachbarin",
+    "chinese": "男邻居／女邻居",
+    "explanation": "德语职业和人物称谓常有阳性与阴性形式。",
+    "exampleGerman": "Meine Nachbarin gießt im Urlaub die Blumen.",
+    "exampleChinese": "我休假时，女邻居帮我给花浇水。",
+    "level": "A1",
+    "themeTags": [
+      "社区",
+      "人物"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-nachbar.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-pause",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Pause",
+    "chinese": "休息时间；间歇",
+    "explanation": "Pause 可用于工作、课程或演出中间的休息。",
+    "exampleGerman": "Nach der ersten Stunde machen wir eine kurze Pause.",
+    "exampleChinese": "第一节课后我们短暂休息一下。",
+    "level": "A1",
+    "themeTags": [
+      "学习",
+      "工作"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-pause.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-fruehstueck",
+    "type": "german",
+    "kind": "词汇",
+    "german": "das Frühstück",
+    "chinese": "早餐",
+    "explanation": "Frühstück 既可指早餐这顿饭，也可用于 frühstücken 表示吃早餐。",
+    "exampleGerman": "Zum Frühstück esse ich Brot und Obst.",
+    "exampleChinese": "早餐我吃面包和水果。",
+    "level": "A1",
+    "themeTags": [
+      "饮食",
+      "日常生活"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-fruehstueck.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-einkauf",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Einkauf",
+    "chinese": "采购；买来的东西",
+    "explanation": "Einkauf 强调购物这件事或采购结果，动词是 einkaufen。",
+    "exampleGerman": "Den Einkauf trage ich in einer Stofftasche nach Hause.",
+    "exampleChinese": "我用布袋把买的东西带回家。",
+    "level": "A1",
+    "themeTags": [
+      "购物",
+      "环保"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-einkauf.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-haltestelle",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Haltestelle",
+    "chinese": "公交车站；停靠站",
+    "explanation": "Haltestelle 是公共汽车、有轨电车等停靠的站点。",
+    "exampleGerman": "Die nächste Haltestelle ist nur fünf Minuten entfernt.",
+    "exampleChinese": "下一站只离这里五分钟。",
+    "level": "A1",
+    "themeTags": [
+      "交通",
+      "城市"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-haltestelle.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-eingang",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Eingang",
+    "chinese": "入口",
+    "explanation": "对应词 Ausgang 表示出口，公共场所常同时标出。",
+    "exampleGerman": "Der Eingang zum Museum ist auf der anderen Seite.",
+    "exampleChinese": "博物馆入口在另一边。",
+    "level": "A1",
+    "themeTags": [
+      "城市",
+      "方位"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-eingang.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-geschenk",
+    "type": "german",
+    "kind": "词汇",
+    "german": "das Geschenk",
+    "chinese": "礼物",
+    "explanation": "动词 schenken 表示赠送，常搭配第三格接受者和第四格礼物。",
+    "exampleGerman": "Wir bringen unserer Freundin ein kleines Geschenk mit.",
+    "exampleChinese": "我们给朋友带一份小礼物。",
+    "level": "A1",
+    "themeTags": [
+      "关系",
+      "节日"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-geschenk.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-geburtstag",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Geburtstag",
+    "chinese": "生日",
+    "explanation": "表达某人生日使用 Geburtstag haben，祝福可说 Alles Gute zum Geburtstag。",
+    "exampleGerman": "Mein Bruder hat heute Geburtstag.",
+    "exampleChinese": "我哥哥今天过生日。",
+    "level": "A1",
+    "themeTags": [
+      "时间",
+      "家庭"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-geburtstag.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-rechnung-basic",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Rechnung",
+    "chinese": "账单；发票",
+    "explanation": "在餐馆请求结账常说 die Rechnung, bitte；它表示应付金额，而非付款收据。",
+    "exampleGerman": "Die Rechnung kommt zusammen auf dreißig Euro.",
+    "exampleChinese": "账单合计三十欧元。",
+    "level": "A1",
+    "themeTags": [
+      "饮食",
+      "购物"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-rechnung-basic.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-wo-ist-toilette",
+    "type": "german",
+    "kind": "表达",
+    "german": "Wo ist die Toilette?",
+    "chinese": "洗手间在哪里？",
+    "explanation": "这是询问公共场所设施位置的直接、礼貌表达。",
+    "exampleGerman": "Entschuldigung, wo ist hier die Toilette?",
+    "exampleChinese": "打扰一下，这里的洗手间在哪里？",
+    "level": "A1",
+    "themeTags": [
+      "旅行",
+      "方位"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-wo-ist-toilette.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-wie-spaet",
+    "type": "german",
+    "kind": "表达",
+    "german": "Wie spät ist es?",
+    "chinese": "现在几点？",
+    "explanation": "询问钟点用 wie spät，回答常以 Es ist 开头。",
+    "exampleGerman": "Wie spät ist es jetzt in Berlin?",
+    "exampleChinese": "柏林现在几点？",
+    "level": "A1",
+    "themeTags": [
+      "时间",
+      "旅行"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-wie-spaet.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-ich-brauche",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich brauche …",
+    "chinese": "我需要……",
+    "explanation": "brauchen 后通常直接接第四格宾语。",
+    "exampleGerman": "Ich brauche eine Fahrkarte nach Köln.",
+    "exampleChinese": "我需要一张去科隆的车票。",
+    "level": "A1",
+    "themeTags": [
+      "交通",
+      "需求"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-ich-brauche.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-darf-ich",
+    "type": "german",
+    "kind": "表达",
+    "german": "Darf ich …?",
+    "chinese": "我可以……吗？",
+    "explanation": "用情态动词 dürfen 询问许可，比直接行动更礼貌。",
+    "exampleGerman": "Darf ich dieses Fenster öffnen?",
+    "exampleChinese": "我可以打开这扇窗户吗？",
+    "level": "A1",
+    "themeTags": [
+      "礼貌",
+      "日常交流"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-darf-ich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-koennen-wir",
+    "type": "german",
+    "kind": "表达",
+    "german": "Können wir …?",
+    "chinese": "我们能……吗？",
+    "explanation": "可用于协商共同安排，也可以礼貌提出请求。",
+    "exampleGerman": "Können wir uns morgen im Café treffen?",
+    "exampleChinese": "我们明天可以在咖啡馆见面吗？",
+    "level": "A1",
+    "themeTags": [
+      "计划",
+      "关系"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-koennen-wir.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-einen-moment",
+    "type": "german",
+    "kind": "表达",
+    "german": "Einen Moment, bitte.",
+    "chinese": "请稍等一下。",
+    "explanation": "这是一句简洁的请求，用于需要一点时间处理事情。",
+    "exampleGerman": "Einen Moment, bitte, ich suche die Adresse.",
+    "exampleChinese": "请稍等，我找一下地址。",
+    "level": "A1",
+    "themeTags": [
+      "礼貌",
+      "日常办事"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-einen-moment.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-weiss-nicht",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich weiß es nicht.",
+    "chinese": "我不知道。",
+    "explanation": "weiß 是 wissen 的第一人称单数形式，es 代指正在讨论的事情。",
+    "exampleGerman": "Ich weiß es nicht, aber ich kann nachfragen.",
+    "exampleChinese": "我不知道，但我可以问一下。",
+    "level": "A1",
+    "themeTags": [
+      "沟通",
+      "学习"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-weiss-nicht.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-bitte-langsam",
+    "type": "german",
+    "kind": "表达",
+    "german": "Bitte sprechen Sie langsam.",
+    "chinese": "请您说慢一点。",
+    "explanation": "向陌生人或工作人员请求放慢语速时使用 Sie 形式。",
+    "exampleGerman": "Bitte sprechen Sie langsam, denn ich lerne noch Deutsch.",
+    "exampleChinese": "请您说慢一点，因为我还在学德语。",
+    "level": "A1",
+    "themeTags": [
+      "语言学习",
+      "礼貌"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-bitte-langsam.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-was-kostet",
+    "type": "german",
+    "kind": "表达",
+    "german": "Was kostet das?",
+    "chinese": "这个多少钱？",
+    "explanation": "询问单件商品价格时可用 kosten 的第三人称单数 kostet。",
+    "exampleGerman": "Was kostet das Buch mit dem blauen Umschlag?",
+    "exampleChinese": "那本蓝色封面的书多少钱？",
+    "level": "A1",
+    "themeTags": [
+      "购物",
+      "数字"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-was-kostet.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-gleich-da",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich bin gleich da.",
+    "chinese": "我马上到。",
+    "explanation": "gleich 在这里表示很快、马上，并不承诺精确分钟数。",
+    "exampleGerman": "Warte bitte kurz, ich bin gleich da.",
+    "exampleChinese": "请稍等一下，我马上到。",
+    "level": "A1",
+    "themeTags": [
+      "时间",
+      "约会"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-gleich-da.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-plural",
+    "type": "german",
+    "kind": "语法",
+    "german": "名词复数形式",
+    "chinese": "德语名词有多种复数词尾，最好把复数与单数一起记。",
+    "explanation": "下面的完整例句展示“名词复数形式”在真实句子中的词序和词形。",
+    "exampleGerman": "Die Stadt hat einen Park, aber viele Museen.",
+    "exampleChinese": "这座城市有一个公园，但有许多博物馆。",
+    "level": "A1",
+    "themeTags": [
+      "语法基础",
+      "数量"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-plural.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-acc-pronouns",
+    "type": "german",
+    "kind": "语法",
+    "german": "第四格人称代词",
+    "chinese": "人称代词作直接宾语时会变化，例如 ich 变成 mich、du 变成 dich。",
+    "explanation": "下面的完整例句展示“第四格人称代词”在真实句子中的词序和词形。",
+    "exampleGerman": "Kannst du mich am Bahnhof abholen?",
+    "exampleChinese": "你能到车站接我吗？",
+    "level": "A1",
+    "themeTags": [
+      "语法基础",
+      "人物"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-acc-pronouns.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-possessive",
+    "type": "german",
+    "kind": "语法",
+    "german": "物主冠词 mein / dein",
+    "chinese": "物主冠词像不定冠词一样随名词性、数和格变化。",
+    "explanation": "下面的完整例句展示“物主冠词 mein / dein”在真实句子中的词序和词形。",
+    "exampleGerman": "Meine Schwester sucht ihren Schlüssel.",
+    "exampleChinese": "我妹妹在找她的钥匙。",
+    "level": "A1",
+    "themeTags": [
+      "语法基础",
+      "家庭"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-possessive.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-imperative-sie",
+    "type": "german",
+    "kind": "语法",
+    "german": "Sie 命令式",
+    "chinese": "正式命令或请求使用动词原形加 Sie，语气可用 bitte 缓和。",
+    "explanation": "下面的完整例句展示“Sie 命令式”在真实句子中的词序和词形。",
+    "exampleGerman": "Nehmen Sie bitte im Wartezimmer Platz.",
+    "exampleChinese": "请您在候诊室就座。",
+    "level": "A1",
+    "themeTags": [
+      "礼貌",
+      "日常办事"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-imperative-sie.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-es-gibt",
+    "type": "german",
+    "kind": "语法",
+    "german": "es gibt + 第四格",
+    "chinese": "es gibt 表示某处存在某物，后面的名词使用第四格。",
+    "explanation": "下面的完整例句展示“es gibt + 第四格”在真实句子中的词序和词形。",
+    "exampleGerman": "In unserer Straße gibt es einen kleinen Markt.",
+    "exampleChinese": "我们这条街上有一个小市场。",
+    "level": "A1",
+    "themeTags": [
+      "城市",
+      "语法基础"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-es-gibt.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-gern",
+    "type": "german",
+    "kind": "语法",
+    "german": "gern 表示乐意或喜欢",
+    "chinese": "gern 修饰动作，表达喜欢做某事；比较级 lieber 表示更喜欢。",
+    "explanation": "下面的完整例句展示“gern 表示乐意或喜欢”在真实句子中的词序和词形。",
+    "exampleGerman": "Am Wochenende koche ich gern mit Freunden.",
+    "exampleChinese": "周末我喜欢和朋友一起做饭。",
+    "level": "A1",
+    "themeTags": [
+      "偏好",
+      "日常生活"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-gern.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-inversion",
+    "type": "german",
+    "kind": "语法",
+    "german": "时间成分置于句首后的倒装",
+    "chinese": "时间或地点放在第一位时，变位动词仍在第二位，主语移到动词后。",
+    "explanation": "下面的完整例句展示“时间成分置于句首后的倒装”在真实句子中的词序和词形。",
+    "exampleGerman": "Nach der Arbeit gehe ich zu Fuß nach Hause.",
+    "exampleChinese": "下班后我步行回家。",
+    "level": "A1",
+    "themeTags": [
+      "词序",
+      "时间"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-inversion.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-gewohnheit",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Gewohnheit",
+    "chinese": "习惯",
+    "explanation": "Gewohnheit 指重复形成的行为或思维方式，可好可坏。",
+    "exampleGerman": "Ein kurzer Spaziergang nach dem Essen ist meine neue Gewohnheit.",
+    "exampleChinese": "饭后短暂散步是我的新习惯。",
+    "level": "A2",
+    "themeTags": [
+      "习惯",
+      "健康"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-gewohnheit.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-verspaetung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Verspätung",
+    "chinese": "晚点；迟到",
+    "explanation": "交通工具或人的延迟都可用 Verspätung 表达。",
+    "exampleGerman": "Wegen des starken Regens hat der Zug Verspätung.",
+    "exampleChinese": "因为大雨，火车晚点了。",
+    "level": "A2",
+    "themeTags": [
+      "交通",
+      "时间"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-verspaetung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-erfahrung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Erfahrung",
+    "chinese": "经验；经历",
+    "explanation": "可数时指一次经历，不可数或复数时常指积累的经验。",
+    "exampleGerman": "Bei diesem Projekt habe ich viel Erfahrung gesammelt.",
+    "exampleChinese": "我在这个项目中积累了很多经验。",
+    "level": "A2",
+    "themeTags": [
+      "工作",
+      "成长"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-erfahrung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-umweg",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Umweg",
+    "chinese": "绕路",
+    "explanation": "einen Umweg machen 表示没有走最直接的路线。",
+    "exampleGerman": "Die Brücke ist gesperrt, deshalb machen wir einen Umweg.",
+    "exampleChinese": "桥封了，所以我们得绕路。",
+    "level": "A2",
+    "themeTags": [
+      "交通",
+      "变化"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-umweg.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-aussicht",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Aussicht",
+    "chinese": "景色；前景",
+    "explanation": "Aussicht 既可指从某处看到的景观，也可指事情的可能前景。",
+    "exampleGerman": "Vom Turm hat man eine weite Aussicht über die Stadt.",
+    "exampleChinese": "从塔上可以远眺整座城市。",
+    "level": "A2",
+    "themeTags": [
+      "旅行",
+      "城市"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-aussicht.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-nachricht",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Nachricht",
+    "chinese": "消息；短讯",
+    "explanation": "Nachricht 可指私人消息，也可指新闻节目中的一则信息。",
+    "exampleGerman": "Ich schicke dir eine Nachricht, sobald ich angekommen bin.",
+    "exampleChinese": "我一到就给你发消息。",
+    "level": "A2",
+    "themeTags": [
+      "沟通",
+      "旅行"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-nachricht.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-vorschlag",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Vorschlag",
+    "chinese": "建议；提议",
+    "explanation": "einen Vorschlag machen 表示提出一个可供讨论的办法。",
+    "exampleGerman": "Dein Vorschlag spart uns viel Zeit.",
+    "exampleChinese": "你的建议为我们节省了很多时间。",
+    "level": "A2",
+    "themeTags": [
+      "协作",
+      "决策"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-vorschlag.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-unterkunft",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Unterkunft",
+    "chinese": "住宿地点",
+    "explanation": "Unterkunft 是旅馆、公寓、宿舍等临时或长期住处的总称。",
+    "exampleGerman": "Unsere Unterkunft liegt direkt an einer U-Bahn-Station.",
+    "exampleChinese": "我们的住处就在一个地铁站旁。",
+    "level": "A2",
+    "themeTags": [
+      "旅行",
+      "居住"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-unterkunft.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-abfahrt",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Abfahrt",
+    "chinese": "出发；发车",
+    "explanation": "时刻表中的 Abfahrt 与到达 Ankunft 相对。",
+    "exampleGerman": "Die Abfahrt des Busses verschiebt sich um zehn Minuten.",
+    "exampleChinese": "公交车的发车时间推迟十分钟。",
+    "level": "A2",
+    "themeTags": [
+      "交通",
+      "时间"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-abfahrt.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-rueckfahrt",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Rückfahrt",
+    "chinese": "返程",
+    "explanation": "Rückfahrt 指从目的地返回的旅程，常与 Hinfahrt 对照。",
+    "exampleGerman": "Für die Rückfahrt reservieren wir zwei Plätze.",
+    "exampleChinese": "我们为返程预订两个座位。",
+    "level": "A2",
+    "themeTags": [
+      "旅行",
+      "计划"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-rueckfahrt.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-unterschied",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Unterschied",
+    "chinese": "差别；不同",
+    "explanation": "der Unterschied zwischen A und B 用来明确比较两个对象。",
+    "exampleGerman": "Zwischen den beiden Tarifen gibt es einen wichtigen Unterschied.",
+    "exampleChinese": "这两种资费之间有一个重要区别。",
+    "level": "A2",
+    "themeTags": [
+      "比较",
+      "决策"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-unterschied.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-gelegenheit",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Gelegenheit",
+    "chinese": "机会；合适的时机",
+    "explanation": "Gelegenheit 强调可以做某事的具体时机。",
+    "exampleGerman": "Auf der Reise hatte ich Gelegenheit, viel Deutsch zu sprechen.",
+    "exampleChinese": "旅行中我有机会说了很多德语。",
+    "level": "A2",
+    "themeTags": [
+      "学习",
+      "旅行"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-gelegenheit.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-umgebung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Umgebung",
+    "chinese": "周边；环境",
+    "explanation": "Umgebung 指一个地点附近的区域，不等同于更广义的 Umwelt。",
+    "exampleGerman": "In der Umgebung des Sees gibt es mehrere Wanderwege.",
+    "exampleChinese": "湖周围有几条徒步路线。",
+    "level": "A2",
+    "themeTags": [
+      "自然",
+      "方位"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-umgebung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-verantwortung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Verantwortung",
+    "chinese": "责任",
+    "explanation": "Verantwortung übernehmen 表示主动承担对任务或结果的责任。",
+    "exampleGerman": "Jeder im Team übernimmt Verantwortung für einen Teil der Arbeit.",
+    "exampleChinese": "团队中的每个人都对一部分工作负责。",
+    "level": "A2",
+    "themeTags": [
+      "工作",
+      "协作"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-verantwortung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-melde-mich",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich melde mich später.",
+    "chinese": "我晚些时候联系你。",
+    "explanation": "sich melden 可表示主动联系或报到，具体方式由语境决定。",
+    "exampleGerman": "Ich melde mich später, wenn ich den Termin bestätigt habe.",
+    "exampleChinese": "我确认预约后再联系你。",
+    "level": "A2",
+    "themeTags": [
+      "沟通",
+      "计划"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-melde-mich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-passt-gut",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das passt mir gut.",
+    "chinese": "这个时间／安排很适合我。",
+    "explanation": "passen 搭配第三格，说明某事对某人合适。",
+    "exampleGerman": "Der Termin am Freitag passt mir gut.",
+    "exampleChinese": "周五的时间很适合我。",
+    "level": "A2",
+    "themeTags": [
+      "时间",
+      "协商"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-passt-gut.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-schaffe-nicht",
+    "type": "german",
+    "kind": "表达",
+    "german": "Leider schaffe ich es nicht.",
+    "chinese": "很遗憾，我来不及／做不到。",
+    "explanation": "es schaffen 强调成功完成或及时赶上，加入 leider 可缓和拒绝。",
+    "exampleGerman": "Leider schaffe ich es heute nicht vor sechs Uhr.",
+    "exampleChinese": "很遗憾，我今天六点前赶不到。",
+    "level": "A2",
+    "themeTags": [
+      "时间",
+      "礼貌拒绝"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-schaffe-nicht.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-termin-verschieben",
+    "type": "german",
+    "kind": "表达",
+    "german": "Könnten wir den Termin verschieben?",
+    "chinese": "我们可以改一下预约时间吗？",
+    "explanation": "Konjunktiv II 形式 könnten 使请求更礼貌。",
+    "exampleGerman": "Könnten wir den Termin auf nächste Woche verschieben?",
+    "exampleChinese": "我们能把预约改到下周吗？",
+    "level": "A2",
+    "themeTags": [
+      "计划",
+      "礼貌"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-termin-verschieben.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-unterwegs",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich bin unterwegs.",
+    "chinese": "我已经在路上了。",
+    "explanation": "unterwegs 表示正处于从一个地点到另一个地点的途中。",
+    "exampleGerman": "Ich bin schon unterwegs und komme in zwanzig Minuten an.",
+    "exampleChinese": "我已经在路上了，二十分钟后到。",
+    "level": "A2",
+    "themeTags": [
+      "交通",
+      "沟通"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-unterwegs.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-tut-mir-leid",
+    "type": "german",
+    "kind": "表达",
+    "german": "Es tut mir leid.",
+    "chinese": "对不起；我很遗憾。",
+    "explanation": "既可用于道歉，也可用于对不幸消息表达遗憾，语气由后文说明。",
+    "exampleGerman": "Es tut mir leid, dass ich deine Nachricht so spät beantwortet habe.",
+    "exampleChinese": "很抱歉，我这么晚才回复你的消息。",
+    "level": "A2",
+    "themeTags": [
+      "礼貌",
+      "关系"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-tut-mir-leid.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-kuemmere-darum",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich kümmere mich darum.",
+    "chinese": "我来处理这件事。",
+    "explanation": "sich um etwas kümmern 表示照料或负责处理，um 后接第四格。",
+    "exampleGerman": "Ich kümmere mich morgen um die Reservierung.",
+    "exampleChinese": "我明天来处理预订。",
+    "level": "A2",
+    "themeTags": [
+      "责任",
+      "计划"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-kuemmere-darum.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-bekannt-vor",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das kommt mir bekannt vor.",
+    "chinese": "这让我觉得似曾相识。",
+    "explanation": "jemandem bekannt vorkommen 用第三格表示某人觉得熟悉。",
+    "exampleGerman": "Der Name kommt mir bekannt vor, aber ich erinnere mich nicht genau.",
+    "exampleChinese": "这个名字我觉得耳熟，但记不清了。",
+    "level": "A2",
+    "themeTags": [
+      "记忆",
+      "沟通"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-bekannt-vor.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-geirrt",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich habe mich geirrt.",
+    "chinese": "我弄错了。",
+    "explanation": "sich irren 表示判断或记忆出错，是承认错误的直接表达。",
+    "exampleGerman": "Ich habe mich in der Hausnummer geirrt.",
+    "exampleChinese": "我把门牌号记错了。",
+    "level": "A2",
+    "themeTags": [
+      "纠错",
+      "日常办事"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-geirrt.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-wie-waere",
+    "type": "german",
+    "kind": "表达",
+    "german": "Wie wäre es mit …?",
+    "chinese": "……怎么样？",
+    "explanation": "用来提出建议，mit 后接第三格名词。",
+    "exampleGerman": "Wie wäre es mit einem Spaziergang am Fluss?",
+    "exampleChinese": "去河边散步怎么样？",
+    "level": "A2",
+    "themeTags": [
+      "建议",
+      "休闲"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-wie-waere.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-so-weit-gut",
+    "type": "german",
+    "kind": "表达",
+    "german": "So weit, so gut.",
+    "chinese": "到目前为止还不错。",
+    "explanation": "用于阶段性评价，表示目前没有明显问题，但事情尚未结束。",
+    "exampleGerman": "Der Plan funktioniert so weit ganz gut.",
+    "exampleChinese": "这个计划到目前为止运行得很好。",
+    "level": "A2",
+    "themeTags": [
+      "评价",
+      "进度"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-so-weit-gut.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-bin-dafuer",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich bin dafür.",
+    "chinese": "我赞成。",
+    "explanation": "dafür 指代前面提到的方案或观点，反义表达是 dagegen sein。",
+    "exampleGerman": "Ich bin dafür, dass wir öfter mit dem Fahrrad fahren.",
+    "exampleChinese": "我赞成我们多骑自行车。",
+    "level": "A2",
+    "themeTags": [
+      "观点",
+      "环保"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-bin-dafuer.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-reflexive",
+    "type": "german",
+    "kind": "语法",
+    "german": "反身动词与反身代词",
+    "chinese": "主语的动作返回自身时使用反身代词，例如 ich freue mich。",
+    "explanation": "下面的完整例句展示“反身动词与反身代词”在真实句子中的词序和词形。",
+    "exampleGerman": "Am Abend entspanne ich mich mit einem Buch.",
+    "exampleChinese": "晚上我读书放松。",
+    "level": "A2",
+    "themeTags": [
+      "语法",
+      "日常生活"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-reflexive.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-weil",
+    "type": "german",
+    "kind": "语法",
+    "german": "weil 原因从句",
+    "chinese": "weil 引导原因从句，变位动词通常放在从句末尾。",
+    "explanation": "下面的完整例句展示“weil 原因从句”在真实句子中的词序和词形。",
+    "exampleGerman": "Ich nehme den Bus, weil es stark regnet.",
+    "exampleChinese": "因为雨下得很大，我坐公交车。",
+    "level": "A2",
+    "themeTags": [
+      "原因",
+      "词序"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-weil.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-wenn",
+    "type": "german",
+    "kind": "语法",
+    "german": "wenn 条件或重复时间从句",
+    "chinese": "wenn 可表示条件，也可表示现在或过去反复发生的时间关系。",
+    "explanation": "下面的完整例句展示“wenn 条件或重复时间从句”在真实句子中的词序和词形。",
+    "exampleGerman": "Wenn ich Zeit habe, koche ich selbst.",
+    "exampleChinese": "如果我有时间，我就自己做饭。",
+    "level": "A2",
+    "themeTags": [
+      "条件",
+      "时间"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-wenn.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-infinitiv-zu",
+    "type": "german",
+    "kind": "语法",
+    "german": "zu + 不定式",
+    "chinese": "同一主语下表达计划、尝试或必要性时，常用 zu 加不定式结构。",
+    "explanation": "下面的完整例句展示“zu + 不定式”在真实句子中的词序和词形。",
+    "exampleGerman": "Ich versuche, jeden Tag zwanzig Minuten zu lesen.",
+    "exampleChinese": "我尽量每天读二十分钟。",
+    "level": "A2",
+    "themeTags": [
+      "计划",
+      "学习"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-infinitiv-zu.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-adjective-indefinite",
+    "type": "german",
+    "kind": "语法",
+    "german": "不定冠词后的形容词词尾",
+    "chinese": "形容词词尾补充不定冠词未明确表达的性、数和格信息。",
+    "explanation": "下面的完整例句展示“不定冠词后的形容词词尾”在真实句子中的词序和词形。",
+    "exampleGerman": "Wir suchen ein ruhiges Zimmer mit großem Fenster.",
+    "exampleChinese": "我们在找一间带大窗户的安静房间。",
+    "level": "A2",
+    "themeTags": [
+      "形容词",
+      "居住"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-adjective-indefinite.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-verbs-prepositions",
+    "type": "german",
+    "kind": "语法",
+    "german": "动词与固定介词",
+    "chinese": "许多动词要求固定介词和格，应作为整体学习。",
+    "explanation": "下面的完整例句展示“动词与固定介词”在真实句子中的词序和词形。",
+    "exampleGerman": "Sie wartet vor dem Kino auf ihre Freundin.",
+    "exampleChinese": "她在电影院前等朋友。",
+    "level": "A2",
+    "themeTags": [
+      "介词",
+      "词汇搭配"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-verbs-prepositions.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-past-modal",
+    "type": "german",
+    "kind": "语法",
+    "german": "情态动词的过去时",
+    "chinese": "口语叙述过去时，情态动词常直接使用 Präteritum，例如 musste、konnte。",
+    "explanation": "下面的完整例句展示“情态动词的过去时”在真实句子中的词序和词形。",
+    "exampleGerman": "Gestern musste ich länger im Büro bleiben.",
+    "exampleChinese": "昨天我不得不在办公室多待一会儿。",
+    "level": "A2",
+    "themeTags": [
+      "过去",
+      "工作"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-past-modal.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-herausforderung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Herausforderung",
+    "chinese": "挑战",
+    "explanation": "指需要投入能力和努力才能处理的任务，不一定含负面意味。",
+    "exampleGerman": "Die größte Herausforderung war die knappe Vorbereitungszeit.",
+    "exampleChinese": "最大的挑战是准备时间很紧。",
+    "level": "B1",
+    "themeTags": [
+      "工作",
+      "成长"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-herausforderung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-voraussetzung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Voraussetzung",
+    "chinese": "前提；必要条件",
+    "explanation": "Voraussetzung 表示某事发生或成功之前必须满足的条件。",
+    "exampleGerman": "Regelmäßiges Üben ist eine wichtige Voraussetzung für Fortschritt.",
+    "exampleChinese": "规律练习是取得进步的重要前提。",
+    "level": "B1",
+    "themeTags": [
+      "学习",
+      "条件"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-voraussetzung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-ruecksicht",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Rücksicht",
+    "chinese": "体谅；顾及",
+    "explanation": "Rücksicht auf jemanden oder etwas nehmen 表示考虑他人或环境。",
+    "exampleGerman": "Im Zug sollten alle Reisenden Rücksicht aufeinander nehmen.",
+    "exampleChinese": "在火车上，所有乘客都应彼此体谅。",
+    "level": "B1",
+    "themeTags": [
+      "公共空间",
+      "关系"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-ruecksicht.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-erkenntnis",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Erkenntnis",
+    "chinese": "认识；领悟",
+    "explanation": "指经过观察或思考获得的新理解。",
+    "exampleGerman": "Aus dem Gespräch gewann sie eine wichtige Erkenntnis.",
+    "exampleChinese": "她从那次谈话中获得了一个重要认识。",
+    "level": "B1",
+    "themeTags": [
+      "思考",
+      "学习"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-erkenntnis.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-zusammenhang",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Zusammenhang",
+    "chinese": "关联；上下文",
+    "explanation": "既可表示事物之间的联系，也可表示一句话所处的语境。",
+    "exampleGerman": "Ohne den historischen Zusammenhang bleibt die Entscheidung schwer verständlich.",
+    "exampleChinese": "脱离历史背景，这项决定很难理解。",
+    "level": "B1",
+    "themeTags": [
+      "历史",
+      "分析"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-zusammenhang.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-auswirkung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Auswirkung",
+    "chinese": "影响；后果",
+    "explanation": "常用 Auswirkungen auf 加第四格，说明某事带来的结果。",
+    "exampleGerman": "Die neue Buslinie hat positive Auswirkungen auf den Stadtteil.",
+    "exampleChinese": "新公交线路对这个城区产生了积极影响。",
+    "level": "B1",
+    "themeTags": [
+      "城市",
+      "因果"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-auswirkung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-schwerpunkt",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Schwerpunkt",
+    "chinese": "重点；重心",
+    "explanation": "Schwerpunkt 指内容、工作或研究中特别集中的部分。",
+    "exampleGerman": "Der Schwerpunkt des Kurses liegt auf dem freien Sprechen.",
+    "exampleChinese": "这门课的重点是自由表达。",
+    "level": "B1",
+    "themeTags": [
+      "学习",
+      "计划"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-schwerpunkt.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-fortschritt",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Fortschritt",
+    "chinese": "进步；进展",
+    "explanation": "Fortschritt 可数时指具体进展，作为总体进步时常用单数。",
+    "exampleGerman": "Kleine tägliche Schritte führen oft zu sichtbarem Fortschritt.",
+    "exampleChinese": "每天的小进步往往会带来可见的成长。",
+    "level": "B1",
+    "themeTags": [
+      "成长",
+      "习惯"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-fortschritt.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-aufwand",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Aufwand",
+    "chinese": "投入；花费的精力或资源",
+    "explanation": "Aufwand 不只指金钱，也包括时间、组织和劳动。",
+    "exampleGerman": "Der organisatorische Aufwand war größer als erwartet.",
+    "exampleChinese": "组织工作所需的投入比预期更大。",
+    "level": "B1",
+    "themeTags": [
+      "工作",
+      "资源"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-aufwand.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-zweifel",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Zweifel",
+    "chinese": "怀疑；疑虑",
+    "explanation": "Zweifel an etwas haben 使用 an 加第三格。",
+    "exampleGerman": "Nach dem Test hatte er keinen Zweifel mehr an der Lösung.",
+    "exampleChinese": "测试之后，他对这个方案不再有疑问。",
+    "level": "B1",
+    "themeTags": [
+      "判断",
+      "证据"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-zweifel.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-beitrag",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Beitrag",
+    "chinese": "贡献；文章；费用",
+    "explanation": "含义依语境而变，可指贡献、媒体内容或需缴纳的款项。",
+    "exampleGerman": "Jede Person kann einen kleinen Beitrag zum Projekt leisten.",
+    "exampleChinese": "每个人都可以为项目作出一点贡献。",
+    "level": "B1",
+    "themeTags": [
+      "协作",
+      "责任"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-beitrag.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-eindruck",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Eindruck",
+    "chinese": "印象",
+    "explanation": "einen Eindruck von etwas bekommen 表示对某事形成初步认识。",
+    "exampleGerman": "Die Ausstellung vermittelt einen lebendigen Eindruck vom damaligen Alltag.",
+    "exampleChinese": "展览生动呈现了当时的日常生活。",
+    "level": "B1",
+    "themeTags": [
+      "历史",
+      "感受"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-eindruck.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-meiner-erfahrung",
+    "type": "german",
+    "kind": "表达",
+    "german": "Meiner Erfahrung nach …",
+    "chinese": "根据我的经验……",
+    "explanation": "用于明确观点来自个人经验，而不是普遍事实。",
+    "exampleGerman": "Meiner Erfahrung nach lernt man Wörter besser im Zusammenhang.",
+    "exampleChinese": "根据我的经验，在语境中学单词效果更好。",
+    "level": "B1",
+    "themeTags": [
+      "观点",
+      "学习"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-meiner-erfahrung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-einerseits-andererseits",
+    "type": "german",
+    "kind": "表达",
+    "german": "einerseits …, andererseits …",
+    "chinese": "一方面……，另一方面……",
+    "explanation": "成对连接两个需要同时权衡的方面。",
+    "exampleGerman": "Einerseits spart die App Zeit, andererseits sammelt sie viele Daten.",
+    "exampleChinese": "一方面这款应用节省时间，另一方面它收集很多数据。",
+    "level": "B1",
+    "themeTags": [
+      "权衡",
+      "科技"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-einerseits-andererseits.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-gehe-davon-aus",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich gehe davon aus, dass …",
+    "chinese": "我认为／假定……",
+    "explanation": "说明一个当前采用但仍可能修正的假设。",
+    "exampleGerman": "Ich gehe davon aus, dass der Zug pünktlich abfährt.",
+    "exampleChinese": "我暂且认为火车会准点出发。",
+    "level": "B1",
+    "themeTags": [
+      "推测",
+      "计划"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-gehe-davon-aus.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-ueberzeugt-nicht",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das überzeugt mich nicht ganz.",
+    "chinese": "这并没有完全说服我。",
+    "explanation": "比直接说 falsch 更缓和，适合在讨论中表达保留意见。",
+    "exampleGerman": "Das Argument überzeugt mich nicht ganz, weil ein Beleg fehlt.",
+    "exampleChinese": "这个论点没有完全说服我，因为缺少证据。",
+    "level": "B1",
+    "themeTags": [
+      "讨论",
+      "证据"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-ueberzeugt-nicht.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-darauf-hinaus",
+    "type": "german",
+    "kind": "表达",
+    "german": "Darauf wollte ich hinaus.",
+    "chinese": "这正是我想表达的重点。",
+    "explanation": "用于确认对方抓住了自己论述的核心。",
+    "exampleGerman": "Genau, darauf wollte ich mit meinem Beispiel hinaus.",
+    "exampleChinese": "没错，我举这个例子正是想说明这一点。",
+    "level": "B1",
+    "themeTags": [
+      "讨论",
+      "沟通"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-darauf-hinaus.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grossen-ganzen",
+    "type": "german",
+    "kind": "表达",
+    "german": "Im Großen und Ganzen …",
+    "chinese": "总的来说……",
+    "explanation": "概括总体判断，同时允许存在少量例外。",
+    "exampleGerman": "Im Großen und Ganzen hat die Zusammenarbeit gut funktioniert.",
+    "exampleChinese": "总的来说，这次合作进行得很顺利。",
+    "level": "B1",
+    "themeTags": [
+      "总结",
+      "工作"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grossen-ganzen.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-lohnt-sich",
+    "type": "german",
+    "kind": "表达",
+    "german": "Es lohnt sich, …",
+    "chinese": "……是值得的。",
+    "explanation": "后接 zu 不定式，说明投入与收获之间值得。",
+    "exampleGerman": "Es lohnt sich, vor der Reise einige Sätze zu üben.",
+    "exampleChinese": "旅行前练习几个句子是值得的。",
+    "level": "B1",
+    "themeTags": [
+      "评价",
+      "旅行"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-lohnt-sich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-unter-umstaenden",
+    "type": "german",
+    "kind": "表达",
+    "german": "Unter diesen Umständen …",
+    "chinese": "在这些情况下……",
+    "explanation": "用于说明结论依赖当前条件。",
+    "exampleGerman": "Unter diesen Umständen sollten wir den Plan noch einmal prüfen.",
+    "exampleChinese": "在这种情况下，我们应再检查一次计划。",
+    "level": "B1",
+    "themeTags": [
+      "条件",
+      "决策"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-unter-umstaenden.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-soweit-weiss",
+    "type": "german",
+    "kind": "表达",
+    "german": "Soweit ich weiß, …",
+    "chinese": "据我所知……",
+    "explanation": "限制自己陈述的确定范围，避免把未核实信息说成绝对事实。",
+    "exampleGerman": "Soweit ich weiß, bleibt das Museum montags geschlossen.",
+    "exampleChinese": "据我所知，博物馆周一闭馆。",
+    "level": "B1",
+    "themeTags": [
+      "信息边界",
+      "旅行"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-soweit-weiss.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-haengt-zusammen",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das hängt damit zusammen, dass …",
+    "chinese": "这与……有关。",
+    "explanation": "用于引出原因或关联，但并不自动证明因果关系。",
+    "exampleGerman": "Das hängt damit zusammen, dass viele Menschen von zu Hause arbeiten.",
+    "exampleChinese": "这与许多人居家办公有关。",
+    "level": "B1",
+    "themeTags": [
+      "因果",
+      "分析"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-haengt-zusammen.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-etwas-anders",
+    "type": "german",
+    "kind": "表达",
+    "german": "Ich sehe das etwas anders.",
+    "chinese": "我对此看法略有不同。",
+    "explanation": "礼貌表达异议，并为进一步说明理由留出空间。",
+    "exampleGerman": "Ich sehe das etwas anders und möchte einen zweiten Aspekt nennen.",
+    "exampleChinese": "我的看法略有不同，想再提出一个方面。",
+    "level": "B1",
+    "themeTags": [
+      "讨论",
+      "礼貌"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-etwas-anders.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-ehrlich-sein",
+    "type": "german",
+    "kind": "表达",
+    "german": "Um ehrlich zu sein, …",
+    "chinese": "坦率地说……",
+    "explanation": "用来引出较直接的个人评价，仍应注意后文语气。",
+    "exampleGerman": "Um ehrlich zu sein, war mir das Programm zu voll.",
+    "exampleChinese": "坦率地说，我觉得行程安排得太满。",
+    "level": "B1",
+    "themeTags": [
+      "观点",
+      "旅行"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-ehrlich-sein.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-laesst-aendern",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das lässt sich ändern.",
+    "chinese": "这可以改变。",
+    "explanation": "lassen sich 加不定式常表达某事具有可实现性。",
+    "exampleGerman": "Die Reihenfolge lässt sich ohne großen Aufwand ändern.",
+    "exampleChinese": "这个顺序不费太大力气就可以调整。",
+    "level": "B1",
+    "themeTags": [
+      "解决问题",
+      "计划"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-laesst-aendern.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-obwohl",
+    "type": "german",
+    "kind": "语法",
+    "german": "obwohl 让步从句",
+    "chinese": "obwohl 引出与主句结果相反或形成反差的事实，动词在从句末。",
+    "explanation": "下面的完整例句展示“obwohl 让步从句”在真实句子中的词序和词形。",
+    "exampleGerman": "Obwohl es regnete, gingen wir zu Fuß weiter.",
+    "exampleChinese": "尽管下雨了，我们还是继续步行。",
+    "level": "B1",
+    "themeTags": [
+      "让步",
+      "词序"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-obwohl.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-waehrend",
+    "type": "german",
+    "kind": "语法",
+    "german": "während 表示同时或对比",
+    "chinese": "während 可连接同时发生的动作，也可对照两种情况。",
+    "explanation": "下面的完整例句展示“während 表示同时或对比”在真实句子中的词序和词形。",
+    "exampleGerman": "Während ich koche, deckt mein Bruder den Tisch.",
+    "exampleChinese": "我做饭时，哥哥在摆餐具。",
+    "level": "B1",
+    "themeTags": [
+      "时间",
+      "对比"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-waehrend.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-nachdem",
+    "type": "german",
+    "kind": "语法",
+    "german": "nachdem 与先后关系",
+    "chinese": "nachdem 引导先发生的动作，主句描述其后发生的事情。",
+    "explanation": "下面的完整例句展示“nachdem 与先后关系”在真实句子中的词序和词形。",
+    "exampleGerman": "Nachdem sie den Bericht gelesen hatte, stellte sie zwei Fragen.",
+    "exampleChinese": "她读完报告后提出了两个问题。",
+    "level": "B1",
+    "themeTags": [
+      "时间",
+      "过去"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-nachdem.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-passive-present",
+    "type": "german",
+    "kind": "语法",
+    "german": "现在时被动态",
+    "chinese": "werden 加第二分词把注意力放在过程或受事，而非执行者。",
+    "explanation": "下面的完整例句展示“现在时被动态”在真实句子中的词序和词形。",
+    "exampleGerman": "Die alten Fenster werden im Sommer repariert.",
+    "exampleChinese": "旧窗户将在夏天维修。",
+    "level": "B1",
+    "themeTags": [
+      "被动态",
+      "城市"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-passive-present.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-relative-dative",
+    "type": "german",
+    "kind": "语法",
+    "german": "第三格关系代词",
+    "chinese": "关系代词的格由它在关系从句中的作用决定。",
+    "explanation": "下面的完整例句展示“第三格关系代词”在真实句子中的词序和词形。",
+    "exampleGerman": "Die Kollegin, mit der ich arbeite, spricht drei Sprachen.",
+    "exampleChinese": "和我一起工作的那位同事会说三种语言。",
+    "level": "B1",
+    "themeTags": [
+      "关系从句",
+      "工作"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-relative-dative.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-konjunktiv-polite",
+    "type": "german",
+    "kind": "语法",
+    "german": "Konjunktiv II 的礼貌请求",
+    "chinese": "würden、könnten、hätten 等形式能让请求和愿望更委婉。",
+    "explanation": "下面的完整例句展示“Konjunktiv II 的礼貌请求”在真实句子中的词序和词形。",
+    "exampleGerman": "Könnten Sie mir sagen, wann der Kurs beginnt?",
+    "exampleChinese": "您能告诉我课程什么时候开始吗？",
+    "level": "B1",
+    "themeTags": [
+      "礼貌",
+      "语气"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-konjunktiv-polite.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-damit-umzu",
+    "type": "german",
+    "kind": "语法",
+    "german": "damit 与 um … zu",
+    "chinese": "主从句主语相同时常用 um zu；主语不同时使用 damit 从句。",
+    "explanation": "下面的完整例句展示“damit 与 um … zu”在真实句子中的词序和词形。",
+    "exampleGerman": "Ich schreibe alles auf, damit niemand die Aufgabe vergisst.",
+    "exampleChinese": "我把一切写下来，以免有人忘记任务。",
+    "level": "B1",
+    "themeTags": [
+      "目的",
+      "协作"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-damit-umzu.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-da-compounds",
+    "type": "german",
+    "kind": "语法",
+    "german": "da(r)- 代副词",
+    "chinese": "谈论事物时，可用 daran、darauf、darüber 等代替介词加 es。",
+    "explanation": "下面的完整例句展示“da(r)- 代副词”在真实句子中的词序和词形。",
+    "exampleGerman": "Wir sprechen morgen darüber, wie das Problem gelöst werden kann.",
+    "exampleChinese": "我们明天讨论这个问题该如何解决。",
+    "level": "B1",
+    "themeTags": [
+      "代词",
+      "讨论"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-da-compounds.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-adjective-definite",
+    "type": "german",
+    "kind": "语法",
+    "german": "定冠词后的形容词词尾",
+    "chinese": "定冠词已明确性数格时，形容词多采用弱变化词尾。",
+    "explanation": "下面的完整例句展示“定冠词后的形容词词尾”在真实句子中的词序和词形。",
+    "exampleGerman": "Die neue Bibliothek steht neben dem alten Rathaus.",
+    "exampleChinese": "新图书馆在老市政厅旁边。",
+    "level": "B1",
+    "themeTags": [
+      "形容词",
+      "城市"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-adjective-definite.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-genitive-prepositions",
+    "type": "german",
+    "kind": "语法",
+    "german": "部分介词支配第二格",
+    "chinese": "trotz、während、wegen 等在正式标准语中常与第二格搭配。",
+    "explanation": "下面的完整例句展示“部分介词支配第二格”在真实句子中的词序和词形。",
+    "exampleGerman": "Trotz des kalten Windes blieb die Gruppe am See.",
+    "exampleChinese": "尽管风很冷，这群人仍留在湖边。",
+    "level": "B1",
+    "themeTags": [
+      "介词",
+      "书面语"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-genitive-prepositions.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-indirect-question",
+    "type": "german",
+    "kind": "语法",
+    "german": "间接疑问句",
+    "chinese": "间接疑问用疑问词或 ob 引导，变位动词位于从句末。",
+    "explanation": "下面的完整例句展示“间接疑问句”在真实句子中的词序和词形。",
+    "exampleGerman": "Weißt du, ob der Laden heute länger geöffnet ist?",
+    "exampleChinese": "你知道那家店今天是否延长营业吗？",
+    "level": "B1",
+    "themeTags": [
+      "疑问",
+      "词序"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-indirect-question.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-nachvollziehbar",
+    "type": "german",
+    "kind": "词汇",
+    "german": "nachvollziehbar",
+    "chinese": "可以理解的；可追溯的",
+    "explanation": "既可评价推理容易理解，也可表示过程能够被核查。",
+    "exampleGerman": "Die Entscheidung ist nur nachvollziehbar, wenn die Kriterien offenliegen.",
+    "exampleChinese": "只有公开标准，这项决定才容易理解和核查。",
+    "level": "B2",
+    "themeTags": [
+      "透明度",
+      "判断"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-nachvollziehbar.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-zwiespaeltig",
+    "type": "german",
+    "kind": "词汇",
+    "german": "zwiespältig",
+    "chinese": "矛盾的；心情复杂的",
+    "explanation": "描述对同一对象同时持有正反两种感受或评价。",
+    "exampleGerman": "Viele Bewohner sehen das Bauprojekt zwiespältig.",
+    "exampleChinese": "许多居民对这个建设项目心情复杂。",
+    "level": "B2",
+    "themeTags": [
+      "权衡",
+      "城市"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-zwiespaeltig.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-ausschlaggebend",
+    "type": "german",
+    "kind": "词汇",
+    "german": "ausschlaggebend",
+    "chinese": "起决定作用的",
+    "explanation": "指出在多个因素中最终改变结果的关键因素。",
+    "exampleGerman": "Für unsere Wahl war die gute Zugverbindung ausschlaggebend.",
+    "exampleChinese": "良好的铁路连接是我们作出选择的决定性因素。",
+    "level": "B2",
+    "themeTags": [
+      "决策",
+      "交通"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-ausschlaggebend.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-verlaesslich",
+    "type": "german",
+    "kind": "词汇",
+    "german": "verlässlich",
+    "chinese": "可靠的",
+    "explanation": "可形容人、数据、方法或安排值得依赖。",
+    "exampleGerman": "Für den Vergleich brauchen wir verlässliche und aktuelle Daten.",
+    "exampleChinese": "为了比较，我们需要可靠且最新的数据。",
+    "level": "B2",
+    "themeTags": [
+      "证据",
+      "研究"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-verlaesslich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-angemessen",
+    "type": "german",
+    "kind": "词汇",
+    "german": "angemessen",
+    "chinese": "适当的；相称的",
+    "explanation": "评价反应、成本或行为是否符合具体情境和尺度。",
+    "exampleGerman": "Die Maßnahme sollte dem tatsächlichen Risiko angemessen sein.",
+    "exampleChinese": "措施应与实际风险相称。",
+    "level": "B2",
+    "themeTags": [
+      "风险",
+      "判断"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-angemessen.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-unerlaesslich",
+    "type": "german",
+    "kind": "词汇",
+    "german": "unerlässlich",
+    "chinese": "不可或缺的",
+    "explanation": "比 wichtig 语气更强，表示没有该条件就难以实现目标。",
+    "exampleGerman": "Eine klare Quellenangabe ist für die Überprüfung unerlässlich.",
+    "exampleChinese": "清楚标明来源对核查而言不可或缺。",
+    "level": "B2",
+    "themeTags": [
+      "来源",
+      "研究"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-unerlaesslich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-vielschichtig",
+    "type": "german",
+    "kind": "词汇",
+    "german": "vielschichtig",
+    "chinese": "多层面的；复杂的",
+    "explanation": "强调问题由多种相互作用的层次构成，不能单一解释。",
+    "exampleGerman": "Die Geschichte der Stadt ist vielschichtiger, als der kurze Text vermuten lässt.",
+    "exampleChinese": "这座城市的历史比短文呈现的更为多层。",
+    "level": "B2",
+    "themeTags": [
+      "历史",
+      "复杂性"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-vielschichtig.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-umstritten",
+    "type": "german",
+    "kind": "词汇",
+    "german": "umstritten",
+    "chinese": "有争议的",
+    "explanation": "表示专家、公众或群体对某事存在持续分歧，而非简单等同于错误。",
+    "exampleGerman": "Die vorgeschlagene Regelung bleibt politisch umstritten.",
+    "exampleChinese": "拟议中的规定在政治上仍有争议。",
+    "level": "B2",
+    "themeTags": [
+      "公共讨论",
+      "政策"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-umstritten.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-langfristig",
+    "type": "german",
+    "kind": "词汇",
+    "german": "langfristig",
+    "chinese": "长期来看；长期的",
+    "explanation": "强调超出眼前效果的较长时间尺度。",
+    "exampleGerman": "Langfristig ist regelmäßige Wartung günstiger als ständige Reparaturen.",
+    "exampleChinese": "从长期看，定期维护比不断维修更省钱。",
+    "level": "B2",
+    "themeTags": [
+      "时间",
+      "规划"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-langfristig.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-gegenwaertig",
+    "type": "german",
+    "kind": "词汇",
+    "german": "gegenwärtig",
+    "chinese": "目前的；当前",
+    "explanation": "书面语中常用于限定信息只适用于当前时点。",
+    "exampleGerman": "Gegenwärtig liegen noch nicht genügend Ergebnisse vor.",
+    "exampleChinese": "目前还没有足够的结果。",
+    "level": "B2",
+    "themeTags": [
+      "信息边界",
+      "时间"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-gegenwaertig.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-spielraum",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Spielraum",
+    "chinese": "余地；操作空间",
+    "explanation": "既可指实际空间，也常比喻可调整和决策的范围。",
+    "exampleGerman": "Der enge Zeitplan lässt kaum Spielraum für zusätzliche Aufgaben.",
+    "exampleChinese": "紧凑的时间表几乎不给额外任务留下余地。",
+    "level": "B2",
+    "themeTags": [
+      "计划",
+      "资源"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-spielraum.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-stellenwert",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Stellenwert",
+    "chinese": "重要程度；地位",
+    "explanation": "用于比较某个因素在整体中的重要性。",
+    "exampleGerman": "Öffentliche Bibliotheken haben in diesem Viertel einen hohen Stellenwert.",
+    "exampleChinese": "公共图书馆在这个城区具有很高的重要性。",
+    "level": "B2",
+    "themeTags": [
+      "公共空间",
+      "价值"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-stellenwert.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-wechselwirkung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Wechselwirkung",
+    "chinese": "相互作用",
+    "explanation": "强调两个或多个因素彼此影响，不是单向因果。",
+    "exampleGerman": "Die Studie untersucht die Wechselwirkung zwischen Schlaf und Stress.",
+    "exampleChinese": "这项研究考察睡眠与压力之间的相互作用。",
+    "level": "B2",
+    "themeTags": [
+      "科学",
+      "因果"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-wechselwirkung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-tragweite",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Tragweite",
+    "chinese": "影响范围；深远意义",
+    "explanation": "指决定或事件可能带来的广泛和长期后果。",
+    "exampleGerman": "Die Tragweite der Änderung wurde anfangs unterschätzt.",
+    "exampleChinese": "这项变化的深远影响起初被低估了。",
+    "level": "B2",
+    "themeTags": [
+      "后果",
+      "决策"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-tragweite.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-einwand",
+    "type": "german",
+    "kind": "词汇",
+    "german": "der Einwand",
+    "chinese": "反对意见；异议",
+    "explanation": "Einwand 针对论点或方案提出具体问题，应与一般不满区分。",
+    "exampleGerman": "Gegen den Vorschlag wurde ein sachlicher Einwand erhoben.",
+    "exampleChinese": "有人针对这个建议提出了一项实质性异议。",
+    "level": "B2",
+    "themeTags": [
+      "讨论",
+      "论证"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-einwand.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-abwaegung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Abwägung",
+    "chinese": "权衡",
+    "explanation": "表示根据多个目标、收益和风险作出比较判断。",
+    "exampleGerman": "Die Entscheidung erfordert eine sorgfältige Abwägung von Nutzen und Kosten.",
+    "exampleChinese": "这项决定需要仔细权衡收益与成本。",
+    "level": "B2",
+    "themeTags": [
+      "决策",
+      "风险"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-abwaegung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-herangehensweise",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Herangehensweise",
+    "chinese": "处理方式；方法路径",
+    "explanation": "指面对问题时采用的总体思路和步骤。",
+    "exampleGerman": "Eine schrittweise Herangehensweise erleichtert die Fehlersuche.",
+    "exampleChinese": "循序渐进的处理方式有助于排查错误。",
+    "level": "B2",
+    "themeTags": [
+      "方法",
+      "解决问题"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-herangehensweise.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-rahmenbedingung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Rahmenbedingung",
+    "chinese": "外部条件；框架条件",
+    "explanation": "通常用复数，指个人难以立即改变但会影响行动的制度或环境条件。",
+    "exampleGerman": "Gute Ideen scheitern manchmal an ungünstigen Rahmenbedingungen.",
+    "exampleChinese": "好想法有时会因为不利的外部条件而失败。",
+    "level": "B2",
+    "themeTags": [
+      "制度",
+      "环境"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-rahmenbedingung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-schlussfolgerung",
+    "type": "german",
+    "kind": "词汇",
+    "german": "die Schlussfolgerung",
+    "chinese": "结论；推论",
+    "explanation": "指从事实或论证中推导出的判断，仍需检查前提是否充分。",
+    "exampleGerman": "Aus einer einzelnen Beobachtung lässt sich keine sichere Schlussfolgerung ziehen.",
+    "exampleChinese": "不能从单次观察中得出可靠结论。",
+    "level": "B2",
+    "themeTags": [
+      "推理",
+      "证据"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-schlussfolgerung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-spricht-dafuer",
+    "type": "german",
+    "kind": "表达",
+    "german": "Es spricht vieles dafür, dass …",
+    "chinese": "有许多理由表明……",
+    "explanation": "表达证据倾向某个结论，但保留不确定性。",
+    "exampleGerman": "Es spricht vieles dafür, dass kleine Änderungen dauerhaft wirksamer sind.",
+    "exampleChinese": "有许多理由表明，小幅改变更容易长期奏效。",
+    "level": "B2",
+    "themeTags": [
+      "论证",
+      "不确定性"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-spricht-dafuer.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-nichtsdestotrotz",
+    "type": "german",
+    "kind": "表达",
+    "german": "Nichtsdestotrotz …",
+    "chinese": "尽管如此……",
+    "explanation": "正式连接词，用于承认前述事实后引出仍然成立的判断。",
+    "exampleGerman": "Die Daten sind unvollständig; nichtsdestotrotz zeigen sie einen klaren Trend.",
+    "exampleChinese": "数据并不完整；尽管如此，它们显示出清晰趋势。",
+    "level": "B2",
+    "themeTags": [
+      "让步",
+      "证据"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-nichtsdestotrotz.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-greift-zu-kurz",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das greift zu kurz.",
+    "chinese": "这种解释过于片面。",
+    "explanation": "指出解释忽视了重要层面，最好随后说明缺失之处。",
+    "exampleGerman": "Die Kosten allein zu betrachten, greift bei dieser Entscheidung zu kurz.",
+    "exampleChinese": "在这项决定中只考虑成本过于片面。",
+    "level": "B2",
+    "themeTags": [
+      "批判思考",
+      "讨论"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-greift-zu-kurz.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-ausser-acht",
+    "type": "german",
+    "kind": "表达",
+    "german": "Man darf nicht außer Acht lassen, dass …",
+    "chinese": "不能忽视……",
+    "explanation": "用于把容易被遗漏但对结论重要的因素重新纳入讨论。",
+    "exampleGerman": "Man darf nicht außer Acht lassen, dass die Gruppen unterschiedlich groß waren.",
+    "exampleChinese": "不能忽视各组规模不同这一点。",
+    "level": "B2",
+    "themeTags": [
+      "研究",
+      "论证"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-ausser-acht.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-unter-vorbehalt",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das gilt nur unter Vorbehalt.",
+    "chinese": "这一点只能保留地成立。",
+    "explanation": "说明结论受数据、条件或后续核实限制。",
+    "exampleGerman": "Die erste Schätzung gilt bis zur vollständigen Prüfung nur unter Vorbehalt.",
+    "exampleChinese": "在完成全面核查之前，初步估计只能保留地采用。",
+    "level": "B2",
+    "themeTags": [
+      "信息边界",
+      "核查"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-unter-vorbehalt.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-inwiefern",
+    "type": "german",
+    "kind": "表达",
+    "german": "Inwiefern …?",
+    "chinese": "在何种程度上……？",
+    "explanation": "比简单询问是否更开放，要求说明范围、机制或限制。",
+    "exampleGerman": "Inwiefern verändert die neue Route den Alltag der Anwohner?",
+    "exampleChinese": "新线路在何种程度上改变居民的日常生活？",
+    "level": "B2",
+    "themeTags": [
+      "提问",
+      "城市"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-inwiefern.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-daraus-ableiten",
+    "type": "german",
+    "kind": "表达",
+    "german": "Daraus lässt sich ableiten, dass …",
+    "chinese": "由此可以推导出……",
+    "explanation": "用于明确结论来自前述依据，同时应检查推导是否超过证据。",
+    "exampleGerman": "Daraus lässt sich ableiten, dass weitere Messungen nötig sind.",
+    "exampleChinese": "由此可以推断，还需要进一步测量。",
+    "level": "B2",
+    "themeTags": [
+      "推理",
+      "科学"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-daraus-ableiten.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-im-hinblick",
+    "type": "german",
+    "kind": "表达",
+    "german": "im Hinblick auf …",
+    "chinese": "就……而言；着眼于……",
+    "explanation": "正式表达，用于限定评价的具体方面。",
+    "exampleGerman": "Im Hinblick auf die Barrierefreiheit muss der Entwurf verbessert werden.",
+    "exampleChinese": "就无障碍而言，这个设计仍需改进。",
+    "level": "B2",
+    "themeTags": [
+      "评价",
+      "无障碍"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-im-hinblick.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-im-gegensatz",
+    "type": "german",
+    "kind": "表达",
+    "german": "Im Gegensatz dazu …",
+    "chinese": "与此相反……",
+    "explanation": "用于清楚建立两个事实或观点的对比。",
+    "exampleGerman": "Die Innenstadt ist dicht bebaut; im Gegensatz dazu wirkt das Flussufer offen.",
+    "exampleChinese": "市中心建筑密集；相比之下，河岸显得开阔。",
+    "level": "B2",
+    "themeTags": [
+      "对比",
+      "城市"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-im-gegensatz.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-ausser-frage",
+    "type": "german",
+    "kind": "表达",
+    "german": "Es steht außer Frage, dass …",
+    "chinese": "毫无疑问……",
+    "explanation": "语气很强，只适合真正没有争议或已有充分依据的前提。",
+    "exampleGerman": "Es steht außer Frage, dass Quellen transparent angegeben werden müssen.",
+    "exampleChinese": "来源必须透明标明，这一点毫无疑问。",
+    "level": "B2",
+    "themeTags": [
+      "强调",
+      "来源"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-ausser-frage.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-insofern-relevant",
+    "type": "german",
+    "kind": "表达",
+    "german": "Das ist insofern relevant, als …",
+    "chinese": "这一点之所以重要，是因为……",
+    "explanation": "正式地限定某事在哪个具体方面与论点有关。",
+    "exampleGerman": "Die Jahreszahl ist insofern relevant, als sich danach die Regel änderte.",
+    "exampleChinese": "这个年份之所以重要，是因为此后规则发生了变化。",
+    "level": "B2",
+    "themeTags": [
+      "论证",
+      "历史"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-insofern-relevant.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-entgegenzuhalten",
+    "type": "german",
+    "kind": "表达",
+    "german": "Dem ist entgegenzuhalten, dass …",
+    "chinese": "对此可以反驳说……",
+    "explanation": "正式讨论中引出针对前述论点的具体反证或限制。",
+    "exampleGerman": "Dem ist entgegenzuhalten, dass die Stichprobe sehr klein war.",
+    "exampleChinese": "对此可以反驳说，样本非常小。",
+    "level": "B2",
+    "themeTags": [
+      "反驳",
+      "研究"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-entgegenzuhalten.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-naeherer-betrachtung",
+    "type": "german",
+    "kind": "表达",
+    "german": "Bei näherer Betrachtung …",
+    "chinese": "仔细考察后……",
+    "explanation": "表示初步印象在更细致观察后得到修正或分化。",
+    "exampleGerman": "Bei näherer Betrachtung unterscheiden sich die beiden Modelle deutlich.",
+    "exampleChinese": "仔细考察后，这两个模型差异明显。",
+    "level": "B2",
+    "themeTags": [
+      "分析",
+      "比较"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-naeherer-betrachtung.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-zeichnet-sich-ab",
+    "type": "german",
+    "kind": "表达",
+    "german": "Es zeichnet sich ab, dass …",
+    "chinese": "逐渐显现出……",
+    "explanation": "说明趋势已有迹象但尚未完全确定。",
+    "exampleGerman": "Es zeichnet sich ab, dass die Nachfrage langsamer wächst.",
+    "exampleChinese": "逐渐显现出需求增速放缓的趋势。",
+    "level": "B2",
+    "themeTags": [
+      "趋势",
+      "不确定性"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-zeichnet-sich-ab.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-sofern",
+    "type": "german",
+    "kind": "表达",
+    "german": "sofern …",
+    "chinese": "只要；如果……",
+    "explanation": "较正式的条件连接词，强调结论只在条件满足时成立。",
+    "exampleGerman": "Die Änderung ist sinnvoll, sofern alle Beteiligten informiert werden.",
+    "exampleChinese": "只要通知所有参与者，这项修改就是合理的。",
+    "level": "B2",
+    "themeTags": [
+      "条件",
+      "协作"
+    ],
+    "sourceUrl": "https://www.goethe.de/en/spr/ueb.html",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-sofern.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-passive-alternatives",
+    "type": "german",
+    "kind": "语法",
+    "german": "被动态的替代表达",
+    "chinese": "sein + zu、不定代词 man 或 sich lassen 可按语义替代 werden 被动态。",
+    "explanation": "下面的完整例句展示“被动态的替代表达”在真实句子中的词序和词形。",
+    "exampleGerman": "Der Fehler lässt sich mit einem zusätzlichen Test vermeiden.",
+    "exampleChinese": "通过增加一项测试可以避免这个错误。",
+    "level": "B2",
+    "themeTags": [
+      "被动态",
+      "写作"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-passive-alternatives.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-modal-particles",
+    "type": "german",
+    "kind": "语法",
+    "german": "语气词 doch、ja、eben",
+    "chinese": "语气词不改变事实内容，却表达共同知识、提醒或说话态度，不能机械直译。",
+    "explanation": "下面的完整例句展示“语气词 doch、ja、eben”在真实句子中的词序和词形。",
+    "exampleGerman": "Du weißt ja, dass der letzte Bus früh abfährt.",
+    "exampleChinese": "你也知道，末班车开得很早。",
+    "level": "B2",
+    "themeTags": [
+      "语用",
+      "口语"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-modal-particles.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-nominalization",
+    "type": "german",
+    "kind": "语法",
+    "german": "动词与形容词名词化",
+    "chinese": "名词化适合压缩正式信息，但过多会使句子沉重。",
+    "explanation": "下面的完整例句展示“动词与形容词名词化”在真实句子中的词序和词形。",
+    "exampleGerman": "Die sorgfältige Prüfung der Quellen erhöht die Verlässlichkeit.",
+    "exampleChinese": "仔细核查来源可以提高可靠性。",
+    "level": "B2",
+    "themeTags": [
+      "书面语",
+      "来源"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-nominalization.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-participial-attribute",
+    "type": "german",
+    "kind": "语法",
+    "german": "分词作扩展定语",
+    "chinese": "第一或第二分词可带补足语放在名词前，常见于正式文本。",
+    "explanation": "下面的完整例句展示“分词作扩展定语”在真实句子中的词序和词形。",
+    "exampleGerman": "Die gestern veröffentlichten Zahlen werden noch geprüft.",
+    "exampleChinese": "昨天公布的数据仍在核查。",
+    "level": "B2",
+    "themeTags": [
+      "书面语",
+      "数据"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-participial-attribute.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-obgleich",
+    "type": "german",
+    "kind": "语法",
+    "german": "obgleich / obschon 让步",
+    "chinese": "obgleich 和 obschon 比 obwohl 更书面，词序同样为动词后置。",
+    "explanation": "下面的完整例句展示“obgleich / obschon 让步”在真实句子中的词序和词形。",
+    "exampleGerman": "Obgleich die Zeit knapp war, wurde jeder Einwand diskutiert.",
+    "exampleChinese": "尽管时间紧张，每项异议仍得到讨论。",
+    "level": "B2",
+    "themeTags": [
+      "让步",
+      "书面语"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-obgleich.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-indem",
+    "type": "german",
+    "kind": "语法",
+    "german": "indem 表示方式或手段",
+    "chinese": "indem 从句说明主句行动通过何种方式实现。",
+    "explanation": "下面的完整例句展示“indem 表示方式或手段”在真实句子中的词序和词形。",
+    "exampleGerman": "Die Stadt spart Energie, indem sie alte Gebäude besser dämmt.",
+    "exampleChinese": "这座城市通过改善旧建筑保温来节能。",
+    "level": "B2",
+    "themeTags": [
+      "方式",
+      "城市"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-indem.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-ohne-dass",
+    "type": "german",
+    "kind": "语法",
+    "german": "ohne dass 与 ohne … zu",
+    "chinese": "主语相同时可用 ohne zu；主语不同时通常使用 ohne dass。",
+    "explanation": "下面的完整例句展示“ohne dass 与 ohne … zu”在真实句子中的词序和词形。",
+    "exampleGerman": "Er änderte den Text, ohne dass die Autorin davon wusste.",
+    "exampleChinese": "他修改了文本，而作者并不知情。",
+    "level": "B2",
+    "themeTags": [
+      "方式",
+      "信息伦理"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-ohne-dass.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-falls",
+    "type": "german",
+    "kind": "语法",
+    "german": "falls 的条件语气",
+    "chinese": "falls 通常表示条件是否发生尚不确定，语气比 wenn 更明确地假设。",
+    "explanation": "下面的完整例句展示“falls 的条件语气”在真实句子中的词序和词形。",
+    "exampleGerman": "Falls die Verbindung ausfällt, speichern wir die Daten lokal.",
+    "exampleChinese": "如果连接中断，我们就把数据保存在本地。",
+    "level": "B2",
+    "themeTags": [
+      "条件",
+      "技术"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-falls.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-konjunktiv-one",
+    "type": "german",
+    "kind": "语法",
+    "german": "Konjunktiv I 转述",
+    "chinese": "新闻和正式写作常用 Konjunktiv I 标记内容来自他人陈述。",
+    "explanation": "下面的完整例句展示“Konjunktiv I 转述”在真实句子中的词序和词形。",
+    "exampleGerman": "Die Sprecherin erklärte, das Verfahren sei vollständig dokumentiert.",
+    "exampleChinese": "发言人表示，该流程已经完整记录。",
+    "level": "B2",
+    "themeTags": [
+      "转述",
+      "新闻"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-konjunktiv-one.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-konjunktiv-past",
+    "type": "german",
+    "kind": "语法",
+    "german": "过去时 Konjunktiv II",
+    "chinese": "hätte 或 wäre 加第二分词，表达未发生的过去条件或遗憾。",
+    "explanation": "下面的完整例句展示“过去时 Konjunktiv II”在真实句子中的词序和词形。",
+    "exampleGerman": "Mit mehr Zeit hätten wir die Ergebnisse erneut überprüft.",
+    "exampleChinese": "如果时间更多，我们本可以再次核查结果。",
+    "level": "B2",
+    "themeTags": [
+      "假设",
+      "过去"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-konjunktiv-past.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-je-desto",
+    "type": "german",
+    "kind": "语法",
+    "german": "je …, desto / umso …",
+    "chinese": "成对结构表示两个变量按一定方向共同变化。",
+    "explanation": "下面的完整例句展示“je …, desto / umso …”在真实句子中的词序和词形。",
+    "exampleGerman": "Je klarer die Frage ist, desto gezielter fällt die Antwort aus.",
+    "exampleChinese": "问题越清楚，回答就越有针对性。",
+    "level": "B2",
+    "themeTags": [
+      "比较",
+      "逻辑"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-je-desto.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-n-declension",
+    "type": "german",
+    "kind": "语法",
+    "german": "阳性弱变化名词",
+    "chinese": "部分阳性名词除主格单数外通常加 -n 或 -en。",
+    "explanation": "下面的完整例句展示“阳性弱变化名词”在真实句子中的词序和词形。",
+    "exampleGerman": "Wir haben mit einem erfahrenen Experten gesprochen.",
+    "exampleChinese": "我们同一位经验丰富的专家交谈过。",
+    "level": "B2",
+    "themeTags": [
+      "名词变化",
+      "人物"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-n-declension.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-infinitive-comma",
+    "type": "german",
+    "kind": "语法",
+    "german": "扩展不定式组的逗号",
+    "chinese": "由 um、ohne、statt 引导或依附名词时，zu 不定式组通常用逗号分隔。",
+    "explanation": "下面的完整例句展示“扩展不定式组的逗号”在真实句子中的词序和词形。",
+    "exampleGerman": "Sie nahm sich Zeit, um den Bericht gründlich zu lesen.",
+    "exampleChinese": "她留出时间仔细阅读报告。",
+    "level": "B2",
+    "themeTags": [
+      "标点",
+      "书面语"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-infinitive-comma.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-placeholder-es",
+    "type": "german",
+    "kind": "语法",
+    "german": "形式主语和形式宾语 es",
+    "chinese": "es 可占据句法位置，真正内容由后面的从句或不定式说明。",
+    "explanation": "下面的完整例句展示“形式主语和形式宾语 es”在真实句子中的词序和词形。",
+    "exampleGerman": "Es überrascht mich, wie schnell sich die Lage verändert hat.",
+    "exampleChinese": "情况变化如此之快，让我很惊讶。",
+    "level": "B2",
+    "themeTags": [
+      "句法",
+      "变化"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-placeholder-es.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  },
+  {
+    "id": "de-grammar-verb-prefixes",
+    "type": "german",
+    "kind": "语法",
+    "german": "前缀改变动词意义",
+    "chinese": "可分与不可分前缀不仅影响词序，也会改变基本动词的方向和抽象含义。",
+    "explanation": "下面的完整例句展示“前缀改变动词意义”在真实句子中的词序和词形。",
+    "exampleGerman": "Die Redaktion überarbeitet den Artikel, bevor sie ihn veröffentlicht.",
+    "exampleChinese": "编辑部在发布文章前会对其进行修订。",
+    "level": "B2",
+    "themeTags": [
+      "构词",
+      "媒体"
+    ],
+    "sourceUrl": "https://grammis.ids-mannheim.de/systematische-grammatik",
+    "narration": {
+      "kind": "bundled-synthetic-female",
+      "voice": "de_DE-eva_k-x_low",
+      "src": "./assets/audio/german/de-grammar-verb-prefixes.mp3",
+      "manifest": "./assets/audio/german/manifest.json"
+    }
+  }
+]

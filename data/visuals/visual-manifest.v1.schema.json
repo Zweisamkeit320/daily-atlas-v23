@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://daily-atlas.example/schemas/visual-manifest.v1.schema.json",
+  "title": "Daily Atlas visual manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "releaseTarget",
+    "deterministic",
+    "scope",
+    "sources",
+    "policies",
+    "counts",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "releaseTarget": { "const": "2.4.0" },
+    "deterministic": { "const": true },
+    "scope": { "type": "string", "minLength": 1 },
+    "sources": {
+      "type": "object",
+      "required": ["books", "movies", "cities", "cityOverrides"],
+      "additionalProperties": { "$ref": "#/$defs/source" }
+    },
+    "policies": {
+      "type": "object",
+      "required": [
+        "open-library-cover-remote-reference",
+        "metahub-poster-remote-reference",
+        "wikimedia-commons-reviewed-open-license"
+      ],
+      "additionalProperties": { "$ref": "#/$defs/policy" }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "books",
+        "movies",
+        "cities",
+        "total",
+        "remoteOnly",
+        "approvedOpenLicenseCities",
+        "pendingOpenLicenseCities"
+      ],
+      "properties": {
+        "books": { "const": 500 },
+        "movies": { "const": 500 },
+        "cities": { "const": 200 },
+        "total": { "const": 1200 },
+        "remoteOnly": { "const": 1000 },
+        "approvedOpenLicenseCities": { "type": "integer", "minimum": 0, "maximum": 200 },
+        "pendingOpenLicenseCities": { "type": "integer", "minimum": 0, "maximum": 200 }
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1200,
+      "maxItems": 1200,
+      "items": { "$ref": "#/$defs/item" }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "sha256", "schemaVersion", "snapshotDate"],
+      "properties": {
+        "file": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "schemaVersion": { "type": ["integer", "null"] },
+        "snapshotDate": { "type": ["string", "null"] }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "required": ["status", "provider", "metadataTerms", "buildTimeDownloadAllowed", "bundleRedistributionAllowed", "note"],
+      "properties": {
+        "status": { "type": "string", "minLength": 1 },
+        "provider": { "type": "string", "minLength": 1 },
+        "metadataTerms": { "type": ["string", "null"] },
+        "allowedLicenseCodes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "buildTimeDownloadAllowed": { "type": "boolean" },
+        "bundleRedistributionAllowed": { "type": "boolean" },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "title",
+        "status",
+        "primary",
+        "candidates",
+        "sourcePage",
+        "provider",
+        "licenseName",
+        "licenseUrl",
+        "attribution",
+        "alt",
+        "policyId",
+        "fallback"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["book", "movie", "city"] },
+        "title": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["remote-only", "pending-open-license-curation", "approved-open-license-local"] },
+        "primary": { "type": ["string", "null"] },
+        "candidates": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "sourcePage": { "type": "string", "format": "uri" },
+        "provider": { "type": "string", "minLength": 1 },
+        "licenseCode": { "type": ["string", "null"] },
+        "licenseName": { "type": "string", "minLength": 1 },
+        "licenseUrl": { "type": ["string", "null"] },
+        "attribution": { "type": ["string", "null"] },
+        "localFile": { "type": ["string", "null"] },
+        "plannedLocalFile": { "type": "string" },
+        "alt": { "type": "string", "minLength": 1 },
+        "policyId": { "type": "string", "minLength": 1 },
+        "identityKey": { "type": "string", "minLength": 1 },
+        "fallback": { "type": "string", "minLength": 1 },
+        "discovery": { "type": "object" },
+        "audit": { "type": ["object", "null"] }
+      }
+    }
+  }
+}
