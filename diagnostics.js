@@ -72,17 +72,22 @@
     return rows.map(([key, value]) => `<div><dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("");
   }
 
-  function badge(ok, unavailable) {
+  function badge(ok, unavailable, label) {
     if (ok) return '<span class="badge">通过</span>';
-    return `<span class="badge ${unavailable ? "warn" : "fail"}">${unavailable ? "不可用" : "失败"}</span>`;
+    return `<span class="badge ${unavailable ? "warn" : "fail"}">${escapeHtml(label || (unavailable ? "不可用" : "失败"))}</span>`;
   }
 
-  function renderErrors() {
+  function renderErrors(runStartedAt) {
     const errors = Health?.readErrors?.() || [];
-    elements.errors.innerHTML = errors.length
-      ? errors.slice().reverse().map((entry) => `<li>${escapeHtml(entry.at)} · ${escapeHtml(entry.stage)} · ${escapeHtml(entry.code)}</li>`).join("")
+    const current = runStartedAt ? errors.filter((entry) => entry.at >= runStartedAt) : [];
+    const historical = runStartedAt ? errors.filter((entry) => entry.at < runStartedAt) : errors;
+    elements.errors.innerHTML = current.length || historical.length
+      ? [
+          `<li><strong>本轮：</strong>${current.length ? current.slice().reverse().map((entry) => `${escapeHtml(entry.at)} · ${escapeHtml(entry.stage)} · ${escapeHtml(entry.code)}`).join("；") : "无"}</li>`,
+          `<li><strong>历史：</strong>${historical.length ? historical.slice().reverse().map((entry) => `${escapeHtml(entry.at)} · ${escapeHtml(entry.stage)} · ${escapeHtml(entry.code)}`).join("；") : "无"}</li>`
+        ].join("")
       : "<li>暂无记录</li>";
-    return errors;
+    return Object.freeze({ current: Object.freeze(current), historical: Object.freeze(historical) });
   }
 
   function capabilityRows() {
@@ -128,33 +133,6 @@
     catch (_error) { return null; }
   }
 
-  async function probeSameOriginWebp(path) {
-    const started = Date.now();
-    try {
-      const response = await Health.withTimeout(fetch(path, {
-        method: "GET",
-        cache: "no-store",
-        credentials: "same-origin"
-      }), 8000, { label: "diagnostic-city-image" });
-      if (!response.ok) {
-        return { ok: false, code: "HTTP_ERROR", status: response.status, durationMs: Date.now() - started, bytes: null };
-      }
-      const contentType = response.headers.get("content-type") || "";
-      const body = new Uint8Array(await Health.withTimeout(response.arrayBuffer(), 8000, { label: "diagnostic-city-image-body" }));
-      const ascii = (offset) => String.fromCharCode(...body.slice(offset, offset + 4));
-      const valid = /^image\/webp(?:\s*;|$)/i.test(contentType) && body.length >= 12 && ascii(0) === "RIFF" && ascii(8) === "WEBP";
-      return {
-        ok: valid,
-        code: valid ? "OK" : "CITY_IMAGE_INVALID",
-        status: response.status,
-        durationMs: Date.now() - started,
-        bytes: body.length
-      };
-    } catch (error) {
-      return { ok: false, code: error?.code === "TIMEOUT" ? "TIMEOUT" : "NETWORK", status: 0, durationMs: Date.now() - started, bytes: null };
-    }
-  }
-
   async function runProbes() {
     const targets = [
       ["诊断页", "./diagnostics.html"],
@@ -173,22 +151,30 @@
       ["医学图清单", "./assets/medical/manifest.json"],
       ["德语音频清单", "./assets/audio/german/manifest.json"]
     ];
-    const results = await Promise.all(targets.map(async ([label, path, kind]) => {
-      const probe = kind === "webp" ? await probeSameOriginWebp(path) : await Health.probe(path, { timeoutMs: 8000 });
+    const criticalLabels = new Set(["诊断页", "应用首页", "公开配置", "Service Worker", "分片目录清单"]);
+    if (PublicConfigContract.ok && PublicConfig.localCityImages) criticalLabels.add("同源城市实图（成都）");
+    const results = await Health.mapWithConcurrency(targets, 4, async ([label, path, kind]) => {
+      const probe = await Health.probeWithRetry(path, {
+        timeoutMs: 8000,
+        maxAttempts: 2,
+        retryDelayMs: 250,
+        ...(kind === "webp" ? { readBody: true, expectedContentType: "image/webp", expectedFormat: "webp" } : {})
+      });
       if (label === "公开配置" && probe.ok && !PublicConfigContract.ok) {
-        return { label, path, ...probe, ok: false, code: PublicConfigContract.code };
+        return { label, path, ...probe, ok: false, code: PublicConfigContract.code, severity: "fail" };
       }
-      return { label, path, ...probe };
-    }));
+      return { label, path, ...probe, severity: Health.probeSeverity(probe, criticalLabels.has(label)) };
+    });
     const Assets = globalThis.DailyAtlasAssets;
     const cdnBase = Assets?.CDN_BASE;
     if (Assets?.deploymentMatches?.(location) && typeof cdnBase === "string" && cdnBase.startsWith("https://")) {
-      results.push({ label: "固定 CDN 清单", path: "固定 CDN", ...(await Health.probe(`${cdnBase}catalog-data/manifest.js`, { timeoutMs: 8000 })) });
+      const probe = await Health.probeWithRetry(`${cdnBase}catalog-data/manifest.js`, { timeoutMs: 8000, maxAttempts: 2, retryDelayMs: 250 });
+      results.push({ label: "固定 CDN 清单", path: `${cdnBase}catalog-data/manifest.js`, ...probe, severity: Health.probeSeverity(probe, false) });
     }
     elements.probes.innerHTML = results.map((result) => `
       <div class="probe-row">
-        <span>${escapeHtml(result.label)}<br /><small>${escapeHtml(result.ok ? `${result.durationMs} ms${result.bytes === null ? "" : ` · ${Health.humanBytes(result.bytes)}`}` : result.code)}</small></span>
-        ${badge(result.ok, false)}
+        <span>${escapeHtml(result.label)}<br /><small>${escapeHtml(result.path)} · ${escapeHtml(result.ok ? `${result.durationMs} ms${result.bytes === null ? "" : ` · ${Health.humanBytes(result.bytes)}`}${result.attemptCount > 1 ? ` · 重试 ${result.attemptCount - 1} 次` : ""}` : `${result.code}${result.attemptCount > 1 ? ` · 已尝试 ${result.attemptCount} 次` : ""}`)}</small></span>
+        ${result.severity === "degraded" ? badge(false, true, "网络降级") : badge(result.ok, false)}
       </div>
     `).join("");
     return results;
@@ -201,6 +187,7 @@
       elements.overallDetail.textContent = "请直接检查 runtime-health.js 是否与 diagnostics.html 位于同一目录。";
       return;
     }
+    const runStartedAt = new Date().toISOString();
     elements.rerun.disabled = true;
     elements.overall.dataset.status = "running";
     elements.overallTitle.textContent = "正在检测…";
@@ -233,13 +220,10 @@
       ["页面 load", timing.supported && timing.loadMs ? `${timing.loadMs} ms` : "本轮尚未结束或未提供"],
       ["页面传输", Health.humanBytes(timing.transferBytes)]
     ]);
-    const errors = renderErrors();
-
-    const criticalLabels = ["诊断页", "应用首页", "公开配置", "Service Worker", "分片目录清单"];
-    if (PublicConfigContract.ok && PublicConfig.localCityImages) criticalLabels.push("同源城市实图（成都）");
-    const criticalFailures = probes.filter((entry) => criticalLabels.includes(entry.label) && !entry.ok);
+    const errorGroups = renderErrors(runStartedAt);
+    const criticalFailures = probes.filter((entry) => entry.severity === "fail");
     const capabilityGaps = capabilities.filter((entry) => !entry.ok);
-    const degraded = !environment.secureContext || capabilityGaps.length > 0 || probes.some((entry) => !entry.ok);
+    const degraded = !environment.secureContext || capabilityGaps.length > 0 || probes.some((entry) => entry.severity === "degraded");
     const status = criticalFailures.length ? "fail" : degraded ? "degraded" : "pass";
     elements.overall.dataset.status = status;
     elements.overallTitle.textContent = status === "pass" ? "本轮诊断通过" : status === "degraded" ? "核心可达，存在降级项" : "关键同源文件不可达";
@@ -267,7 +251,8 @@
       caches: cacheReport,
       probes,
       timing,
-      errors,
+      errors: errorGroups.current,
+      historicalErrors: errorGroups.historical,
       externalImageProbes: lastExternalImageReport
     });
     elements.rerun.disabled = false;
@@ -289,14 +274,15 @@
       `存储: ${Health.humanBytes(report.storage.usage)} / ${Health.humanBytes(report.storage.quota)}`,
       `应用缓存: ${report.caches.caches?.length || 0} 个, ${report.caches.totalEntries || 0} 项`,
       "关键文件:",
-      ...report.probes.map((entry) => `- ${entry.label}: ${entry.ok ? `PASS ${entry.durationMs}ms` : entry.code}`),
+      ...report.probes.map((entry) => `- ${entry.label} [${entry.path}]: ${entry.ok ? `PASS ${entry.durationMs}ms${entry.attemptCount > 1 ? `（重试 ${entry.attemptCount - 1} 次）` : ""}` : `${entry.code}${entry.severity === "degraded" ? "（网络降级）" : ""}`}`),
       "能力:",
       ...report.capabilities.map((entry) => `- ${entry.label}: ${entry.ok ? "PASS" : "UNAVAILABLE"}`),
       "外部图源（仅在用户点击后检测）:",
       ...(report.externalImageProbes?.length
         ? report.externalImageProbes.map((entry) => `- ${entry.label}: ${entry.ok ? `PASS ${entry.durationMs}ms` : entry.code}`)
         : ["- 未运行（未向第三方发出诊断请求）"]),
-      `最近错误码: ${report.errors.length ? report.errors.map((entry) => `${entry.at}/${entry.stage}/${entry.code}`).join(", ") : "无"}`,
+      `本轮错误码: ${report.errors.length ? report.errors.map((entry) => `${entry.at}/${entry.stage}/${entry.code}`).join(", ") : "无"}`,
+      `历史错误码: ${report.historicalErrors.length ? report.historicalErrors.map((entry) => `${entry.at}/${entry.stage}/${entry.code}`).join(", ") : "无"}`,
       "说明: 此摘要不含收藏、偏好、搜索词、医学关注方向或完整 User-Agent。"
     ];
     return lines.join("\n");

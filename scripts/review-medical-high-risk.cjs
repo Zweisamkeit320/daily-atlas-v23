@@ -3,12 +3,14 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const crypto = require("node:crypto");
 
 const ROOT = path.resolve(__dirname, "..");
-const REVIEW_VERSION = "2.4.0";
-const REVIEW_DATE = "2026-08-30";
+const REVIEW_VERSION = "2.4.2";
+const REVIEW_DATE = "2026-09-01";
 const JSON_PATH = path.join(ROOT, "data", `medical-high-risk-screen.v${REVIEW_VERSION}.json`);
 const MARKDOWN_PATH = path.join(ROOT, "data", `MEDICAL_HIGH_RISK_SCREEN_v${REVIEW_VERSION}.md`);
+const MEDICAL_SOURCE_PATH = path.join(ROOT, "data", "raw", "medical500.json");
 
 const ALLOWED_HOSTS = new Set([
   "medlineplus.gov", "ods.od.nih.gov", "stacks.cdc.gov", "www.ahrq.gov", "www.airnow.gov",
@@ -98,6 +100,8 @@ function buildReport(medical = loadMedicalCatalog()) {
     schemaVersion: 1,
     appVersion: REVIEW_VERSION,
     reviewDate: REVIEW_DATE,
+    medicalSource: "data/raw/medical500.json",
+    medicalSourceSha256: crypto.createHash("sha256").update(fs.readFileSync(MEDICAL_SOURCE_PATH)).digest("hex").toUpperCase(),
     scope: "automated structural safety screen for every caution and urgent medical entry",
     result: structuralFlags.length === 0 ? "AUTOMATED_SAFETY_SCREEN_PASS" : "AUTOMATED_SAFETY_SCREEN_FLAGGED",
     professionalBoundary: "GENERAL_EDUCATION_ONLY_NO_CLINICIAN_SIGNOFF_CLAIMED",
@@ -128,6 +132,7 @@ function markdown(report) {
   ).join("\n");
   return `# 今日万象 v${REVIEW_VERSION} 医学内容自动安全筛查\n\n` +
     `筛查日期：${REVIEW_DATE}  \n` +
+    `医学源文件 SHA-256：\`${report.medicalSourceSha256}\`  \n` +
     `自动化结论：\`${report.result}\`  \n` +
     `边界：\`${report.professionalBoundary}\`\n\n` +
     `## 复核范围与结果\n\n` +

@@ -34,7 +34,7 @@
     medical: { collection: "medical", label: "医学", short: "医", card: "medicalCard", swap: "换一条", known: "了解了", unit: "条" }
   });
   const TYPES = Object.freeze(Object.keys(TYPE_META));
-  const APP_VERSION = "2.4.1";
+  const APP_VERSION = "2.4.2";
   const RECORD_PAGE_SIZE = 100;
   const STORAGE_KEYS = Object.freeze({
     statePrefix: "dailyAtlas.state.v3.",
@@ -806,7 +806,7 @@
         detailFailures.delete(key);
         return item;
       }).catch((error) => {
-        const code = error?.code || error?.name || "DETAIL_LOAD_FAILED";
+        const code = RuntimeHealth?.detailErrorCode?.(error) || "DETAIL_LOAD_FAILED";
         detailFailures.set(key, code);
         RuntimeHealth?.record?.("details", code);
         throw error;

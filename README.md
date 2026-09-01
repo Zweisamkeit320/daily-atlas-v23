@@ -1,8 +1,8 @@
-# 今日万象 v2.4.1：移动可靠性收口版
+# 今日万象 v2.4.2：可靠性与维护收口版
 
 这是一个无后端、无账号的静态网页应用。它每天在同一页面给出一本书、一部电影、一座城市、一条德语知识和一则医学科普；每张卡都可以单独更换、标记已了解、喜欢、收藏或“不适合我”。同一本机、同一浏览器在同一天会得到稳定结果。
 
-## v2.4.1 内容库与主要升级
+## v2.4.2 内容库与主要升级
 
 | 类型 | 精确数量 | 主要范围 |
 |---|---:|---|
@@ -14,11 +14,11 @@
 
 当前五池总计 2,200 条。数量、唯一 ID、字段、来源、评分门槛、主题覆盖和本地素材都由构建脚本校验；机器可读的详细记录见 `data/CATALOG_AUDIT.md` 和 `data/catalog.source.json`。
 
-v2.4.1 保留每日五项、全库探索、系列顺序、偏好、周报与加密备份，并在 v2.4.0 内容与离线边界不变的前提下收口移动可靠性：每日初始推荐仍稳定，手动“换一个”改为从合格窗口中无重复随机抽取；书封、电影海报和城市风貌图先随紧凑索引呈现，完整详情随后补齐；旧卡片的图片回退任务会在换项时取消。移动端将详情并发限制为 2，并降低国产 WebView 上的合成和裁切风险。
+v2.4.2 保留每日五项、全库探索、随机换项、系列顺序、偏好、周报和加密备份，不改变候选池、推荐逻辑或用户数据结构。本版把瞬时网络故障与资源损坏分开：关键探测会在 `NETWORK/TIMEOUT` 后顺序重试一次，连续网络失败显示 `degraded`，而 404、错误类型和损坏 WebP 仍严格 `fail`。Service Worker 首次安装共享四路请求队列，避免后台缓存与当前详情、书封、海报和城市图争抢移动网络；诊断摘要同时区分本轮与历史错误，并输出有限、可定位的模块和详情错误码。
 
 这里需要先说明一个重要边界：图书和电影各 500 条并不等于开发者逐本通读或逐部完整观看。每类保留原有 50 条 `editorial-curated` 编辑精选和 150 条 `editorial-reviewed` 编辑复核条目；再增加 300 条 `evidence-reviewed`，根据归档来源核对稳定 ID、题材、评分、评价人数和元数据，并形成作品特异的简介、推荐价值、适读／适看边界、题材依据和内容提示。构建会拒绝重复项、明显题材越界、证据不足或创作者／系列过度集中的候选。成品池没有默认可见的 `source-screened` 残留；推荐引擎先守住原 200 条编辑层的优先级，在排除或耗尽后仍可无重复遍历全部 500 本书和 500 部电影。上述层级都不是亲自通读／完整观看的声明，也不能把平台评分变成适合所有人的价值结论。
 
-### v2.4.1 目录与加载结构
+### v2.4.2 目录与加载结构
 
 | 数据层 | 当前规模 | 何时加载 |
 |---|---:|---|
@@ -47,7 +47,7 @@ python -m http.server 8080
 
 首页启动依次显示资源路线、选择器、紧凑目录、功能模块和今日五项五个阶段。脚本、目录与应用就绪分别设有超时；失败时可以重试，或进入 `?safe=1` 安全模式。安全模式只加载同源旧完整目录，停止可选 CDN、远程封面和 Service Worker 更新，主要用于网络路径或缓存异常时先恢复今日五项，并不替代后续诊断与缓存修复。
 
-v2.4.1 默认按需显示书封、电影海报和已复核的城市风貌图。书影图片只远程展示，不在构建时批量下载或宣称商业再分发权；城市图均有 Commons 文件页、作者、开放许可和本地 SHA-256，完整署名见 [`city-credits.html`](city-credits.html)。失败、数据节省或安全模式下统一回到程序化视觉。24 张医学主题图、44 个详情分片、搜索索引、500 条固定德语朗读 MP3 和 200 张城市 WebP 由发布包的可选完整离线路径管理。
+v2.4.2 默认按需显示书封、电影海报和已复核的城市风貌图。书影图片只远程展示，不在构建时批量下载或宣称商业再分发权；城市图均有 Commons 文件页、作者、开放许可和本地 SHA-256，完整署名见 [`city-credits.html`](city-credits.html)。失败、数据节省或安全模式下统一回到程序化视觉。24 张医学主题图、44 个详情分片、搜索索引、500 条固定德语朗读 MP3 和 200 张城市 WebP 由发布包的可选完整离线路径管理。
 
 ## 手机与国产浏览器
 
@@ -60,13 +60,13 @@ v2.4.1 默认按需显示书封、电影海报和已复核的城市风貌图。�
 
 没有出现安装按钮不等于核心网页不可用。声音、通知、安装和加密都应由用户手势触发；浏览器拒绝或缺少能力时，页面必须保留文字浏览和诚实降级提示。
 
-本项目的自动移动验证使用桌面 Edge/Chromium 和 320、360、390、428、768 px 视口；它能验证响应式布局、弹窗和一部分 Web 平台降级，但不能冒充实体 Android、iPhone、夸克或微信内置浏览器，也不能证明某个运营商网络可达。待执行的八格真机矩阵、逐步操作和通过标准见 [`docs/REAL_DEVICE_MATRIX.md`](docs/REAL_DEVICE_MATRIX.md)。在实体设备记录结果前，状态必须保持 `NOT RUN`。
+本项目的自动移动验证使用桌面 Edge/Chromium 和 320、360、390、428、768 px 视口；它能验证响应式布局、弹窗和一部分 Web 平台降级，但不能冒充实体 Android、iPhone、夸克或微信内置浏览器，也不能证明某个运营商网络可达。v2.4.2 的待执行真机矩阵、逐步操作和通过标准见 [`docs/REAL_DEVICE_MATRIX_v2.4.2.md`](docs/REAL_DEVICE_MATRIX_v2.4.2.md)。在实体设备记录结果前，状态必须保持 `NOT_RUN`。
 
 轻量离线是默认选项：安装阶段不批量下载 44 个详情分片、延迟搜索索引、500 个 MP3 或 200 张城市图，只缓存紧凑索引、24 张医学图和必要应用壳，并按需保留已访问内容。用户明确选择“完整离线”后，才以 `0–700` 进度下载完整目录、500 条固定德语朗读和 200 张同源城市 WebP；当前这三类资源合计约 36 MB（约 35.76 MiB），另需预留应用壳和浏览器缓存开销。可暂停、关闭页面后继续或取消；网络、配额或单文件失败不会写入虚假完成标记，已验证暂存可以继续，轻量应用壳不受损。`workers.dev`、`pages.dev`、自定义域名或境内托管的网络可达性属于部署层问题：浏览器在收到任何 HTTP 响应之前超时，不能通过改 CSS 或页面脚本解决。
 
-## v2.4.1 对外部署与验收（HTTPS）
+## v2.4.2 对外部署与验收（HTTPS）
 
-v2.4.1 将“文件已经上传”与“最终 Origin 已通过安全响应头、完整性和实体设备核对”严格分开。静态包根目录的 `_headers` 面向支持该规则的 Cloudflare Pages，要求首页与诊断页实际响应包含 CSP、`Referrer-Policy: no-referrer`、`X-Content-Type-Options: nosniff`、frame 防护、权限策略、COOP 和 HSTS；HTML、Service Worker 与稳定 manifest 必须重新验证，内容哈希分片、医学图、音频和城市图才可长期 immutable。GitHub Pages 不读取项目 `_headers`，因此即使 GitHub HTTPS 站点可用，也只能作为 QA 入口，不能据此宣称自定义安全响应头已经在生产生效。
+v2.4.2 将“文件已经上传”与“最终 Origin 已通过安全响应头、完整性和实体设备核对”严格分开。静态包根目录的 `_headers` 面向支持该规则的 Cloudflare Pages，要求首页与诊断页实际响应包含 CSP、`Referrer-Policy: no-referrer`、`X-Content-Type-Options: nosniff`、frame 防护、权限策略、COOP 和 HSTS；HTML、Service Worker 与稳定 manifest 必须重新验证，内容哈希分片、医学图、音频和城市图才可长期 immutable。GitHub Pages 不读取项目 `_headers`，因此即使 GitHub HTTPS 站点可用，也只能作为 QA 入口，不能据此宣称自定义安全响应头已经在生产生效。
 
 部署后至少执行以下响应头核对；把 `$origin` 替换为最终地址且不要在末尾重复斜杠：
 
@@ -84,9 +84,9 @@ Cloudflare Static Assets 可能把 `*.html` 同源 307 规范化到无扩展名�
 
 只有实际响应而不是仓库文件中出现上述策略，且在线 `index.html`、`sw.js`、manifest、一个详情分片、第一与第 500 个音频都与冻结静态包一致时，才把该地址写为最终 Origin。之后还要在同一 Origin 执行八格真机和 Android／iPhone A→B；更换域名会形成新 Origin，不能沿用旧 Cache 或真机结论。
 
-本仓库不把任何历史 URL、平台控制台状态、候选 ZIP 或旧版本提交写成 v2.4.1 的上线结论。目标 Origin、实际响应头、资源逐项比对和实体设备矩阵必须在本版静态包生成后重新记录；在这些记录齐全前，状态仅为“待部署/待验收”。正式上传必须使用精简静态部署包，不要把包含 `data/upstream`、测试和构建脚本的完整审计包公开部署。
+本仓库不把任何历史 URL、平台控制台状态、候选 ZIP 或旧版本提交写成 v2.4.2 的上线结论。目标 Origin、实际响应头、资源逐项比对和实体设备矩阵必须在本版静态包生成后重新记录；在这些记录齐全前，状态仅为“待部署/待验收”。正式上传必须使用精简静态部署包，不要把包含 `data/upstream`、测试和构建脚本的完整审计包公开部署。
 
-### 1. 生成并核对 v2.4.1 静态目录
+### 1. 生成并核对 v2.4.2 静态目录
 
 在项目目录运行；每次发布都必须使用新的时间戳，脚本会拒绝覆盖已有包：
 
@@ -94,7 +94,7 @@ Cloudflare Static Assets 可能把 `*.html` 同源 307 规范化到无扩展名�
 npm run release:preflight
 $releaseStamp = Get-Date -Format "yyyyMMdd-HHmmss"
 $publishRoot = "C:\Users\lenovo\Documents\今日万象发布\$releaseStamp"
-$staticZip = "$publishRoot\daily-atlas-static-v2.4.1-r1-$releaseStamp.zip"
+$staticZip = "$publishRoot\daily-atlas-static-v2.4.2-r1-$releaseStamp.zip"
 $unpackedRoot = "$publishRoot\unpacked"
 New-Item -ItemType Directory -Force -Path $publishRoot
 npm run deploy:package -- --zip $staticZip
@@ -155,11 +155,11 @@ npx wrangler deploy --assets $staticDirectory --name daily-atlas
 
 如果已有 Worker，先在控制台的 **Deployments** 核对目标项目，再创建新部署，避免把测试目录传到另一个 Worker。`workers.dev` 适合建立可访问入口；Cloudflare 官方明确建议关键生产 Worker 使用 Route 或 Custom Domain，而不是只依赖 `workers.dev`，见 [Workers 路由选择](https://developers.cloudflare.com/workers/configuration/routing/)和 [`workers.dev` 边界](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/)。Worker 是本站的实际源站时，可在 **Settings → Domains & Routes → Add → Custom Domain** 添加精确主机名；官方说明该操作会为目标主机名生成证书，详见 [Workers Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)。
 
-过去控制台里出现过的 `workers.dev` 页面只能证明当时有一个部署，不能证明它包含 v2.4.1 文件，也不能代替新地址的版本核对和实体手机测试。若 DNS 返回 Meta、Twitter 等非 Cloudflare 网段，应记录为 `BLOCKED — NETWORK`，不能反复刷新并归咎于页面代码。
+过去控制台里出现过的 `workers.dev` 页面只能证明当时有一个部署，不能证明它包含 v2.4.2 文件，也不能代替新地址的版本核对和实体手机测试。若 DNS 返回 Meta、Twitter 等非 Cloudflare 网段，应记录为 `BLOCKED — NETWORK`，不能反复刷新并归咎于页面代码。
 
 ### 2D. GitHub Pages + 固定版本 CDN（可选 QA 路径）
 
-GitHub 官方的 [创建 Pages 站点](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)与 [HTTPS 说明](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https)是配置依据。为 v2.4.1 新建的 Pages 地址须先通过本节的 Origin、资源和真机核对，不能从历史仓库、分支、提交或域名继承通过结论。
+GitHub 官方的 [创建 Pages 站点](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)与 [HTTPS 说明](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https)是配置依据。为 v2.4.2 新建的 Pages 地址须先通过本节的 Origin、资源和真机核对，不能从历史仓库、分支、提交或域名继承通过结论。
 
 为避免首开解析完整 `catalog.js`，GitHub Pages 对内容哈希分片始终先请求同源；只有同源请求失败或在短预算内挂起，才尝试 jsDelivr 的固定提交。HTTP／PWA 首屏使用当前 manifest 指定的 `selection-data.<hash>.json`；`selection.<hash>.js` 只用于 `file://` 回退，44 个详情分片按今日五项和探索结果按需加载，搜索索引延迟到首次搜索。完整离线的音频和城市图均须通过清单中的字节数与 SHA-256 核对后才写入缓存。本地、Cloudflare 和其他域名只使用同源路由。
 
@@ -179,7 +179,7 @@ GitHub 官方的 [创建 Pages 站点](https://docs.github.com/en/pages/getting-
 
 域名或子域名改变会形成新的浏览器 Origin；旧地址的收藏、偏好、Cache 和安装状态不会自动迁移到新地址。应先从旧地址导出 JSON，再在新地址查看差异并选择“替换”或“合并”。不同浏览器和微信内置浏览器也各有独立站点存储。
 
-最后按 [`docs/REAL_DEVICE_MATRIX.md`](docs/REAL_DEVICE_MATRIX.md) 用实体设备分别执行 Wi-Fi 与移动数据测试。若电脑能开而某个手机网络在收到任何 HTTP 响应前就超时，应检查该网络的 DNS、代理、运营商与域名可达性；`pages.dev`、`workers.dev` 和自定义域名在不同地区的实际连通性不能由应用代码保证。面向中国大陆稳定公开运营时，还需根据服务器所在地、域名备案和所选云厂商要求另行设计境内部署或镜像。
+最后按 [`docs/REAL_DEVICE_MATRIX_v2.4.2.md`](docs/REAL_DEVICE_MATRIX_v2.4.2.md) 用实体设备分别执行 Wi-Fi 与移动数据测试。若电脑能开而某个手机网络在收到任何 HTTP 响应前就超时，应检查该网络的 DNS、代理、运营商与域名可达性；`pages.dev`、`workers.dev` 和自定义域名在不同地区的实际连通性不能由应用代码保证。面向中国大陆稳定公开运营时，还需根据服务器所在地、域名备案和所选云厂商要求另行设计境内部署或镜像。
 
 ## 推荐、替换与记录
 
@@ -219,7 +219,7 @@ GitHub 官方的 [创建 Pages 站点](https://docs.github.com/en/pages/getting-
 
 设置页提供 6 种颜色与 4 种风格，共 24 种可组合背景：原纸米白、鼠尾草绿、薄雾天青、柔杏暖橙、浅雾丁香、日光沙金，可分别搭配杂志纸纹、纯净留白、植物光影或柔和极光。另有紧凑模式、数据节省、大字号、增强对比度和减少动画。选择会立即作用于当前页面并保存到本地；同源多标签页按各字段时间戳合并并收敛，外观设置也进入 JSON 导出、差异预览和恢复白名单。
 
-v2.4.1 的主卡与搜索结果共用视觉路由：书影按白名单远程渐进加载，城市仅使用同源开放许可文件；数据节省／安全模式与图片故障均回到本地程序化视觉，本地医学图始终保留。紧凑索引仍独立降低首屏目录传输；“完整离线”下载全库详情、搜索索引、500 条朗读和 200 张城市图，但不把远程书封／海报冒充离线资产。
+v2.4.2 的主卡与搜索结果共用视觉路由：书影按白名单远程渐进加载，城市仅使用同源开放许可文件；数据节省／安全模式与图片故障均回到本地程序化视觉，本地医学图始终保留。紧凑索引仍独立降低首屏目录传输；“完整离线”下载全库详情、搜索索引、500 条朗读和 200 张城市图，但不把远程书封／海报冒充离线资产。
 
 ## 背景轻音乐
 
@@ -356,7 +356,7 @@ data/upstream/snapshots + 构建脚本
 
 ```powershell
 npm ci
-# v2.4.1 跨引擎门禁需要三套 Playwright 浏览器
+# v2.4.2 跨引擎门禁需要三套 Playwright 浏览器
 npx playwright install chromium firefox webkit
 ```
 
@@ -382,7 +382,7 @@ npm run check
 npm run build:pwa
 npm run check:pwa
 
-# 单元、既有回归与 v2.4.1 三引擎验证
+# 单元、既有回归与 v2.4.2 三引擎验证
 npm run test:unit
 npm run test:e2e
 npm run test:e2e:lock
@@ -420,7 +420,7 @@ npm run release:preflight
 | catalog | `test:e2e:catalog` | HTTP Worker、file 模式、按需详情与搜索降级 |
 | v2.3 | `test:e2e:v23` | Chromium／Firefox／WebKit、启动分层、无重复目录传输、独立诊断、自动安全回退与 WCAG 2.2 A／AA 严重问题门禁 |
 | v2.4.0 | `test:e2e:v24` | 双 Origin 的完整离线、城市图与音频进度、缓存版本和降级路径 |
-| v2.4.1 | `test:e2e:v241` | 国产 Android UA、弱网先可操作、图片及时换代、并发上限与移动裁切 |
+| v2.4.2 | `test:e2e:v241` | 国产 Android UA、弱网先可操作、图片及时换代、并发上限与移动裁切 |
 
 WCAG 自动门禁使用 axe-core 检查 `wcag2a`、`wcag2aa`、`wcag21aa` 和 `wcag22aa` 标签下 impact 为 serious／critical 的问题，并保留现有键盘、焦点、对话框、触控目标与多宽度实跑。自动工具不能证明完整 WCAG 合规，也不能替代屏幕阅读器和真实低视力用户测试；这里的通过含义仅限上述机器可执行门禁没有发现对应级别问题。
 
@@ -436,8 +436,8 @@ WCAG 自动门禁使用 axe-core 检查 `wcag2a`、`wcag2aa`、`wcag21aa` 和 `w
 
 ```powershell
 npm run release:preflight
-npm run release:package -- --zip "C:\Users\lenovo\Documents\今日万象发布\daily-duet-v2.4.1-r1-YYYYMMDD-HHMMSS.zip"
-npm run release:verify -- --zip "C:\Users\lenovo\Documents\今日万象发布\daily-duet-v2.4.1-r1-YYYYMMDD-HHMMSS.zip"
+npm run release:package -- --zip "C:\Users\lenovo\Documents\今日万象发布\daily-duet-v2.4.2-r1-YYYYMMDD-HHMMSS.zip"
+npm run release:verify -- --zip "C:\Users\lenovo\Documents\今日万象发布\daily-duet-v2.4.2-r1-YYYYMMDD-HHMMSS.zip"
 ```
 
 此完整包用于干净解压、`npm ci`、测试与审计，不应原样作为公共静态站点上传：其中包含构建脚本、测试和许可受限的上游证据。面向 Cloudflare 等平台的精简静态部署包只保留网页运行文件、图标、医学插图、500 个德语 MP3、200 张同源城市 WebP 及完整 `catalog-data` 目录；具体命令见上方部署说明。

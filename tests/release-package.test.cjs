@@ -9,7 +9,7 @@ const { spawnSync } = require("node:child_process");
 
 const Release = require("../scripts/release-package.cjs");
 const { cloneFixture, replaceFile } = require("./package-fixture-helpers.cjs");
-const FIXTURE_VERSION = "2.4.1";
+const FIXTURE_VERSION = "2.4.2";
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex").toUpperCase();
@@ -92,7 +92,7 @@ test("release creation refuses a ZIP version that differs from package.json", (t
   const fixture = makeFixture();
   t.after(() => fs.rmSync(fixture.temporary, { recursive: true, force: true }));
   const mismatched = path.join(fixture.output, "daily-duet-v2.0.0-r3-20260813-010203.zip");
-  assert.throws(() => Release.createRelease(mismatched, fixture.root), /ZIP version 2\.0\.0 does not match package version 2\.4\.1/);
+  assert.throws(() => Release.createRelease(mismatched, fixture.root), /ZIP version 2\.0\.0 does not match package version 2\.4\.2/);
   assert.equal(fs.existsSync(mismatched), false);
 });
 

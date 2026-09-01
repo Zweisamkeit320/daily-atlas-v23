@@ -52,6 +52,107 @@ test("diagnostic probes time out even when AbortController is unavailable", asyn
   assert.ok(Date.now() - started < 1000, "probe must settle instead of hanging");
 });
 
+test("diagnostic probe uses one end-to-end deadline and aborts a hung response body", async () => {
+  let aborted = 0;
+  class FakeAbortController {
+    constructor() { this.signal = { aborted: false }; }
+    abort() { this.signal.aborted = true; aborted += 1; }
+  }
+  const started = Date.now();
+  const result = await Health.probe("https://example.test/city.webp", {
+    fetchImpl: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 70));
+      return ({
+      ok: true,
+      status: 200,
+      headers: { get(name) { return name === "content-type" ? "image/webp" : null; } },
+      arrayBuffer() { return new Promise(() => {}); }
+      });
+    },
+    AbortController: FakeAbortController,
+    timeoutMs: 100,
+    readBody: true,
+    expectedContentType: "image/webp",
+    expectedFormat: "webp"
+  });
+  assert.equal(result.code, "TIMEOUT");
+  assert.equal(aborted, 1);
+  assert.ok(Date.now() - started < 150, "headers and body must share one deadline");
+});
+
+test("diagnostic retry recovers one transient failure but does not retry invalid content", async () => {
+  let calls = 0;
+  const recovered = await Health.probeWithRetry("https://example.test/app.js", {
+    fetchImpl: async () => {
+      calls += 1;
+      if (calls === 1) throw new Error("temporary network failure");
+      return { ok: true, status: 200, headers: { get() { return "4"; } } };
+    },
+    maxAttempts: 2,
+    retryDelayMs: 0
+  });
+  assert.equal(recovered.ok, true);
+  assert.equal(recovered.attemptCount, 2);
+  assert.deepEqual(recovered.attempts.map((entry) => entry.code), ["NETWORK", "OK"]);
+
+  calls = 0;
+  const invalid = await Health.probeWithRetry("https://example.test/city.webp", {
+    fetchImpl: async () => {
+      calls += 1;
+      return {
+        ok: true,
+        status: 200,
+        headers: { get(name) { return name === "content-type" ? "text/html" : null; } },
+        async arrayBuffer() { return new TextEncoder().encode("<html></html>").buffer; }
+      };
+    },
+    maxAttempts: 2,
+    retryDelayMs: 0,
+    readBody: true,
+    expectedContentType: "image/webp",
+    expectedFormat: "webp"
+  });
+  assert.equal(invalid.ok, false);
+  assert.equal(invalid.code, "INVALID_CONTENT_TYPE");
+  assert.equal(invalid.attemptCount, 1);
+  assert.equal(calls, 1, "content corruption is not a transient network retry");
+});
+
+test("probe severity distinguishes transient degradation from critical corruption", () => {
+  assert.equal(Health.probeSeverity({ ok: true, code: "OK" }, true), "pass");
+  assert.equal(Health.probeSeverity({ ok: false, code: "NETWORK" }, true), "degraded");
+  assert.equal(Health.probeSeverity({ ok: false, code: "TIMEOUT" }, true), "degraded");
+  assert.equal(Health.probeSeverity({ ok: false, code: "HTTP_ERROR" }, true), "fail");
+  assert.equal(Health.probeSeverity({ ok: false, code: "INVALID_CONTENT" }, true), "fail");
+  assert.equal(Health.probeSeverity({ ok: false, code: "INVALID_CONTENT" }, false), "degraded");
+});
+
+test("runtime errors map to finite detail and module codes without leaking arbitrary paths", () => {
+  assert.equal(Health.detailErrorCode(Object.assign(new Error("request failed"), { code: "TIMEOUT" })), "DETAIL_TIMEOUT");
+  assert.equal(Health.detailErrorCode(Object.assign(new Error("request failed"), { code: "NETWORK" })), "DETAIL_NETWORK");
+  assert.equal(Health.detailErrorCode(Object.assign(new Error("request failed"), { status: 503 })), "DETAIL_HTTP_ERROR");
+  assert.equal(Health.detailErrorCode(new Error("detail identity mismatch")), "DETAIL_IDENTITY_INVALID");
+  assert.equal(Health.detailErrorCode(new Error("script failed")), "DETAIL_SCRIPT_LOAD_FAILED");
+  assert.equal(Health.detailErrorCode(new Error("secret query=private")), "DETAIL_LOAD_FAILED");
+  assert.equal(Health.moduleErrorCode("./music.js", "timeout"), "MODULE_MUSIC_TIMEOUT");
+  assert.equal(Health.moduleErrorCode("./catalog-loader.js", "load_failed"), "MODULE_CATALOG_LOADER_LOAD_FAILED");
+  assert.equal(Health.moduleErrorCode("https://evil.test/secret.js?token=x", "timeout"), "MODULE_UNKNOWN_TIMEOUT");
+});
+
+test("bounded mapper never exceeds its shared concurrency limit", async () => {
+  let active = 0;
+  let peak = 0;
+  const results = await Health.mapWithConcurrency(Array.from({ length: 17 }, (_, index) => index), 4, async (value) => {
+    active += 1;
+    peak = Math.max(peak, active);
+    await new Promise((resolve) => setTimeout(resolve, 4));
+    active -= 1;
+    return value * 2;
+  });
+  assert.equal(peak, 4);
+  assert.deepEqual(results, Array.from({ length: 17 }, (_, index) => index * 2));
+});
+
 test("cache inspection and repair touch only daily-atlas cache names", async () => {
   const deleted = [];
   const cacheStorage = {

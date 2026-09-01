@@ -15,7 +15,7 @@ const ServiceWorkerContract = require("./service-worker-contract.cjs");
 const ROOT = path.resolve(__dirname, "..");
 const ARCHIVE_ROOT = "daily-duet";
 const ROOT_FILES = Object.freeze([
-  ".nojekyll", "_headers", "app.js", "appearance.js", "asset-routing.js", "backup.js", "backup-crypto.js", "bootstrap.js", "catalog.js", "catalog-loader.js", "city-live.js",
+  ".gitignore", ".nojekyll", ".node-version", "_headers", "app.js", "appearance.js", "asset-routing.js", "backup.js", "backup-crypto.js", "bootstrap.js", "catalog.js", "catalog-loader.js", "city-live.js",
   "city-credits.html", "city-credits.js", "diagnostics.css", "diagnostics.html", "diagnostics.js", "engine.js", "explore.js", "index.html", "legal.css", "lock.js",
   "manifest.webmanifest", "music.js", "package-lock.json", "package.json", "privacy.html", "profile.js", "public-config.js", "pwa.js", "README.md", "reminders.js", "requirements-assets.txt", "sources-and-licenses.html",
   "runtime-health.js", "search-worker.js", "speech.js", "state.js", "styles.css", "sw.js", "visuals.js", "weekly.js"

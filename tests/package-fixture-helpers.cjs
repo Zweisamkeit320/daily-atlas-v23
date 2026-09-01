@@ -57,7 +57,7 @@ function ensureBase(kind) {
   fs.mkdirSync(root, { recursive: true });
   copyStaticInventory(root);
   if (kind === "release") {
-    for (const relative of ["package-lock.json", "README.md", "requirements-assets.txt"]) copyFile(relative, root);
+    for (const relative of [".gitignore", ".node-version", "package-lock.json", "README.md", "requirements-assets.txt"]) copyFile(relative, root);
     copyReleaseEvidence(root);
     for (const directory of ["data", "docs", "scripts", "tests"]) fs.mkdirSync(path.join(root, directory), { recursive: true });
     fs.writeFileSync(path.join(root, "data", "catalog.json"), "{}\n", "utf8");

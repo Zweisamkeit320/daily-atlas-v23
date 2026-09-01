@@ -457,11 +457,12 @@ test("PWA manifest keeps a relative shell while the pinned catalog route remains
   assert.match(worker, /for \(const cacheName of \[CACHE_NAME, CONTENT_CACHE, MEDICAL_CACHE, SEARCH_CACHE, AUDIO_METADATA_CACHE\]\)/, "runtime lookup is restricted to the five active packs");
   assert.match(worker, /event\.data\?\.type === "SKIP_WAITING"/, "an explicit update action can activate a waiting worker");
   const installBlock = worker.slice(worker.indexOf('self.addEventListener("install"'), worker.indexOf('self.addEventListener("activate"'));
-  assert.match(installBlock, /cacheApplicationShell\(\)/, "the default install delegates the core shell transaction");
-  assert.match(installBlock, /cacheContentPack\(\)/, "the catalog is isolated in a content pack");
+  assert.match(installBlock, /cacheApplicationShell\(queue\)/, "the default install delegates the core shell transaction through the shared queue");
+  assert.match(installBlock, /cacheContentPack\(queue\)/, "the catalog is isolated in a content pack and shares the install queue");
   assert.match(installBlock, /cacheOrdinaryPack\(MEDICAL_CACHE/, "medical assets are independently reusable");
   assert.match(installBlock, /cacheOrdinaryPack\(SEARCH_CACHE/, "search code is independently reusable");
   assert.match(installBlock, /reusable = new Map/, "a failed update preserves already-ready unchanged packs");
+  assert.match(installBlock, /createTaskQueue\(INSTALL_FETCH_CONCURRENCY\)/, "the install uses one global bounded fetch queue");
   assert.match(installBlock, /DailyAtlasAssets\.assetResolver\(`catalog-data\/\$\{record\.path\}`/, "the split selection catalog uses the shared verified resolver");
   assert.doesNotMatch(installBlock, /cache\.addAll/, "cache writes use explicit checked responses instead of Cache.addAll's opaque failure surface");
   assert.doesNotMatch(installBlock, /manifest\.items|slice\(index, index \+ 25\)/, "the default install never downloads all 500 narrations");

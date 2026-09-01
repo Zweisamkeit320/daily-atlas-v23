@@ -117,7 +117,7 @@
         settled = true;
         script.remove();
         const error = new Error(`script timeout: ${path}`);
-        error.code = "SCRIPT_TIMEOUT";
+        error.code = Health?.moduleErrorCode?.(path, "TIMEOUT") || "SCRIPT_TIMEOUT";
         reject(error);
       }, Number(timeoutMs) || SCRIPT_TIMEOUT_MS);
       script.addEventListener("load", () => {
@@ -131,7 +131,7 @@
         settled = true;
         root.clearTimeout(timer);
         const error = new Error(`script failed: ${path}`);
-        error.code = "SCRIPT_LOAD_FAILED";
+        error.code = Health?.moduleErrorCode?.(path, "LOAD_FAILED") || "SCRIPT_LOAD_FAILED";
         reject(error);
       }, { once: true });
       document.head.append(script);

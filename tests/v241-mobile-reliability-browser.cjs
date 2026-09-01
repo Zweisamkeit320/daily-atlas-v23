@@ -304,7 +304,7 @@ async function main() {
     }
     process.stdout.write("SCOPE: simulated mobile user-agent/browser-engine automation only; NOT real-device Quark/vivo/WeChat evidence.\n");
     process.stdout.write(`REPORT: ${reportPath || "stdout-only"}\n`);
-    process.stdout.write(`v2.4.1 mobile reliability: PASS\n${JSON.stringify(evidence)}\n`);
+    process.stdout.write(`v2.4.2 compatibility mobile reliability: PASS\n${JSON.stringify(evidence)}\n`);
   } finally {
     await new Promise((resolve) => server.close(resolve));
   }

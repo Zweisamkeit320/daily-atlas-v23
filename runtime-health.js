@@ -10,6 +10,7 @@
   const CACHE_NAME_PATTERN = /^daily-atlas(?:-|$)/i;
   const SAFE_CODE = /^[A-Z0-9_.:-]{1,64}$/i;
   const SAFE_STAGE = /^[a-z0-9-]{1,32}$/i;
+  const TRANSIENT_PROBE_CODES = Object.freeze(new Set(["NETWORK", "TIMEOUT"]));
 
   function clampInteger(value, minimum, maximum, fallback) {
     const number = Number(value);
@@ -176,17 +177,43 @@
     const Controller = options?.AbortController || root.AbortController;
     const controller = typeof Controller === "function" ? new Controller() : null;
     const timeoutMs = clampInteger(options?.timeoutMs, 100, 30000, 8000);
+    const setTimer = options?.setTimeout || root.setTimeout;
+    const clearTimer = options?.clearTimeout || root.clearTimeout;
+    let timer = null;
+    let timedOut = false;
+    let rejectGate = null;
+    const gate = new Promise((_resolve, reject) => { rejectGate = reject; });
+    if (typeof setTimer === "function") {
+      timer = setTimer(() => {
+        timedOut = true;
+        controller?.abort?.();
+        rejectGate?.(timeoutError("diagnostic-probe", timeoutMs));
+      }, timeoutMs);
+    }
     try {
-      const response = await withTimeout(fetchImpl(url, {
+      const response = await Promise.race([Promise.resolve().then(() => fetchImpl(url, {
         method: options?.method || "GET",
         cache: "no-store",
         credentials: "same-origin",
         ...(controller ? { signal: controller.signal } : {})
-      }), timeoutMs, { label: "diagnostic-probe" });
+      })), gate]);
       const lengthHeader = Number(response.headers?.get?.("content-length"));
       let bytes = Number.isFinite(lengthHeader) && lengthHeader >= 0 ? lengthHeader : null;
+      const contentType = String(response.headers?.get?.("content-type") || "").toLowerCase();
+      const expectedContentType = String(options?.expectedContentType || "").toLowerCase();
+      if (response.ok && expectedContentType && !contentType.startsWith(expectedContentType)) {
+        return Object.freeze({ ok: false, code: "INVALID_CONTENT_TYPE", status: Number(response.status) || 0, durationMs: Date.now() - started, bytes });
+      }
+      let body = null;
       if (options?.readBody && response.ok) {
-        bytes = (await withTimeout(response.arrayBuffer(), timeoutMs, { label: "diagnostic-probe-body" })).byteLength;
+        body = new Uint8Array(await Promise.race([Promise.resolve().then(() => response.arrayBuffer()), gate]));
+        bytes = body.byteLength;
+      }
+      if (response.ok && options?.expectedFormat === "webp") {
+        const ascii = (offset) => String.fromCharCode(...(body || new Uint8Array()).slice(offset, offset + 4));
+        if (!body || body.length < 12 || ascii(0) !== "RIFF" || ascii(8) !== "WEBP") {
+          return Object.freeze({ ok: false, code: "INVALID_CONTENT", status: Number(response.status) || 0, durationMs: Date.now() - started, bytes });
+        }
       }
       return Object.freeze({
         ok: Boolean(response.ok),
@@ -196,9 +223,81 @@
         bytes
       });
     } catch (error) {
-      if (error?.code === "TIMEOUT") controller?.abort?.();
-      return Object.freeze({ ok: false, code: error?.code === "TIMEOUT" ? "TIMEOUT" : "NETWORK", status: 0, durationMs: Date.now() - started, bytes: null });
+      if (!timedOut && error?.code === "TIMEOUT") controller?.abort?.();
+      return Object.freeze({ ok: false, code: timedOut || error?.code === "TIMEOUT" ? "TIMEOUT" : "NETWORK", status: 0, durationMs: Date.now() - started, bytes: null });
+    } finally {
+      if (timer !== null && typeof clearTimer === "function") clearTimer(timer);
     }
+  }
+
+  async function probeWithRetry(url, options) {
+    const maximum = clampInteger(options?.maxAttempts, 1, 3, 2);
+    const retryDelayMs = clampInteger(options?.retryDelayMs, 0, 5000, 200);
+    const sleep = options?.sleep || ((duration) => new Promise((resolve) => root.setTimeout(resolve, duration)));
+    const started = Date.now();
+    const attempts = [];
+    let result = Object.freeze({ ok: false, code: "NETWORK", status: 0, durationMs: 0, bytes: null });
+    for (let index = 0; index < maximum; index += 1) {
+      result = await probe(url, options);
+      attempts.push(Object.freeze({
+        code: result.code,
+        status: result.status,
+        durationMs: result.durationMs,
+        bytes: result.bytes
+      }));
+      if (result.ok || !TRANSIENT_PROBE_CODES.has(result.code) || index === maximum - 1) break;
+      if (retryDelayMs > 0) await sleep(retryDelayMs);
+    }
+    return Object.freeze({
+      ...result,
+      durationMs: Date.now() - started,
+      attemptCount: attempts.length,
+      attempts: Object.freeze(attempts)
+    });
+  }
+
+  function probeSeverity(result, critical) {
+    if (result?.ok) return "pass";
+    if (!critical || TRANSIENT_PROBE_CODES.has(String(result?.code || ""))) return "degraded";
+    return "fail";
+  }
+
+  function detailErrorCode(error) {
+    const code = String(error?.code || "").toUpperCase();
+    const message = String(error?.message || "").toLowerCase();
+    if (/^DETAIL_[A-Z0-9_]{1,48}$/.test(code)) return code;
+    if (["TIMEOUT", "SCRIPT_TIMEOUT"].includes(code) || error?.name === "TimeoutError") return "DETAIL_TIMEOUT";
+    if (code === "NETWORK") return "DETAIL_NETWORK";
+    if (code === "HTTP_ERROR" || Number.isSafeInteger(error?.status)) return "DETAIL_HTTP_ERROR";
+    if (code === "SCRIPT_LOAD_FAILED" || message.includes("script")) return "DETAIL_SCRIPT_LOAD_FAILED";
+    if (code === "INVALID_ASSET" || message.includes("identity")) return "DETAIL_IDENTITY_INVALID";
+    return "DETAIL_LOAD_FAILED";
+  }
+
+  function moduleErrorCode(path, kind) {
+    const match = /^\.\/([a-z0-9-]+)\.js$/.exec(String(path || ""));
+    const moduleName = match ? match[1].replaceAll("-", "_").toUpperCase() : "UNKNOWN";
+    const normalizedKind = String(kind || "LOAD_FAILED").toUpperCase();
+    const suffix = ["TIMEOUT", "LOAD_FAILED"].includes(normalizedKind) ? normalizedKind : "LOAD_FAILED";
+    return `MODULE_${moduleName}_${suffix}`.slice(0, 64);
+  }
+
+  async function mapWithConcurrency(values, concurrency, mapper) {
+    const items = Array.from(values || []);
+    if (typeof mapper !== "function") throw new TypeError("mapper must be a function");
+    if (!items.length) return [];
+    const limit = clampInteger(concurrency, 1, 32, 4);
+    const results = new Array(items.length);
+    let cursor = 0;
+    async function worker() {
+      while (cursor < items.length) {
+        const index = cursor;
+        cursor += 1;
+        results[index] = await mapper(items[index], index);
+      }
+    }
+    await Promise.all(Array.from({ length: Math.min(limit, items.length) }, () => worker()));
+    return results;
   }
 
   function navigationSnapshot(performanceLike) {
@@ -219,11 +318,16 @@
     ERROR_KEY,
     MAX_ERRORS,
     clearErrors,
+    detailErrorCode,
     humanBytes,
     inspectCaches,
     navigationSnapshot,
+    mapWithConcurrency,
+    moduleErrorCode,
     parseErrors,
     probe,
+    probeSeverity,
+    probeWithRetry,
     readErrors,
     record,
     repairCaches,

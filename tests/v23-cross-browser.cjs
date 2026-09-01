@@ -7,6 +7,7 @@ const path = require("node:path");
 const { chromium, firefox, webkit } = require("playwright");
 const { AxeBuilder } = require("@axe-core/playwright");
 const splitManifest = require("../catalog-data/manifest.json");
+const appVersion = require("../package.json").version;
 
 const root = path.resolve(__dirname, "..");
 const reportPath = path.join(root, "test-results", "v24-cross-browser-wcag-report.json");
@@ -181,7 +182,10 @@ async function runEngine(name, browserType, origin) {
   for (const pathName of ["privacy.html", "sources-and-licenses.html", "city-credits.html"]) {
     const disclosure = await context.newPage();
     await disclosure.goto(`${origin}/${pathName}`, { waitUntil: "domcontentloaded" });
-    if (pathName !== "city-credits.html") assert.match(await disclosure.locator("main").innerText(), /v2\.4\.1/);
+    if (pathName !== "city-credits.html") {
+      assert.ok((await disclosure.locator("main").innerText()).includes(`v${appVersion}`),
+        `${pathName} must disclose current app version v${appVersion}`);
+    }
     const disclosureAxe = await new AxeBuilder({ page: disclosure }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
     disclosureViolations.push(...importantAxeViolations(disclosureAxe));
     await disclosure.close();

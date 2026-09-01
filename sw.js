@@ -14,13 +14,13 @@ const VISUAL_PACK_CACHE_PREFIX = "daily-atlas-visual-pack-";
 
 // CACHE_VERSION remains as a release-integrity compatibility field for the
 // packaging tools. Runtime caches use independently generated pack versions.
-const CACHE_VERSION = "v3-77b7ff126d3c2ef1";
-const SHELL_VERSION = "s1-d18efa947f1545d6";
+const CACHE_VERSION = "v3-74d2e462a68a3b54";
+const SHELL_VERSION = "s1-c158d968d617428e";
 const CONTENT_VERSION = "c1-9bd86054a0e87ea9";
 const MEDICAL_VERSION = "m1-9c59aa54b9d7dc86";
 const AUDIO_VERSION = "a1-390c78b958c182b5";
 const SEARCH_VERSION = "q1-2e57efa7447e616b";
-const VISUAL_VERSION = "i1-0555a096468ffbfb";
+const VISUAL_VERSION = "i1-9645b96d488e53f2";
 const AUDIO_MANIFEST_SHA256 = "35E652038EB1B805D51D7AC50A72F892B6F3451792D573940ECBF550AAB4C0EA";
 
 const CACHE_NAME = `${CACHE_PREFIX}${SHELL_VERSION}`;
@@ -48,6 +48,7 @@ const CITY_VISUAL_MANIFEST = "./assets/visuals/cities/manifest.json";
 const SPLIT_CATALOG_MANIFEST = "./catalog-data/manifest.json";
 const ASSET_TIMEOUT_MS = 20000;
 const FULL_AUDIO_BATCH_SIZE = 4;
+const INSTALL_FETCH_CONCURRENCY = 4;
 const APP_SHELL = Object.freeze([
   "./",
   "./index.html",
@@ -150,6 +151,31 @@ let fullDownloadCount = 0;
 let fullDownloadAbortController = null;
 const fullDownloadObservers = new Set();
 
+function createTaskQueue(concurrency) {
+  const limit = Math.max(1, Math.min(8, Number(concurrency) || INSTALL_FETCH_CONCURRENCY));
+  const pending = [];
+  let active = 0;
+  const drain = () => {
+    while (active < limit && pending.length) {
+      const entry = pending.shift();
+      active += 1;
+      Promise.resolve().then(entry.task).then(entry.resolve, entry.reject).finally(() => {
+        active -= 1;
+        drain();
+      });
+    }
+  };
+  return Object.freeze({
+    run(task) {
+      if (typeof task !== "function") return Promise.reject(new TypeError("queued task must be a function"));
+      return new Promise((resolve, reject) => {
+        pending.push({ task, resolve, reject });
+        drain();
+      });
+    }
+  });
+}
+
 function invalidateFullAudioTrust() {
   fullAudioReadyPromise = null;
 }
@@ -175,18 +201,19 @@ function codedError(message, code, details) {
 
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
+    const installQueue = createTaskQueue(INSTALL_FETCH_CONCURRENCY);
     const packs = [
       [CACHE_NAME, SHELL_VERSION, CORE_SHELL_ASSETS, cacheApplicationShell],
       [CONTENT_CACHE, CONTENT_VERSION, CONTENT_ASSETS, cacheContentPack],
-      [MEDICAL_CACHE, MEDICAL_VERSION, MEDICAL_ASSETS, () => cacheOrdinaryPack(MEDICAL_CACHE, MEDICAL_VERSION, MEDICAL_ASSETS)],
-      [SEARCH_CACHE, SEARCH_VERSION, SEARCH_ASSETS, () => cacheOrdinaryPack(SEARCH_CACHE, SEARCH_VERSION, SEARCH_ASSETS)],
-      [AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS, () => cacheOrdinaryPack(AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS)]
+      [MEDICAL_CACHE, MEDICAL_VERSION, MEDICAL_ASSETS, (queue) => cacheOrdinaryPack(MEDICAL_CACHE, MEDICAL_VERSION, MEDICAL_ASSETS, queue)],
+      [SEARCH_CACHE, SEARCH_VERSION, SEARCH_ASSETS, (queue) => cacheOrdinaryPack(SEARCH_CACHE, SEARCH_VERSION, SEARCH_ASSETS, queue)],
+      [AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS, (queue) => cacheOrdinaryPack(AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS, queue)]
     ];
     const reusable = new Map(await Promise.all(packs.map(async ([name, version, paths]) => (
       [name, await packReady(name, version, paths)]
     ))));
     try {
-      await Promise.all(packs.map(([, , , installPack]) => installPack()));
+      await Promise.all(packs.map(([, , , installPack]) => installPack(installQueue)));
       await narrationEntries();
     } catch (error) {
       await Promise.all(packs
@@ -215,15 +242,18 @@ async function packReady(cacheName, version, paths) {
   }
 }
 
-async function cachePack(cacheName, version, paths, loader) {
+async function cachePack(cacheName, version, paths, loader, queue) {
   if (await packReady(cacheName, version, paths)) return Object.freeze({ reused: true });
   await caches.delete(cacheName);
   const cache = await caches.open(cacheName);
   try {
-    const responses = await Promise.all(paths.map(async (assetPath) => ({
-      assetPath,
-      response: await loader(assetPath)
-    })));
+    const responses = await Promise.all(paths.map(async (assetPath) => {
+      const task = () => loader(assetPath);
+      return {
+        assetPath,
+        response: await (queue?.run ? queue.run(task) : task())
+      };
+    }));
     for (const { assetPath, response } of responses) await cache.put(localUrl(assetPath), response);
     const expected = new Set(paths.map(localUrl));
     const keys = await cache.keys();
@@ -258,12 +288,12 @@ async function fetchLocalAsset(assetPath) {
   });
 }
 
-async function cacheApplicationShell() {
-  return cachePack(CACHE_NAME, SHELL_VERSION, CORE_SHELL_ASSETS, fetchLocalAsset);
+async function cacheApplicationShell(queue) {
+  return cachePack(CACHE_NAME, SHELL_VERSION, CORE_SHELL_ASSETS, fetchLocalAsset, queue);
 }
 
-async function cacheOrdinaryPack(cacheName, version, paths) {
-  return cachePack(cacheName, version, paths, fetchLocalAsset);
+async function cacheOrdinaryPack(cacheName, version, paths, queue) {
+  return cachePack(cacheName, version, paths, fetchLocalAsset, queue);
 }
 
 function validateSplitCatalogManifest(manifest) {
@@ -285,7 +315,7 @@ async function fetchReleaseSplitCatalogManifest() {
   return validateSplitCatalogManifest(await response.json());
 }
 
-async function cacheContentPack() {
+async function cacheContentPack(queue) {
   let manifestPromise = null;
   return cachePack(CONTENT_CACHE, CONTENT_VERSION, CONTENT_ASSETS, async (assetPath) => {
     if (!/\/catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js$|\/catalog-data\/selection-data\.[a-f0-9]{12}\.json$/.test(assetPath)) return fetchLocalAsset(assetPath);
@@ -303,7 +333,7 @@ async function cacheContentPack() {
       shareTransfer: false
     });
     return verified.response;
-  });
+  }, queue);
 }
 
 self.addEventListener("activate", (event) => {
@@ -1355,10 +1385,12 @@ self.addEventListener("notificationclick", (event) => {
 // Read-only diagnostics/test surface. It deliberately exposes operations, not
 // mutable state, so production callers cannot bypass the message protocol.
 self.DailyAtlasServiceWorkerInternals = Object.freeze({
+  INSTALL_FETCH_CONCURRENCY,
   PACK_VERSIONS,
   cacheApplicationShell,
   cacheContentPack,
   cityVisualEntries,
+  createTaskQueue,
   ensureFullAudio,
   fullAudioReady,
   fullVisualReady,

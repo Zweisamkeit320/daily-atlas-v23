@@ -111,7 +111,7 @@ async function assertInvalidConfig(browser, serverUrl, configScript, expectedCod
     const configScript = (value) => `globalThis.DAILY_ATLAS_PUBLIC_CONFIG=${JSON.stringify(value)};\n`;
     const validShape = {
       schemaVersion: 2,
-      appVersion: "2.4.1",
+      appVersion: "2.4.2",
       publicReleaseMode: true,
       publicSafeMode: false,
       remoteBookMovieImages: true,
@@ -121,6 +121,39 @@ async function assertInvalidConfig(browser, serverUrl, configScript, expectedCod
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, schemaVersion: 1 }), "CONFIG_SCHEMA_INVALID");
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, appVersion: "2.3.1" }), "CONFIG_VERSION_MISMATCH");
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, remoteBookMovieImages: "yes" }), "CONFIG_BOOLEAN_INVALID");
+
+    const recoveredCityContext = await browser.newContext({ serviceWorkers: "block" });
+    let recoveredCityRequests = 0;
+    await recoveredCityContext.route("**/assets/visuals/cities/city-chengdu.webp", async (route) => {
+      recoveredCityRequests += 1;
+      if (recoveredCityRequests === 1) await route.abort("connectionfailed");
+      else await route.continue();
+    });
+    const recoveredCityPage = await recoveredCityContext.newPage();
+    await recoveredCityPage.goto(server.url, { waitUntil: "domcontentloaded" });
+    await waitForDiagnostics(recoveredCityPage);
+    assert.equal(recoveredCityRequests, 2, "one transient city failure is retried once");
+    const recoveredCityProbe = recoveredCityPage.locator("#probeList .probe-row").filter({ hasText: "同源城市实图（成都）" });
+    assert.match(await recoveredCityProbe.innerText(), /通过/);
+    assert.match(await recoveredCityProbe.innerText(), /重试 1 次/);
+    assert.notEqual(await recoveredCityPage.locator("#overallStatus").getAttribute("data-status"), "fail");
+    await recoveredCityContext.close();
+
+    const degradedCityContext = await browser.newContext({ serviceWorkers: "block" });
+    let degradedCityRequests = 0;
+    await degradedCityContext.route("**/assets/visuals/cities/city-chengdu.webp", async (route) => {
+      degradedCityRequests += 1;
+      await route.abort("connectionfailed");
+    });
+    const degradedCityPage = await degradedCityContext.newPage();
+    await degradedCityPage.goto(server.url, { waitUntil: "domcontentloaded" });
+    await waitForDiagnostics(degradedCityPage);
+    assert.equal(degradedCityRequests, 2, "persistent city network failure is bounded to two attempts");
+    assert.equal(await degradedCityPage.locator("#overallStatus").getAttribute("data-status"), "degraded");
+    const degradedCityProbe = degradedCityPage.locator("#probeList .probe-row").filter({ hasText: "同源城市实图（成都）" });
+    assert.match(await degradedCityProbe.innerText(), /NETWORK/);
+    assert.match(await degradedCityProbe.innerText(), /网络降级/);
+    await degradedCityContext.close();
 
     const wrongCityContext = await browser.newContext({ serviceWorkers: "block" });
     const wrongCityExternalRequests = [];
@@ -138,11 +171,11 @@ async function assertInvalidConfig(browser, serverUrl, configScript, expectedCod
     await waitForDiagnostics(wrongCityPage);
     assert.equal(await wrongCityPage.locator("#overallStatus").getAttribute("data-status"), "fail");
     const cityProbe = wrongCityPage.locator("#probeList .probe-row").filter({ hasText: "同源城市实图（成都）" });
-    assert.match(await cityProbe.innerText(), /CITY_IMAGE_INVALID/);
+    assert.match(await cityProbe.innerText(), /INVALID_CONTENT_TYPE/);
     assert.deepEqual(wrongCityExternalRequests, []);
     await wrongCityContext.close();
 
-    process.stdout.write("diagnostics external-image privacy and fail-closed config browser checks: PASS\n");
+    process.stdout.write("diagnostics privacy, retry/degraded classification and fail-closed config browser checks: PASS\n");
   } finally {
     await browser.close();
     await server.close();

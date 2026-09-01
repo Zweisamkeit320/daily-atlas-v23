@@ -878,7 +878,9 @@ async function runUndoFault(browser, origin, faultAt, after, noWebLocks) {
   const browserVersion = browser.version();
   const report = { browser: `Microsoft Edge ${browserVersion}`, memoryOnly: [], singleKey: [], reset: [], unsuitable: [], undo: [] };
   try {
-    assert.match(browserVersion, /^151\./, `Round 3 storage fault suite must run in Microsoft Edge 151, got ${browserVersion}`);
+    const edgeMajor = Number(browserVersion.split(".")[0]);
+    assert.ok(Number.isInteger(edgeMajor) && edgeMajor >= 151,
+      `storage fault suite requires Microsoft Edge 151 or newer, got ${browserVersion}`);
     const origin = `http://127.0.0.1:${port}`;
 
     for (const mode of ["getter", "methods"]) {
