@@ -71,6 +71,15 @@
 /assets/visuals/cities/*.webp
   Cache-Control: public, max-age=0, must-revalidate
 
+/assets/visuals/cities-mobile/manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/visuals/cities-mobile/manifest.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/visuals/cities-mobile/*.webp
+  Cache-Control: public, max-age=0, must-revalidate
+
 /assets/audio/german/*.mp3
   Cache-Control: public, max-age=31536000, immutable
 

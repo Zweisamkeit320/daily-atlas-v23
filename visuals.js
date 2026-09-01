@@ -15,7 +15,10 @@
   const IMAGE_ROUTE_TIMEOUT_MS = 3000;
   const IMAGE_TOTAL_TIMEOUT_MS = 9000;
   const IMAGE_MAX_CANDIDATES = Math.ceil(IMAGE_TOTAL_TIMEOUT_MS / IMAGE_ROUTE_TIMEOUT_MS);
+  const HOST_FAILURE_LIMIT = 2;
+  const HOST_COOLDOWN_MS = 60000;
   const imageBindings = new WeakMap();
+  const hostHealth = new Map();
   let nextGeneration = 0;
 
   function publicConfig() {
@@ -68,6 +71,56 @@
     return /^city-[a-z0-9-]+$/.test(id) ? id : null;
   }
 
+  function cityMobilePath(id) {
+    return `./assets/visuals/cities-mobile/${id}.webp`;
+  }
+
+  function preferMobileCity() {
+    const connection = root.navigator?.connection || root.navigator?.mozConnection || root.navigator?.webkitConnection;
+    return root.matchMedia?.("(max-width: 720px)")?.matches === true
+      || /Android|Mobile|MicroMessenger|Quark|VivoBrowser/i.test(String(root.navigator?.userAgent || ""))
+      || connection?.saveData === true
+      || /(^|-)2g$/.test(String(connection?.effectiveType || ""));
+  }
+
+  function remoteHost(value) {
+    try {
+      const host = new URL(String(value || "")).hostname.toLowerCase();
+      return REMOTE_HOSTS.has(host) ? host : null;
+    } catch (_error) { return null; }
+  }
+
+  function hostAvailable(value, now = Date.now()) {
+    const host = remoteHost(value);
+    if (!host) return true;
+    const state = hostHealth.get(host);
+    if (!state || state.blockedUntil <= now) {
+      if (state?.blockedUntil) hostHealth.delete(host);
+      return true;
+    }
+    return false;
+  }
+
+  function noteHostFailure(value, now = Date.now()) {
+    const host = remoteHost(value);
+    if (!host) return;
+    const previous = hostHealth.get(host) || { failures: 0, blockedUntil: 0 };
+    const failures = previous.blockedUntil > now ? previous.failures : previous.failures + 1;
+    hostHealth.set(host, {
+      failures,
+      blockedUntil: failures >= HOST_FAILURE_LIMIT ? now + HOST_COOLDOWN_MS : 0
+    });
+  }
+
+  function noteHostSuccess(value) {
+    const host = remoteHost(value);
+    if (host) hostHealth.delete(host);
+  }
+
+  function resetHostHealth() {
+    hostHealth.clear();
+  }
+
   function cityEntry(item) {
     const id = safeCityId(item?.id);
     const items = root.DAILY_ATLAS_CITY_VISUALS?.items;
@@ -76,6 +129,7 @@
       return Object.freeze({
         id,
         path: `./assets/visuals/cities/${id}.webp`,
+        mobilePath: cityMobilePath(id),
         sourcePage: `./city-credits.html#${id}`,
         provisional: true
       });
@@ -84,7 +138,7 @@
     if (!entry) return null;
     const path = String(entry.path || "").replace(/^assets\//, "./assets/");
     if (path !== `./assets/visuals/cities/${id}.webp`) return null;
-    return Object.freeze({ ...entry, path });
+    return Object.freeze({ ...entry, path, mobilePath: cityMobilePath(id) });
   }
 
   function mediaCandidates(item) {
@@ -116,7 +170,8 @@
 
   function cityCandidates(item) {
     const entry = cityEntry(item);
-    return entry ? [entry.path] : [];
+    if (!entry) return [];
+    return preferMobileCity() ? [entry.mobilePath, entry.path] : [entry.path, entry.mobilePath];
   }
 
   function licenseLabel(entry) {
@@ -147,7 +202,7 @@
       const entry = cityEntry(item);
       return Object.freeze({
         type,
-        candidates: Object.freeze(entry ? [entry.path] : []),
+        candidates: Object.freeze(entry ? cityCandidates(item) : []),
         remote: false,
         provider: entry?.provisional ? "Wikimedia Commons" : entry ? `Wikimedia Commons · ${String(entry.author || "作者待核")} · ${licenseLabel(entry)}` : "",
         sourcePage: String(entry?.sourcePage || ""),
@@ -166,9 +221,9 @@
       const parsed = JSON.parse(image.getAttribute("data-visual-candidates") || "[]");
       if (!Array.isArray(parsed)) return [];
       return unique(parsed.map((value) => {
-        if (/^\.\/assets\/visuals\/cities\/city-[a-z0-9-]+\.webp$/.test(String(value))) return String(value);
+        if (/^\.\/assets\/visuals\/(?:cities|cities-mobile)\/city-[a-z0-9-]+\.webp$/.test(String(value))) return String(value);
         return normalizedRemoteUrl(value);
-      })).slice(0, IMAGE_MAX_CANDIDATES);
+      })).filter((value) => hostAvailable(value)).slice(0, IMAGE_MAX_CANDIDATES);
     } catch (_error) {
       return [];
     }
@@ -185,6 +240,7 @@
     let index = Math.max(0, Number(image.getAttribute("data-visual-index")) || 0);
     let timer = null;
     let disposed = false;
+    let decodeGeneration = 0;
     const startedAt = Date.now();
     const binding = { generation, dispose: null };
     imageBindings.set(image, binding);
@@ -228,18 +284,39 @@
       timer = root.setTimeout(() => tryNext(), Math.min(IMAGE_ROUTE_TIMEOUT_MS, remaining));
     };
 
-    function markLoaded() {
+    function revealLoaded(loadedIndex, token) {
       if (!isActive()) return;
+      if (loadedIndex !== index || token !== decodeGeneration || image.naturalWidth <= 0) return;
       clearTimer();
       image.hidden = false;
       if (credit) credit.hidden = false;
       visual?.classList?.add("visual-image-loaded");
       visual?.classList?.remove("visual-image-failed");
+      noteHostSuccess(candidates[index]);
+    }
+    function markLoaded() {
+      if (!isActive()) return;
+      clearTimer();
+      const loadedIndex = index;
+      const token = ++decodeGeneration;
+      if (typeof image.decode !== "function") {
+        revealLoaded(loadedIndex, token);
+        return;
+      }
+      Promise.resolve().then(() => image.decode()).then(
+        () => revealLoaded(loadedIndex, token),
+        () => {
+          if (isActive() && loadedIndex === index && token === decodeGeneration) tryNext();
+        }
+      );
     }
     function tryNext() {
       if (!isActive()) return;
       clearTimer();
+      decodeGeneration += 1;
+      noteHostFailure(candidates[index]);
       index += 1;
+      while (index < candidates.length && !hostAvailable(candidates[index])) index += 1;
       if (index < candidates.length) {
         image.setAttribute("data-visual-index", String(index));
         image.src = candidates[index];
@@ -279,12 +356,17 @@
     REMOTE_HOSTS,
     IMAGE_ROUTE_TIMEOUT_MS,
     IMAGE_TOTAL_TIMEOUT_MS,
+    HOST_FAILURE_LIMIT,
+    HOST_COOLDOWN_MS,
     bind,
     bindImage,
+    cityCandidates,
     cityEntry,
+    hostAvailable,
     mediaCandidates,
     normalizedRemoteUrl,
     resolve,
+    resetHostHealth,
     safeCityId,
     unbind,
     weservUrl

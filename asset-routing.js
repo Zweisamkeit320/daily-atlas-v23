@@ -11,14 +11,16 @@
   // value explicitly, but a moving branch or tag must never be used here.
   const DEPLOYMENT_REVISION = "113b69412fb7d9b853f52fd5f0b9bd8764fd311b";
   const CDN_BASE = `https://cdn.jsdelivr.net/gh/Zweisamkeit320/daily-atlas-v23@${DEPLOYMENT_REVISION}/`;
-  const CATALOG_INTEGRITY = "sha384-n3Gfd0OiucVV+pFA0m8WGjDm8BfBcLQFGA2NyH0VaNDWAL8bvbNTenYNjKWHUEfE";
-  const CATALOG_SHA256 = "6C774131988C8C3DC755C53F5F120062B4799FB33ECBCF7A57943AAC3814389E";
+  const CATALOG_INTEGRITY = "sha384-Yet6hWeOYNlFeImS6xOH+F+zpysre6pSJP26Uy0juAxOCWJk+exNt9466kOUhgf6";
+  const CATALOG_SHA256 = "066E85753193424DE2525BC27005A31356FE06E8A20151F54CE4433D9B4463EB";
   const CATALOG_BYTES = 3397181;
   const DEFAULT_TIMEOUT_MS = 15000;
   const PRIMARY_ROUTE_TIMEOUT_MS = 6500;
   const FALLBACK_ROUTE_TIMEOUT_MS = 6500;
+  const CATALOG_HEDGE_DELAY_MS = 1800;
   const TRANSFER_CACHE_PREFIX = "daily-atlas-transfer-";
   const ROUTABLE_ASSET = /^(?:assets\/audio\/german\/de-[a-z0-9-]+\.mp3|catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js|catalog-data\/selection-data\.[a-f0-9]{12}\.json|catalog-data\/details\/(?:book|movie|city|german|medical)-\d{3}\.[a-f0-9]{12}\.js)$/;
+  const IMMUTABLE_CATALOG_ASSET = /^catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js$|^catalog-data\/selection-data\.[a-f0-9]{12}\.json$|^catalog-data\/details\/(?:book|movie|city|german|medical)-\d{3}\.[a-f0-9]{12}\.js$/;
 
   function deploymentMatches(locationLike) {
     const hostname = String(locationLike?.hostname || "").toLowerCase();
@@ -47,7 +49,7 @@
   function candidateUrls(value, locationLike) {
     const path = normalizeAssetPath(value);
     const local = sameOriginUrl(path, locationLike);
-    const immutableCatalogChunk = /^catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js$|^catalog-data\/selection-data\.[a-f0-9]{12}\.json$|^catalog-data\/details\/(?:book|movie|city|german|medical)-\d{3}\.[a-f0-9]{12}\.js$/.test(path);
+    const immutableCatalogChunk = IMMUTABLE_CATALOG_ASSET.test(path);
     const candidates = deploymentMatches(locationLike)
       ? [
           Object.freeze({ source: "same-origin", url: local, cache: immutableCatalogChunk ? "force-cache" : "reload" }),
@@ -150,7 +152,11 @@
 
   async function fetchVerifiedAsset(value, options) {
     const settings = options || {};
-    const candidates = candidateUrls(value, settings.location || root.location);
+    const path = normalizeAssetPath(value);
+    const candidates = candidateUrls(path, settings.location || root.location);
+    if (candidates.length === 2 && IMMUTABLE_CATALOG_ASSET.test(path) && settings.serviceWorkerControlled !== true) {
+      return fetchHedgedAsset(candidates, settings);
+    }
     const attempts = [];
     let finalCode = "NETWORK";
     for (const candidate of candidates) {
@@ -174,6 +180,79 @@
       }
     }
     throw assetError(`All ${attempts.length} verified asset routes failed`, finalCode, { attempts: Object.freeze(attempts) });
+  }
+
+  function failedAttempt(candidate, error) {
+    return Object.freeze({
+      source: candidate.source,
+      url: candidate.url,
+      code: error?.code || "NETWORK",
+      ...(Number.isSafeInteger(error?.status) ? { status: error.status } : {})
+    });
+  }
+
+  function finalFailure(attempts) {
+    let code = "NETWORK";
+    if (attempts.some((attempt) => ["INVALID_ASSET", "VERIFY_UNAVAILABLE"].includes(attempt.code))) code = "INVALID_ASSET";
+    else if (attempts.some((attempt) => attempt.code === "TIMEOUT")) code = "TIMEOUT";
+    return assetError(`All ${attempts.length} verified asset routes failed`, code, { attempts: Object.freeze(attempts) });
+  }
+
+  async function fetchHedgedAsset(candidates, settings) {
+    const requestedTimeout = Math.max(1, Number(settings.timeoutMs) || DEFAULT_TIMEOUT_MS);
+    const Controller = settings.AbortController || root.AbortController;
+    const controllers = candidates.map(() => typeof Controller === "function" ? new Controller() : null);
+    if (settings.signal?.aborted) throw assetError("Asset request was cancelled", "CANCELLED");
+    const cancelAll = () => controllers.forEach((controller) => controller?.abort());
+    const cleanup = () => settings.signal?.removeEventListener?.("abort", cancelAll);
+    settings.signal?.addEventListener?.("abort", cancelAll, { once: true });
+    const attempt = (index) => fetchAttempt(candidates[index], {
+      ...settings,
+      signal: controllers[index]?.signal || settings.signal,
+      timeoutMs: Math.min(requestedTimeout, index === 0 ? PRIMARY_ROUTE_TIMEOUT_MS : FALLBACK_ROUTE_TIMEOUT_MS)
+    }).then(
+      (result) => ({ ok: true, index, result }),
+      (error) => ({ ok: false, index, error })
+    );
+    const finish = (outcome, failures) => {
+      controllers.forEach((controller, index) => { if (index !== outcome.index) controller?.abort(); });
+      cleanup();
+      return Object.freeze({ ...outcome.result, attempts: Object.freeze(failures) });
+    };
+    const failures = [];
+    const primary = attempt(0);
+    let hedgeTimer = null;
+    const hedgeDelayMs = Number.isFinite(Number(settings.hedgeDelayMs))
+      ? Math.max(0, Math.min(CATALOG_HEDGE_DELAY_MS, Number(settings.hedgeDelayMs)))
+      : CATALOG_HEDGE_DELAY_MS;
+    const delay = new Promise((resolve) => {
+      hedgeTimer = (settings.setTimeout || root.setTimeout)(() => resolve({ hedge: true }), hedgeDelayMs);
+    });
+    const first = await Promise.race([primary, delay]);
+    if (!first.hedge) {
+      if (hedgeTimer !== null) (settings.clearTimeout || root.clearTimeout)(hedgeTimer);
+      if (first.ok) return finish(first, failures);
+      if (first.error?.code === "CANCELLED") { cleanup(); throw first.error; }
+      failures.push(failedAttempt(candidates[0], first.error));
+      const fallback = await attempt(1);
+      if (fallback.ok) return finish(fallback, failures);
+      if (fallback.error?.code === "CANCELLED") { cleanup(); throw fallback.error; }
+      failures.push(failedAttempt(candidates[1], fallback.error));
+      cleanup();
+      throw finalFailure(failures);
+    }
+
+    const fallback = attempt(1);
+    const outcome = await Promise.race([primary, fallback]);
+    if (outcome.ok) return finish(outcome, failures);
+    if (outcome.error?.code === "CANCELLED") { cleanup(); throw outcome.error; }
+    failures.push(failedAttempt(candidates[outcome.index], outcome.error));
+    const remaining = await (outcome.index === 0 ? fallback : primary);
+    if (remaining.ok) return finish(remaining, failures);
+    if (remaining.error?.code === "CANCELLED") { cleanup(); throw remaining.error; }
+    failures.push(failedAttempt(candidates[remaining.index], remaining.error));
+    cleanup();
+    throw finalFailure(failures);
   }
 
   function transferCacheName(value) {
@@ -278,6 +357,7 @@
     CATALOG_BYTES,
     CATALOG_INTEGRITY,
     CATALOG_SHA256,
+    CATALOG_HEDGE_DELAY_MS,
     CDN_BASE,
     DEFAULT_TIMEOUT_MS,
     FALLBACK_ROUTE_TIMEOUT_MS,

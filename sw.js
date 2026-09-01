@@ -14,13 +14,13 @@ const VISUAL_PACK_CACHE_PREFIX = "daily-atlas-visual-pack-";
 
 // CACHE_VERSION remains as a release-integrity compatibility field for the
 // packaging tools. Runtime caches use independently generated pack versions.
-const CACHE_VERSION = "v3-77b7ff126d3c2ef1";
-const SHELL_VERSION = "s1-d18efa947f1545d6";
+const CACHE_VERSION = "v3-cdc32d8e49529bbe";
+const SHELL_VERSION = "s1-e10ed8707cf64a21";
 const CONTENT_VERSION = "c1-9bd86054a0e87ea9";
 const MEDICAL_VERSION = "m1-9c59aa54b9d7dc86";
 const AUDIO_VERSION = "a1-390c78b958c182b5";
 const SEARCH_VERSION = "q1-2e57efa7447e616b";
-const VISUAL_VERSION = "i1-0555a096468ffbfb";
+const VISUAL_VERSION = "i1-9bcd9d34f8312bbd";
 const AUDIO_MANIFEST_SHA256 = "35E652038EB1B805D51D7AC50A72F892B6F3451792D573940ECBF550AAB4C0EA";
 
 const CACHE_NAME = `${CACHE_PREFIX}${SHELL_VERSION}`;
@@ -45,9 +45,11 @@ const FULL_VISUAL_MARKER = "./__daily-atlas-full-visual-complete__";
 const PACK_READY_MARKER = "./__daily-atlas-pack-ready__";
 const GERMAN_AUDIO_MANIFEST = "./assets/audio/german/manifest.json";
 const CITY_VISUAL_MANIFEST = "./assets/visuals/cities/manifest.json";
+const MOBILE_CITY_VISUAL_MANIFEST = "./assets/visuals/cities-mobile/manifest.json";
 const SPLIT_CATALOG_MANIFEST = "./catalog-data/manifest.json";
 const ASSET_TIMEOUT_MS = 20000;
 const FULL_AUDIO_BATCH_SIZE = 4;
+const INSTALL_FETCH_CONCURRENCY = 4;
 const APP_SHELL = Object.freeze([
   "./",
   "./index.html",
@@ -64,6 +66,8 @@ const APP_SHELL = Object.freeze([
   "./diagnostics.css",
   "./diagnostics.js",
   "./bootstrap.js",
+  "./runtime-foundation.js",
+  "./runtime-features.js",
   "./catalog-loader.js",
   "./engine.js",
   "./state.js",
@@ -80,6 +84,8 @@ const APP_SHELL = Object.freeze([
   "./visuals.js",
   "./assets/visuals/cities/manifest.js",
   "./assets/visuals/cities/manifest.json",
+  "./assets/visuals/cities-mobile/manifest.js",
+  "./assets/visuals/cities-mobile/manifest.json",
   "./pwa.js",
   "./app.js",
   "./manifest.webmanifest",
@@ -141,6 +147,7 @@ const PACK_VERSIONS = Object.freeze({
 
 let narrationManifestPromise = null;
 let cityVisualManifestPromise = null;
+let mobileCityVisualManifestPromise = null;
 let splitCatalogManifestPromise = null;
 let fullAudioReadyPromise = null;
 let fullVisualReadyPromise = null;
@@ -149,6 +156,31 @@ let fullDownloadStopReason = null;
 let fullDownloadCount = 0;
 let fullDownloadAbortController = null;
 const fullDownloadObservers = new Set();
+
+function createTaskQueue(concurrency) {
+  const limit = Math.max(1, Math.min(8, Number(concurrency) || INSTALL_FETCH_CONCURRENCY));
+  const pending = [];
+  let active = 0;
+  const drain = () => {
+    while (active < limit && pending.length) {
+      const entry = pending.shift();
+      active += 1;
+      Promise.resolve().then(entry.task).then(entry.resolve, entry.reject).finally(() => {
+        active -= 1;
+        drain();
+      });
+    }
+  };
+  return Object.freeze({
+    run(task) {
+      if (typeof task !== "function") return Promise.reject(new TypeError("queued task must be a function"));
+      return new Promise((resolve, reject) => {
+        pending.push({ task, resolve, reject });
+        drain();
+      });
+    }
+  });
+}
 
 function invalidateFullAudioTrust() {
   fullAudioReadyPromise = null;
@@ -175,18 +207,19 @@ function codedError(message, code, details) {
 
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
+    const installQueue = createTaskQueue(INSTALL_FETCH_CONCURRENCY);
     const packs = [
       [CACHE_NAME, SHELL_VERSION, CORE_SHELL_ASSETS, cacheApplicationShell],
       [CONTENT_CACHE, CONTENT_VERSION, CONTENT_ASSETS, cacheContentPack],
-      [MEDICAL_CACHE, MEDICAL_VERSION, MEDICAL_ASSETS, () => cacheOrdinaryPack(MEDICAL_CACHE, MEDICAL_VERSION, MEDICAL_ASSETS)],
-      [SEARCH_CACHE, SEARCH_VERSION, SEARCH_ASSETS, () => cacheOrdinaryPack(SEARCH_CACHE, SEARCH_VERSION, SEARCH_ASSETS)],
-      [AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS, () => cacheOrdinaryPack(AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS)]
+      [MEDICAL_CACHE, MEDICAL_VERSION, MEDICAL_ASSETS, (queue) => cacheOrdinaryPack(MEDICAL_CACHE, MEDICAL_VERSION, MEDICAL_ASSETS, queue)],
+      [SEARCH_CACHE, SEARCH_VERSION, SEARCH_ASSETS, (queue) => cacheOrdinaryPack(SEARCH_CACHE, SEARCH_VERSION, SEARCH_ASSETS, queue)],
+      [AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS, (queue) => cacheOrdinaryPack(AUDIO_METADATA_CACHE, AUDIO_VERSION, AUDIO_METADATA_ASSETS, queue)]
     ];
     const reusable = new Map(await Promise.all(packs.map(async ([name, version, paths]) => (
       [name, await packReady(name, version, paths)]
     ))));
     try {
-      await Promise.all(packs.map(([, , , installPack]) => installPack()));
+      await Promise.all(packs.map(([, , , installPack]) => installPack(installQueue)));
       await narrationEntries();
     } catch (error) {
       await Promise.all(packs
@@ -215,15 +248,18 @@ async function packReady(cacheName, version, paths) {
   }
 }
 
-async function cachePack(cacheName, version, paths, loader) {
+async function cachePack(cacheName, version, paths, loader, queue) {
   if (await packReady(cacheName, version, paths)) return Object.freeze({ reused: true });
   await caches.delete(cacheName);
   const cache = await caches.open(cacheName);
   try {
-    const responses = await Promise.all(paths.map(async (assetPath) => ({
-      assetPath,
-      response: await loader(assetPath)
-    })));
+    const responses = await Promise.all(paths.map(async (assetPath) => {
+      const task = () => loader(assetPath);
+      return {
+        assetPath,
+        response: await (queue?.run ? queue.run(task) : task())
+      };
+    }));
     for (const { assetPath, response } of responses) await cache.put(localUrl(assetPath), response);
     const expected = new Set(paths.map(localUrl));
     const keys = await cache.keys();
@@ -258,12 +294,12 @@ async function fetchLocalAsset(assetPath) {
   });
 }
 
-async function cacheApplicationShell() {
-  return cachePack(CACHE_NAME, SHELL_VERSION, CORE_SHELL_ASSETS, fetchLocalAsset);
+async function cacheApplicationShell(queue) {
+  return cachePack(CACHE_NAME, SHELL_VERSION, CORE_SHELL_ASSETS, fetchLocalAsset, queue);
 }
 
-async function cacheOrdinaryPack(cacheName, version, paths) {
-  return cachePack(cacheName, version, paths, fetchLocalAsset);
+async function cacheOrdinaryPack(cacheName, version, paths, queue) {
+  return cachePack(cacheName, version, paths, fetchLocalAsset, queue);
 }
 
 function validateSplitCatalogManifest(manifest) {
@@ -285,7 +321,7 @@ async function fetchReleaseSplitCatalogManifest() {
   return validateSplitCatalogManifest(await response.json());
 }
 
-async function cacheContentPack() {
+async function cacheContentPack(queue) {
   let manifestPromise = null;
   return cachePack(CONTENT_CACHE, CONTENT_VERSION, CONTENT_ASSETS, async (assetPath) => {
     if (!/\/catalog-data\/(?:selection|search)\.[a-f0-9]{12}\.js$|\/catalog-data\/selection-data\.[a-f0-9]{12}\.json$/.test(assetPath)) return fetchLocalAsset(assetPath);
@@ -300,10 +336,11 @@ async function cacheContentPack() {
       sha256: record.sha256,
       integrity: record.integrity,
       timeoutMs: ASSET_TIMEOUT_MS,
-      shareTransfer: false
+      shareTransfer: false,
+      serviceWorkerControlled: true
     });
     return verified.response;
-  });
+  }, queue);
 }
 
 self.addEventListener("activate", (event) => {
@@ -487,6 +524,43 @@ async function cityVisualEntries() {
   return cityVisualManifestPromise;
 }
 
+async function mobileCityVisualEntries() {
+  if (mobileCityVisualManifestPromise) return mobileCityVisualManifestPromise;
+  mobileCityVisualManifestPromise = (async () => {
+    const shell = await caches.open(CACHE_NAME);
+    const response = await shell.match(localUrl(MOBILE_CITY_VISUAL_MANIFEST));
+    if (!response?.ok) throw codedError("Mobile city visual manifest was not cached", "INVALID_VISUAL_MANIFEST");
+    const manifest = await response.json();
+    const entries = Array.isArray(manifest.items) ? manifest.items.map((entry) => ({
+      id: String(entry.id || ""),
+      path: String(entry.path || ""),
+      bytes: Number(entry.bytes),
+      sha256: String(entry.sha256 || "").toUpperCase(),
+      width: Number(entry.width),
+      height: Number(entry.height)
+    })) : [];
+    if (manifest.schemaVersion !== 1 || manifest.count !== 200 || entries.length !== 200 || entries.some((entry) => (
+      !/^city-[a-z0-9-]+$/.test(entry.id)
+      || entry.path !== `./assets/visuals/cities-mobile/${entry.id}.webp`
+      || !Number.isSafeInteger(entry.bytes) || entry.bytes <= 0
+      || !/^[A-F0-9]{64}$/.test(entry.sha256)
+      || entry.width !== 480 || entry.height !== 270
+    ))) throw codedError("Mobile city visual manifest is invalid", "INVALID_VISUAL_MANIFEST");
+    const urls = new Set(entries.map((entry) => localUrl(entry.path)));
+    const ids = new Set(entries.map((entry) => entry.id));
+    if (urls.size !== 200 || ids.size !== 200) throw codedError("Mobile city visual manifest contains duplicates", "INVALID_VISUAL_MANIFEST");
+    return Object.freeze({
+      entries: Object.freeze(entries),
+      urls,
+      byUrl: new Map(entries.map((entry) => [localUrl(entry.path), entry]))
+    });
+  })().catch((error) => {
+    mobileCityVisualManifestPromise = null;
+    throw error;
+  });
+  return mobileCityVisualManifestPromise;
+}
+
 async function splitCatalogManifest() {
   if (splitCatalogManifestPromise) return splitCatalogManifestPromise;
   splitCatalogManifestPromise = (async () => {
@@ -531,7 +605,8 @@ async function matchOrFetchSplitCatalog(request) {
     sha256: record.sha256,
     integrity: record.integrity,
     timeoutMs: ASSET_TIMEOUT_MS,
-    shareTransfer: false
+    shareTransfer: false,
+    serviceWorkerControlled: true
   });
   try { await cache.put(request, verified.response.clone()); }
   catch (_error) {}
@@ -646,7 +721,8 @@ async function downloadSplitStage(stage, signal) {
         integrity: record.integrity,
         timeoutMs: ASSET_TIMEOUT_MS,
         signal,
-        shareTransfer: false
+        shareTransfer: false,
+        serviceWorkerControlled: true
       })).response
     })));
     if (fullDownloadStopReason) throw codedError("Full offline download was stopped", fullDownloadStopReason);
@@ -905,6 +981,7 @@ async function repairApplicationCaches() {
   ]);
   narrationManifestPromise = null;
   cityVisualManifestPromise = null;
+  mobileCityVisualManifestPromise = null;
   splitCatalogManifestPromise = null;
   const [manifest, visualManifest] = await Promise.all([narrationEntries(), cityVisualEntries()]);
   await repairSplitRuntimeCaches();
@@ -1199,7 +1276,8 @@ async function trimVisualCache(cache) {
 async function matchOrFetchVisual(request) {
   const cache = await caches.open(VISUAL_CACHE);
   const cached = await cache.match(request);
-  const manifest = await cityVisualEntries();
+  const mobile = /\/assets\/visuals\/cities-mobile\/city-[a-z0-9-]+\.webp$/.test(new URL(request.url).pathname);
+  const manifest = mobile ? await mobileCityVisualEntries() : await cityVisualEntries();
   const entry = manifest.byUrl.get(request.url);
   if (cached && entry) {
     try {
@@ -1262,19 +1340,23 @@ self.addEventListener("fetch", (event) => {
   }
 
   event.respondWith((async () => {
-    if (/\/assets\/visuals\/cities\/city-[a-z0-9-]+\.webp$/.test(url.pathname)) {
+    if (/\/assets\/visuals\/(?:cities|cities-mobile)\/city-[a-z0-9-]+\.webp$/.test(url.pathname)) {
+      const mobileMatch = /\/assets\/visuals\/cities-mobile\/(city-[a-z0-9-]+)\.webp$/.exec(url.pathname);
       if (await fullVisualReady()) {
         const complete = await caches.open(FULL_VISUAL_CACHE);
-        const cached = await complete.match(request);
+        const fullRequest = mobileMatch
+          ? localUrl(`./assets/visuals/cities/${mobileMatch[1]}.webp`)
+          : request;
+        const cached = await complete.match(fullRequest);
         if (cached) {
           const manifest = await cityVisualEntries();
-          const entry = manifest.byUrl.get(request.url);
+          const entry = manifest.byUrl.get(typeof fullRequest === "string" ? fullRequest : request.url);
           try {
             if (!entry) throw codedError("City visual is absent from the current manifest", "INVALID_VISUAL");
             await verifyCachedCityVisual(cached, entry);
             return cached;
           } catch (_error) {
-            await complete.delete(request);
+            await complete.delete(fullRequest);
             await complete.delete(localUrl(FULL_VISUAL_MARKER));
             invalidateFullVisualTrust();
           }
@@ -1355,10 +1437,12 @@ self.addEventListener("notificationclick", (event) => {
 // Read-only diagnostics/test surface. It deliberately exposes operations, not
 // mutable state, so production callers cannot bypass the message protocol.
 self.DailyAtlasServiceWorkerInternals = Object.freeze({
+  INSTALL_FETCH_CONCURRENCY,
   PACK_VERSIONS,
   cacheApplicationShell,
   cacheContentPack,
   cityVisualEntries,
+  createTaskQueue,
   ensureFullAudio,
   fullAudioReady,
   fullVisualReady,
