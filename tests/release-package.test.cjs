@@ -9,7 +9,7 @@ const { spawnSync } = require("node:child_process");
 
 const Release = require("../scripts/release-package.cjs");
 const { cloneFixture, replaceFile } = require("./package-fixture-helpers.cjs");
-const FIXTURE_VERSION = "2.4.2";
+const FIXTURE_VERSION = "2.4.3";
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex").toUpperCase();
@@ -46,7 +46,7 @@ test("release package has one root, canonical sidecars, exact hashes, 500 MP3s, 
   assert.ok(entries.every((entry) => entry.name === "daily-duet/" || entry.name.startsWith("daily-duet/")));
   assert.equal(entries.filter((entry) => /^daily-duet\/assets\/audio\/german\/[^/]+\.mp3$/.test(entry.name)).length, 500);
   assert.ok(entries.some((entry) => entry.name === "daily-duet/sw.js"));
-  for (const name of ["_headers", "bootstrap.js", "catalog-loader.js", "runtime-health.js", "search-worker.js", "diagnostics.html", "explore.js", "weekly.js", "backup-crypto.js", "asset-routing.js"]) {
+  for (const name of ["_headers", "bootstrap.js", "runtime-foundation.js", "runtime-features.js", "catalog-loader.js", "runtime-health.js", "search-worker.js", "diagnostics.html", "explore.js", "weekly.js", "backup-crypto.js", "asset-routing.js"]) {
     assert.ok(entries.some((entry) => entry.name === `daily-duet/${name}`));
   }
   for (const name of Release.CATALOG_FILES) assert.ok(entries.some((entry) => entry.name === `daily-duet/${name}`));
@@ -54,6 +54,7 @@ test("release package has one root, canonical sidecars, exact hashes, 500 MP3s, 
   assert.ok(entries.some((entry) => entry.name === "daily-duet/assets/medical/manifest.json"));
   assert.ok(entries.some((entry) => entry.name === "daily-duet/assets/medical/README.md"));
   assert.equal(entries.filter((entry) => /^daily-duet\/assets\/visuals\/cities\/city-[a-z0-9-]+\.webp$/.test(entry.name)).length, 200);
+  assert.equal(entries.filter((entry) => /^daily-duet\/assets\/visuals\/cities-mobile\/city-[a-z0-9-]+\.webp$/.test(entry.name)).length, 200);
   assert.ok(entries.some((entry) => entry.name === "daily-duet/assets/visuals/cities/manifest.json"));
   assert.ok(entries.some((entry) => entry.name === "daily-duet/assets/visuals/cities/manifest.js"));
   assert.ok(entries.some((entry) => entry.name === "daily-duet/data/visuals/city-commons-reviews.v1.json"));
@@ -92,7 +93,7 @@ test("release creation refuses a ZIP version that differs from package.json", (t
   const fixture = makeFixture();
   t.after(() => fs.rmSync(fixture.temporary, { recursive: true, force: true }));
   const mismatched = path.join(fixture.output, "daily-duet-v2.0.0-r3-20260813-010203.zip");
-  assert.throws(() => Release.createRelease(mismatched, fixture.root), /ZIP version 2\.0\.0 does not match package version 2\.4\.2/);
+  assert.throws(() => Release.createRelease(mismatched, fixture.root), /ZIP version 2\.0\.0 does not match package version 2\.4\.3/);
   assert.equal(fs.existsSync(mismatched), false);
 });
 

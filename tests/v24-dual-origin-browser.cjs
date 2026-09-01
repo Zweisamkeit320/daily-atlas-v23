@@ -149,7 +149,7 @@ const server = http.createServer((request, response) => {
     return;
   }
   let body = fs.readFileSync(result.absolute);
-  const isCityVisual = /^assets\/visuals\/cities\/city-[a-z0-9-]+\.webp$/.test(result.relative);
+  const isCityVisual = /^assets\/visuals\/cities(?:-mobile)?\/city-[a-z0-9-]+\.webp$/.test(result.relative);
   if (isCityVisual && serverState.corruptCityResponsesRemaining > 0) {
     serverState.corruptCityResponsesRemaining -= 1;
     const stale = DECODEABLE_CITY_WEBPS.find((candidate) => candidate.name !== path.basename(result.absolute));
@@ -209,8 +209,7 @@ async function installImageFixtures(context, origin, mode, fault = "success") {
     const requestUrl = new URL(route.request().url());
     const remote = REMOTE_IMAGE_HOSTS.includes(requestUrl.hostname);
     const localCity = requestUrl.origin === origin
-      && requestUrl.pathname.startsWith(`${mode.basePath}assets/visuals/cities/`)
-      && requestUrl.pathname.endsWith(".webp");
+      && new RegExp(`^${mode.basePath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}assets/visuals/cities(?:-mobile)?/city-[a-z0-9-]+\\.webp$`).test(requestUrl.pathname);
     if (!remote && !(localCity && fault !== "success")) {
       await route.continue();
       return;
@@ -587,7 +586,7 @@ async function runCityCacheRecovery(browser, origin, mode) {
       let count = 0;
       for (const name of await caches.keys()) {
         if (!name.startsWith("daily-atlas-visual-") || name.startsWith("daily-atlas-visual-pack-")) continue;
-        count += (await (await caches.open(name)).keys()).filter((request) => /\/assets\/visuals\/cities\//.test(request.url)).length;
+        count += (await (await caches.open(name)).keys()).filter((request) => /\/assets\/visuals\/cities(?:-mobile)?\//.test(request.url)).length;
       }
       return count;
     }), 0, "stale but decodable 200 image/webp body is not persisted");
@@ -603,7 +602,7 @@ async function runCityCacheRecovery(browser, origin, mode) {
     assert.ok(await page.evaluate(async () => {
       for (const name of await caches.keys()) {
         if (!name.startsWith("daily-atlas-visual-") || name.startsWith("daily-atlas-visual-pack-")) continue;
-        if ((await (await caches.open(name)).keys()).some((request) => /\/assets\/visuals\/cities\//.test(request.url))) return true;
+        if ((await (await caches.open(name)).keys()).some((request) => /\/assets\/visuals\/cities(?:-mobile)?\//.test(request.url))) return true;
       }
       return false;
     }), "healthy retry is verified and cached after the corrupt response disappears");

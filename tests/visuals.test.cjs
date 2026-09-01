@@ -29,6 +29,8 @@ global.DAILY_ATLAS_CITY_VISUALS = {
 };
 const Visuals = require("../visuals.js");
 
+test.beforeEach(() => Visuals.resetHostHealth());
+
 function createClassList() {
   const values = new Set();
   return {
@@ -47,9 +49,9 @@ function createImage(candidates, visual) {
   const writes = [];
   return {
     complete: false,
-    hidden: false,
+    hidden: true,
     isConnected: true,
-    naturalWidth: 0,
+    naturalWidth: 100,
     writes,
     closest() { return visual; },
     addEventListener(type, listener) {
@@ -102,7 +104,10 @@ test("data saver and safe mode never emit remote media or city image requests", 
 
 test("city routing is same-origin and rejects unsafe IDs", () => {
   const city = Visuals.resolve({ id: "city-chengdu", cityZh: "成都" }, "city", {});
-  assert.deepEqual(city.candidates, ["./assets/visuals/cities/city-chengdu.webp"]);
+  assert.deepEqual(city.candidates, [
+    "./assets/visuals/cities/city-chengdu.webp",
+    "./assets/visuals/cities-mobile/city-chengdu.webp"
+  ]);
   assert.deepEqual(Visuals.resolve({ id: "../bad", cityZh: "坏" }, "city", {}).candidates, []);
   assert.deepEqual(Visuals.resolve({ id: "city-unreviewed", cityZh: "待核" }, "city", {}).candidates, []);
 });
@@ -112,7 +117,10 @@ test("a reviewed city can paint from its stable ID before the large attribution 
   delete global.DAILY_ATLAS_CITY_VISUALS;
   try {
     const city = Visuals.resolve({ id: "city-chengdu", cityZh: "成都" }, "city", {});
-    assert.deepEqual(city.candidates, ["./assets/visuals/cities/city-chengdu.webp"]);
+    assert.deepEqual(city.candidates, [
+      "./assets/visuals/cities/city-chengdu.webp",
+      "./assets/visuals/cities-mobile/city-chengdu.webp"
+    ]);
     assert.equal(city.provider, "Wikimedia Commons");
     assert.equal(city.sourcePage, "./city-credits.html#city-chengdu");
     assert.deepEqual(Visuals.resolve({ id: "../bad", cityZh: "坏" }, "city", {}).candidates, []);
@@ -225,7 +233,7 @@ test("an old generation cannot mutate a newer image binding", () => {
   }
 });
 
-test("remote fallback is bounded to three routes and nine seconds", () => {
+test("a repeatedly failing remote host is skipped for the rest of its cooldown", () => {
   const originalSetTimeout = global.setTimeout;
   const originalClearTimeout = global.clearTimeout;
   const timers = [];
@@ -248,13 +256,39 @@ test("remote fallback is bounded to three routes and nine seconds", () => {
 
     timers[0].callback();
     timers[1].callback();
-    timers[2].callback();
-
-    assert.equal(timers.length, 3);
-    assert.deepEqual(timers.map((timer) => timer.delay), [3000, 3000, 3000]);
-    assert.deepEqual(image.writes, candidates.slice(1, 3));
+    assert.equal(timers.length, 2);
+    assert.deepEqual(timers.map((timer) => timer.delay), [3000, 3000]);
+    assert.deepEqual(image.writes, candidates.slice(1, 2));
     assert.equal(image.hidden, true);
     assert.equal(visual.classList.contains("visual-image-failed"), true);
+    assert.equal(Visuals.hostAvailable(candidates[0]), false);
+    assert.equal(Visuals.hostAvailable(candidates[0], Date.now() + Visuals.HOST_COOLDOWN_MS + 1), true);
+  } finally {
+    global.setTimeout = originalSetTimeout;
+    global.clearTimeout = originalClearTimeout;
+  }
+});
+
+test("a loaded image remains hidden until decode succeeds", async () => {
+  const originalSetTimeout = global.setTimeout;
+  const originalClearTimeout = global.clearTimeout;
+  global.setTimeout = () => ({ id: 1 });
+  global.clearTimeout = () => {};
+  try {
+    const visual = createVisual();
+    const candidate = "https://covers.openlibrary.org/b/id/1-M.jpg?default=false";
+    const image = createImage([candidate], visual);
+    let releaseDecode;
+    image.decode = () => new Promise((resolve) => { releaseDecode = resolve; });
+    Visuals.bind({ querySelectorAll: () => [image] });
+    image.dispatch("load");
+    await Promise.resolve();
+    assert.equal(image.hidden, true);
+    assert.equal(visual.classList.contains("visual-image-loaded"), false);
+    releaseDecode();
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(image.hidden, false);
+    assert.equal(visual.classList.contains("visual-image-loaded"), true);
   } finally {
     global.setTimeout = originalSetTimeout;
     global.clearTimeout = originalClearTimeout;

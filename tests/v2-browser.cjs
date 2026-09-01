@@ -462,6 +462,8 @@ async function installBrowserHarnesses(context) {
     });
 
     await scenario("daily theme banner and honest five-card theme labels", async () => {
+      await page.waitForFunction(() => ["book", "movie", "city", "german", "medical"]
+        .every((type) => document.querySelector(`#${type}Card [data-action="favorite"][data-item-id]`)));
       const audit = await page.evaluate(() => {
         const typeToCollection = { book: "books", movie: "movies", city: "cities", german: "german", medical: "medical" };
         const dateKey = DailyAtlasEngine.localDateKey(new Date());

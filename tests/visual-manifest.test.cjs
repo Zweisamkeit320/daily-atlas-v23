@@ -115,7 +115,7 @@ test("book and movie mappings remain stable-ID remote references without bundled
   const unexpectedBinaries = visualFiles.filter((filePath) => {
     if (!binaryExtensions.has(path.extname(filePath).toLowerCase())) return false;
     const relative = path.relative(path.join(ROOT, "assets", "visuals"), filePath).replaceAll("\\", "/");
-    return !/^cities(?:-staged)?\//.test(relative);
+    return !/^cities(?:-mobile|-staged)?\//.test(relative);
   });
   assert.deepEqual(unexpectedBinaries, [], "book/movie binaries must not be bulk-downloaded into assets/visuals");
 });

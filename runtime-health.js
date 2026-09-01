@@ -6,11 +6,14 @@
   "use strict";
 
   const ERROR_KEY = "dailyAtlas.runtimeHealth.v1";
+  const STAGE_TIMING_KEY = "dailyAtlas.runtimeTimings.v1";
   const MAX_ERRORS = 20;
   const CACHE_NAME_PATTERN = /^daily-atlas(?:-|$)/i;
   const SAFE_CODE = /^[A-Z0-9_.:-]{1,64}$/i;
   const SAFE_STAGE = /^[a-z0-9-]{1,32}$/i;
   const TRANSIENT_PROBE_CODES = Object.freeze(new Set(["NETWORK", "TIMEOUT"]));
+  const TIMING_STAGES = Object.freeze(new Set(["shell", "routing", "engine", "catalog", "safe-fallback", "modules", "app"]));
+  let pendingStageTimings = null;
 
   function clampInteger(value, minimum, maximum, fallback) {
     const number = Number(value);
@@ -21,6 +24,79 @@
   function safeStorage() {
     try { return root.localStorage || null; }
     catch (_error) { return null; }
+  }
+
+  function safeSessionStorage() {
+    try { return root.sessionStorage || null; }
+    catch (_error) { return null; }
+  }
+
+  function parseStageTimings(value) {
+    try {
+      const parsed = JSON.parse(value || "null");
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+      const stages = {};
+      for (const [stage, duration] of Object.entries(parsed.stages || {})) {
+        if (TIMING_STAGES.has(stage) && Number.isFinite(Number(duration))) {
+          stages[stage] = clampInteger(duration, 0, 120000, 0);
+        }
+      }
+      return Object.freeze({
+        schemaVersion: 1,
+        startedAt: /^\d{4}-\d{2}-\d{2}T/.test(String(parsed.startedAt || "")) ? String(parsed.startedAt) : "",
+        finishedAt: /^\d{4}-\d{2}-\d{2}T/.test(String(parsed.finishedAt || "")) ? String(parsed.finishedAt) : "",
+        totalMs: Number.isFinite(Number(parsed.totalMs)) ? clampInteger(parsed.totalMs, 0, 300000, 0) : null,
+        stages: Object.freeze(stages)
+      });
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function readStageTimings(storage) {
+    const target = storage === undefined ? safeSessionStorage() : storage;
+    if (!target?.getItem) return null;
+    try { return parseStageTimings(target.getItem(STAGE_TIMING_KEY)); }
+    catch (_error) { return null; }
+  }
+
+  function writeStageTimings(next, storage) {
+    const target = storage === undefined ? safeSessionStorage() : storage;
+    if (!target?.setItem) return false;
+    try { target.setItem(STAGE_TIMING_KEY, JSON.stringify(next)); return true; }
+    catch (_error) { return false; }
+  }
+
+  function recordStageTiming(stage, durationMs, options) {
+    if (!TIMING_STAGES.has(String(stage || ""))) return false;
+    const now = new Date(options?.now || Date.now()).toISOString();
+    const hasExplicitStorage = Boolean(options && Object.hasOwn(options, "storage"));
+    const previous = hasExplicitStorage ? readStageTimings(options.storage) : pendingStageTimings;
+    const startedAt = previous?.finishedAt ? now : previous?.startedAt || now;
+    const next = {
+      schemaVersion: 1,
+      startedAt,
+      finishedAt: "",
+      totalMs: null,
+      stages: { ...(previous?.finishedAt ? {} : previous?.stages || {}), [stage]: clampInteger(durationMs, 0, 120000, 0) }
+    };
+    if (hasExplicitStorage) return writeStageTimings(next, options.storage);
+    pendingStageTimings = parseStageTimings(JSON.stringify(next));
+    return true;
+  }
+
+  function finishStageTimings(options) {
+    const hasExplicitStorage = Boolean(options && Object.hasOwn(options, "storage"));
+    const previous = hasExplicitStorage ? readStageTimings(options.storage) : pendingStageTimings;
+    if (!previous) return null;
+    const finishedAt = new Date(options?.now || Date.now()).toISOString();
+    const totalMs = Object.values(previous.stages).reduce((sum, value) => sum + value, 0);
+    const next = { ...previous, finishedAt, totalMs };
+    const parsed = parseStageTimings(JSON.stringify(next));
+    pendingStageTimings = parsed;
+    if (hasExplicitStorage) writeStageTimings(next, options.storage);
+    else if (root.DAILY_ATLAS_PERSISTENCE_AVAILABLE !== false) writeStageTimings(next);
+    return parsed;
   }
 
   function parseErrors(value) {
@@ -316,6 +392,7 @@
   return Object.freeze({
     CACHE_NAME_PATTERN,
     ERROR_KEY,
+    STAGE_TIMING_KEY,
     MAX_ERRORS,
     clearErrors,
     detailErrorCode,
@@ -329,9 +406,12 @@
     probeSeverity,
     probeWithRetry,
     readErrors,
+    readStageTimings,
     record,
+    recordStageTiming,
     repairCaches,
     storageSnapshot,
+    finishStageTimings,
     withTimeout
   });
 });

@@ -59,6 +59,8 @@ const CORE_SHELL_FILES = Object.freeze([
   "diagnostics.css",
   "diagnostics.js",
   "bootstrap.js",
+  "runtime-foundation.js",
+  "runtime-features.js",
   "catalog-loader.js",
   "engine.js",
   "state.js",
@@ -151,18 +153,47 @@ function loadMedicalAssetFiles(root = ROOT) {
 }
 
 function loadVisualAssetFiles(root = ROOT) {
-  const directory = path.join(root, "assets", "visuals", "cities");
-  assert(fs.existsSync(directory), "city visual asset directory is missing");
-  assert(fs.lstatSync(directory).isDirectory() && !fs.lstatSync(directory).isSymbolicLink(),
-    "city visual asset directory must be a regular directory");
+  const directories = ["cities", "cities-mobile"];
   CityVisualContract.validateSourceRoot(root, { label: "service-worker source" });
-  const files = fs.readdirSync(directory)
-    .filter((name) => /^(?:city-[a-z0-9-]+\.webp|manifest\.(?:json|js)|README\.md)$/.test(name))
-    .sort()
-    .map((name) => `assets/visuals/cities/${name}`);
-  const cityWebps = files.filter((relative) => /\/city-[a-z0-9-]+\.webp$/.test(relative));
-  assert(cityWebps.length === 200, `service-worker visual pack must contain exactly 200 city WebP files; found ${cityWebps.length}`);
+  const files = [];
+  for (const name of directories) {
+    const directory = path.join(root, "assets", "visuals", name);
+    assert(fs.existsSync(directory), `${name} visual asset directory is missing`);
+    assert(fs.lstatSync(directory).isDirectory() && !fs.lstatSync(directory).isSymbolicLink(),
+      `${name} visual asset directory must be a regular directory`);
+    const entries = fs.readdirSync(directory)
+      .filter((entry) => /^(?:city-[a-z0-9-]+\.webp|manifest\.(?:json|js)|README\.md)$/.test(entry))
+      .sort()
+      .map((entry) => `assets/visuals/${name}/${entry}`);
+    const cityWebps = entries.filter((relative) => /\/city-[a-z0-9-]+\.webp$/.test(relative));
+    assert(cityWebps.length === 200, `service-worker ${name} pack must contain exactly 200 city WebP files; found ${cityWebps.length}`);
+    files.push(...entries);
+  }
+  validateMobileCityAssets(root);
   return files;
+}
+
+function validateMobileCityAssets(root) {
+  const mobileDirectory = path.join(root, "assets", "visuals", "cities-mobile");
+  const primaryManifest = JSON.parse(fs.readFileSync(path.join(root, "assets", "visuals", "cities", "manifest.json"), "utf8"));
+  const manifest = JSON.parse(fs.readFileSync(path.join(mobileDirectory, "manifest.json"), "utf8"));
+  assert(manifest.schemaVersion === 1 && manifest.count === 200 && Array.isArray(manifest.items) && manifest.items.length === 200,
+    "mobile city manifest must contain exactly 200 items");
+  const primaryById = new Map(primaryManifest.items.map((entry) => [entry.id, entry]));
+  const ids = new Set();
+  for (const entry of manifest.items) {
+    assert(/^city-[a-z0-9-]+$/.test(entry?.id || "") && !ids.has(entry.id), `invalid or duplicate mobile city id: ${entry?.id}`);
+    assert(entry.path === `./assets/visuals/cities-mobile/${entry.id}.webp`, `${entry.id}: invalid mobile city path`);
+    assert(entry.sourcePath === `./assets/visuals/cities/${entry.id}.webp`, `${entry.id}: invalid mobile city source path`);
+    assert(entry.width === 480 && entry.height === 270, `${entry.id}: mobile city dimensions must be 480x270`);
+    const primary = primaryById.get(entry.id);
+    assert(primary && entry.sourceSha256 === primary.sha256, `${entry.id}: mobile city source SHA-256 mismatch`);
+    const file = fs.readFileSync(path.join(mobileDirectory, `${entry.id}.webp`));
+    assert(file.length === entry.bytes && sha256(file) === entry.sha256, `${entry.id}: mobile city byte/hash mismatch`);
+    assert(file.length >= 12 && file.subarray(0, 4).toString("ascii") === "RIFF" && file.subarray(8, 12).toString("ascii") === "WEBP",
+      `${entry.id}: mobile city file is not WebP`);
+    ids.add(entry.id);
+  }
 }
 
 function loadCatalogAssetFiles(root = ROOT) {

@@ -40,7 +40,10 @@ test("production headers declare the security and cache policy", () => {
     "/city-credits.js",
     "/assets/visuals/cities/manifest.json",
     "/assets/visuals/cities/manifest.js",
-    "/assets/visuals/cities/*.webp"
+    "/assets/visuals/cities/*.webp",
+    "/assets/visuals/cities-mobile/manifest.json",
+    "/assets/visuals/cities-mobile/manifest.js",
+    "/assets/visuals/cities-mobile/*.webp"
   ]) {
     const section = sectionFor(route);
     assert.match(section, /max-age=0, must-revalidate/, `${route} must revalidate mutable publication metadata or city bytes`);
@@ -104,7 +107,7 @@ test("v2.4 public release, visual controls and standalone disclosures are explic
   assert.ok(fs.existsSync(path.join(root, ".nojekyll")), "GitHub Pages static build must disable Jekyll processing");
   for (const filename of ["privacy.html", "sources-and-licenses.html"]) {
     const html = fs.readFileSync(path.join(root, filename), "utf8");
-    assert.match(html, /v2\.4\.2/);
+    assert.match(html, /v2\.4\.3/);
     assert.match(html, /http-equiv="Content-Security-Policy"[^>]*content="[^"]*script-src 'self';/,
       `${filename} must declare an explicit script-src for the GitHub Pages security contract`);
     assert.doesNotMatch(html, /<script/i, `${filename} should remain script-free`);

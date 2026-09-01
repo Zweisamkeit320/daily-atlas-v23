@@ -33,6 +33,40 @@ test("runtime error ring is bounded to twenty entries", () => {
   assert.equal(entries[19].code, "E24");
 });
 
+test("startup stage timings are allowlisted, bounded, and session scoped", () => {
+  const storage = memoryStorage();
+  assert.equal(Health.recordStageTiming("catalog", 321.4, { storage, now: "2026-09-01T00:00:00.000Z" }), true);
+  assert.equal(Health.recordStageTiming("secret-stage", 999, { storage }), false);
+  assert.equal(Health.recordStageTiming("modules", 456, { storage, now: "2026-09-01T00:00:01.000Z" }), true);
+  const finished = Health.finishStageTimings({ storage, now: "2026-09-01T00:00:02.000Z" });
+  assert.equal(finished.totalMs, 777);
+  assert.deepEqual(finished.stages, { catalog: 321, modules: 456 });
+  assert.equal(storage.getItem(Health.STAGE_TIMING_KEY).includes("secret"), false);
+});
+
+test("startup timings remain memory-only when persistent browser storage is unavailable", () => {
+  const previousPersistence = global.DAILY_ATLAS_PERSISTENCE_AVAILABLE;
+  const previousSessionStorage = global.sessionStorage;
+  let writes = 0;
+  global.DAILY_ATLAS_PERSISTENCE_AVAILABLE = false;
+  global.sessionStorage = {
+    getItem() { throw new Error("session storage must not be read during startup"); },
+    setItem() { writes += 1; throw new Error("session storage must not be written in memory-only mode"); }
+  };
+  try {
+    assert.equal(Health.recordStageTiming("shell", 10, { now: "2026-09-01T00:00:00.000Z" }), true);
+    assert.equal(Health.recordStageTiming("app", 20, { now: "2026-09-01T00:00:01.000Z" }), true);
+    const finished = Health.finishStageTimings({ now: "2026-09-01T00:00:02.000Z" });
+    assert.equal(finished.totalMs, 30);
+    assert.equal(writes, 0);
+  } finally {
+    if (previousPersistence === undefined) delete global.DAILY_ATLAS_PERSISTENCE_AVAILABLE;
+    else global.DAILY_ATLAS_PERSISTENCE_AVAILABLE = previousPersistence;
+    if (previousSessionStorage === undefined) delete global.sessionStorage;
+    else global.sessionStorage = previousSessionStorage;
+  }
+});
+
 test("withTimeout rejects a hung operation with a stable code", async () => {
   await assert.rejects(
     Health.withTimeout(new Promise(() => {}), 100, { label: "hung-test" }),

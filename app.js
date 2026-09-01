@@ -34,7 +34,7 @@
     medical: { collection: "medical", label: "医学", short: "医", card: "medicalCard", swap: "换一条", known: "了解了", unit: "条" }
   });
   const TYPES = Object.freeze(Object.keys(TYPE_META));
-  const APP_VERSION = "2.4.2";
+  const APP_VERSION = "2.4.3";
   const RECORD_PAGE_SIZE = 100;
   const STORAGE_KEYS = Object.freeze({
     statePrefix: "dailyAtlas.state.v3.",
@@ -3047,7 +3047,7 @@
     const candidates = Array.isArray(visual?.candidates) ? visual.candidates.filter(Boolean) : [];
     if (!candidates.length) return "";
     const lazy = options?.lazy === true;
-    return `<img class="${escapeAttribute(className)} daily-visual-image" src="${escapeAttribute(candidates[0])}" data-visual-candidates="${escapeAttribute(JSON.stringify(candidates))}" data-visual-index="0" alt="${escapeAttribute(visual.alt || "内容配图")}" loading="${lazy ? "lazy" : "eager"}" fetchpriority="${lazy ? "auto" : "high"}" decoding="async" referrerpolicy="no-referrer" />`;
+    return `<img class="${escapeAttribute(className)} daily-visual-image" src="${escapeAttribute(candidates[0])}" data-visual-candidates="${escapeAttribute(JSON.stringify(candidates))}" data-visual-index="0" alt="${escapeAttribute(visual.alt || "内容配图")}" loading="${lazy ? "lazy" : "eager"}" fetchpriority="${lazy ? "auto" : "high"}" decoding="async" referrerpolicy="no-referrer" hidden />`;
   }
 
   function visualCreditHtml(visual) {

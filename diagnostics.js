@@ -146,6 +146,7 @@
       ["视觉回退模块", "./visuals.js"],
       ["城市开放许可图片清单", "./assets/visuals/cities/manifest.js"],
       ["同源城市实图（成都）", "./assets/visuals/cities/city-chengdu.webp", "webp"],
+      ["同源城市移动图（成都）", "./assets/visuals/cities-mobile/city-chengdu.webp", "webp"],
       ["分片目录清单", "./catalog-data/manifest.js"],
       ["搜索 Worker", "./search-worker.js"],
       ["医学图清单", "./assets/medical/manifest.json"],
@@ -214,11 +215,18 @@
       : "没有发现今日万象缓存；首次打开或未安装 PWA 时这是正常状态。";
 
     const timing = Health.navigationSnapshot();
+    const bootTiming = Health.readStageTimings?.() || null;
+    const stageLabels = { shell: "HTML 壳", routing: "资源路由", engine: "选择器", catalog: "紧凑目录", "safe-fallback": "安全回退", modules: "页面模块", app: "首屏呈现" };
+    const stageSummary = bootTiming
+      ? Object.entries(bootTiming.stages).map(([stage, duration]) => `${stageLabels[stage] || stage} ${duration} ms`).join("；")
+      : "尚无首页启动记录";
     elements.timing.innerHTML = dl([
       ["首字节响应", timing.supported ? `${timing.responseStartMs} ms` : "浏览器未提供"],
       ["DOM 可交互", timing.supported ? `${timing.domInteractiveMs} ms` : "浏览器未提供"],
       ["页面 load", timing.supported && timing.loadMs ? `${timing.loadMs} ms` : "本轮尚未结束或未提供"],
-      ["页面传输", Health.humanBytes(timing.transferBytes)]
+      ["页面传输", Health.humanBytes(timing.transferBytes)],
+      ["最近首页启动总时长", bootTiming?.totalMs === null || bootTiming?.totalMs === undefined ? "尚未完成或未提供" : `${bootTiming.totalMs} ms`],
+      ["最近首页启动阶段", stageSummary]
     ]);
     const errorGroups = renderErrors(runStartedAt);
     const criticalFailures = probes.filter((entry) => entry.severity === "fail");
@@ -251,6 +259,7 @@
       caches: cacheReport,
       probes,
       timing,
+      bootTiming,
       errors: errorGroups.current,
       historicalErrors: errorGroups.historical,
       externalImageProbes: lastExternalImageReport
@@ -281,6 +290,8 @@
       ...(report.externalImageProbes?.length
         ? report.externalImageProbes.map((entry) => `- ${entry.label}: ${entry.ok ? `PASS ${entry.durationMs}ms` : entry.code}`)
         : ["- 未运行（未向第三方发出诊断请求）"]),
+      `最近首页启动: ${report.bootTiming?.totalMs === null || report.bootTiming?.totalMs === undefined ? "未完成或未提供" : `${report.bootTiming.totalMs}ms`}`,
+      ...Object.entries(report.bootTiming?.stages || {}).map(([stage, duration]) => `- ${stage}: ${duration}ms`),
       `本轮错误码: ${report.errors.length ? report.errors.map((entry) => `${entry.at}/${entry.stage}/${entry.code}`).join(", ") : "无"}`,
       `历史错误码: ${report.historicalErrors.length ? report.historicalErrors.map((entry) => `${entry.at}/${entry.stage}/${entry.code}`).join(", ") : "无"}`,
       "说明: 此摘要不含收藏、偏好、搜索词、医学关注方向或完整 User-Agent。"

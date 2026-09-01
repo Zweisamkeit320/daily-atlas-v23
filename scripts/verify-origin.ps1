@@ -395,7 +395,7 @@ if ($pageBodies["city-credits.html"] -notmatch 'id\s*=\s*["'']cityCreditList["''
 
 foreach ($check in @(
   [PSCustomObject]@{ Label = "schemaVersion: 2"; Pattern = 'schemaVersion\s*:\s*2(?:\s*[,}])' },
-  [PSCustomObject]@{ Label = 'appVersion: "2.4.2"'; Pattern = 'appVersion\s*:\s*["'']2\.4\.2["'']' },
+  [PSCustomObject]@{ Label = 'appVersion: "2.4.3"'; Pattern = 'appVersion\s*:\s*["'']2\.4\.3["'']' },
   [PSCustomObject]@{ Label = "publicReleaseMode: true"; Pattern = 'publicReleaseMode\s*:\s*true(?:\s*[,}])' },
   [PSCustomObject]@{ Label = "publicSafeMode: false"; Pattern = 'publicSafeMode\s*:\s*false(?:\s*[,}])' },
   [PSCustomObject]@{ Label = "remoteBookMovieImages: true"; Pattern = 'remoteBookMovieImages\s*:\s*true(?:\s*[,}])' },
@@ -492,6 +492,8 @@ $runtimeChainFiles = @(
   "public-config.js",
   "runtime-health.js",
   "bootstrap.js",
+  "runtime-foundation.js",
+  "runtime-features.js",
   "asset-routing.js",
   "catalog-loader.js",
   "catalog.js",
@@ -527,6 +529,8 @@ $runtimeChainFiles = @(
   "assets/icons/icon-512.png",
   "assets/visuals/manifest.js",
   "assets/visuals/cities/manifest.json",
+  "assets/visuals/cities-mobile/manifest.json",
+  "assets/visuals/cities-mobile/manifest.js",
   "catalog-data/manifest.js",
   "catalog-data/manifest.json",
   "assets/medical/manifest.json",
@@ -545,8 +549,8 @@ try {
 catch {
   throw "Local catalog-data/manifest.json is invalid JSON: $($_.Exception.Message)"
 }
-if ($catalogManifest.appVersion -ne "2.4.2") {
-  throw "catalog-data/manifest.json appVersion must be 2.4.2."
+if ($catalogManifest.appVersion -ne "2.4.3") {
+  throw "catalog-data/manifest.json appVersion must be 2.4.3."
 }
 $selectionDataPath = [string]$catalogManifest.selectionData.path
 if (-not $selectionDataPath -or $selectionDataPath -notmatch '^selection-data\.[a-f0-9]{12}\.json$') {
@@ -661,6 +665,47 @@ foreach ($catalogCityId in $catalogCityIds) {
   if (-not $seenCityIds.Contains($catalogCityId)) {
     throw "City manifest is missing catalog stable id: $catalogCityId"
   }
+}
+
+$mobileCityManifestLocal = Join-Path $resolvedStatic.Path "assets\visuals\cities-mobile\manifest.json"
+try {
+  $mobileCityManifest = Get-Content -LiteralPath $mobileCityManifestLocal -Raw | ConvertFrom-Json
+}
+catch {
+  throw "assets/visuals/cities-mobile/manifest.json is invalid JSON: $($_.Exception.Message)"
+}
+if ($mobileCityManifest.schemaVersion -ne 1 -or $mobileCityManifest.count -ne 200 -or @($mobileCityManifest.items).Count -ne 200) {
+  throw "Mobile city manifest contract requires schemaVersion=1, count=200 and exactly 200 items."
+}
+$mobileCityIds = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($mobileItem in @($mobileCityManifest.items)) {
+  $mobileId = [string]$mobileItem.id
+  $mobilePath = ([string]$mobileItem.path).Replace("\", "/")
+  if (-not $mobileCityIds.Add($mobileId) -or -not $seenCityIds.Contains($mobileId) -or $mobilePath -cne "./assets/visuals/cities-mobile/$mobileId.webp") {
+    throw "Mobile city manifest contains an invalid id or path: $mobileId"
+  }
+  if ([int]$mobileItem.width -ne 480 -or [int]$mobileItem.height -ne 270) {
+    throw "Mobile city dimensions must be exactly 480x270: $mobileId"
+  }
+  $mobileLocal = Join-Path $resolvedStatic.Path ($mobilePath.Substring(2).Replace("/", [IO.Path]::DirectorySeparatorChar))
+  if (-not (Test-Path -LiteralPath $mobileLocal -PathType Leaf)) {
+    throw "Mobile city manifest references a missing file: $mobilePath"
+  }
+  $mobileBytes = [IO.File]::ReadAllBytes($mobileLocal)
+  if ($mobileBytes.LongLength -ne [long]$mobileItem.bytes -or (Get-FileHash -LiteralPath $mobileLocal -Algorithm SHA256).Hash -ne ([string]$mobileItem.sha256).ToUpperInvariant()) {
+    throw "Mobile city derivative byte/hash mismatch: $mobileId"
+  }
+  $sourceItem = @($cityManifest.items | Where-Object { $_.id -eq $mobileId })[0]
+  if ([string]$mobileItem.sourcePath -cne [string]$sourceItem.path -or [string]$mobileItem.sourceSha256 -cne [string]$sourceItem.sha256) {
+    throw "Mobile city derivative source lineage mismatch: $mobileId"
+  }
+}
+if ($mobileCityIds.Count -ne 200) {
+  throw "Mobile city manifest stable-id set is incomplete."
+}
+$mobileSamples = @($mobileCityManifest.items | Select-Object -First 1) + @($mobileCityManifest.items | Select-Object -Last 1)
+foreach ($mobileSample in $mobileSamples) {
+  Compare-LocalAndRemoteFile -RelativePath (([string]$mobileSample.path).Substring(2))
 }
 
 $combinedManifestLocal = Join-Path $resolvedStatic.Path "assets\visuals\manifest.js"

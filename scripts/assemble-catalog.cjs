@@ -272,7 +272,7 @@ const mediaExpansionPointerPath = path.join(DATA, "upstream", "media500", "lates
 const mediaExpansionPointer = JSON.parse(fs.readFileSync(mediaExpansionPointerPath, "utf8"));
 const catalog = {
   schemaVersion: 4,
-  appVersion: "2.4.2",
+  appVersion: "2.4.3",
   snapshotDate: "2026-08-25",
   themes: Engine.THEMES,
   dailyThemeIds: Engine.DAILY_THEME_IDS,

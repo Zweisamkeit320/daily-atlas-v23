@@ -17,7 +17,7 @@ const CSP_IMAGE_HOSTS = Object.freeze([...EXTERNAL_HOSTS, "archive.org", "*.us.a
 const PUBLIC_CONFIG = `(function () {
   const config = {
     schemaVersion: 2,
-    appVersion: "2.4.2",
+    appVersion: "2.4.3",
     publicReleaseMode: true,
     publicSafeMode: false,
     remoteBookMovieImages: true,
@@ -62,6 +62,37 @@ const CITY_MANIFEST_VALUE = Object.freeze({
 });
 const CITY_MANIFEST = `(function(root){"use strict";root.DAILY_ATLAS_CITY_VISUALS=${JSON.stringify(CITY_MANIFEST_VALUE)};})(typeof globalThis!=="undefined"?globalThis:this);\n`;
 const CITY_MANIFEST_JSON = `${JSON.stringify(CITY_MANIFEST_VALUE)}\n`;
+const MOBILE_CITY_ASSETS = Object.freeze(CITY_ASSETS.map((source, index) => {
+  const payload = Buffer.from(`fixture-mobile-city-${index}`, "utf8");
+  const size = Buffer.alloc(4);
+  size.writeUInt32LE(payload.length + 4);
+  const bytes = Buffer.concat([Buffer.from("RIFF", "ascii"), size, Buffer.from("WEBP", "ascii"), payload]);
+  return Object.freeze({
+    id: source.id,
+    path: `assets/visuals/cities-mobile/${source.id}.webp`,
+    sourcePath: `./${source.path}`,
+    sourceSha256: source.sha256,
+    bytes,
+    sha256: sha256(bytes)
+  });
+}));
+const MOBILE_CITY_ASSET_BY_PATH = new Map(MOBILE_CITY_ASSETS.map((entry) => [entry.path, entry]));
+const MOBILE_CITY_MANIFEST_VALUE = Object.freeze({
+  schemaVersion: 1,
+  count: MOBILE_CITY_ASSETS.length,
+  items: MOBILE_CITY_ASSETS.map((entry) => ({
+    id: entry.id,
+    path: `./${entry.path}`,
+    sourcePath: entry.sourcePath,
+    sourceSha256: entry.sourceSha256,
+    sha256: entry.sha256,
+    bytes: entry.bytes.length,
+    width: 480,
+    height: 270
+  }))
+});
+const MOBILE_CITY_MANIFEST = `(function(root){"use strict";root.DAILY_ATLAS_CITY_VISUALS_MOBILE=${JSON.stringify(MOBILE_CITY_MANIFEST_VALUE)};})(typeof globalThis!=="undefined"?globalThis:this);\n`;
+const MOBILE_CITY_MANIFEST_JSON = `${JSON.stringify(MOBILE_CITY_MANIFEST_VALUE)}\n`;
 const EMPTY_CITY_MANIFEST = `(function(root){"use strict";root.DAILY_ATLAS_CITY_VISUALS={"schemaVersion":1,"count":0,"items":[]};})(globalThis);\n`;
 const EMPTY_CITY_MANIFEST_JSON = '{"schemaVersion":1,"count":0,"items":[]}\n';
 const VISUAL_MANIFEST_VALUE = Object.freeze({
@@ -83,17 +114,18 @@ const SELECTION_DATA_VALUE = Object.freeze({
 });
 const CATALOG_MANIFEST_VALUE = Object.freeze({
   schemaVersion: 1,
-  appVersion: "2.4.2",
+  appVersion: "2.4.3",
   selectionData: Object.freeze({ path: path.basename(SELECTION_DATA_PATH) })
 });
 const RUNTIME_CHAIN_FILES = Object.freeze([
   "index.html", "styles.css", "public-config.js", "runtime-health.js", "bootstrap.js", "asset-routing.js",
+  "runtime-foundation.js", "runtime-features.js",
   "catalog-loader.js", "catalog.js", "engine.js", "state.js", "profile.js", "lock.js", "backup.js",
   "backup-crypto.js", "appearance.js", "explore.js", "weekly.js", "music.js", "speech.js", "city-live.js",
   "reminders.js", "visuals.js", "pwa.js", "app.js", "search-worker.js", "diagnostics.html", "diagnostics.css",
   "diagnostics.js", "privacy.html", "sources-and-licenses.html", "city-credits.html", "city-credits.js", "legal.css", "manifest.webmanifest", "sw.js",
   "assets/favicon.svg", "assets/icons/icon-192.png", "assets/icons/icon-512.png", "assets/visuals/manifest.js",
-  "assets/visuals/cities/manifest.json",
+  "assets/visuals/cities/manifest.json", "assets/visuals/cities-mobile/manifest.json", "assets/visuals/cities-mobile/manifest.js",
   "catalog-data/manifest.js", "catalog-data/manifest.json", "assets/medical/manifest.json",
   "assets/audio/german/manifest.json", SELECTION_DATA_PATH
 ]);
@@ -216,6 +248,8 @@ function runtimeFileBody(relativePath, options = {}) {
     if (options.visualManifestMode === "absent") return null;
     return options.visualManifestMode === "empty" ? EMPTY_CITY_MANIFEST_JSON : CITY_MANIFEST_JSON;
   }
+  if (relativePath === "assets/visuals/cities-mobile/manifest.js") return MOBILE_CITY_MANIFEST;
+  if (relativePath === "assets/visuals/cities-mobile/manifest.json") return MOBILE_CITY_MANIFEST_JSON;
   if (relativePath === "catalog-data/manifest.json") return `${JSON.stringify(CATALOG_MANIFEST_VALUE)}\n`;
   if (relativePath === "catalog-data/manifest.js") return `globalThis.DAILY_ATLAS_SPLIT_MANIFEST=${JSON.stringify(CATALOG_MANIFEST_VALUE)};\n`;
   if (relativePath === SELECTION_DATA_PATH) return `${JSON.stringify(SELECTION_DATA_VALUE)}\n`;
@@ -309,6 +343,10 @@ async function startServer(options = {}) {
       writeResponse(response, 200, { "Content-Type": "image/webp" }, CITY_ASSET_BY_PATH.get(relativePath).bytes);
       return;
     }
+    if (MOBILE_CITY_ASSET_BY_PATH.has(relativePath) && visualManifestMode === "city") {
+      writeResponse(response, 200, { "Content-Type": "image/webp" }, MOBILE_CITY_ASSET_BY_PATH.get(relativePath).bytes);
+      return;
+    }
     if (RUNTIME_CHAIN_FILES.includes(relativePath) || relativePath === "assets/visuals/cities/manifest.js") {
       const body = runtimeFileBody(relativePath, { manifest, visualManifestMode });
       if (body !== null) {
@@ -375,6 +413,11 @@ function createStaticFixture(t, options = {}) {
   }
   if (visualManifestMode === "city") {
     for (const cityAsset of CITY_ASSETS) {
+      const target = path.join(directory, ...cityAsset.path.split("/"));
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, cityAsset.bytes);
+    }
+    for (const cityAsset of MOBILE_CITY_ASSETS) {
       const target = path.join(directory, ...cityAsset.path.split("/"));
       fs.mkdirSync(path.dirname(target), { recursive: true });
       fs.writeFileSync(target, cityAsset.bytes);

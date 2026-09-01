@@ -21,6 +21,7 @@
   const APP_TIMEOUT_MS = 20000;
   const scripts = new Map();
   let currentStage = "shell";
+  let stageStartedAt = Date.now();
 
   root.DAILY_ATLAS_DEFER_PLATFORM_INIT = true;
   root.DAILY_ATLAS_SAFE_MODE = requestedSafeMode;
@@ -47,7 +48,11 @@
   }
 
   function setStage(stage, title, detail, value) {
+    if (currentStage && currentStage !== stage) {
+      Health?.recordStageTiming?.(currentStage, Date.now() - stageStartedAt);
+    }
     currentStage = stage;
+    stageStartedAt = Date.now();
     document.documentElement.dataset.bootStage = stage;
     if (elements.title) elements.title.textContent = title;
     if (elements.detail) elements.detail.textContent = detail;
@@ -56,6 +61,8 @@
   }
 
   function showFailure(code, detail) {
+    Health?.recordStageTiming?.(currentStage, Date.now() - stageStartedAt);
+    Health?.finishStageTimings?.();
     record(code, currentStage);
     document.documentElement.dataset.bootState = "error";
     if (elements.panel) elements.panel.hidden = false;
@@ -67,6 +74,8 @@
   }
 
   function complete(detail) {
+    Health?.recordStageTiming?.(currentStage, Date.now() - stageStartedAt);
+    Health?.finishStageTimings?.();
     const degraded = detail?.degraded === true;
     document.documentElement.dataset.bootState = root.DAILY_ATLAS_SAFE_MODE ? "safe" : degraded ? "degraded" : "ready";
     elements.main?.setAttribute("aria-busy", "false");
@@ -163,7 +172,8 @@
       sha256: record.sha256,
       integrity: record.integrity,
       timeoutMs: CATALOG_TIMEOUT_MS,
-      preferTransfer: false
+      preferTransfer: false,
+      serviceWorkerControlled: Boolean(navigator.serviceWorker?.controller)
     });
   }
 
@@ -235,15 +245,14 @@
     }
 
     setStage("modules", "正在组合页面功能", "偏好、备份、音乐和医学边界模块并行加载；单项均有超时。", 4);
-    const foundationPaths = ["./state.js", "./profile.js", "./lock.js", "./backup-crypto.js"];
-    const featurePaths = [
+    const safeFeaturePaths = [
       "./backup.js", "./appearance.js", "./explore.js", "./weekly.js", "./music.js", "./speech.js",
-      "./city-live.js", "./reminders.js", "./visuals.js",
-      ...(root.DAILY_ATLAS_SAFE_MODE ? [] : ["./pwa.js"])
+      "./city-live.js", "./reminders.js", "./visuals.js"
     ];
     try {
-      await Promise.all(foundationPaths.map((path) => loadScript(path)));
-      await Promise.all(featurePaths.map((path) => loadScript(path)));
+      await loadScript("./runtime-foundation.js");
+      if (root.DAILY_ATLAS_SAFE_MODE) await Promise.all(safeFeaturePaths.map((path) => loadScript(path)));
+      else await loadScript("./runtime-features.js");
     }
     catch (error) { showFailure(error.code || "MODULE_LOAD_FAILED", "一个页面模块未能在 12 秒内加载。今日数据没有被修改，可以直接重试。" ); return; }
 

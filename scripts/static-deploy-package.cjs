@@ -44,6 +44,8 @@ const ROOT_FILES = Object.freeze([
   "pwa.js",
   "reminders.js",
   "runtime-health.js",
+  "runtime-foundation.js",
+  "runtime-features.js",
   "search-worker.js",
   "speech.js",
   "state.js",

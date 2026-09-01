@@ -13,7 +13,7 @@ const Release = require("../scripts/release-package.cjs");
 const ServiceWorkerBuild = require("../scripts/build-service-worker.cjs");
 const ServiceWorkerContract = require("../scripts/service-worker-contract.cjs");
 const { appendDetached, cloneFixture, replaceFile } = require("./package-fixture-helpers.cjs");
-const FIXTURE_VERSION = "2.4.2";
+const FIXTURE_VERSION = "2.4.3";
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex").toUpperCase();
@@ -102,9 +102,9 @@ function makeFixture() {
   return { temporary, root, output, zip, extras };
 }
 
-test("service-worker and static-deploy manifests share the 2.4 runtime, generated catalog, 24 medical assets, and 200 city visuals", () => {
+test("service-worker and static-deploy manifests share the 2.4 runtime, generated catalog, medical assets, and both city sizes", () => {
   assert.deepEqual([...Deploy.SERVICE_WORKER_SHELL_FILES], [...ServiceWorkerBuild.SHELL_FILES]);
-  for (const name of ["bootstrap.js", "catalog-loader.js", "runtime-health.js", "search-worker.js", "explore.js", "weekly.js", "backup-crypto.js", "asset-routing.js"]) {
+  for (const name of ["bootstrap.js", "runtime-foundation.js", "runtime-features.js", "catalog-loader.js", "runtime-health.js", "search-worker.js", "explore.js", "weekly.js", "backup-crypto.js", "asset-routing.js"]) {
     assert.ok(Deploy.ROOT_FILES.includes(name), `${name} is absent from the static root whitelist`);
     assert.ok(Deploy.SERVICE_WORKER_SHELL_FILES.includes(name), `${name} is absent from the application shell`);
   }
@@ -123,11 +123,12 @@ test("service-worker and static-deploy manifests share the 2.4 runtime, generate
   assert.ok(Deploy.ASSET_FILES.includes("assets/medical/manifest.json"));
   assert.ok(Deploy.ASSET_FILES.includes("assets/medical/README.md"));
   assert.equal(Deploy.ASSET_FILES.filter((name) => /^assets\/visuals\/cities\/city-[a-z0-9-]+\.webp$/.test(name)).length, 200);
+  assert.equal(Deploy.ASSET_FILES.filter((name) => /^assets\/visuals\/cities-mobile\/city-[a-z0-9-]+\.webp$/.test(name)).length, 200);
   assert.ok(Deploy.ASSET_FILES.includes("assets/visuals/cities/manifest.json"));
   assert.ok(Deploy.ASSET_FILES.includes("assets/visuals/cities/manifest.js"));
 });
 
-test("static deploy ZIP has one root, 24 medical images, 200 city visuals, 500 MP3s, fresh six-pack versions, and a valid SHA-256 sidecar", (t) => {
+test("static deploy ZIP has one root, 24 medical images, two city sizes, 500 MP3s, fresh six-pack versions, and a valid SHA-256 sidecar", (t) => {
   const fixture = makeFixture();
   t.after(() => fs.rmSync(fixture.temporary, { recursive: true, force: true }));
   const created = Deploy.createStaticDeploy(fixture.zip, fixture.root);
@@ -144,7 +145,7 @@ test("static deploy ZIP has one root, 24 medical images, 200 city visuals, 500 M
   assert.ok(archivedFiles.includes("index.html"));
   assert.ok(archivedFiles.includes("catalog.js"));
   assert.ok(archivedFiles.includes("sw.js"));
-  for (const name of ["_headers", "bootstrap.js", "catalog-loader.js", "runtime-health.js", "search-worker.js", "diagnostics.css", "diagnostics.html", "diagnostics.js", "explore.js", "weekly.js", "backup-crypto.js", "asset-routing.js"]) {
+  for (const name of ["_headers", "bootstrap.js", "runtime-foundation.js", "runtime-features.js", "catalog-loader.js", "runtime-health.js", "search-worker.js", "diagnostics.css", "diagnostics.html", "diagnostics.js", "explore.js", "weekly.js", "backup-crypto.js", "asset-routing.js"]) {
     assert.ok(archivedFiles.includes(name));
   }
   for (const name of Deploy.CATALOG_FILES) assert.ok(archivedFiles.includes(name));
@@ -152,6 +153,7 @@ test("static deploy ZIP has one root, 24 medical images, 200 city visuals, 500 M
   assert.ok(archivedFiles.includes("assets/medical/manifest.json"));
   assert.ok(archivedFiles.includes("assets/medical/README.md"));
   assert.equal(archivedFiles.filter((name) => /^assets\/visuals\/cities\/city-[a-z0-9-]+\.webp$/.test(name)).length, 200);
+  assert.equal(archivedFiles.filter((name) => /^assets\/visuals\/cities-mobile\/city-[a-z0-9-]+\.webp$/.test(name)).length, 200);
   assert.ok(archivedFiles.includes("assets/visuals/cities/manifest.json"));
   assert.ok(archivedFiles.includes("assets/visuals/cities/manifest.js"));
   assert.ok(!archivedFiles.includes("package.json"));
@@ -169,7 +171,7 @@ test("static deploy ZIP has one root, 24 medical images, 200 city visuals, 500 M
   const renamed = path.join(fixture.output, "daily-atlas-static-v2.1.0-r1-20260825-010203.zip");
   fs.copyFileSync(fixture.zip, renamed);
   fs.writeFileSync(`${renamed}.sha256`, `${sha256(fs.readFileSync(renamed))}  ${path.basename(renamed)}\n`, "utf8");
-  assert.throws(() => Deploy.verifyStaticDeploy(renamed), /ZIP version 2\.1\.0 does not match package version 2\.4\.2/);
+  assert.throws(() => Deploy.verifyStaticDeploy(renamed), /ZIP version 2\.1\.0 does not match package version 2\.4\.3/);
 
   fs.appendFileSync(fixture.zip, Buffer.from([0x00]));
   assert.throws(() => Deploy.verifyStaticDeploy(fixture.zip), /SHA-256 sidecar does not match/);
@@ -179,7 +181,7 @@ test("static deploy creation rejects a ZIP version different from package.json a
   const fixture = makeFixture();
   t.after(() => fs.rmSync(fixture.temporary, { recursive: true, force: true }));
   const wrong = path.join(fixture.output, "daily-atlas-static-v2.0.0-r1-20260825-010203.zip");
-  assert.throws(() => Deploy.createStaticDeploy(wrong, fixture.root), /ZIP version 2\.0\.0 does not match package version 2\.4\.2/);
+  assert.throws(() => Deploy.createStaticDeploy(wrong, fixture.root), /ZIP version 2\.0\.0 does not match package version 2\.4\.3/);
   assert.equal(fs.existsSync(wrong), false);
   assert.equal(fs.existsSync(`${wrong}.sha256`), false);
 });
@@ -193,7 +195,7 @@ test("static deploy source inspection rejects stale catalog, music, and service-
   const originalCatalogBytes = fs.readFileSync(catalogPath);
   const originalCatalog = runtimeCatalog(originalCatalogBytes);
   replaceFile(catalogPath, fixtureCatalogScript({ appVersion: "2.0.0" }, originalCatalog), "utf8");
-  assert.throws(() => Deploy.inspectSource(fixture.root), /catalog\.js version 2\.0\.0 does not match package version 2\.4\.2/);
+  assert.throws(() => Deploy.inspectSource(fixture.root), /catalog\.js version 2\.0\.0 does not match package version 2\.4\.3/);
 
   replaceFile(catalogPath, fixtureCatalogScript({ bookCount: 499 }, originalCatalog), "utf8");
   assert.throws(() => Deploy.inspectSource(fixture.root), /exactly 500 books; found 499/);

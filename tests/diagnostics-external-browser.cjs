@@ -111,7 +111,7 @@ async function assertInvalidConfig(browser, serverUrl, configScript, expectedCod
     const configScript = (value) => `globalThis.DAILY_ATLAS_PUBLIC_CONFIG=${JSON.stringify(value)};\n`;
     const validShape = {
       schemaVersion: 2,
-      appVersion: "2.4.2",
+      appVersion: "2.4.3",
       publicReleaseMode: true,
       publicSafeMode: false,
       remoteBookMovieImages: true,

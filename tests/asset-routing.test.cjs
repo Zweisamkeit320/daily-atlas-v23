@@ -211,6 +211,92 @@ test("a successful same-origin route never waits for or requests the CDN", async
   assert.equal(calls, 1);
 });
 
+test("a fast immutable same-origin catalog chunk suppresses the delayed CDN hedge", async () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "catalog-data/manifest.json"), "utf8"));
+  const record = manifest.selectionData;
+  const body = fs.readFileSync(path.join(ROOT, "catalog-data", record.path));
+  const calls = [];
+  const result = await Assets.fetchVerifiedAsset(`catalog-data/${record.path}`, {
+    location: { ...DEPLOYED, href: "https://zweisamkeit320.github.io/daily-atlas-v23/" },
+    bytes: record.bytes,
+    sha256: record.sha256,
+    crypto: crypto.webcrypto,
+    hedgeDelayMs: 10,
+    fetchImpl: async (url) => { calls.push(url); return new Response(body); }
+  });
+  assert.equal(result.source, "same-origin");
+  assert.equal(calls.length, 1);
+});
+
+test("a stalled immutable same-origin chunk is hedged and the verified CDN winner aborts the loser", async () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "catalog-data/manifest.json"), "utf8"));
+  const record = manifest.selectionData;
+  const body = fs.readFileSync(path.join(ROOT, "catalog-data", record.path));
+  const calls = [];
+  let primaryAborted = false;
+  const result = await Assets.fetchVerifiedAsset(`catalog-data/${record.path}`, {
+    location: { ...DEPLOYED, href: "https://zweisamkeit320.github.io/daily-atlas-v23/" },
+    bytes: record.bytes,
+    sha256: record.sha256,
+    crypto: crypto.webcrypto,
+    hedgeDelayMs: 5,
+    fetchImpl: (url, options) => {
+      calls.push(url);
+      if (!String(url).startsWith(Assets.CDN_BASE)) {
+        return new Promise((_resolve, reject) => options.signal.addEventListener("abort", () => {
+          primaryAborted = true;
+          reject(new Error("aborted loser"));
+        }, { once: true }));
+      }
+      return Promise.resolve(new Response(body));
+    }
+  });
+  await Promise.resolve();
+  assert.equal(result.source, "cdn");
+  assert.equal(calls.length, 2);
+  assert.equal(primaryAborted, true);
+});
+
+test("an invalid immutable primary starts the verified fallback immediately", async () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "catalog-data/manifest.json"), "utf8"));
+  const record = manifest.selectionData;
+  const body = fs.readFileSync(path.join(ROOT, "catalog-data", record.path));
+  let calls = 0;
+  const result = await Assets.fetchVerifiedAsset(`catalog-data/${record.path}`, {
+    location: { ...DEPLOYED, href: "https://zweisamkeit320.github.io/daily-atlas-v23/" },
+    bytes: record.bytes,
+    sha256: record.sha256,
+    crypto: crypto.webcrypto,
+    hedgeDelayMs: 100,
+    fetchImpl: async () => (++calls === 1 ? new Response("bad") : new Response(body))
+  });
+  assert.equal(result.source, "cdn");
+  assert.equal(result.attempts[0].code, "INVALID_ASSET");
+  assert.equal(calls, 2);
+});
+
+test("external cancellation terminates both sides of an active immutable hedge", async () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "catalog-data/manifest.json"), "utf8"));
+  const record = manifest.selectionData;
+  const controller = new AbortController();
+  let calls = 0;
+  const task = Assets.fetchVerifiedAsset(`catalog-data/${record.path}`, {
+    location: { ...DEPLOYED, href: "https://zweisamkeit320.github.io/daily-atlas-v23/" },
+    bytes: record.bytes,
+    sha256: record.sha256,
+    crypto: crypto.webcrypto,
+    hedgeDelayMs: 0,
+    signal: controller.signal,
+    fetchImpl: (_url, options) => {
+      calls += 1;
+      return new Promise((_resolve, reject) => options.signal.addEventListener("abort", () => reject(new Error("cancelled")), { once: true }));
+    }
+  });
+  setTimeout(() => controller.abort(), 5);
+  await assert.rejects(task, (error) => error.code === "CANCELLED");
+  assert.equal(calls, 2);
+});
+
 test("the staged bootstrap and Service Worker share the verified routing module", () => {
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
   const bootstrap = fs.readFileSync(path.join(ROOT, "bootstrap.js"), "utf8");

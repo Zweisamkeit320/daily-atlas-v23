@@ -21,8 +21,8 @@ test("all caution and urgent medical entries pass the deterministic editorial sc
 });
 
 test("published automated screen remains honest about the professional boundary", () => {
-  const jsonPath = path.join(root, "data", "medical-high-risk-screen.v2.4.2.json");
-  const markdownPath = path.join(root, "data", "MEDICAL_HIGH_RISK_SCREEN_v2.4.2.md");
+  const jsonPath = path.join(root, "data", "medical-high-risk-screen.v2.4.3.json");
+  const markdownPath = path.join(root, "data", "MEDICAL_HIGH_RISK_SCREEN_v2.4.3.md");
   const report = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
   const markdown = fs.readFileSync(markdownPath, "utf8");
   assert.equal(report.result, "AUTOMATED_SAFETY_SCREEN_PASS");
