@@ -2212,7 +2212,7 @@
     elements.compactModeEnabled.checked = state.density === "compact";
     elements.dataSaverEnabled.checked = state.dataSaver === true;
     elements.dataSaverEnabled.disabled = false;
-    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "关闭远程书封、电影海报与城市风貌图，改用本地程序化视觉；医学图仍保留。";
+    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "公开 LTS 中书与电影始终使用本地编辑视觉；开启后会额外关闭同源城市风貌图，医学图仍保留。";
     elements.textSize.value = state.textSize || "default";
     elements.contrastMode.value = state.contrast || "default";
     elements.motionMode.value = state.motion || "system";
@@ -2893,7 +2893,7 @@
 
   async function repairApplicationCaches() {
     if (!PWA?.repairCaches) return;
-    const confirmed = window.confirm("修复今日万象应用缓存吗？这会清除应用管理的同源城市图缓存，并重新核对应用壳、内容、医学图、城市图与音频缓存；不会删除收藏、偏好、探索记录或备份，也不会清理浏览器自行管理的远程书封／海报 HTTP 缓存。完整离线包可能需要补下载缺项。");
+    const confirmed = window.confirm("修复今日万象应用缓存吗？这会清除应用管理的同源城市图缓存，并重新核对应用壳、内容、医学图、城市图与音频缓存；不会删除收藏、偏好、探索记录或备份。公开 LTS 不建立第三方书封／海报缓存。完整离线包可能需要补下载缺项。");
     if (!confirmed) return;
     elements.repairCacheButton.disabled = true;
     elements.storagePreflightStatus.textContent = "正在核对并修复应用缓存…";

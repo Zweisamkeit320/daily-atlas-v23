@@ -84,6 +84,12 @@ const CACHE_VERSION_PATTERN = /const CACHE_VERSION = "([^"]+)";/;
 const CACHE_VERSION_LINE_PATTERN = /const CACHE_VERSION = "[^"]+";/;
 const CACHE_VERSION_PLACEHOLDER = 'const CACHE_VERSION = "__CONTENT_HASH__";';
 const SERVICE_WORKER_SHELL_FILES = ServiceWorkerBuild.SHELL_FILES;
+const PUBLIC_MOVIE_FORBIDDEN_FIELDS = new Set([
+  "rating", "ratings", "ratingvalue", "ratingcount", "ratingpercent",
+  "votecount", "numvotes", "imdbrating", "imdbvotes", "score", "votes"
+]);
+const PUBLIC_MOVIE_RATING_TEXT = /(?:\bIMDb\s*(?:评分|rating|score)\s*[:：]?\s*\d(?:\.\d+)?(?:\s*\/\s*10)?|\bIMDb\s*(?:[:：]|\s)\s*\d(?:\.\d+)?(?:\s*\/\s*10)?|\d(?:\.\d+)?\s*\/\s*10|\d[\d,.]*\s*(?:票|人评分|人评价|votes?)|固定评分|固定口碑证据)/iu;
+const PUBLIC_MOVIE_NON_CONTENT_FIELDS = new Set(["id", "sourceUrl", "image", "visual"]);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -234,6 +240,122 @@ function parseRuntimeCatalog(bytes, label = "catalog.js") {
   return catalog;
 }
 
+function parseRuntimeModule(bytes, label) {
+  const sandbox = Object.create(null);
+  sandbox.module = { exports: {} };
+  sandbox.exports = sandbox.module.exports;
+  sandbox.globalThis = sandbox;
+  try {
+    vm.runInNewContext(bytes.toString("utf8"), sandbox, { filename: label, timeout: 5000 });
+  } catch (error) {
+    throw new Error(`${label} cannot be evaluated as a generated public module: ${error.message}`);
+  }
+  const value = sandbox.module.exports;
+  assert(value && typeof value === "object", `${label} did not export a public payload`);
+  return value;
+}
+
+function assertPublicMovieRecord(record, label, options = {}) {
+  assert(record && typeof record === "object", `${label} contains an invalid public movie record`);
+  const seen = new Set();
+  const visit = (value, key = "") => {
+    if (typeof value === "string") {
+      if (!PUBLIC_MOVIE_NON_CONTENT_FIELDS.has(key)) {
+        assert(!PUBLIC_MOVIE_RATING_TEXT.test(value), `${label} contains public movie numeric rating or vote text in ${key || "text"}`);
+      }
+      return;
+    }
+    if (!value || typeof value !== "object" || seen.has(value)) return;
+    seen.add(value);
+    for (const [childKey, childValue] of Object.entries(value)) {
+      const normalized = childKey.toLowerCase();
+      if (normalized === "ratingpercent" && options.allowNullRatingPercent === true) {
+        assert(childValue == null, `${label} public movie ratingPercent must be null`);
+      } else {
+        assert(!PUBLIC_MOVIE_FORBIDDEN_FIELDS.has(normalized), `${label} contains forbidden public movie field: ${childKey}`);
+      }
+      visit(childValue, childKey);
+    }
+  };
+  visit(record);
+}
+
+function validatePublicMoviePayload(fileMap, catalog = null) {
+  const runtimeCatalog = catalog || parseRuntimeCatalog(fileMap.get("catalog.js")?.content || Buffer.alloc(0), "public catalog.js");
+  assert(Array.isArray(runtimeCatalog.movies) && runtimeCatalog.movies.length === 500,
+    "public catalog.js must contain exactly 500 movies");
+  for (const movie of runtimeCatalog.movies) {
+    assert(movie.qualityGate === "editorial-qualified", `public catalog.js movie ${movie.id || "unknown"} is not editorial-qualified`);
+    assertPublicMovieRecord(movie, `public catalog.js movie ${movie.id || "unknown"}`);
+  }
+
+  const manifestEntry = fileMap.get("catalog-data/manifest.json");
+  assert(manifestEntry, "public static payload is missing catalog-data/manifest.json");
+  let manifest;
+  try {
+    manifest = JSON.parse(manifestEntry.content.toString("utf8"));
+  } catch {
+    throw new Error("public catalog-data/manifest.json is not valid JSON");
+  }
+  const publicAsset = (record, pattern, label) => {
+    assert(record && typeof record.path === "string" && pattern.test(record.path), `${label} has an invalid path`);
+    const relative = validateRelativePath(`catalog-data/${record.path}`);
+    const entry = fileMap.get(relative);
+    assert(entry, `${label} references a missing public asset: ${relative}`);
+    return entry;
+  };
+
+  const selectionEntry = publicAsset(manifest.selection, /^selection\.[a-f0-9]{12}\.js$/, "public selection manifest");
+  const selection = parseRuntimeModule(selectionEntry.content, "public compact selection");
+  assert(Array.isArray(selection.movies) && selection.movies.length === 500,
+    "public compact selection must contain exactly 500 movies");
+  for (const movie of selection.movies) {
+    assert(movie.qualityGate === "editorial-qualified", `public compact selection movie ${movie.id || "unknown"} is not editorial-qualified`);
+    assertPublicMovieRecord(movie, `public compact selection movie ${movie.id || "unknown"}`);
+  }
+
+  const selectionDataEntry = publicAsset(manifest.selectionData, /^selection-data\.[a-f0-9]{12}\.json$/, "public selection-data manifest");
+  let selectionData;
+  try {
+    selectionData = JSON.parse(selectionDataEntry.content.toString("utf8"));
+  } catch {
+    throw new Error("public selection data is not valid JSON");
+  }
+  assert(Array.isArray(selectionData?.rows?.movie) && selectionData.rows.movie.length === 500,
+    "public selection data must contain exactly 500 movie rows");
+  for (const row of selectionData.rows.movie) {
+    assert(Array.isArray(row) && row[8] == null && row[9] == null,
+      `public selection data movie ${Array.isArray(row) ? row[0] : "unknown"} contains numeric rating or vote data`);
+    assertPublicMovieRecord(row, `public selection data movie ${row[0] || "unknown"}`);
+  }
+
+  assert(Array.isArray(manifest?.details?.chunks), "public detail manifest has no chunks");
+  const movieChunks = manifest.details.chunks.filter((chunk) => chunk?.type === "movie");
+  assert(movieChunks.length === 10, `public detail manifest must contain exactly 10 movie chunks; found ${movieChunks.length}`);
+  const detailMovies = [];
+  for (const chunk of movieChunks) {
+    const entry = publicAsset(chunk, /^details\/movie-\d{3}\.[a-f0-9]{12}\.js$/, `public movie detail ${chunk.id || "unknown"}`);
+    const records = parseRuntimeModule(entry.content, `public movie detail ${chunk.id || "unknown"}`);
+    assert(Array.isArray(records) && records.length === 50, `public movie detail ${chunk.id || "unknown"} must contain exactly 50 records`);
+    detailMovies.push(...records);
+  }
+  assert(detailMovies.length === 500, `public movie details must contain exactly 500 records; found ${detailMovies.length}`);
+  for (const movie of detailMovies) {
+    assert(movie.qualityGate === "editorial-qualified", `public movie detail ${movie.id || "unknown"} is not editorial-qualified`);
+    assertPublicMovieRecord(movie, `public movie detail ${movie.id || "unknown"}`);
+  }
+
+  const searchEntry = publicAsset(manifest.search, /^search\.[a-f0-9]{12}\.js$/, "public search manifest");
+  const search = parseRuntimeModule(searchEntry.content, "public search index");
+  const searchMovies = Array.isArray(search.entries) ? search.entries.filter((entry) => entry?.type === "movie") : [];
+  assert(searchMovies.length === 500, `public search index must contain exactly 500 movies; found ${searchMovies.length}`);
+  for (const movie of searchMovies) {
+    assert(movie.ratingPercent == null, `public search movie ${movie.item?.id || "unknown"} ratingPercent must be null`);
+    assertPublicMovieRecord(movie, `public search movie ${movie.item?.id || "unknown"}`, { allowNullRatingPercent: true });
+  }
+  return { catalog: 500, selection: 500, selectionData: 500, details: 500, search: 500 };
+}
+
 function appVersionFromBytes(bytes, label = "app.js") {
   const match = /\bconst APP_VERSION = "(\d+\.\d+\.\d+)";/.exec(bytes.toString("utf8"));
   assert(match, `${label} has no plain semantic APP_VERSION declaration`);
@@ -324,6 +446,7 @@ function inspectSource(root = ROOT) {
   parseGermanManifest(fileMap.get("assets/audio/german/manifest.json").content, fileMap, "source German manifest");
   const medicalFiles = parseMedicalManifest(fileMap.get("assets/medical/manifest.json").content, fileMap, "source medical manifest");
   const catalog = parseRuntimeCatalog(fileMap.get("catalog.js").content, "source catalog.js");
+  validatePublicMoviePayload(fileMap, catalog);
   const sourceVersion = packageVersion(resolvedRoot);
   const appVersion = appVersionFromBytes(fileMap.get("app.js").content, "source app.js");
   assert(catalog.appVersion === sourceVersion,
@@ -372,6 +495,7 @@ function validateArchiveEntries(entries) {
   }
   for (const relative of directories) assert(allowedDirectories.has(relative), `ZIP contains a directory outside the static deploy whitelist: ${relative}`);
   const catalog = parseRuntimeCatalog(files.get("catalog.js").content, "archived catalog.js");
+  validatePublicMoviePayload(files, catalog);
   const medicalFiles = parseMedicalManifest(files.get("assets/medical/manifest.json").content, files, "archived medical manifest");
   const appVersion = appVersionFromBytes(files.get("app.js").content, "archived app.js");
   assert(appVersion === catalog.appVersion,
@@ -530,5 +654,6 @@ module.exports = Object.freeze({
   parseMedicalManifest,
   sidecarPaths,
   validateArchiveEntries,
+  validatePublicMoviePayload,
   verifyStaticDeploy
 });

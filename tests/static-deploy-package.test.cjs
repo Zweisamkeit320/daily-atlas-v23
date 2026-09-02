@@ -39,7 +39,7 @@ function fixtureCatalogScript(options = {}, baseCatalog = null) {
     appVersion,
     snapshotDate: "2026-08-25",
     books: media.slice(0, bookCount),
-    movies: media.map((item) => ({ ...item, id: `movie-${item.id}` })),
+    movies: media.map((item) => ({ ...item, id: `movie-${item.id}`, qualityGate: "editorial-qualified" })),
     cities: Array.from({ length: 200 }, (_, index) => ({ id: `city-${index + 1}` })),
     german: Array.from({ length: 500 }, (_, index) => ({ id: `de-${index + 1}` })),
     medical: Array.from({ length: 500 }, (_, index) => ({ id: `medical-${index + 1}`, image: `./${medicalImages[index % medicalImages.length]}` }))
@@ -245,6 +245,55 @@ test("static deploy verification rejects non-whitelisted entries, and source ext
   const injected = [...entries, { name: `${Deploy.ARCHIVE_ROOT}/data/private.json`, bytes: content.length, content }];
   assert.throws(() => Deploy.validateArchiveEntries(injected), /outside the static deploy whitelist|file count/);
   assert.doesNotThrow(() => Deploy.validateArchiveEntries(entries));
+});
+
+test("static archive verification fails closed when movie numeric evidence enters any public runtime layer", () => {
+  const source = Deploy.inspectSource(path.resolve(__dirname, ".."));
+  const baseEntries = source.map((entry) => ({
+    name: `${Deploy.ARCHIVE_ROOT}/${entry.path}`,
+    bytes: entry.content.length,
+    content: Buffer.from(entry.content)
+  }));
+  assert.doesNotThrow(() => Deploy.validateArchiveEntries(baseEntries));
+
+  const mutate = (relative, transform) => baseEntries.map((entry) => {
+    if (entry.name !== `${Deploy.ARCHIVE_ROOT}/${relative}`) return entry;
+    const before = entry.content.toString("utf8");
+    const after = transform(before);
+    assert.notEqual(after, before, `mutation marker was not found in ${relative}`);
+    const content = Buffer.from(after, "utf8");
+    return { ...entry, bytes: content.length, content };
+  });
+  const rejectsAsPublicMovieData = (entries, pattern) => {
+    assert.throws(() => Deploy.validateArchiveEntries(entries), pattern);
+  };
+
+  rejectsAsPublicMovieData(mutate("catalog.js", (text) => text.replace(
+    '"qualityGate": "editorial-qualified"',
+    '"qualityGate": "editorial-qualified",\n      "rating": { "source": "IMDb", "value": 8.8 }'
+  )), /public catalog\.js movie .*forbidden public movie field: rating/);
+
+  rejectsAsPublicMovieData(mutate(ServiceWorkerBuild.CATALOG_SPLIT.selection, (text) => text.replace(
+    '{ qualityGate: "editorial-qualified" }',
+    '{ qualityGate: "editorial-qualified", rating: Object.freeze({ source: "IMDb", value: 8.8 }) }'
+  )), /public compact selection movie .*forbidden public movie field: rating/);
+
+  rejectsAsPublicMovieData(mutate(ServiceWorkerBuild.CATALOG_SPLIT.selectionData, (text) => {
+    const payload = JSON.parse(text);
+    payload.rows.movie[0][8] = 8.8;
+    return `${JSON.stringify(payload)}\n`;
+  }), /public selection data movie .*numeric rating or vote data/);
+
+  const firstMovieDetail = ServiceWorkerBuild.CATALOG_SPLIT.details.find((relative) => relative.includes("/movie-"));
+  rejectsAsPublicMovieData(mutate(firstMovieDetail, (text) => text.replace(
+    '"qualityGate":"editorial-qualified"',
+    '"qualityGate":"editorial-qualified","voteCount":123456'
+  )), /public movie detail .*forbidden public movie field: voteCount/);
+
+  rejectsAsPublicMovieData(mutate(ServiceWorkerBuild.CATALOG_SPLIT.search, (text) => text.replace(
+    "ratingPercent: row[7]",
+    'ratingPercent: type === "movie" ? 0.88 : row[7]'
+  )), /public search movie .*ratingPercent must be null/);
 });
 
 test("static deploy output cannot use a dot-dot-prefixed in-tree directory or a junction back into the source", (t) => {

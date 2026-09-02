@@ -49,6 +49,25 @@ test("public LTS media payload is safe by default and keeps the curated 500 plus
   assert.match(read("index.html"), /公开数值评分（图书）/);
 });
 
+test("public settings and data notes describe the frozen LTS visual and movie-rating boundary", () => {
+  const index = read("index.html");
+  const app = read("app.js");
+  assert.match(index, /v2\.5\.0 LTS 的图书与电影始终使用本地编辑视觉/);
+  assert.match(index, /公开电影卡、搜索和离线包不分发这些数值/);
+  assert.match(index, /公开评分快照仅指图书评分/);
+  assert.match(index, /公开 LTS 不包含、也不联网请求第三方书封／海报/);
+  assert.match(app, /公开 LTS 中书与电影始终使用本地编辑视觉/);
+  assert.match(app, /公开 LTS 不建立第三方书封／海报缓存/);
+  for (const stale of [
+    "v2.4 默认按需显示有来源说明的远程书封／电影海报",
+    "远程书封／海报仍需联网",
+    "书封和电影海报仍是在线渐进视觉",
+    "浏览器自行管理的远程书封／海报 HTTP 缓存"
+  ]) {
+    assert.equal(index.includes(stale) || app.includes(stale), false, `stale public wording remains: ${stale}`);
+  }
+});
+
 test("private movie curation evidence remains qualified but is not listed by the static deployment packager", () => {
   const raw = json("data/raw/movies500.json").movies;
   assert.equal(raw.length, 500);
