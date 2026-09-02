@@ -103,7 +103,12 @@
       ["设备语音后备", "speechSynthesis" in globalThis, true]
     ];
     elements.capabilities.innerHTML = checks.map(([label, ok]) => `<div class="check-row"><span>${escapeHtml(label)}</span>${badge(ok, true)}</div>`).join("");
-    return checks.map(([label, ok, optional]) => ({ label, ok, optional }));
+    return checks.map(([label, ok, optional]) => ({
+      label,
+      ok,
+      optional,
+      advisory: label === "设备语音后备"
+    }));
   }
 
   function environmentRows(registration) {
@@ -170,7 +175,13 @@
     const cdnBase = Assets?.CDN_BASE;
     if (Assets?.deploymentMatches?.(location) && typeof cdnBase === "string" && cdnBase.startsWith("https://")) {
       const probe = await Health.probeWithRetry(`${cdnBase}catalog-data/manifest.js`, { timeoutMs: 8000, maxAttempts: 2, retryDelayMs: 250 });
-      results.push({ label: "固定 CDN 清单", path: `${cdnBase}catalog-data/manifest.js`, ...probe, severity: Health.probeSeverity(probe, false) });
+      results.push({
+        label: "固定 CDN 清单",
+        path: `${cdnBase}catalog-data/manifest.js`,
+        ...probe,
+        severity: Health.probeSeverity(probe, false),
+        advisory: true
+      });
     }
     elements.probes.innerHTML = results.map((result) => `
       <div class="probe-row">
@@ -231,12 +242,22 @@
     const errorGroups = renderErrors(runStartedAt);
     const criticalFailures = probes.filter((entry) => entry.severity === "fail");
     const capabilityGaps = capabilities.filter((entry) => !entry.ok);
-    const degraded = !environment.secureContext || capabilityGaps.length > 0 || probes.some((entry) => entry.severity === "degraded");
+    const advisories = [
+      ...capabilityGaps.filter((entry) => entry.advisory).map((entry) => `设备能力：${entry.label}`),
+      ...probes.filter((entry) => entry.severity === "degraded" && entry.advisory).map((entry) => `外部资源：${entry.label}`)
+    ];
+    const degraded = !environment.secureContext
+      || capabilityGaps.some((entry) => !entry.advisory)
+      || probes.some((entry) => entry.severity === "degraded" && !entry.advisory);
     const status = criticalFailures.length ? "fail" : degraded ? "degraded" : "pass";
     elements.overall.dataset.status = status;
-    elements.overallTitle.textContent = status === "pass" ? "本轮诊断通过" : status === "degraded" ? "核心可达，存在降级项" : "关键同源文件不可达";
+    elements.overallTitle.textContent = status === "pass"
+      ? advisories.length ? "核心功能正常，存在非必要降级" : "本轮诊断通过"
+      : status === "degraded" ? "核心可达，存在降级项" : "关键同源文件不可达";
     elements.overallDetail.textContent = status === "pass"
-      ? "Origin、关键文件、存储与主要浏览器能力在本轮检查中可用。"
+      ? advisories.length
+        ? `Origin、关键同源文件与主要功能可用；非必要降级：${advisories.join("；")}。这些项目不可用不影响每日五项核心路径。`
+        : "Origin、关键文件、存储与主要浏览器能力在本轮检查中可用。"
       : status === "degraded"
         ? "请查看标为不可用或失败的项目；今日五项核心功能可能仍可使用。"
         : `有 ${criticalFailures.length} 个关键文件失败；请先重试，再考虑修复应用缓存或切换网络。`;
@@ -262,6 +283,7 @@
       bootTiming,
       errors: errorGroups.current,
       historicalErrors: errorGroups.historical,
+      advisories: Object.freeze(advisories),
       externalImageProbes: lastExternalImageReport
     });
     elements.rerun.disabled = false;
@@ -286,6 +308,7 @@
       ...report.probes.map((entry) => `- ${entry.label} [${entry.path}]: ${entry.ok ? `PASS ${entry.durationMs}ms${entry.attemptCount > 1 ? `（重试 ${entry.attemptCount - 1} 次）` : ""}` : `${entry.code}${entry.severity === "degraded" ? "（网络降级）" : ""}`}`),
       "能力:",
       ...report.capabilities.map((entry) => `- ${entry.label}: ${entry.ok ? "PASS" : "UNAVAILABLE"}`),
+      `非必要降级: ${report.advisories?.length ? report.advisories.join("；") : "无"}`,
       "外部图源（仅在用户点击后检测）:",
       ...(report.externalImageProbes?.length
         ? report.externalImageProbes.map((entry) => `- ${entry.label}: ${entry.ok ? `PASS ${entry.durationMs}ms` : entry.code}`)

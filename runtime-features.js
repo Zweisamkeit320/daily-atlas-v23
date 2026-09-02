@@ -293,7 +293,7 @@
     return {
       format: FORMAT,
       schemaVersion: SCHEMA_VERSION,
-      appVersion: settings.appVersion || "2.4.3",
+      appVersion: settings.appVersion || "2.4.4",
       catalogSnapshot: settings.catalogSnapshot || "unknown",
       exportedAt: new Date().toISOString(),
       states,
@@ -3585,27 +3585,93 @@
     return licenseName || "开放许可";
   }
 
+  function localEditorialSource(type, disabled) {
+    const noun = type === "book" ? "书封" : type === "movie" ? "海报" : "城市风貌图";
+    const sourcePage = `./sources-and-licenses.html#${type === "city" ? "city-images" : "media-images"}`;
+    const fallbackLabel = disabled
+      ? `本地编辑视觉 · 已关闭${type === "movie" ? "远程海报" : type === "book" ? "远程书封" : "城市风貌图"}`
+      : type === "city"
+        ? "本地编辑视觉 · 城市图片暂不可用"
+        : `本地编辑视觉 · 非原${noun}`;
+    return Object.freeze({
+      sourceKind: "local-editorial",
+      cachePolicy: "same-origin-shell",
+      pendingLabel: fallbackLabel,
+      loadedLabel: fallbackLabel,
+      fallbackLabel,
+      sourcePage,
+      pendingSourcePage: sourcePage,
+      loadedSourcePage: sourcePage,
+      fallbackSourcePage: sourcePage,
+      pendingSourceTitle: "了解本地编辑视觉与图片来源边界",
+      loadedSourceTitle: "了解本地编辑视觉与图片来源边界",
+      fallbackSourceTitle: "了解本地编辑视觉与图片来源边界"
+    });
+  }
+
   function resolve(item, type, options) {
-    if (!item || typeof item !== "object") return Object.freeze({ candidates: Object.freeze([]) });
+    if (!item || typeof item !== "object") {
+      return Object.freeze({ type, candidates: Object.freeze([]), remote: false, ...localEditorialSource(type, false) });
+    }
     if ((type === "book" || type === "movie") && remoteMediaEnabled(options)) {
       const candidates = mediaCandidates(item);
+      if (!candidates.length) {
+        return Object.freeze({
+          type,
+          candidates: Object.freeze([]),
+          remote: false,
+          ...localEditorialSource(type, false),
+          alt: `${type === "book" ? "图书封面" : "电影海报"}：《${String(item.title || "")}》`
+        });
+      }
       return Object.freeze({
         type,
         candidates: Object.freeze(candidates),
         remote: true,
+        sourceKind: "third-party-progressive",
+        cachePolicy: "network-only",
+        pendingLabel: "第三方渐进图片 · 正在加载",
+        loadedLabel: type === "book" ? "第三方书封 · 在线加载" : "第三方海报 · 在线加载",
+        fallbackLabel: type === "book" ? "本地编辑视觉 · 非原书封" : "本地编辑视觉 · 非原海报",
         provider: type === "book" ? "Open Library 书封" : "MetaHub 电影海报",
         sourcePage: "./sources-and-licenses.html#media-images",
+        pendingSourcePage: "./sources-and-licenses.html#media-images",
+        loadedSourcePage: "./sources-and-licenses.html#media-images",
+        fallbackSourcePage: "./sources-and-licenses.html#media-images",
+        pendingSourceTitle: "查看第三方渐进图片说明",
+        loadedSourceTitle: "查看当前图片来源策略",
+        fallbackSourceTitle: "了解本地编辑视觉与图片来源边界",
         alt: `${type === "book" ? "图书封面" : "电影海报"}：《${String(item.title || "")}》`
       });
     }
     if (type === "city" && localCityEnabled(options)) {
       const entry = cityEntry(item);
+      if (!entry) {
+        return Object.freeze({
+          type,
+          candidates: Object.freeze([]),
+          remote: false,
+          ...localEditorialSource(type, false),
+          alt: `城市风貌：${String(item.cityZh || item.title || "")}`
+        });
+      }
       return Object.freeze({
         type,
-        candidates: Object.freeze(entry ? cityCandidates(item) : []),
+        candidates: Object.freeze(cityCandidates(item)),
         remote: false,
-        provider: entry?.provisional ? "Wikimedia Commons" : entry ? `Wikimedia Commons · ${String(entry.author || "作者待核")} · ${licenseLabel(entry)}` : "",
-        sourcePage: String(entry?.sourcePage || ""),
+        sourceKind: "same-origin-open-license",
+        cachePolicy: "same-origin-pwa",
+        pendingLabel: "同源开放许可图片 · 正在加载",
+        loadedLabel: `同源开放许可图片 · ${licenseLabel(entry)}`,
+        fallbackLabel: "本地编辑视觉 · 城市图片暂不可用",
+        provider: entry.provisional ? "Wikimedia Commons" : `Wikimedia Commons · ${String(entry.author || "作者待核")} · ${licenseLabel(entry)}`,
+        sourcePage: String(entry.sourcePage || ""),
+        pendingSourcePage: `./city-credits.html#${String(item.id || "")}`,
+        loadedSourcePage: String(entry.sourcePage || ""),
+        fallbackSourcePage: "./sources-and-licenses.html#city-images",
+        pendingSourceTitle: "查看城市图片署名记录",
+        loadedSourceTitle: "查看当前城市图片来源与许可",
+        fallbackSourceTitle: "了解本地编辑视觉与城市图片边界",
         attribution: String(entry?.attribution || ""),
         licenseCode: String(entry?.licenseCode || ""),
         licenseName: String(entry?.licenseName || ""),
@@ -3613,7 +3679,15 @@
         alt: `城市风貌：${String(item.cityZh || item.title || "")}`
       });
     }
-    return Object.freeze({ type, candidates: Object.freeze([]), remote: false });
+    return Object.freeze({
+      type,
+      candidates: Object.freeze([]),
+      remote: false,
+      ...localEditorialSource(type, true),
+      alt: type === "city"
+        ? `城市风貌：${String(item.cityZh || item.title || "")}`
+        : `${type === "book" ? "图书封面" : "电影海报"}：《${String(item.title || "")}》`
+    });
   }
 
   function parseCandidates(image) {
@@ -3636,7 +3710,7 @@
     image.setAttribute(GENERATION_ATTRIBUTE, String(generation));
     const candidates = parseCandidates(image);
     const visual = image.closest?.(".card-visual, .city-visual, .explore-visual") || image.parentElement;
-    const credit = visual?.querySelector?.("[data-visual-credit]") || null;
+    const status = visual?.querySelector?.("[data-visual-status]") || null;
     let index = Math.max(0, Number(image.getAttribute("data-visual-index")) || 0);
     let timer = null;
     let disposed = false;
@@ -3652,6 +3726,26 @@
     const clearTimer = () => {
       if (timer !== null && typeof root.clearTimeout === "function") root.clearTimeout(timer);
       timer = null;
+    };
+    const setVisualStatus = (state) => {
+      if (!status) return;
+      const stateName = state === "loaded" ? "Loaded" : state === "fallback" ? "Fallback" : "Pending";
+      const label = String(status.dataset?.[`visual${stateName}Label`] || "");
+      const href = String(status.dataset?.[`visual${stateName}Href`] || "./sources-and-licenses.html");
+      const title = String(status.dataset?.[`visual${stateName}Title`] || "查看图片来源说明");
+      const external = status.dataset?.[`visual${stateName}External`] === "true";
+      if (label) status.textContent = label;
+      if (status.dataset) status.dataset.visualState = state;
+      status.setAttribute?.("href", href);
+      status.setAttribute?.("title", title);
+      if (external) {
+        status.setAttribute?.("target", "_blank");
+        status.setAttribute?.("rel", "noreferrer");
+      } else {
+        status.removeAttribute?.("target");
+        status.removeAttribute?.("rel");
+      }
+      status.hidden = false;
     };
     const dispose = () => {
       if (disposed) return;
@@ -3689,7 +3783,7 @@
       if (loadedIndex !== index || token !== decodeGeneration || image.naturalWidth <= 0) return;
       clearTimer();
       image.hidden = false;
-      if (credit) credit.hidden = false;
+      setVisualStatus("loaded");
       visual?.classList?.add("visual-image-loaded");
       visual?.classList?.remove("visual-image-failed");
       noteHostSuccess(candidates[index]);
@@ -3724,7 +3818,7 @@
         return;
       }
       image.hidden = true;
-      if (credit) credit.hidden = true;
+      setVisualStatus("fallback");
       visual?.classList?.remove("visual-image-loaded");
       visual?.classList?.add("visual-image-failed");
       dispose();

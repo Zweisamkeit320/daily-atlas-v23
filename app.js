@@ -34,7 +34,7 @@
     medical: { collection: "medical", label: "医学", short: "医", card: "medicalCard", swap: "换一条", known: "了解了", unit: "条" }
   });
   const TYPES = Object.freeze(Object.keys(TYPE_META));
-  const APP_VERSION = "2.4.3";
+  const APP_VERSION = "2.4.4";
   const RECORD_PAGE_SIZE = 100;
   const STORAGE_KEYS = Object.freeze({
     statePrefix: "dailyAtlas.state.v3.",
@@ -3040,7 +3040,16 @@
     return Visuals?.resolve?.(item, type, {
       dataSaver: appearanceState?.dataSaver === true,
       safeMode: globalThis.DAILY_ATLAS_SAFE_MODE === true
-    }) || Object.freeze({ candidates: Object.freeze([]) });
+    }) || Object.freeze({
+      candidates: Object.freeze([]),
+      sourceKind: "local-editorial",
+      cachePolicy: "same-origin-shell",
+      pendingLabel: "本地编辑视觉",
+      loadedLabel: "本地编辑视觉",
+      fallbackLabel: "本地编辑视觉",
+      sourcePage: `./sources-and-licenses.html#${type === "city" ? "city-images" : "media-images"}`,
+      fallbackSourcePage: `./sources-and-licenses.html#${type === "city" ? "city-images" : "media-images"}`
+    });
   }
 
   function visualImageHtml(visual, className, options) {
@@ -3051,16 +3060,31 @@
   }
 
   function visualCreditHtml(visual) {
-    if (!visual?.provider || !visual?.sourcePage || !Array.isArray(visual.candidates) || !visual.candidates.length) return "";
-    const href = safeVisualLink(visual.sourcePage);
-    return `<a class="visual-credit" data-visual-credit href="${href}" ${href.startsWith("https://") ? 'target="_blank" rel="noreferrer"' : ""} hidden>图源 · ${escapeHtml(visual.provider)}</a>`;
+    const candidates = Array.isArray(visual?.candidates) ? visual.candidates.filter(Boolean) : [];
+    const initialState = candidates.length ? "pending" : "fallback";
+    const pendingLabel = String(visual?.pendingLabel || visual?.provider || "图片来源待核");
+    const loadedLabel = String(visual?.loadedLabel || visual?.provider || pendingLabel);
+    const fallbackLabel = String(visual?.fallbackLabel || "本地编辑视觉");
+    if (!fallbackLabel) return "";
+    const defaultHref = safeVisualLink(visual?.sourcePage);
+    const statusMeta = Object.fromEntries(["pending", "loaded", "fallback"].map((state) => {
+      const stateName = `${state[0].toUpperCase()}${state.slice(1)}`;
+      const href = safeVisualLink(visual?.[`${state}SourcePage`] || defaultHref);
+      const external = href.startsWith("https://");
+      const title = String(visual?.[`${state}SourceTitle`] || (external ? "查看当前图片来源与许可" : "查看图片来源说明"));
+      return [state, { href, external, title, stateName }];
+    }));
+    const current = statusMeta[initialState];
+    const label = initialState === "pending" ? pendingLabel : fallbackLabel;
+    const stateAttributes = Object.entries(statusMeta).map(([state, meta]) => `data-visual-${state}-href="${escapeAttribute(meta.href)}" data-visual-${state}-external="${meta.external}" data-visual-${state}-title="${escapeAttribute(meta.title)}"`).join(" ");
+    return `<a class="visual-credit" data-visual-status data-visual-state="${initialState}" data-visual-pending-label="${escapeAttribute(pendingLabel)}" data-visual-loaded-label="${escapeAttribute(loadedLabel)}" data-visual-fallback-label="${escapeAttribute(fallbackLabel)}" ${stateAttributes} href="${escapeAttribute(current.href)}" title="${escapeAttribute(current.title)}" ${current.external ? 'target="_blank" rel="noreferrer"' : ""}>${escapeHtml(label)}</a>`;
   }
 
   function safeVisualLink(value) {
     const url = String(value || "");
-    if (/^https:\/\//.test(url)) return escapeAttribute(url);
-    if (/^\.\/sources-and-licenses\.html(?:#[a-z0-9-]+)?$/.test(url)) return escapeAttribute(url);
-    if (/^\.\/city-credits\.html#city-[a-z0-9-]+$/.test(url)) return escapeAttribute(url);
+    if (/^https:\/\//.test(url)) return url;
+    if (/^\.\/sources-and-licenses\.html(?:#[a-z0-9-]+)?$/.test(url)) return url;
+    if (/^\.\/city-credits\.html#city-[a-z0-9-]+$/.test(url)) return url;
     return "./sources-and-licenses.html";
   }
 

@@ -3,14 +3,14 @@
 
   const config = Object.freeze({
     schemaVersion: 2,
-    appVersion: "2.4.3",
+    appVersion: "2.4.4",
     publicReleaseMode: true,
     publicSafeMode: false,
     remoteBookMovieImages: true,
     localCityImages: true,
     visualPolicy: "attributed-remote-media-with-open-license-city-fallback",
     ratingUse: "attributed-noncommercial-snapshot",
-    deploymentTier: "public-noncommercial-v2.4.3",
+    deploymentTier: "public-noncommercial-v2.4.4",
     effectiveDate: "2026-08-30",
     operatorName: "今日万象维护者",
     contactUrl: "https://github.com/Zweisamkeit320/daily-atlas-v23/issues",
