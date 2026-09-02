@@ -284,7 +284,7 @@ async function assertBackupTabLoop(page) {
         for (const text of await page.locator("#exploreResults .explore-meta").allTextContents()) assert.match(text, new RegExp(region.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 
         await resetExplore(page);
-        await page.locator("#exploreType").selectOption("movie");
+        await page.locator("#exploreType").selectOption("book");
         await page.locator("#exploreRating").selectOption("0.9");
         const ratingTotal = await expectedExploreTotal(page);
         await waitForExploreTotal(page, ratingTotal);
@@ -419,8 +419,8 @@ async function assertBackupTabLoop(page) {
         assert.equal(await page.locator("#compactModeEnabled").isChecked(), true);
         assert.equal(await page.locator("#dataSaverEnabled").isChecked(), true);
         assert.equal(await page.locator("#dataSaverEnabled").isDisabled(), false);
-        assert.equal(await page.evaluate(() => document.documentElement.dataset.publicSafeMode), "false");
-        assert.equal(await page.evaluate(() => document.documentElement.dataset.remoteBookMovieImages), "true");
+        assert.equal(await page.evaluate(() => document.documentElement.dataset.publicSafeMode), "true");
+        assert.equal(await page.evaluate(() => document.documentElement.dataset.remoteBookMovieImages), "false");
         assert.equal(await page.locator("#textSize").inputValue(), "large");
         assert.equal(await page.locator("#contrastMode").inputValue(), "high");
         assert.equal(await page.locator("#motionMode").inputValue(), "reduce");
@@ -588,7 +588,7 @@ async function assertBackupTabLoop(page) {
         const plainDownload = await readDownload(await plainDownloadPromise, temporaryDirectory);
         const plainPayload = JSON.parse(plainDownload.text);
         assert.equal(plainPayload.format, "daily-atlas-backup");
-        assert.equal(plainPayload.appVersion, "2.4.4");
+        assert.equal(plainPayload.appVersion, "2.5.0");
         assert.deepEqual(Object.keys(plainPayload.states).sort(), ["book", "city", "german", "medical", "movie"]);
         assert.match(path.basename(plainDownload.target), /^daily-atlas-backup-\d{4}-\d{2}-\d{2}\.json$/);
 

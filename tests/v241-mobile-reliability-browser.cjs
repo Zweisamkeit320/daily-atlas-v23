@@ -69,8 +69,11 @@ async function waitForShell(page) {
 async function waitForDetailsAndVisuals(page) {
   await page.waitForFunction(() => document.querySelectorAll(".catalog-detail-placeholder").length === 0, null, { timeout: 30000 });
   await page.waitForFunction(() => {
-    const visuals = [...document.querySelectorAll("#bookCard .daily-visual-image, #movieCard .daily-visual-image, #cityCard .daily-visual-image")];
-    return visuals.length === 3 && visuals.every((image) => image.complete && image.naturalWidth > 0);
+    const cityImage = document.querySelector("#cityCard .daily-visual-image");
+    const remoteBookMovieImages = document.querySelectorAll("#bookCard .daily-visual-image, #movieCard .daily-visual-image");
+    return remoteBookMovieImages.length === 0
+      && cityImage?.complete === true
+      && cityImage.naturalWidth > 0;
   });
 }
 
@@ -114,10 +117,15 @@ async function assertVisualIdentity(page, label) {
   for (const identity of identities) {
     assert.equal(identity.itemFound, true, `${label} ${identity.type} ID must resolve to the selected catalog item`);
     assert.equal(identity.title, identity.expectedTitle, `${label} ${identity.type} title must match its stable ID`);
-    assert.ok(identity.alt.includes(identity.expectedTitle), `${label} ${identity.type} image alt must match its title`);
     assert.deepEqual(identity.renderedCandidates, identity.expectedCandidates,
       `${label} ${identity.type} image candidates must be derived from the same selected ID`);
-    assert.ok(identity.renderedCandidates.includes(identity.src), `${label} ${identity.type} current image must belong to its selected ID`);
+    if (identity.type === "city") {
+      assert.ok(identity.alt.includes(identity.expectedTitle), `${label} city image alt must match its title`);
+      assert.ok(identity.renderedCandidates.includes(identity.src), `${label} city image must belong to its selected ID`);
+    } else {
+      assert.equal(identity.src, "", `${label} ${identity.type} must not create a remote image in the public-safe release`);
+      assert.deepEqual(identity.renderedCandidates, [], `${label} ${identity.type} must use its local editorial visual`);
+    }
   }
   return identities.map(({ type, id, title, src }) => ({ type, id, title, src }));
 }
@@ -132,12 +140,14 @@ async function layoutAt(page, width, label) {
       clipped: node.scrollHeight > node.clientHeight + 1
     }));
     const visuals = [...document.querySelectorAll("#bookCard .daily-visual-image, #movieCard .daily-visual-image, #cityCard .daily-visual-image")];
+    const editorialSurfaces = [...document.querySelectorAll("#bookCard .card-visual, #movieCard .card-visual, #cityCard .city-visual")];
     return {
       clientWidth: document.documentElement.clientWidth,
       scrollWidth: document.documentElement.scrollWidth,
       supportsTextSizeAdjust: CSS.supports("text-size-adjust", "100%") || CSS.supports("-webkit-text-size-adjust", "100%"),
       textSizeAdjust: rootStyle.webkitTextSizeAdjust || rootStyle.textSizeAdjust,
       copy,
+      editorialSurfaceCount: editorialSurfaces.length,
       visualCount: visuals.length,
       decodedVisuals: visuals.filter((image) => image.complete && image.naturalWidth > 0).length,
       quickNavVisible: getComputedStyle(document.querySelector("#quickNav")).position === "fixed"
@@ -148,8 +158,9 @@ async function layoutAt(page, width, label) {
     assert.match(String(layout.textSizeAdjust), /100%/, `${label} ${width}px needs explicit text autosizing normalization`);
   }
   assert.ok(layout.copy.every((entry) => entry.overflowY !== "hidden" && !entry.clipped), `${label} ${width}px clips German or medical copy`);
-  assert.equal(layout.visualCount, 3, `${label} ${width}px renders all three requested editorial visuals`);
-  assert.equal(layout.decodedVisuals, 3, `${label} ${width}px decodes all three requested editorial visuals`);
+  assert.equal(layout.editorialSurfaceCount, 3, `${label} ${width}px renders all three editorial visual surfaces`);
+  assert.equal(layout.visualCount, 1, `${label} ${width}px emits only the open-license city image`);
+  assert.equal(layout.decodedVisuals, 1, `${label} ${width}px decodes the open-license city image`);
   assert.equal(layout.quickNavVisible, true, `${label} ${width}px keeps the five-item mobile quick navigation`);
   return layout;
 }
@@ -195,20 +206,26 @@ async function runSlowDetail(browser, origin) {
     const shellReadyMs = Date.now() - started;
     assert.ok(shellReadyMs < 3500, `actionable shell waited for delayed details (${shellReadyMs}ms)`);
     assert.ok(await page.locator(".catalog-detail-placeholder").count() >= 1, "shell becomes actionable while details are still pending");
-    assert.equal(await page.locator("#bookCard .daily-visual-image, #movieCard .daily-visual-image, #cityCard .daily-visual-image").count(), 3,
-      "compact book, movie and city selections expose immediate visual elements");
+    assert.equal(await page.locator("#bookCard .detail-preview-visual, #movieCard .detail-preview-visual, #cityCard .detail-preview-visual").count(), 3,
+      "compact book, movie and city selections expose immediate editorial visual surfaces");
+    assert.equal(await page.locator("#bookCard .daily-visual-image, #movieCard .daily-visual-image").count(), 0,
+      "public-safe compact selections do not create remote book or movie images");
+    assert.equal(await page.locator("#cityCard .daily-visual-image").count(), 1,
+      "compact city selection exposes its same-origin open-license image");
 
     const before = await page.locator("#bookCard .swap-button").getAttribute("data-item-id");
-    const beforeImage = await page.locator("#bookCard .daily-visual-image").getAttribute("src");
+    const beforeTitle = await page.locator("#bookCard .card-title").textContent();
     const randomCallsBefore = await page.evaluate(() => globalThis.__v241RandomCalls);
     const swapStarted = Date.now();
     await page.locator("#bookCard .swap-button").click();
     await page.waitForFunction((id) => document.querySelector("#bookCard .swap-button")?.dataset.itemId !== id, before);
     const swapMs = Date.now() - swapStarted;
     const after = await page.locator("#bookCard .swap-button").getAttribute("data-item-id");
-    const afterImage = await page.locator("#bookCard .daily-visual-image").getAttribute("src");
+    const afterTitle = await page.locator("#bookCard .card-title").textContent();
     assert.notEqual(after, before, "manual next changes the stable ID before the detail chunk arrives");
-    assert.notEqual(afterImage, beforeImage, "manual next changes the cover identity immediately");
+    assert.notEqual(afterTitle, beforeTitle, "manual next changes the local editorial identity immediately");
+    assert.equal(await page.locator("#bookCard .daily-visual-image").count(), 0,
+      "manual next does not introduce a remote book image");
     assert.ok(swapMs < 1500, `manual next preview took too long (${swapMs}ms)`);
     assert.equal(await page.evaluate(() => globalThis.__v241RandomCalls), randomCallsBefore + 1,
       "one manual next action draws exactly once from Web Crypto inside the committed transaction");
@@ -293,7 +310,7 @@ async function main() {
           binarySource: engine.executablePath ? "explicit-override" : "playwright-managed",
           userAgents: await runMobileMatrix(browser, engine.name, origin)
         };
-        process.stdout.write(`PASS ${engine.name}: simulated Quark/vivo/WeChat at 320px and 390px; visuals=3 identity=consistent errors=0\n`);
+        process.stdout.write(`PASS ${engine.name}: simulated Quark/vivo/WeChat at 320px and 390px; local-book/movie+city-image identity=consistent errors=0\n`);
       } finally {
         await browser.close().catch(() => {});
       }

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "appVersion": "2.5.0",
+  "reviewDate": "2026-09-02",
+  "reviewerType": "independent AI editorial medical-safety review",
+  "result": "INDEPENDENT_CONTENT_SAFETY_REVIEW_PASS",
+  "professionalBoundary": "GENERAL_EDUCATION_ONLY_NO_CLINICIAN_SIGNOFF_CLAIMED",
+  "input": {
+    "catalogFile": "data/raw/medical500.json",
+    "catalogCount": 500,
+    "catalogSha256": "855C734A49A70C0308CAF5DF76B1B91062A99E9DDE3C93B0000903A17D131743",
+    "automatedScreen": "data/medical-high-risk-screen.v2.5.0.json",
+    "automatedAssessed": 500,
+    "highRiskSubset": 347,
+    "urgentCount": 74,
+    "cautionCount": 273,
+    "generalCount": 153
+  },
+  "method": [
+    "Read-only review separated catalogue structure, source presence, action wording and escalation boundaries from transport availability.",
+    "Focused semantic sampling covered emergency recognition, first aid, medication safety, overdose, self-harm crisis and maternal mental health.",
+    "The prior v2.4.0 blocking cases were rechecked against the current text instead of inheriting the old report's result.",
+    "This is an editorial safety review, not a clinician signature, diagnosis, treatment validation or promise of real-time source freshness."
+  ],
+  "reviewedExamples": [
+    "medical-v3-sepsis-recognition",
+    "medical-v3-cardiac-arrest-aed",
+    "medical-v3-adult-choking",
+    "medical-v3-delirium-acute",
+    "medical-major-bleeding",
+    "medical-v3-suicide-immediate",
+    "medical-v3-severe-hypoglycemia",
+    "medical-v3-opioid-overdose",
+    "medical-v3-postpartum-mental",
+    "medical-otc-duplicate"
+  ],
+  "priorBlockerClosure": {
+    "status": "closed_in_current_catalog",
+    "evidence": [
+      "Sepsis now uses the dedicated CDC sepsis page and explicit immediate escalation language.",
+      "Cardiac arrest, adult choking and severe bleeding actions use ordered first-aid wording and avoid the prior concatenation errors.",
+      "Acute confusion, suicide crisis, severe hypoglycaemia and opioid overdose use topic-specific sources and explicit emergency boundaries.",
+      "Postpartum mental-health wording distinguishes urgent safety risks from prompt non-emergency assessment."
+    ]
+  },
+  "releaseDecision": {
+    "status": "pass_for_general_education_release",
+    "blockingIssues": 0,
+    "conditions": [
+      "Keep the general-education disclaimer and local emergency-service boundary visible.",
+      "Do not claim clinician signoff or provide diagnosis, prescription or individualized treatment.",
+      "A future factual, source or safety correction is an allowed v2.5.x maintenance patch."
+    ]
+  }
+}

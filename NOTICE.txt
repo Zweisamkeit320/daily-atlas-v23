@@ -1,0 +1,29 @@
+今日万象 v2.5.0 LTS 第三方素材与数据通知
+
+本文件是公开发布包的摘要性通知。逐项来源、许可、作者、哈希和转换记录以 sources-and-licenses.html、city-credits.html 及相应机器可读清单为准。
+
+1. 项目自身内容
+   未另行标识的应用代码、中文编辑内容、本地程序化视觉、界面与文档由“今日万象维护者”提供，适用 LICENSE.txt 的个人非商业使用许可。
+
+2. 图书数据与书封边界
+   图书使用 Open Library 的 Work ID、书目字段和冻结评分快照。v2.5.0 公开配置不请求或复制第三方书封；书卡使用本地编辑视觉。书目数据可访问不表示书封获得展示或再分发许可。
+
+3. 电影数据与海报边界
+   构建侧冻结审计输入曾用 IMDb 非商业数据集的评分和票数完成编辑筛选；这些数值不进入公开运行目录、搜索分片或静态发布包。公开电影卡保留稳定作品 ID、编辑内容、作品资料链接，以及仅供条目身份完整性核对但不会执行的规范化海报地址；公开配置禁止把该地址放入图片元素或发出请求，也不复制电影海报字节。IMDb 与 MetaHub 的服务可访问性不授予建立公开电影信息数据库或展示海报的权利。
+
+4. 城市图片
+   200 张同源城市图来自 Wikimedia Commons。每张图片的作者、文件页、许可代码、许可链接、转换说明和 SHA-256 记录在 city-credits.html 与 assets/visuals/cities/manifest.json。其 Public Domain、CC0、CC BY 或 CC BY-SA 许可仅适用于对应图片。
+
+5. 德语朗读
+   500 个德语 MP3 使用 Piper de_DE-eva_k-x_low 模型生成。相关 M-AILABS 许可通知随包位于 assets/audio/german/LICENSE-M-AILABS.txt；模型、配置、文本和音频校验记录位于 assets/audio/german/manifest.json。
+
+6. 医学资料
+   医学内容参考 WHO、CDC、NHS、NIH 下属机构、FDA、MedlinePlus、USPSTF、政府公共卫生机构和明确的急救教育机构。来源链接用于核查，不表示这些机构认可本应用。医学插图是本项目的主题说明图，不承担诊断作用。
+
+7. 软件依赖与外部服务
+   开发与测试依赖的许可证记录在 package-lock.json。公开页面可在用户主动点击时访问作品／来源页面，可按需访问 Open-Meteo，并在 GitHub Pages 分片同源失败时尝试固定版本 jsDelivr；默认不访问 Open Library、MetaHub 或 images.weserv.nl 的书影图片接口。这些服务由各自运营者提供，维护者不承诺其长期可用性。
+
+本项目没有抓取、复制或显示豆瓣评分、评价人数或条目数据。未经书面许可，不把不同平台评分合成虚假的综合分。
+
+版本：v2.5.0 LTS
+生效日期：2026-09-02

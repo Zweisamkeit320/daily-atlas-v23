@@ -78,12 +78,12 @@ test("diagnostics page stays independent from the 2,200-item catalog", () => {
 
 test("the independent diagnostics page remains available in the light offline shell", () => {
   const worker = fs.readFileSync(path.join(root, "sw.js"), "utf8");
-  for (const asset of ["diagnostics.html", "diagnostics.css", "diagnostics.js", "public-config.js", "privacy.html", "sources-and-licenses.html", "legal.css"]) {
+  for (const asset of ["diagnostics.html", "diagnostics.css", "diagnostics.js", "public-config.js", "privacy.html", "sources-and-licenses.html", "LICENSE.txt", "NOTICE.txt", "legal.css"]) {
     assert.ok(worker.includes(`./${asset}`), `${asset} must be cached with the light shell`);
   }
 });
 
-test("v2.4 public release, visual controls and standalone disclosures are explicit and packageable", () => {
+test("v2.5 LTS public release, visual controls and standalone disclosures are explicit and packageable", () => {
   const config = fs.readFileSync(path.join(root, "public-config.js"), "utf8");
   const app = fs.readFileSync(path.join(root, "app.js"), "utf8");
   const index = fs.readFileSync(path.join(root, "index.html"), "utf8");
@@ -91,9 +91,12 @@ test("v2.4 public release, visual controls and standalone disclosures are explic
   const privacy = fs.readFileSync(path.join(root, "privacy.html"), "utf8");
   const sources = fs.readFileSync(path.join(root, "sources-and-licenses.html"), "utf8");
   assert.match(config, /publicReleaseMode: true/);
-  assert.match(config, /publicSafeMode: false/);
-  assert.match(config, /remoteBookMovieImages: true/);
+  assert.match(config, /publicSafeMode: true/);
+  assert.match(config, /remoteBookMovieImages: false/);
   assert.match(config, /localCityImages: true/);
+  assert.match(config, /releaseChannel: "lts"/);
+  assert.match(config, /featureFreeze: true/);
+  assert.match(config, /supportPolicy: "maintenance-only"/);
   assert.match(visuals, /REMOTE_HOSTS = Object\.freeze\(new Set/);
   assert.doesNotMatch(visuals.match(/REMOTE_HOSTS = Object\.freeze\(new Set\([\s\S]*?\)\);/)?.[0] || "", /archive\.org/,
     "Archive is a CSP redirect backend, not a directly constructible catalog candidate host");
@@ -102,12 +105,13 @@ test("v2.4 public release, visual controls and standalone disclosures are explic
   assert.doesNotMatch(app, /safeImageUrl\(item\.image\).*封面/, "book/movie image URLs must pass through the visual allow-list module");
   assert.match(index, /id="publicSafeBanner"/);
   assert.match(index, /id="originAlternate"/);
-  assert.match(privacy, /Internet Archive[\s\S]*?<code>archive\.org<\/code>/);
-  assert.match(sources, /Internet Archive[\s\S]*?<code>archive\.org<\/code>/);
+  assert.match(privacy, /不会向 <code>images\.weserv\.nl<\/code>[\s\S]*?请求书封／海报/);
+  assert.match(sources, /公开运行目录、搜索分片和静态部署包不分发 IMDb 数值评分或票数/);
+  assert.match(sources, /MetaHub Terms of Use/);
   assert.ok(fs.existsSync(path.join(root, ".nojekyll")), "GitHub Pages static build must disable Jekyll processing");
   for (const filename of ["privacy.html", "sources-and-licenses.html"]) {
     const html = fs.readFileSync(path.join(root, filename), "utf8");
-    assert.match(html, /v2\.4\.4/);
+    assert.match(html, /v2\.5\.0/);
     assert.match(html, /http-equiv="Content-Security-Policy"[^>]*content="[^"]*script-src 'self';/,
       `${filename} must declare an explicit script-src for the GitHub Pages security contract`);
     assert.doesNotMatch(html, /<script/i, `${filename} should remain script-free`);

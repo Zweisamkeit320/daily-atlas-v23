@@ -395,10 +395,13 @@ if ($pageBodies["city-credits.html"] -notmatch 'id\s*=\s*["'']cityCreditList["''
 
 foreach ($check in @(
   [PSCustomObject]@{ Label = "schemaVersion: 2"; Pattern = 'schemaVersion\s*:\s*2(?:\s*[,}])' },
-  [PSCustomObject]@{ Label = 'appVersion: "2.4.4"'; Pattern = 'appVersion\s*:\s*["'']2\.4\.4["'']' },
+  [PSCustomObject]@{ Label = 'appVersion: "2.5.0"'; Pattern = 'appVersion\s*:\s*["'']2\.5\.0["'']' },
+  [PSCustomObject]@{ Label = 'releaseChannel: "lts"'; Pattern = 'releaseChannel\s*:\s*["'']lts["'']' },
+  [PSCustomObject]@{ Label = 'featureFreeze: true'; Pattern = 'featureFreeze\s*:\s*true' },
+  [PSCustomObject]@{ Label = 'supportPolicy: "maintenance-only"'; Pattern = 'supportPolicy\s*:\s*["'']maintenance-only["'']' },
   [PSCustomObject]@{ Label = "publicReleaseMode: true"; Pattern = 'publicReleaseMode\s*:\s*true(?:\s*[,}])' },
-  [PSCustomObject]@{ Label = "publicSafeMode: false"; Pattern = 'publicSafeMode\s*:\s*false(?:\s*[,}])' },
-  [PSCustomObject]@{ Label = "remoteBookMovieImages: true"; Pattern = 'remoteBookMovieImages\s*:\s*true(?:\s*[,}])' },
+  [PSCustomObject]@{ Label = "publicSafeMode: true"; Pattern = 'publicSafeMode\s*:\s*true(?:\s*[,}])' },
+  [PSCustomObject]@{ Label = "remoteBookMovieImages: false"; Pattern = 'remoteBookMovieImages\s*:\s*false(?:\s*[,}])' },
   [PSCustomObject]@{ Label = "localCityImages: true"; Pattern = 'localCityImages\s*:\s*true(?:\s*[,}])' }
 )) {
   if ($publicConfigBody -notmatch $check.Pattern) {
@@ -549,8 +552,8 @@ try {
 catch {
   throw "Local catalog-data/manifest.json is invalid JSON: $($_.Exception.Message)"
 }
-if ($catalogManifest.appVersion -ne "2.4.4") {
-  throw "catalog-data/manifest.json appVersion must be 2.4.4."
+if ($catalogManifest.appVersion -ne "2.5.0") {
+  throw "catalog-data/manifest.json appVersion must be 2.5.0."
 }
 $selectionDataPath = [string]$catalogManifest.selectionData.path
 if (-not $selectionDataPath -or $selectionDataPath -notmatch '^selection-data\.[a-f0-9]{12}\.json$') {

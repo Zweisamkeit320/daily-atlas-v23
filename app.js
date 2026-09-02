@@ -34,7 +34,7 @@
     medical: { collection: "medical", label: "医学", short: "医", card: "medicalCard", swap: "换一条", known: "了解了", unit: "条" }
   });
   const TYPES = Object.freeze(Object.keys(TYPE_META));
-  const APP_VERSION = "2.4.4";
+  const APP_VERSION = "2.5.0";
   const RECORD_PAGE_SIZE = 100;
   const STORAGE_KEYS = Object.freeze({
     statePrefix: "dailyAtlas.state.v3.",
@@ -941,8 +941,9 @@
     const genres = Engine.itemGenres(item).map((genre) => GENRE_LABELS[genre]).filter(Boolean);
     const tags = (item.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
     const creatorLabel = type === "book" ? "作者" : "导演";
-    const ratingValue = Number(item.rating.value).toFixed(1);
-    const ratingCount = Engine.formatCount(item.rating.count);
+    const hasPublicRating = item.rating && Number.isFinite(Number(item.rating.value)) && Number.isFinite(Number(item.rating.max));
+    const ratingValue = hasPublicRating ? Number(item.rating.value).toFixed(1) : "精选";
+    const ratingCount = hasPublicRating ? Engine.formatCount(item.rating.count) : "";
     const popularity = POPULARITY_LABELS[item.popularityTier] || "编辑精选";
     const yearLabel = displayYearLabel(item);
     const seriesContext = item.series
@@ -987,10 +988,10 @@
         ${seriesContext}
         ${contentNotes ? `<p class="curation-note content-warning"><strong>内容提示：</strong>${escapeHtml(contentNotes)}</p>` : ""}
         <div class="rating-row">
-          <span class="rating-score">${ratingValue}<small> / ${item.rating.max}</small></span>
+          <span class="rating-score">${ratingValue}${hasPublicRating ? `<small> / ${item.rating.max}</small>` : ""}</span>
           <span class="rating-detail">
-            <a href="${safeLink(item.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(item.rating.source)} 评分</a>
-            <span>${ratingCount}人评分 · 快照 ${Engine.formatSnapshot(item.rating.snapshot)}</span>
+            <a href="${safeLink(item.sourceUrl)}" target="_blank" rel="noreferrer">${hasPublicRating ? `${escapeHtml(item.rating.source)} 评分` : "查看作品资料"}</a>
+            <span>${hasPublicRating ? `${ratingCount}人评分 · 快照 ${Engine.formatSnapshot(item.rating.snapshot)}` : "口碑门槛已在构建时核验；公开包不再分发第三方数值"}</span>
           </span>
           <span class="popularity-badge">${escapeHtml(popularity)}</span>
         </div>

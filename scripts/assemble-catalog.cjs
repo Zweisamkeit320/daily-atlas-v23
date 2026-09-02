@@ -132,13 +132,24 @@ function compactRating(rating) {
   };
 }
 
+function publicMovieReason(item) {
+  const value = item.reason;
+  const clauses = String(value || "").split(/(?<=[。！？；])/u);
+  const restrictedEvidence = /IMDb|\d(?:\.\d+)?\s*\/\s*10|\d[\d,.]*\s*票|固定评分|固定快照|固定口碑证据|从证据上看|公共评价|评分[^。；]*(?:门槛|背景|依据|参与)|口碑[^。；]*(?:门槛|证据)/iu;
+  const kept = clauses.filter((clause) => !restrictedEvidence.test(clause)).join("").trim();
+  if (kept.length < 20) throw new Error(`${value}: public movie reason lost its editorial meaning after rating evidence was removed`);
+  const sentence = /[。！？]$/u.test(kept) ? kept : `${kept}。`;
+  if (kept === String(value || "").trim()) return sentence;
+  return `${sentence}本条保留《${item.title}》（${item.year > 0 ? item.year : "年份待核"}）的编辑判断，不以公开平台数值替代观看判断。`;
+}
+
 // Keep the browser payload focused on fields used by the renderer, engine and
 // local preference model. Full evidence rows, hashes and review records remain
 // in data/raw/books500.json and data/raw/movies500.json, whose hashes are
 // carried by sourceAudit. Shipping those audit-only objects in catalog.js would
 // add well over a megabyte of parse work on every mobile device.
 function compactMedia(item) {
-  return {
+  const compact = {
     id: item.id,
     type: item.type,
     genre: item.genre,
@@ -150,13 +161,11 @@ function compactMedia(item) {
     creator: item.creator,
     detail: item.detail,
     summary: item.summary,
-    reason: item.reason,
-    image: item.image,
+    reason: item.type === "movie" ? publicMovieReason(item) : item.reason,
     sourceUrl: item.sourceUrl,
     visual: item.visual,
     tags: item.tags,
     audience: item.audience,
-    rating: compactRating(item.rating),
     popularityTier: item.popularityTier,
     curationLevel: item.curationLevel,
     series: item.series,
@@ -167,6 +176,10 @@ function compactMedia(item) {
     region: item.region,
     language: item.language
   };
+  if (item.type === "book") {
+    return { ...compact, image: item.image, rating: compactRating(item.rating) };
+  }
+  return { ...compact, image: item.image, qualityGate: "editorial-qualified" };
 }
 
 function compactCity(item) {
@@ -244,7 +257,7 @@ const books = addThemes(bookSource.books.map((item) => {
 }), "book");
 const movies = addThemes(movieSource.movies.map((item) => {
   const compact = compactMedia(item);
-  return { ...compact, ratings: [compact.rating] };
+  return compact;
 }), "movie");
 const cities = addThemes(citySource.map((item) => ({
   ...compactCity(item),
@@ -272,21 +285,21 @@ const mediaExpansionPointerPath = path.join(DATA, "upstream", "media500", "lates
 const mediaExpansionPointer = JSON.parse(fs.readFileSync(mediaExpansionPointerPath, "utf8"));
 const catalog = {
   schemaVersion: 4,
-  appVersion: "2.4.4",
+  appVersion: "2.5.0",
   snapshotDate: "2026-08-25",
   themes: Engine.THEMES,
   dailyThemeIds: Engine.DAILY_THEME_IDS,
   selectionPolicy: {
     mediaGenres: ["history", "mystery", "scifi"],
     explorationCadence: "Every fourth local day ignores soft preference scores while keeping editorial qualification and exclusions.",
-    popularityMeaning: "Popularity tiers describe source rating-count bands, not artistic value.",
+    popularityMeaning: "Popularity tiers are frozen editorial visibility labels, not an artistic-value ranking or a public rating-count field.",
     curationLevels: {
       "editorial-curated": "The original 50 entries retain individually edited Chinese summaries and reasons.",
       "editorial-reviewed": "All 150 expansion entries have item-level Chinese summaries, reasons, genre rationale, suitability and evidence notes; explicit rejects are absent.",
       "evidence-reviewed": "The 300-item scale expansion has item-level stable-source, threshold, genre and metadata review. It follows the editorial tier under matching recommendation conditions and is not represented as a full reading or viewing.",
       "source-screened": "Reserved boundary for an incomplete future refresh; source-screened entries are excluded from the published pool and default recommendations."
     },
-    douban: "No Douban data is embedded without written authorization; ratings arrays support a future authorized side-by-side source."
+    douban: "No Douban data is embedded without written authorization; the public movie payload contains no third-party numeric rating or vote count."
   },
   sourceAudit: Object.fromEntries(Object.entries(RAW_FILES).map(([key, file]) => [key, { file: `raw/${file}`, sha256: rawHash(file) }])),
   upstreamAudit: {

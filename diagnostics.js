@@ -37,6 +37,9 @@
     if (REQUIRED_CONFIG_BOOLEANS.some((field) => typeof candidate[field] !== "boolean")) {
       return Object.freeze({ ok: false, code: "CONFIG_BOOLEAN_INVALID", value: null });
     }
+    if (candidate.releaseChannel !== "lts" || candidate.featureFreeze !== true || candidate.supportPolicy !== "maintenance-only") {
+      return Object.freeze({ ok: false, code: "CONFIG_LTS_INVALID", value: null });
+    }
     return Object.freeze({ ok: true, code: "OK", value: candidate });
   }
 
@@ -115,6 +118,7 @@
     const protocol = location.protocol;
     const localhost = ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
     const secureTransport = protocol === "https:" || localhost;
+    const explicitSafeMode = new URLSearchParams(location.search).get("safe") === "1";
     const rows = [
       ["应用版本", `v${APP_VERSION}`],
       ["Origin", location.origin === "null" ? "本地文件（无 Origin）" : location.origin],
@@ -123,13 +127,16 @@
       ["网络状态", navigator.onLine ? "浏览器报告在线" : "浏览器报告离线"],
       ["公开配置", PublicConfigContract.ok ? "已加载并通过契约校验" : `无效／未加载（${PublicConfigContract.code}）`],
       ["公开测试发布", PublicConfigContract.ok ? (PublicConfig.publicReleaseMode ? "是" : "否") : "未知（按否处理）"],
-      ["显式安全模式", PublicConfigContract.ok ? (PublicConfig.publicSafeMode ? "已启用" : "未启用") : "未知（按启用处理）"],
+      ["发布通道", PublicConfigContract.ok ? "LTS 最终功能版" : "未知"],
+      ["维护策略", PublicConfigContract.ok ? "功能冻结，仅维护修复" : "未知"],
+      ["显式安全模式", explicitSafeMode ? "已启用" : "未启用"],
+      ["公开安全素材模式", PublicConfigContract.ok ? (PublicConfig.publicSafeMode ? "已启用" : "未启用") : "未知（按启用处理）"],
       ["远程书封／海报", PublicConfigContract.ok && PublicConfig.remoteBookMovieImages ? "允许" : PublicConfigContract.ok ? "已禁用" : "未知（按禁用处理）"],
       ["同源城市图", PublicConfigContract.ok && PublicConfig.localCityImages ? "允许" : PublicConfigContract.ok ? "已禁用" : "未知（按禁用处理）"],
       ["Service Worker", registration ? (navigator.serviceWorker.controller ? "已接管" : "已注册，待刷新接管") : "未注册"]
     ];
     elements.environment.innerHTML = dl(rows);
-    return { protocol, secureTransport, secureContext: Boolean(globalThis.isSecureContext), origin: rows[1][1] };
+    return { protocol, secureTransport, secureContext: Boolean(globalThis.isSecureContext), origin: rows[1][1], explicitSafeMode };
   }
 
   async function getRegistration() {
@@ -269,6 +276,9 @@
         valid: PublicConfigContract.ok,
         code: PublicConfigContract.code,
         publicReleaseMode: PublicConfigContract.ok && PublicConfig.publicReleaseMode === true,
+        releaseChannel: PublicConfigContract.ok ? PublicConfig.releaseChannel : null,
+        featureFreeze: PublicConfigContract.ok && PublicConfig.featureFreeze === true,
+        supportPolicy: PublicConfigContract.ok ? PublicConfig.supportPolicy : null,
         publicSafeMode: !PublicConfigContract.ok || PublicConfig.publicSafeMode === true,
         remoteBookMovieImages: PublicConfigContract.ok && PublicConfig.remoteBookMovieImages === true,
         localCityImages: PublicConfigContract.ok && PublicConfig.localCityImages === true
@@ -299,7 +309,10 @@
       `安全上下文: ${report.environment.secureContext ? "是" : "否"}`,
       `公开配置: ${report.publicConfig.valid ? "VALID" : report.publicConfig.code}`,
       `公开测试发布: ${report.publicConfig.publicReleaseMode ? "是" : "否"}`,
-      `显式安全模式: ${report.publicConfig.publicSafeMode ? "已启用" : "未启用"}`,
+      `发布通道: ${report.publicConfig.releaseChannel === "lts" ? "LTS 最终功能版" : "未知"}`,
+      `维护策略: ${report.publicConfig.featureFreeze && report.publicConfig.supportPolicy === "maintenance-only" ? "功能冻结，仅维护修复" : "未知"}`,
+      `显式安全模式: ${report.environment.explicitSafeMode ? "已启用" : "未启用"}`,
+      `公开安全素材模式: ${report.publicConfig.publicSafeMode ? "已启用" : "未启用"}`,
       `远程书封/海报: ${report.publicConfig.remoteBookMovieImages ? "允许" : "已禁用"}`,
       `同源城市图: ${report.publicConfig.localCityImages ? "允许" : "已禁用"}`,
       `存储: ${Health.humanBytes(report.storage.usage)} / ${Health.humanBytes(report.storage.quota)}`,

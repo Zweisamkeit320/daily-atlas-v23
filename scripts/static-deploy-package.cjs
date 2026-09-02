@@ -52,6 +52,8 @@ const ROOT_FILES = Object.freeze([
   "styles.css",
   "visuals.js",
   "legal.css",
+  "LICENSE.txt",
+  "NOTICE.txt",
   "sources-and-licenses.html",
   "sw.js",
   "weekly.js"

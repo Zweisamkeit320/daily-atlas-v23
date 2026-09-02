@@ -130,9 +130,11 @@ async function runEngine(name, browserType, origin) {
   assert.equal(await page.locator(".known-button:not([disabled])").count(), 5, `${name} renders five actionable cards`);
   assert.equal(await page.evaluate(() => globalThis.DAILY_ATLAS_SAFE_MODE), false, `${name} uses normal split mode`);
   assert.equal(await page.evaluate(() => globalThis.DAILY_ATLAS_PUBLIC_CONFIG?.publicReleaseMode), true, `${name} exposes public release policy`);
-  assert.equal(await page.evaluate(() => globalThis.DAILY_ATLAS_PUBLIC_CONFIG?.publicSafeMode), false, `${name} keeps explicit safe mode opt-in`);
+  assert.equal(await page.evaluate(() => globalThis.DAILY_ATLAS_PUBLIC_CONFIG?.publicSafeMode), true, `${name} enables the public LTS safe visual policy`);
   assert.equal(await page.locator("#originBanner").isVisible(), true, `${name} shows the dual-origin disclosure`);
-  assert.equal(await page.locator("#bookCard .cover-image, #movieCard .cover-image").count(), 2, `${name} emits allowlisted progressive media elements`);
+  assert.equal(await page.locator("#bookCard .cover-image, #movieCard .cover-image").count(), 0, `${name} emits no remote book or movie image elements in the public LTS mode`);
+  assert.equal(await page.locator("#bookCard [data-visual-status][data-visual-state='fallback'], #movieCard [data-visual-status][data-visual-state='fallback']").count(), 2,
+    `${name} labels both local editorial media visuals`);
   assert.equal(requested.some((pathname) => pathname.endsWith("/catalog.js")), false, `${name} normal startup never downloads legacy catalog.js`);
   assert.ok(requested.some((pathname) => /catalog-data\/selection-data\.[a-f0-9]{12}\.json$/.test(pathname)), `${name} requests the compact selection index`);
   assert.equal(requested.some((pathname) => /catalog-data\/search\.[a-f0-9]{12}\.js$/.test(pathname)), false, `${name} search index is delayed`);
@@ -172,8 +174,9 @@ async function runEngine(name, browserType, origin) {
   assert.notEqual(await diagnostics.locator("#overallStatus").getAttribute("data-status"), "fail", `${name} diagnostics reaches a non-failing result`);
   const environmentText = await diagnostics.locator("#environmentList").innerText();
   assert.match(environmentText, /显式安全模式[\s\S]*未启用/);
+  assert.match(environmentText, /公开安全素材模式[\s\S]*已启用/);
   assert.match(environmentText, /公开测试发布[\s\S]*是/);
-  assert.match(environmentText, /远程书封／海报[\s\S]*允许/);
+  assert.match(environmentText, /远程书封／海报[\s\S]*已禁用/);
   assert.match(environmentText, /同源城市图[\s\S]*允许/);
   const diagnosticAxe = await new AxeBuilder({ page: diagnostics }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
   const diagnosticViolations = importantAxeViolations(diagnosticAxe);

@@ -127,12 +127,14 @@ test("the verified HTTP selection data reconstructs the same compact catalog as 
   assert.deepEqual(CatalogData.selectionFromData(JSON.parse(bytes(manifest.selectionData.path))), selectionCatalog());
 });
 
-test("compact media records carry enough visual identity to start covers before detail chunks", () => {
+test("compact media records keep dormant visual identity but publish no third-party movie numeric rating", () => {
   const compact = selectionCatalog();
   assert.ok(compact.books.every((item) => /^https:\/\/covers\.openlibrary\.org\/b\/id\/\d+-M\.jpg\?default=false$/.test(item.image)),
     "every compact book needs a directly usable Open Library cover URL");
-  assert.ok(compact.movies.every((item) => new URL(item.image).pathname === `/poster/medium/${item.id}/img`),
-    "every compact movie needs a directly usable MetaHub poster URL derived from its stable IMDb ID");
+  assert.ok(compact.movies.every((item) => new URL(item.image).pathname === `/poster/medium/${item.id}/img` && item.qualityGate === "editorial-qualified"),
+    "every compact movie keeps a canonical dormant visual identity behind the disabled public image policy");
+  assert.ok(compact.movies.every((item) => !Object.hasOwn(item, "rating") && !Object.hasOwn(item, "ratings")),
+    "the public compact movie payload omits third-party numeric rating data");
   assert.ok(compact.books.every((item) => item.selectionOnly === true) && compact.movies.every((item) => item.selectionOnly === true));
 });
 

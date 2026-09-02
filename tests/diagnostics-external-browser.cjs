@@ -111,16 +111,23 @@ async function assertInvalidConfig(browser, serverUrl, configScript, expectedCod
     const configScript = (value) => `globalThis.DAILY_ATLAS_PUBLIC_CONFIG=${JSON.stringify(value)};\n`;
     const validShape = {
       schemaVersion: 2,
-      appVersion: "2.4.4",
+      appVersion: "2.5.0",
+      releaseChannel: "lts",
+      featureFreeze: true,
+      supportPolicy: "maintenance-only",
       publicReleaseMode: true,
-      publicSafeMode: false,
-      remoteBookMovieImages: true,
+      publicSafeMode: true,
+      remoteBookMovieImages: false,
       localCityImages: true
     };
     await assertInvalidConfig(browser, server.url, "/* deliberately missing DAILY_ATLAS_PUBLIC_CONFIG */\n", "CONFIG_UNAVAILABLE");
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, schemaVersion: 1 }), "CONFIG_SCHEMA_INVALID");
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, appVersion: "2.3.1" }), "CONFIG_VERSION_MISMATCH");
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, remoteBookMovieImages: "yes" }), "CONFIG_BOOLEAN_INVALID");
+    const { releaseChannel: _releaseChannel, ...missingReleaseChannel } = validShape;
+    await assertInvalidConfig(browser, server.url, configScript(missingReleaseChannel), "CONFIG_LTS_INVALID");
+    await assertInvalidConfig(browser, server.url, configScript({ ...validShape, featureFreeze: false }), "CONFIG_LTS_INVALID");
+    await assertInvalidConfig(browser, server.url, configScript({ ...validShape, supportPolicy: "feature-upgrades" }), "CONFIG_LTS_INVALID");
 
     const optionalCdnContext = await browser.newContext({ serviceWorkers: "block" });
     await optionalCdnContext.route("**/asset-routing.js", (route) => route.fulfill({

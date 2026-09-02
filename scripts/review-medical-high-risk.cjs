@@ -6,7 +6,7 @@ const path = require("node:path");
 const crypto = require("node:crypto");
 
 const ROOT = path.resolve(__dirname, "..");
-const REVIEW_VERSION = "2.4.4";
+const REVIEW_VERSION = "2.5.0";
 const REVIEW_DATE = "2026-09-02";
 const JSON_PATH = path.join(ROOT, "data", `medical-high-risk-screen.v${REVIEW_VERSION}.json`);
 const MARKDOWN_PATH = path.join(ROOT, "data", `MEDICAL_HIGH_RISK_SCREEN_v${REVIEW_VERSION}.md`);
@@ -41,6 +41,7 @@ function assessItem(item) {
   for (const field of REQUIRED_FIELDS) {
     if (typeof item[field] !== "string" || item[field].trim() === "") issues.push(`missing:${field}`);
   }
+  if (!["general", "caution", "urgent"].includes(item.riskLevel)) issues.push("risk:invalid-level");
 
   let sourceHost = "";
   try {
@@ -77,22 +78,22 @@ function assessItem(item) {
 }
 
 function buildReport(medical = loadMedicalCatalog()) {
-  const inScope = medical.filter((item) => item.riskLevel === "urgent" || item.riskLevel === "caution");
-  const reviewed = inScope.map(assessItem);
+  const assessed = medical.map(assessItem);
+  const reviewed = assessed.filter((item) => item.riskLevel === "urgent" || item.riskLevel === "caution");
   const ids = new Set();
   const duplicateIds = [];
-  for (const item of reviewed) {
+  for (const item of assessed) {
     if (ids.has(item.id)) duplicateIds.push(item.id);
     ids.add(item.id);
   }
   const contentKeys = new Map();
   const duplicateContent = [];
-  for (const item of inScope) {
+  for (const item of medical) {
     const key = `${item.summary}\n${item.action}\n${item.limitsOrRedFlags}`;
     if (contentKeys.has(key)) duplicateContent.push([contentKeys.get(key), item.id]);
     else contentKeys.set(key, item.id);
   }
-  const structuralFlags = reviewed.flatMap((item) => item.issues.map((issue) => ({ id: item.id, issue })));
+  const structuralFlags = assessed.flatMap((item) => item.issues.map((issue) => ({ id: item.id, issue })));
   for (const id of duplicateIds) structuralFlags.push({ id, issue: "duplicate:id" });
   for (const pair of duplicateContent) structuralFlags.push({ id: pair[1], issue: `duplicate:content:${pair[0]}` });
 
@@ -102,27 +103,29 @@ function buildReport(medical = loadMedicalCatalog()) {
     reviewDate: REVIEW_DATE,
     medicalSource: "data/raw/medical500.json",
     medicalSourceSha256: crypto.createHash("sha256").update(fs.readFileSync(MEDICAL_SOURCE_PATH)).digest("hex").toUpperCase(),
-    scope: "automated structural safety screen for every caution and urgent medical entry",
+    scope: "automated structural, source and dangerous-wording screen for all 500 medical entries, with high-risk counts for caution/urgent and escalation enforcement for urgent entries",
     result: structuralFlags.length === 0 ? "AUTOMATED_SAFETY_SCREEN_PASS" : "AUTOMATED_SAFETY_SCREEN_FLAGGED",
     professionalBoundary: "GENERAL_EDUCATION_ONLY_NO_CLINICIAN_SIGNOFF_CLAIMED",
     boundaries: [
-      "This review checks structure, approved source hosts, access dates, emergency escalation language and dangerous wording patterns.",
+      "All entries are checked for structure, approved source hosts, access dates and dangerous wording; urgent entries also require emergency escalation language.",
       "It does not claim clinician review, diagnosis, treatment validation or real-time source freshness.",
       "The separate v2.4.0 independent high-risk review records semantic and live-source checks; neither artifact is presented as a clinician signature."
     ],
     counts: {
       catalog: medical.length,
+      assessed: assessed.length,
       reviewed: reviewed.length,
       caution: reviewed.filter((item) => item.riskLevel === "caution").length,
       urgent: reviewed.filter((item) => item.riskLevel === "urgent").length,
-      automatedPass: reviewed.filter((item) => item.automatedStatus === "pass").length,
-      automatedFlagged: reviewed.filter((item) => item.automatedStatus === "flagged").length,
-      uniqueSourceHosts: new Set(reviewed.map((item) => item.sourceHost)).size,
+      automatedPass: assessed.filter((item) => item.automatedStatus === "pass").length,
+      automatedFlagged: assessed.filter((item) => item.automatedStatus === "flagged").length,
+      uniqueSourceHosts: new Set(assessed.map((item) => item.sourceHost)).size,
       urgentReviewed: reviewed.filter((item) => item.riskLevel === "urgent").length
     },
     structuralFlags,
     urgentItems: reviewed.filter((item) => item.riskLevel === "urgent"),
-    reviewed
+    reviewed,
+    assessed
   };
 }
 
@@ -136,8 +139,8 @@ function markdown(report) {
     `自动化结论：\`${report.result}\`  \n` +
     `边界：\`${report.professionalBoundary}\`\n\n` +
     `## 复核范围与结果\n\n` +
-    `本轮对全部 ${report.counts.reviewed} 条 caution／urgent 医学内容执行结构、来源域名、访问日期、紧急升级措辞和危险表达扫描；其中 caution ${report.counts.caution} 条、urgent ${report.counts.urgent} 条。自动通过 ${report.counts.automatedPass} 条，标记 ${report.counts.automatedFlagged} 条。\n\n` +
-    `本报告是自动结构筛查，不是医生签名，也不证明来源页面此刻仍未更新。语义与真实来源复核记录在独立的 v2.4.0 高风险审查报告中；应用继续限定为一般科普，不提供诊断或个体化治疗。\n\n` +
+    `本轮对全部 ${report.counts.assessed} 条医学内容执行必填结构、来源域名、访问日期、诊断越界和危险自行用药表达扫描；其中 ${report.counts.reviewed} 条 caution／urgent 纳入高风险统计，caution ${report.counts.caution} 条、urgent ${report.counts.urgent} 条，且 urgent 必须包含升级就医语言。全库自动通过 ${report.counts.automatedPass} 条，标记 ${report.counts.automatedFlagged} 条。\n\n` +
+    `本报告是自动结构筛查，不是医生签名，也不证明来源页面此刻仍未更新。当前哈希的语义抽查与历史问题闭环另见独立的 v2.5.0 高风险审查报告；应用继续限定为一般科普，不提供诊断或个体化治疗。\n\n` +
     `## 自动化异常\n\n${report.structuralFlags.length ? report.structuralFlags.map((entry) => `- ${entry.id}: ${entry.issue}`).join("\n") : "- 无。"}\n\n` +
     `## urgent 条目覆盖\n\n| ID | 标题 | 来源 | 自动扫描 | 独立复核状态 |\n|---|---|---|---|---|\n${urgentRows}\n`;
 }

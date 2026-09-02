@@ -178,11 +178,6 @@ function validateMedia(items, type) {
   const isBook = type === "book";
   const label = isBook ? "books" : "movies";
   const idPattern = isBook ? /^\/works\/OL\d+W$/ : /^tt\d{7,10}$/;
-  const ratingSource = isBook ? "Open Library" : "IMDb";
-  const minRating = isBook ? 4 : 7.5;
-  const maxRating = isBook ? 5 : 10;
-  const minCount = isBook ? 20 : 30000;
-  const expectedTier = isBook ? expectedBookTier : expectedMovieTier;
 
   for (const item of items) {
     assert(idPattern.test(item.id), `${label} has an invalid stable ID: ${item.id}`);
@@ -191,13 +186,22 @@ function validateMedia(items, type) {
     assert(hasText(item.title) && hasText(item.creator) && hasText(item.summary) && hasText(item.reason) && hasText(item.audience), `${item.id} is missing editorial text`);
     assert(Array.isArray(item.tags) && item.tags.length >= 2, `${item.id} needs at least two tags`);
     assert(["editorial-curated", "editorial-reviewed", "evidence-reviewed"].includes(item.curationLevel), `${item.id} has an invalid curation boundary`);
-    assert(item.rating && item.rating.source === ratingSource && item.rating.max === maxRating, `${item.id} has an invalid rating source or scale`);
-    assert(Number.isFinite(item.rating.value) && item.rating.value >= minRating, `${item.id} fails the rating threshold`);
-    assert(Number.isInteger(item.rating.count) && item.rating.count >= minCount, `${item.id} fails the rating-count threshold`);
-    assert(/^\d{4}-\d{2}-\d{2}$/.test(item.rating.snapshot), `${item.id} has an invalid rating snapshot`);
-    assert(item.popularityTier === expectedTier(item.rating.count), `${item.id} has an inconsistent popularity tier`);
-    assert(Array.isArray(item.ratings) && item.ratings.length === 1 && item.ratings[0].source === ratingSource, `${item.id} ratings array is inconsistent`);
-    assert(!item.ratings.some((rating) => /douban|豆瓣/i.test(String(rating.source))), `${item.id} contains unauthorized Douban data`);
+    if (isBook) {
+      assert(item.rating && item.rating.source === "Open Library" && item.rating.max === 5, `${item.id} has an invalid book rating source or scale`);
+      assert(Number.isFinite(item.rating.value) && item.rating.value >= 4, `${item.id} fails the book rating threshold`);
+      assert(Number.isInteger(item.rating.count) && item.rating.count >= 20, `${item.id} fails the book rating-count threshold`);
+      assert(/^\d{4}-\d{2}-\d{2}$/.test(item.rating.snapshot), `${item.id} has an invalid book rating snapshot`);
+      assert(item.popularityTier === expectedBookTier(item.rating.count), `${item.id} has an inconsistent book popularity tier`);
+      assert(Array.isArray(item.ratings) && item.ratings.length === 1 && item.ratings[0].source === "Open Library", `${item.id} book ratings array is inconsistent`);
+      assert(!item.ratings.some((rating) => /douban|豆瓣/i.test(String(rating.source))), `${item.id} contains unauthorized Douban data`);
+      assert(/^https:\/\//.test(item.image), `${item.id} has no book-cover reference`);
+    } else {
+      assert(item.qualityGate === "editorial-qualified", `${item.id} has no frozen editorial qualification`);
+      assert(!Object.hasOwn(item, "rating") && !Object.hasOwn(item, "ratings"), `${item.id} exposes restricted movie rating data`);
+      assert(new URL(item.image).hostname === "images.metahub.space" && new URL(item.image).pathname === `/poster/medium/${item.id}/img`,
+        `${item.id} has a non-canonical dormant movie-poster reference`);
+      assert(["classic", "mid", "underseen"].includes(item.popularityTier), `${item.id} has an invalid editorial visibility tier`);
+    }
     if (["editorial-reviewed", "evidence-reviewed"].includes(item.curationLevel)) {
       assert(typeof item.standaloneFriendly === "boolean", `${item.id} is missing its standalone-reading/viewing assessment`);
     }
@@ -401,8 +405,7 @@ function buildSelectionRows(chunkByKey) {
       assert(match, `${item.id} cannot provide a compact Open Library cover reference`);
       return match[1];
     }
-    assert(/^tt\d{7,10}$/.test(item.id), `${item.id} cannot provide a compact MetaHub poster reference`);
-    return item.id;
+    return null;
   };
   return Object.freeze({
     book: catalog.books.map((item) => Object.freeze([
@@ -412,7 +415,7 @@ function buildSelectionRows(chunkByKey) {
     ])),
     movie: catalog.movies.map((item) => Object.freeze([
       item.id, item.title, item.year, item.genres, item.tags, item.themeTags,
-      item.popularityTier, item.curationLevel, item.rating.value, item.rating.count,
+      item.popularityTier, item.curationLevel, null, null,
       chunkByKey.get(`movie:${item.id}`), mediaVisualRef(item, "movie")
     ])),
     city: catalog.cities.map((item) => Object.freeze([
@@ -445,10 +448,13 @@ function renderSelectionModule(rows, selectionVersion, contentVersion) {
 }
 
 function addCompactMediaVisuals(source) {
+  const qualificationMarker = 'rating: Object.freeze({ source: isBook ? "Open Library" : "IMDb", value: row[8], max: isBook ? 5 : 10, count: row[9] }),';
+  const qualificationReplacement = '...(isBook ? { rating: Object.freeze({ source: "Open Library", value: row[8], max: 5, count: row[9] }) } : { qualityGate: "editorial-qualified" } ),';
   const marker = 'sourceUrl: "https://selection.invalid/", image: placeholder, detailChunk: row[10], selectionOnly: true';
-  const replacement = 'sourceUrl: "https://selection.invalid/", image: isBook ? "https://covers.openlibrary.org/b/id/" + row[11] + "-M.jpg?default=false" : "https://images.metahub.space/poster/medium/" + row[11] + "/img", detailChunk: row[10], selectionOnly: true';
+  const replacement = 'sourceUrl: "https://selection.invalid/", image: isBook ? "https://covers.openlibrary.org/b/id/" + row[11] + "-M.jpg?default=false" : "https://images.metahub.space/poster/medium/" + row[0] + "/img", detailChunk: row[10], selectionOnly: true';
+  assert(source.includes(qualificationMarker), "compact media qualification injection marker is missing");
   assert(source.includes(marker), "compact media visual injection marker is missing");
-  return source.replace(marker, replacement);
+  return source.replace(qualificationMarker, qualificationReplacement).replace(marker, replacement);
 }
 
 function buildSearchRows(chunkByKey) {

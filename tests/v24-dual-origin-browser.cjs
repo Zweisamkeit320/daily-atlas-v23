@@ -275,35 +275,21 @@ async function assertFallbackCredit(page, visualSelector, label) {
 }
 
 async function assertVisualSuccess(page, label) {
-  const selectors = [
-    ["#bookCard img.cover-image[data-visual-candidates]", "#bookCard .card-visual"],
-    ["#movieCard img.cover-image[data-visual-candidates]", "#movieCard .card-visual"],
-    ["#cityCard img.city-image[data-visual-candidates]", "#cityCard .city-visual"]
-  ];
-  for (const [selector, visualSelector] of selectors) {
-    const image = page.locator(selector);
-    assert.equal(await image.count(), 1, `${label}: ${selector} exists`);
-    await page.locator(visualSelector).scrollIntoViewIfNeeded();
-    await image.evaluate((node) => { node.loading = "eager"; });
-    try {
-      await page.waitForFunction((candidate) => {
-        const node = document.querySelector(candidate);
-        return Boolean(node && node.complete && node.naturalWidth > 0 && !node.hidden);
-      }, selector);
-    } catch (error) {
-      const state = await image.evaluate((node) => ({
-        src: node.src,
-        complete: node.complete,
-        naturalWidth: node.naturalWidth,
-        hidden: node.hidden,
-        index: node.dataset.visualIndex,
-        candidates: node.dataset.visualCandidates,
-        visualClass: node.closest(".card-visual, .city-visual")?.className || ""
-      }));
-      throw new Error(`${label}: ${selector} did not decode: ${JSON.stringify(state)}; ${error.message}`);
-    }
-    assert.ok((await image.getAttribute("alt") || "").trim(), `${label}: ${selector} has useful alternative text`);
-  }
+  assert.equal(await page.locator("#bookCard img.cover-image, #movieCard img.cover-image").count(), 0,
+    `${label}: public LTS mode makes no third-party book or movie image request`);
+  await assertFallbackCredit(page, "#bookCard .card-visual", `${label}/book-public-local`);
+  await assertFallbackCredit(page, "#movieCard .card-visual", `${label}/movie-public-local`);
+
+  const selector = "#cityCard img.city-image[data-visual-candidates]";
+  const image = page.locator(selector);
+  assert.equal(await image.count(), 1, `${label}: ${selector} exists`);
+  await page.locator("#cityCard .city-visual").scrollIntoViewIfNeeded();
+  await image.evaluate((node) => { node.loading = "eager"; });
+  await page.waitForFunction((candidate) => {
+    const node = document.querySelector(candidate);
+    return Boolean(node && node.complete && node.naturalWidth > 0 && !node.hidden);
+  }, selector);
+  assert.ok((await image.getAttribute("alt") || "").trim(), `${label}: ${selector} has useful alternative text`);
 }
 
 async function manifestSnapshot(page) {
@@ -544,20 +530,18 @@ async function runFailureScenario(browser, engine, origin, mode, fault) {
   try {
     await page.goto(pageUrl(origin, mode), { waitUntil: "domcontentloaded" });
     await waitForReady(page);
-    for (const [selector, visualSelector] of [
-      ["#bookCard img.cover-image", "#bookCard .card-visual"],
-      ["#movieCard img.cover-image", "#movieCard .card-visual"],
-      ["#cityCard img.city-image", "#cityCard .city-visual"]
-    ]) {
-      const image = page.locator(selector);
-      assert.equal(await image.count(), 1, `${label}: fault target ${selector} is emitted before fallback`);
-      await page.locator(visualSelector).scrollIntoViewIfNeeded();
-      await page.waitForFunction((candidate) => {
-        const node = document.querySelector(candidate);
-        return Boolean(node && node.hidden && node.closest(".card-visual, .city-visual")?.classList.contains("visual-image-failed"));
-      }, selector);
-      await assertFallbackCredit(page, visualSelector, `${label}/${selector}`);
-    }
+    assert.equal(await page.locator("#bookCard img.cover-image, #movieCard img.cover-image").count(), 0,
+      `${label}: public media visuals do not emit remote image elements even during a visual fault`);
+    await assertFallbackCredit(page, "#bookCard .card-visual", `${label}/book-public-local`);
+    await assertFallbackCredit(page, "#movieCard .card-visual", `${label}/movie-public-local`);
+    const cityImage = page.locator("#cityCard img.city-image");
+    assert.equal(await cityImage.count(), 1, `${label}: city fault target is emitted before fallback`);
+    await page.locator("#cityCard .city-visual").scrollIntoViewIfNeeded();
+    await page.waitForFunction(() => {
+      const node = document.querySelector("#cityCard img.city-image");
+      return Boolean(node && node.hidden && node.closest(".city-visual")?.classList.contains("visual-image-failed"));
+    });
+    await assertFallbackCredit(page, "#cityCard .city-visual", `${label}/city-fault`);
     assert.ok((await page.locator("#bookCard .visual-fallback strong").innerText()).trim(), `${label}: book fallback keeps title text`);
     assert.ok((await page.locator("#movieCard .visual-fallback strong").innerText()).trim(), `${label}: movie fallback keeps title text`);
     assert.ok((await page.locator("#cityCard .city-heading h3").innerText()).trim(), `${label}: city fallback keeps city text`);
@@ -566,10 +550,8 @@ async function runFailureScenario(browser, engine, origin, mode, fault) {
     await page.locator("#bookCard .swap-button").click();
     await page.waitForFunction((originalId) => document.querySelector("#bookCard .swap-button")?.dataset.itemId !== originalId, original);
     await waitForReady(page);
-    await page.waitForFunction(() => {
-      const node = document.querySelector("#bookCard img.cover-image");
-      return Boolean(node?.hidden && node.closest(".card-visual")?.classList.contains("visual-image-failed"));
-    });
+    assert.equal(await page.locator("#bookCard img.cover-image").count(), 0,
+      `${label}: replacement book remains on the public local visual path`);
     await assertFallbackCredit(page, "#bookCard .card-visual", `${label}/rapid-next-book`);
     assert.equal(await page.locator("#bookCard .swap-button:not([disabled])").count(), 1, `${label}: fallback replacement button remains usable`);
     if (engine.name === "Chromium" && mode.id === "cloudflare-root" && fault === "http-404") {
@@ -581,7 +563,7 @@ async function runFailureScenario(browser, engine, origin, mode, fault) {
         await assertFallbackCredit(page, selector, `${label}/explore-${type}`);
       }
     }
-    for (const host of REMOTE_IMAGE_HOSTS) assert.ok((counts.get(host) || 0) > 0, `${label}: ${host} was intercepted instead of reaching the Internet`);
+    for (const host of REMOTE_IMAGE_HOSTS) assert.equal(counts.get(host) || 0, 0, `${label}: ${host} receives no request in public LTS mode`);
     assert.ok((counts.get("local-city") || 0) > 0, `${label}: local city image fault was injected`);
     assert.equal(serverState.escapes.length, escapesBefore, `${label}: fallback makes no same-origin base-path escape`);
     return { mode: mode.id, fault, fallback: true, buttonsUsable: true, fixtureRequests: Object.fromEntries(counts) };

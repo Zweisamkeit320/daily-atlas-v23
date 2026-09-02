@@ -4,7 +4,7 @@
 
 - `catalog-loader.js`：稳定、无数据的 UMD 加载 API；全局名 `DailyAtlasCatalogData`。
 - `catalog-data/manifest.js`：稳定入口；全局名 `DAILY_ATLAS_SPLIT_MANIFEST`。
-- `catalog-data/selection-data.<hash>.json`：HTTP／PWA 首屏使用的 2,200 条紧凑选择记录；当前为 369,803 B，gzip 79,148 B。加载器先通过 `assetFetcher` 完成字节数、SHA-256 与 SRI 校验，再重建全局选择目录。
+- `catalog-data/selection-data.<hash>.json`：HTTP／PWA 首屏使用的 2,200 条紧凑选择记录；v2.5.0 当前为 377,102 B，gzip 78,826 B。加载器先通过 `assetFetcher` 完成字节数、SHA-256 与 SRI 校验，再重建全局选择目录。
 - `catalog-data/selection.<hash>.js`：仅供 `file://` 使用的同内容脚本回退；全局名 `DAILY_ATLAS_SELECTION_CATALOG`。正常 HTTP／PWA 启动不会同时下载它。
 - `catalog-data/search.<hash>.js`：延迟搜索索引；全局名 `DAILY_ATLAS_SEARCH_INDEX`。
 - `catalog-data/details/*.<hash>.js`：50 条一块的完整详情；注册到 `DAILY_ATLAS_DETAIL_CHUNKS`。

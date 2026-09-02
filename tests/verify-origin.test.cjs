@@ -17,10 +17,13 @@ const CSP_IMAGE_HOSTS = Object.freeze([...EXTERNAL_HOSTS, "archive.org", "*.us.a
 const PUBLIC_CONFIG = `(function () {
   const config = {
     schemaVersion: 2,
-    appVersion: "2.4.4",
+    appVersion: "2.5.0",
+    releaseChannel: "lts",
+    featureFreeze: true,
+    supportPolicy: "maintenance-only",
     publicReleaseMode: true,
-    publicSafeMode: false,
-    remoteBookMovieImages: true,
+    publicSafeMode: true,
+    remoteBookMovieImages: false,
     localCityImages: true
   };
   globalThis.DAILY_ATLAS_PUBLIC_CONFIG = config;
@@ -114,7 +117,10 @@ const SELECTION_DATA_VALUE = Object.freeze({
 });
 const CATALOG_MANIFEST_VALUE = Object.freeze({
   schemaVersion: 1,
-  appVersion: "2.4.4",
+  appVersion: "2.5.0",
+  releaseChannel: "lts",
+  featureFreeze: true,
+  supportPolicy: "maintenance-only",
   selectionData: Object.freeze({ path: path.basename(SELECTION_DATA_PATH) })
 });
 const RUNTIME_CHAIN_FILES = Object.freeze([

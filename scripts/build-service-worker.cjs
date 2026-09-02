@@ -50,6 +50,8 @@ const CORE_SHELL_FILES = Object.freeze([
   "public-config.js",
   "privacy.html",
   "sources-and-licenses.html",
+  "LICENSE.txt",
+  "NOTICE.txt",
   "city-credits.html",
   "city-credits.js",
   "legal.css",

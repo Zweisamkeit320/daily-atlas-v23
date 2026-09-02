@@ -28,12 +28,23 @@ test("all five built-in pools contain the exact v2.1 counts and unique qualified
   }
 });
 
-test("book and movie rating evidence meets the declared source-specific thresholds", () => {
+test("public books retain attributed ratings while public movies expose only the editorial quality gate", () => {
   assert.ok(Catalog.books.every((item) => item.rating.source === "Open Library" && item.rating.value >= 4 && item.rating.count >= 20));
-  assert.ok(Catalog.movies.every((item) => item.rating.source === "IMDb" && item.rating.value >= 7.5 && item.rating.count >= 30000));
-  assert.ok([...Catalog.books, ...Catalog.movies].every((item) => /^\d{4}-\d{2}-\d{2}$/.test(item.rating.snapshot)));
-  assert.ok([...Catalog.books, ...Catalog.movies].every((item) => Array.isArray(item.ratings) && item.ratings.length === 1));
-  assert.ok([...Catalog.books, ...Catalog.movies].every((item) => !item.ratings.some((rating) => /douban|豆瓣/i.test(rating.source))));
+  assert.ok(Catalog.books.every((item) => /^\d{4}-\d{2}-\d{2}$/.test(item.rating.snapshot)));
+  assert.ok(Catalog.books.every((item) => Array.isArray(item.ratings) && item.ratings.length === 1));
+  assert.ok(Catalog.books.every((item) => !item.ratings.some((rating) => /douban|豆瓣/i.test(rating.source))));
+  assert.ok(Catalog.movies.every((item) => item.qualityGate === "editorial-qualified"));
+  assert.ok(Catalog.movies.every((item) => !Object.hasOwn(item, "rating") && !Object.hasOwn(item, "ratings")));
+  assert.ok(Catalog.movies.every((item) => new URL(item.image).hostname === "images.metahub.space"));
+  assert.ok(Catalog.movies.every((item) => !/IMDb|\d(?:\.\d+)?\s*\/\s*10|\d[\d,.]*\s*票|固定评分|固定口碑证据/iu.test(`${item.summary} ${item.reason} ${item.audience}`)));
+});
+
+test("private build evidence still enforces the frozen movie curation threshold without entering the public payload", () => {
+  const payload = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "raw", "movies500.json"), "utf8"));
+  assert.equal(payload.movies.length, 500);
+  assert.ok(payload.movies.every((item) => item.rating.source === "IMDb" && item.rating.value >= 7.5 && item.rating.count >= 30000));
+  assert.ok(payload.movies.every((item) => /^\d{4}-\d{2}-\d{2}$/.test(item.rating.snapshot)));
+  assert.ok(payload.movies.every((item) => !/douban|豆瓣/i.test(item.rating.source)));
 });
 
 test("every expanded movie retains frozen release evidence outside the slim mobile runtime catalog", () => {
@@ -65,7 +76,8 @@ test("history, mystery and science fiction each retain a broad floor and popular
 test("stable IDs, images and generated medical assets are complete", () => {
   assert.ok(Catalog.books.every((item) => /^\/works\/OL\d+W$/.test(item.id)));
   assert.ok(Catalog.movies.every((item) => /^tt\d+$/.test(item.id)));
-  assert.ok([...Catalog.books, ...Catalog.movies].every((item) => /^https:\/\//.test(item.image)));
+  assert.ok(Catalog.books.every((item) => /^https:\/\//.test(item.image)));
+  assert.ok(Catalog.movies.every((item) => /^https:\/\//.test(item.image)));
   for (const item of Catalog.medical) {
     assert.match(item.image, /^\.\/assets\/medical\/.+\.webp$/);
     assert.ok(fs.existsSync(path.join(ROOT, item.image.slice(2))), item.image);
