@@ -249,6 +249,31 @@ async function assertFiveCards(page, label) {
   assert.equal(await page.locator(".known-button:not([disabled])").count(), 5, `${label}: all five known actions are enabled`);
 }
 
+async function assertFallbackCredit(page, visualSelector, label) {
+  const state = await page.locator(`${visualSelector} [data-visual-status]`).evaluate((node) => {
+    const href = new URL(node.getAttribute("href") || "", document.baseURI);
+    const expected = new URL("./sources-and-licenses.html", document.baseURI);
+    return {
+      visualState: node.dataset.visualState,
+      text: node.textContent.trim(),
+      href: href.href,
+      sameOrigin: href.origin === location.origin,
+      expectedPath: href.pathname === expected.pathname,
+      target: node.getAttribute("target"),
+      rel: node.getAttribute("rel"),
+      title: node.getAttribute("title") || ""
+    };
+  });
+  assert.equal(state.visualState, "fallback", `${label}: source status is fallback`);
+  assert.match(state.text, /^本地编辑视觉/, `${label}: source text names the local editorial fallback`);
+  assert.equal(state.sameOrigin, true, `${label}: fallback source link stays on the application origin`);
+  assert.equal(state.expectedPath, true, `${label}: fallback source link opens the source-boundary page`);
+  assert.equal(state.target, null, `${label}: fallback source link is not marked as a new external tab`);
+  assert.equal(state.rel, null, `${label}: fallback source link has no stale external rel attribute`);
+  assert.match(state.title, /本地编辑视觉/, `${label}: fallback title explains the local editorial visual`);
+  return state;
+}
+
 async function assertVisualSuccess(page, label) {
   const selectors = [
     ["#bookCard img.cover-image[data-visual-candidates]", "#bookCard .card-visual"],
@@ -531,6 +556,7 @@ async function runFailureScenario(browser, engine, origin, mode, fault) {
         const node = document.querySelector(candidate);
         return Boolean(node && node.hidden && node.closest(".card-visual, .city-visual")?.classList.contains("visual-image-failed"));
       }, selector);
+      await assertFallbackCredit(page, visualSelector, `${label}/${selector}`);
     }
     assert.ok((await page.locator("#bookCard .visual-fallback strong").innerText()).trim(), `${label}: book fallback keeps title text`);
     assert.ok((await page.locator("#movieCard .visual-fallback strong").innerText()).trim(), `${label}: movie fallback keeps title text`);
@@ -540,11 +566,67 @@ async function runFailureScenario(browser, engine, origin, mode, fault) {
     await page.locator("#bookCard .swap-button").click();
     await page.waitForFunction((originalId) => document.querySelector("#bookCard .swap-button")?.dataset.itemId !== originalId, original);
     await waitForReady(page);
+    await page.waitForFunction(() => {
+      const node = document.querySelector("#bookCard img.cover-image");
+      return Boolean(node?.hidden && node.closest(".card-visual")?.classList.contains("visual-image-failed"));
+    });
+    await assertFallbackCredit(page, "#bookCard .card-visual", `${label}/rapid-next-book`);
     assert.equal(await page.locator("#bookCard .swap-button:not([disabled])").count(), 1, `${label}: fallback replacement button remains usable`);
+    if (engine.name === "Chromium" && mode.id === "cloudflare-root" && fault === "http-404") {
+      await page.locator("#exploreQuery").focus();
+      for (const type of ["book", "movie", "city"]) {
+        await page.locator("#exploreType").selectOption(type);
+        const selector = `#exploreResults .explore-${type}:first-child .explore-visual`;
+        await page.waitForFunction((candidate) => document.querySelector(candidate)?.querySelector("[data-visual-status]")?.dataset.visualState === "fallback", selector);
+        await assertFallbackCredit(page, selector, `${label}/explore-${type}`);
+      }
+    }
     for (const host of REMOTE_IMAGE_HOSTS) assert.ok((counts.get(host) || 0) > 0, `${label}: ${host} was intercepted instead of reaching the Internet`);
     assert.ok((counts.get("local-city") || 0) > 0, `${label}: local city image fault was injected`);
     assert.equal(serverState.escapes.length, escapesBefore, `${label}: fallback makes no same-origin base-path escape`);
     return { mode: mode.id, fault, fallback: true, buttonsUsable: true, fixtureRequests: Object.fromEntries(counts) };
+  } finally {
+    await page.close().catch(() => {});
+    await context.close().catch(() => {});
+  }
+}
+
+async function runDetailPreviewSourceScenario(browser, origin, mode) {
+  serverState.mode = mode;
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, locale: "zh-CN", serviceWorkers: "block" });
+  await installImageFixtures(context, origin, mode, "http-404");
+  await context.addInitScript(() => {
+    let catalogStore;
+    Object.defineProperty(globalThis, "DailyAtlasCatalogStore", {
+      configurable: true,
+      get() { return catalogStore; },
+      set(value) {
+        catalogStore = Object.freeze({
+          ...value,
+          loadDetails: async () => {
+            throw Object.assign(new Error("injected detail failure"), { code: "DETAIL_NETWORK" });
+          }
+        });
+      }
+    });
+  });
+  const page = await context.newPage();
+  page.setDefaultTimeout(30000);
+  try {
+    await page.goto(pageUrl(origin, mode), { waitUntil: "domcontentloaded" });
+    await waitForReady(page);
+    for (const [card, visual] of [
+      ["#bookCard", ".detail-preview-visual"],
+      ["#movieCard", ".detail-preview-visual"],
+      ["#cityCard", ".detail-preview-visual"]
+    ]) {
+      const selector = `${card} ${visual}`;
+      assert.equal(await page.locator(selector).count(), 1, `${card}: failed detail remains an operable preview`);
+      await page.locator(selector).scrollIntoViewIfNeeded();
+      await page.waitForFunction((candidate) => document.querySelector(candidate)?.querySelector("[data-visual-status]")?.dataset.visualState === "fallback", selector);
+      await assertFallbackCredit(page, selector, `Chromium/${mode.id}/detail-preview/${card}`);
+    }
+    return { fallbackSourceContract: true, cards: 3 };
   } finally {
     await page.close().catch(() => {});
     await context.close().catch(() => {});
@@ -763,13 +845,17 @@ async function runEngine(engine, origin) {
     const fullVisualIntegrity = engine.name === "Chromium"
       ? await runFullVisualIntegrity(browser, origin, DEPLOYMENT_MODES[0])
       : null;
+    const detailPreviewSources = engine.name === "Chromium"
+      ? await runDetailPreviewSourceScenario(browser, origin, DEPLOYMENT_MODES[0])
+      : null;
     return {
       engine: engine.name,
       status: "passed",
       binarySource: engine.executable ? "explicit-override" : "playwright-managed",
       modes,
       cityCacheRecovery,
-      fullVisualIntegrity
+      fullVisualIntegrity,
+      detailPreviewSources
     };
   } finally {
     await browser.close().catch(() => {});

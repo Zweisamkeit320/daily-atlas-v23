@@ -588,7 +588,7 @@ async function assertBackupTabLoop(page) {
         const plainDownload = await readDownload(await plainDownloadPromise, temporaryDirectory);
         const plainPayload = JSON.parse(plainDownload.text);
         assert.equal(plainPayload.format, "daily-atlas-backup");
-        assert.equal(plainPayload.appVersion, "2.4.3");
+        assert.equal(plainPayload.appVersion, "2.4.4");
         assert.deepEqual(Object.keys(plainPayload.states).sort(), ["book", "city", "german", "medical", "movie"]);
         assert.match(path.basename(plainDownload.target), /^daily-atlas-backup-\d{4}-\d{2}-\d{2}\.json$/);
 

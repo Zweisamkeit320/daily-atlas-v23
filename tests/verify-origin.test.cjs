@@ -17,7 +17,7 @@ const CSP_IMAGE_HOSTS = Object.freeze([...EXTERNAL_HOSTS, "archive.org", "*.us.a
 const PUBLIC_CONFIG = `(function () {
   const config = {
     schemaVersion: 2,
-    appVersion: "2.4.3",
+    appVersion: "2.4.4",
     publicReleaseMode: true,
     publicSafeMode: false,
     remoteBookMovieImages: true,
@@ -114,7 +114,7 @@ const SELECTION_DATA_VALUE = Object.freeze({
 });
 const CATALOG_MANIFEST_VALUE = Object.freeze({
   schemaVersion: 1,
-  appVersion: "2.4.3",
+  appVersion: "2.4.4",
   selectionData: Object.freeze({ path: path.basename(SELECTION_DATA_PATH) })
 });
 const RUNTIME_CHAIN_FILES = Object.freeze([

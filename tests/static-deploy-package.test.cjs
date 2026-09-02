@@ -13,7 +13,7 @@ const Release = require("../scripts/release-package.cjs");
 const ServiceWorkerBuild = require("../scripts/build-service-worker.cjs");
 const ServiceWorkerContract = require("../scripts/service-worker-contract.cjs");
 const { appendDetached, cloneFixture, replaceFile } = require("./package-fixture-helpers.cjs");
-const FIXTURE_VERSION = "2.4.3";
+const FIXTURE_VERSION = "2.4.4";
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex").toUpperCase();
@@ -171,7 +171,7 @@ test("static deploy ZIP has one root, 24 medical images, two city sizes, 500 MP3
   const renamed = path.join(fixture.output, "daily-atlas-static-v2.1.0-r1-20260825-010203.zip");
   fs.copyFileSync(fixture.zip, renamed);
   fs.writeFileSync(`${renamed}.sha256`, `${sha256(fs.readFileSync(renamed))}  ${path.basename(renamed)}\n`, "utf8");
-  assert.throws(() => Deploy.verifyStaticDeploy(renamed), /ZIP version 2\.1\.0 does not match package version 2\.4\.3/);
+  assert.throws(() => Deploy.verifyStaticDeploy(renamed), /ZIP version 2\.1\.0 does not match package version 2\.4\.4/);
 
   fs.appendFileSync(fixture.zip, Buffer.from([0x00]));
   assert.throws(() => Deploy.verifyStaticDeploy(fixture.zip), /SHA-256 sidecar does not match/);
@@ -181,7 +181,7 @@ test("static deploy creation rejects a ZIP version different from package.json a
   const fixture = makeFixture();
   t.after(() => fs.rmSync(fixture.temporary, { recursive: true, force: true }));
   const wrong = path.join(fixture.output, "daily-atlas-static-v2.0.0-r1-20260825-010203.zip");
-  assert.throws(() => Deploy.createStaticDeploy(wrong, fixture.root), /ZIP version 2\.0\.0 does not match package version 2\.4\.3/);
+  assert.throws(() => Deploy.createStaticDeploy(wrong, fixture.root), /ZIP version 2\.0\.0 does not match package version 2\.4\.4/);
   assert.equal(fs.existsSync(wrong), false);
   assert.equal(fs.existsSync(`${wrong}.sha256`), false);
 });
@@ -195,7 +195,7 @@ test("static deploy source inspection rejects stale catalog, music, and service-
   const originalCatalogBytes = fs.readFileSync(catalogPath);
   const originalCatalog = runtimeCatalog(originalCatalogBytes);
   replaceFile(catalogPath, fixtureCatalogScript({ appVersion: "2.0.0" }, originalCatalog), "utf8");
-  assert.throws(() => Deploy.inspectSource(fixture.root), /catalog\.js version 2\.0\.0 does not match package version 2\.4\.3/);
+  assert.throws(() => Deploy.inspectSource(fixture.root), /catalog\.js version 2\.0\.0 does not match package version 2\.4\.4/);
 
   replaceFile(catalogPath, fixtureCatalogScript({ bookCount: 499 }, originalCatalog), "utf8");
   assert.throws(() => Deploy.inspectSource(fixture.root), /exactly 500 books; found 499/);

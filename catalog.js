@@ -3,7 +3,7 @@
   "use strict";
   const catalog = {
   "schemaVersion": 4,
-  "appVersion": "2.4.3",
+  "appVersion": "2.4.4",
   "snapshotDate": "2026-08-25",
   "themes": [
     {

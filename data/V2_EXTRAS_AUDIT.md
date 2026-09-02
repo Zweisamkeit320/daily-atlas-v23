@@ -1,6 +1,6 @@
 # Daily Duet V2 扩展候选池审计
 
-> 历史说明：本文件记录 2026-08-12 的 V2 扩展批次，不代表当前 v2.4.x 候选池规模、医学图片数量或发布状态；当前口径以 `CATALOG_AUDIT.md` 和 `V3_EXTRAS_AUDIT.md` 为准。
+> 历史说明：本文件记录 2026-08-12 的 V2 扩展批次，不代表当前 v2.4.x 候选池规模、医学图片数量或发布状态；`V3_EXTRAS_AUDIT.md` 也是后续历史快照。现行候选池口径以 `CATALOG_AUDIT.md` 为准，医学图与德语音频分别以 `../assets/medical/manifest.json` 和 `../assets/audio/german/manifest.json` 为准。
 
 审计日期：2026-08-12（Asia/Shanghai）
 

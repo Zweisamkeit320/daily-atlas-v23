@@ -24,7 +24,7 @@
 
       <aside class="notice">
         <strong>这不是一份商业授权证明</strong>
-        <p>v2.4 以远程引用方式展示书封和电影海报，并为每张卡保留本地程序化回退；这不等于获得逐图商业再分发授权。城市图只有在逐项确认开放许可、作者和文件页后才进入同源发布包。正式商业运营仍须另行取得书影素材授权或替换受限数据。</p>
+        <p>v2.4.4 以第三方渐进引用方式展示书封和电影海报，并为每张卡保留本地编辑视觉回退；这不等于获得逐图商业再分发授权。城市图只有在逐项确认开放许可、作者和文件页后才进入同源发布包。正式商业运营仍须另行取得书影素材授权或替换受限数据。</p>
       </aside>
 
       <section class="legal-section">
@@ -48,7 +48,18 @@
       <section class="legal-section" id="media-images">
         <h2>封面与海报</h2>
         <p>封面、海报与元数据具有不同的许可边界。v2.4 的书封由 Open Library 作品／封面 ID 定位，电影海报由 IMDb ID 定位至 MetaHub 图片服务；运行时优先通过 <code>images.weserv.nl</code> 请求压缩 WebP，并保留原始服务回退。Open Library 的封面地址可能跳转至其 Internet Archive 后端 <code>archive.org</code> 及受控的 <code>us.archive.org</code> 存储子域；应用只接受从已核对的 <code>covers.openlibrary.org</code> 候选产生的跳转，不直接构造任意 Archive 候选。代理和跳转只改善传输，不授予图片版权。</p>
-        <p>这 1,000 项只作为远程引用，不在构建时批量下载，也不进入完整离线包。每张图均可失败关闭并露出本地程序化视觉；数据节省或安全模式下零请求。书影逐图商业再分发权尚未建立，本公开版本只定位为个人、非商业测试。</p>
+        <p>这 1,000 项只作为第三方渐进图片，不在构建时批量下载，也不进入完整离线包。每张图均可失败关闭并露出本地编辑视觉；数据节省或安全模式下零请求。书影逐图商业再分发权尚未建立，本公开版本只定位为个人、非商业测试。</p>
+        <p><strong>同源缩略图准入规则：</strong>只有逐项记录作品 ID、原始文件页、权利人或作者、明确允许再分发及必要衍生处理的许可、许可链接、检索日期、文件 SHA-256 和转换说明后，图片才可以进入同源包。v2.4.4 没有把任何书封或海报声明为已满足这套条件，因此不会擅自复制第三方图片。后续获得合规素材时再逐项加入，而不是批量推断授权。</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>卡片上的图片来源状态</h2>
+        <ul>
+          <li><strong>同源开放许可图片：</strong>文件随应用发布，已保留逐项署名、许可和哈希，当前用于城市风貌图。</li>
+          <li><strong>第三方渐进图片：</strong>浏览器在线向白名单服务请求，应用不把它纳入完整离线包，也不宣称拥有再分发权。</li>
+          <li><strong>本地编辑视觉：</strong>由应用色彩、标题和版式生成，不是原书封、电影海报或城市实景；在图片关闭、失败或离线时使用。</li>
+        </ul>
+        <p>卡片、详情预览和探索结果会显示当前状态；候选图片只有在完成解码且仍属于当前条目后才覆盖本地编辑视觉。全部候选失败时，状态会回到“本地编辑视觉”，不会继续保留上一条目的图片或图源说明。</p>
       </section>
 
       <section class="legal-section" id="city-images">
@@ -79,7 +90,7 @@
 
       <section class="legal-section">
         <h2>版本与联系</h2>
-        <p>内容和评分不是实时数据；每张卡显示自身快照或访问日期。应用版本：v2.4.3；许可说明生效日期：2026-09-01。问题可通过公开仓库的 <a href="https://github.com/Zweisamkeit320/daily-atlas-v23/issues" target="_blank" rel="noreferrer">Issues 页面</a>反馈。</p>
+        <p>内容和评分不是实时数据；每张卡显示自身快照或访问日期。应用版本：v2.4.4；许可说明生效日期：2026-09-02。问题可通过公开仓库的 <a href="https://github.com/Zweisamkeit320/daily-atlas-v23/issues" target="_blank" rel="noreferrer">Issues 页面</a>反馈。</p>
       </section>
     </main>
     <footer class="legal-footer"><span>今日万象 · 来源可见，边界清楚</span><span><a href="./privacy.html">隐私说明</a> · <a href="./">返回首页</a></span></footer>

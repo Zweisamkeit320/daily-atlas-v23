@@ -111,7 +111,7 @@ async function assertInvalidConfig(browser, serverUrl, configScript, expectedCod
     const configScript = (value) => `globalThis.DAILY_ATLAS_PUBLIC_CONFIG=${JSON.stringify(value)};\n`;
     const validShape = {
       schemaVersion: 2,
-      appVersion: "2.4.3",
+      appVersion: "2.4.4",
       publicReleaseMode: true,
       publicSafeMode: false,
       remoteBookMovieImages: true,
@@ -121,6 +121,23 @@ async function assertInvalidConfig(browser, serverUrl, configScript, expectedCod
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, schemaVersion: 1 }), "CONFIG_SCHEMA_INVALID");
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, appVersion: "2.3.1" }), "CONFIG_VERSION_MISMATCH");
     await assertInvalidConfig(browser, server.url, configScript({ ...validShape, remoteBookMovieImages: "yes" }), "CONFIG_BOOLEAN_INVALID");
+
+    const optionalCdnContext = await browser.newContext({ serviceWorkers: "block" });
+    await optionalCdnContext.route("**/asset-routing.js", (route) => route.fulfill({
+      status: 200,
+      contentType: "text/javascript; charset=utf-8",
+      body: "globalThis.DailyAtlasAssets={deploymentMatches:()=>true,CDN_BASE:'https://cdn.jsdelivr.net/gh/example/daily-atlas@immutable/'};"
+    }));
+    await optionalCdnContext.route("https://cdn.jsdelivr.net/**", (route) => route.abort("connectionfailed"));
+    const optionalCdnPage = await optionalCdnContext.newPage();
+    await optionalCdnPage.goto(server.url, { waitUntil: "domcontentloaded" });
+    await waitForDiagnostics(optionalCdnPage);
+    assert.equal(await optionalCdnPage.locator("#overallStatus").getAttribute("data-status"), "pass");
+    assert.match(await optionalCdnPage.locator("#overallTitle").innerText(), /核心功能正常/);
+    assert.match(await optionalCdnPage.locator("#overallDetail").innerText(), /非必要/);
+    const optionalCdnProbe = optionalCdnPage.locator("#probeList .probe-row").filter({ hasText: "固定 CDN 清单" });
+    assert.match(await optionalCdnProbe.innerText(), /网络降级/);
+    await optionalCdnContext.close();
 
     const recoveredCityContext = await browser.newContext({ serviceWorkers: "block" });
     let recoveredCityRequests = 0;

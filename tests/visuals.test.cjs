@@ -76,30 +76,70 @@ function createImage(candidates, visual) {
 }
 
 function createVisual() {
-  const credit = { hidden: true };
+  const attributes = new Map([
+    ["href", "./sources-and-licenses.html#media-images"],
+    ["title", "查看第三方渐进图片说明"]
+  ]);
+  const status = {
+    hidden: false,
+    textContent: "第三方渐进图片 · 正在加载",
+    dataset: {
+      visualPendingLabel: "第三方渐进图片 · 正在加载",
+      visualLoadedLabel: "第三方书封 · 在线加载",
+      visualFallbackLabel: "本地编辑视觉 · 非原书封",
+      visualState: "pending",
+      visualPendingHref: "./sources-and-licenses.html#media-images",
+      visualLoadedHref: "./sources-and-licenses.html#media-images",
+      visualFallbackHref: "./sources-and-licenses.html#media-images",
+      visualPendingExternal: "false",
+      visualLoadedExternal: "false",
+      visualFallbackExternal: "false",
+      visualPendingTitle: "查看第三方渐进图片说明",
+      visualLoadedTitle: "查看当前图片来源策略",
+      visualFallbackTitle: "了解本地编辑视觉与图片来源边界"
+    },
+    getAttribute(name) { return attributes.get(name) ?? null; },
+    setAttribute(name, value) { attributes.set(name, String(value)); },
+    removeAttribute(name) { attributes.delete(name); }
+  };
   return {
     classList: createClassList(),
-    credit,
-    querySelector(selector) { return selector === "[data-visual-credit]" ? credit : null; }
+    status,
+    querySelector(selector) { return selector === "[data-visual-status]" ? status : null; }
   };
 }
 
 test("book and movie routing uses an exact remote allow-list with a fallback", () => {
   const book = Visuals.resolve({ id: "/works/OL1W", title: "书", image: "https://covers.openlibrary.org/b/id/1-L.jpg" }, "book", {});
   assert.equal(book.candidates.length, 3);
+  assert.equal(book.sourceKind, "third-party-progressive");
+  assert.equal(book.cachePolicy, "network-only");
+  assert.equal(book.loadedLabel, "第三方书封 · 在线加载");
+  assert.equal(book.fallbackLabel, "本地编辑视觉 · 非原书封");
   assert.match(book.candidates[0], /^https:\/\/images\.weserv\.nl\//);
   assert.equal(book.candidates[1], "https://covers.openlibrary.org/b/id/1-M.jpg?default=false");
   assert.equal(book.candidates[2], "https://covers.openlibrary.org/b/id/1-L.jpg?default=false");
 
   const rejected = Visuals.resolve({ id: "bad", title: "坏", image: "https://example.invalid/tracker.png" }, "movie", {});
   assert.deepEqual(rejected.candidates, []);
+  assert.equal(rejected.sourceKind, "local-editorial");
+  assert.equal(rejected.cachePolicy, "same-origin-shell");
+  assert.equal(rejected.fallbackLabel, "本地编辑视觉 · 非原海报");
 });
 
 test("data saver and safe mode never emit remote media or city image requests", () => {
   const item = { id: "tt1", title: "片", image: "https://images.metahub.space/poster/medium/tt1/img" };
-  assert.deepEqual(Visuals.resolve(item, "movie", { dataSaver: true }).candidates, []);
+  const savedMovie = Visuals.resolve(item, "movie", { dataSaver: true });
+  assert.deepEqual(savedMovie.candidates, []);
+  assert.equal(savedMovie.sourceKind, "local-editorial");
+  assert.equal(savedMovie.fallbackLabel, "本地编辑视觉 · 已关闭远程海报");
+  assert.equal(savedMovie.fallbackSourcePage, "./sources-and-licenses.html#media-images");
   assert.deepEqual(Visuals.resolve(item, "movie", { safeMode: true }).candidates, []);
-  assert.deepEqual(Visuals.resolve({ id: "city-chengdu", cityZh: "成都" }, "city", { dataSaver: true }).candidates, []);
+  const savedCity = Visuals.resolve({ id: "city-chengdu", cityZh: "成都" }, "city", { dataSaver: true });
+  assert.deepEqual(savedCity.candidates, []);
+  assert.equal(savedCity.sourceKind, "local-editorial");
+  assert.equal(savedCity.fallbackLabel, "本地编辑视觉 · 已关闭城市风貌图");
+  assert.equal(savedCity.fallbackSourcePage, "./sources-and-licenses.html#city-images");
 });
 
 test("city routing is same-origin and rejects unsafe IDs", () => {
@@ -108,6 +148,13 @@ test("city routing is same-origin and rejects unsafe IDs", () => {
     "./assets/visuals/cities/city-chengdu.webp",
     "./assets/visuals/cities-mobile/city-chengdu.webp"
   ]);
+  assert.equal(city.sourceKind, "same-origin-open-license");
+  assert.equal(city.cachePolicy, "same-origin-pwa");
+  assert.equal(city.loadedLabel, "同源开放许可图片 · CC BY 4.0");
+  assert.equal(city.fallbackLabel, "本地编辑视觉 · 城市图片暂不可用");
+  assert.equal(city.pendingSourcePage, "./city-credits.html#city-chengdu");
+  assert.equal(city.loadedSourcePage, "https://commons.wikimedia.org/wiki/File:Chengdu.jpg");
+  assert.equal(city.fallbackSourcePage, "./sources-and-licenses.html#city-images");
   assert.deepEqual(Visuals.resolve({ id: "../bad", cityZh: "坏" }, "city", {}).candidates, []);
   assert.deepEqual(Visuals.resolve({ id: "city-unreviewed", cityZh: "待核" }, "city", {}).candidates, []);
 });
@@ -289,6 +336,77 @@ test("a loaded image remains hidden until decode succeeds", async () => {
     await new Promise((resolve) => setImmediate(resolve));
     assert.equal(image.hidden, false);
     assert.equal(visual.classList.contains("visual-image-loaded"), true);
+    assert.equal(visual.status.dataset.visualState, "loaded");
+    assert.equal(visual.status.textContent, "第三方书封 · 在线加载");
+    assert.equal(visual.status.getAttribute("href"), "./sources-and-licenses.html#media-images");
+    assert.equal(visual.status.getAttribute("title"), "查看当前图片来源策略");
+    assert.equal(visual.status.getAttribute("target"), null);
+    assert.equal(visual.status.getAttribute("rel"), null);
+  } finally {
+    global.setTimeout = originalSetTimeout;
+    global.clearTimeout = originalClearTimeout;
+  }
+});
+
+test("a loaded open-license city switches its complete source-link semantics atomically", async () => {
+  const originalSetTimeout = global.setTimeout;
+  const originalClearTimeout = global.clearTimeout;
+  global.setTimeout = () => ({ id: 1 });
+  global.clearTimeout = () => {};
+  try {
+    const visual = createVisual();
+    Object.assign(visual.status.dataset, {
+      visualLoadedLabel: "同源开放许可图片 · CC BY 4.0",
+      visualLoadedHref: "https://commons.wikimedia.org/wiki/File:Chengdu.jpg",
+      visualLoadedExternal: "true",
+      visualLoadedTitle: "查看当前城市图片来源与许可",
+      visualFallbackLabel: "本地编辑视觉 · 城市图片暂不可用",
+      visualFallbackHref: "./sources-and-licenses.html#city-images",
+      visualFallbackExternal: "false",
+      visualFallbackTitle: "了解本地编辑视觉与城市图片边界"
+    });
+    const candidate = "./assets/visuals/cities/city-chengdu.webp";
+    const image = createImage([candidate], visual);
+    image.decode = () => Promise.resolve();
+    Visuals.bind({ querySelectorAll: () => [image] });
+    image.dispatch("load");
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(visual.status.dataset.visualState, "loaded");
+    assert.equal(visual.status.textContent, "同源开放许可图片 · CC BY 4.0");
+    assert.equal(visual.status.getAttribute("href"), "https://commons.wikimedia.org/wiki/File:Chengdu.jpg");
+    assert.equal(visual.status.getAttribute("target"), "_blank");
+    assert.equal(visual.status.getAttribute("rel"), "noreferrer");
+    assert.equal(visual.status.getAttribute("title"), "查看当前城市图片来源与许可");
+  } finally {
+    global.setTimeout = originalSetTimeout;
+    global.clearTimeout = originalClearTimeout;
+  }
+});
+
+test("terminal image failure exposes an honest local editorial status", () => {
+  const originalSetTimeout = global.setTimeout;
+  const originalClearTimeout = global.clearTimeout;
+  global.setTimeout = () => ({ id: 1 });
+  global.clearTimeout = () => {};
+  try {
+    const visual = createVisual();
+    visual.status.setAttribute("href", "https://commons.wikimedia.org/wiki/File:Old.jpg");
+    visual.status.setAttribute("title", "查看旧图片来源与许可");
+    visual.status.setAttribute("target", "_blank");
+    visual.status.setAttribute("rel", "noreferrer");
+    const candidate = "https://covers.openlibrary.org/b/id/1-M.jpg?default=false";
+    const image = createImage([candidate], visual);
+    Visuals.bind({ querySelectorAll: () => [image] });
+    image.dispatch("error");
+    assert.equal(image.hidden, true);
+    assert.equal(visual.classList.contains("visual-image-failed"), true);
+    assert.equal(visual.status.hidden, false);
+    assert.equal(visual.status.dataset.visualState, "fallback");
+    assert.equal(visual.status.textContent, "本地编辑视觉 · 非原书封");
+    assert.equal(visual.status.getAttribute("href"), "./sources-and-licenses.html#media-images");
+    assert.equal(visual.status.getAttribute("title"), "了解本地编辑视觉与图片来源边界");
+    assert.equal(visual.status.getAttribute("target"), null);
+    assert.equal(visual.status.getAttribute("rel"), null);
   } finally {
     global.setTimeout = originalSetTimeout;
     global.clearTimeout = originalClearTimeout;

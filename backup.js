@@ -291,7 +291,7 @@
     return {
       format: FORMAT,
       schemaVersion: SCHEMA_VERSION,
-      appVersion: settings.appVersion || "2.4.3",
+      appVersion: settings.appVersion || "2.4.4",
       catalogSnapshot: settings.catalogSnapshot || "unknown",
       exportedAt: new Date().toISOString(),
       states,

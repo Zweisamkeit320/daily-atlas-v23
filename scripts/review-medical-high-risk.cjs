@@ -6,8 +6,8 @@ const path = require("node:path");
 const crypto = require("node:crypto");
 
 const ROOT = path.resolve(__dirname, "..");
-const REVIEW_VERSION = "2.4.3";
-const REVIEW_DATE = "2026-09-01";
+const REVIEW_VERSION = "2.4.4";
+const REVIEW_DATE = "2026-09-02";
 const JSON_PATH = path.join(ROOT, "data", `medical-high-risk-screen.v${REVIEW_VERSION}.json`);
 const MARKDOWN_PATH = path.join(ROOT, "data", `MEDICAL_HIGH_RISK_SCREEN_v${REVIEW_VERSION}.md`);
 const MEDICAL_SOURCE_PATH = path.join(ROOT, "data", "raw", "medical500.json");

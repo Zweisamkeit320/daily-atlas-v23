@@ -395,7 +395,7 @@ if ($pageBodies["city-credits.html"] -notmatch 'id\s*=\s*["'']cityCreditList["''
 
 foreach ($check in @(
   [PSCustomObject]@{ Label = "schemaVersion: 2"; Pattern = 'schemaVersion\s*:\s*2(?:\s*[,}])' },
-  [PSCustomObject]@{ Label = 'appVersion: "2.4.3"'; Pattern = 'appVersion\s*:\s*["'']2\.4\.3["'']' },
+  [PSCustomObject]@{ Label = 'appVersion: "2.4.4"'; Pattern = 'appVersion\s*:\s*["'']2\.4\.4["'']' },
   [PSCustomObject]@{ Label = "publicReleaseMode: true"; Pattern = 'publicReleaseMode\s*:\s*true(?:\s*[,}])' },
   [PSCustomObject]@{ Label = "publicSafeMode: false"; Pattern = 'publicSafeMode\s*:\s*false(?:\s*[,}])' },
   [PSCustomObject]@{ Label = "remoteBookMovieImages: true"; Pattern = 'remoteBookMovieImages\s*:\s*true(?:\s*[,}])' },
@@ -549,8 +549,8 @@ try {
 catch {
   throw "Local catalog-data/manifest.json is invalid JSON: $($_.Exception.Message)"
 }
-if ($catalogManifest.appVersion -ne "2.4.3") {
-  throw "catalog-data/manifest.json appVersion must be 2.4.3."
+if ($catalogManifest.appVersion -ne "2.4.4") {
+  throw "catalog-data/manifest.json appVersion must be 2.4.4."
 }
 $selectionDataPath = [string]$catalogManifest.selectionData.path
 if (-not $selectionDataPath -or $selectionDataPath -notmatch '^selection-data\.[a-f0-9]{12}\.json$') {

@@ -107,7 +107,7 @@ test("v2.4 public release, visual controls and standalone disclosures are explic
   assert.ok(fs.existsSync(path.join(root, ".nojekyll")), "GitHub Pages static build must disable Jekyll processing");
   for (const filename of ["privacy.html", "sources-and-licenses.html"]) {
     const html = fs.readFileSync(path.join(root, filename), "utf8");
-    assert.match(html, /v2\.4\.3/);
+    assert.match(html, /v2\.4\.4/);
     assert.match(html, /http-equiv="Content-Security-Policy"[^>]*content="[^"]*script-src 'self';/,
       `${filename} must declare an explicit script-src for the GitHub Pages security contract`);
     assert.doesNotMatch(html, /<script/i, `${filename} should remain script-free`);
