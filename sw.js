@@ -14,13 +14,13 @@ const VISUAL_PACK_CACHE_PREFIX = "daily-atlas-visual-pack-";
 
 // CACHE_VERSION remains as a release-integrity compatibility field for the
 // packaging tools. Runtime caches use independently generated pack versions.
-const CACHE_VERSION = "v3-885b35cc64877cb7";
-const SHELL_VERSION = "s1-7750cbc345ad6827";
-const CONTENT_VERSION = "c1-9bd86054a0e87ea9";
+const CACHE_VERSION = "v3-c289222326113782";
+const SHELL_VERSION = "s1-99cb196d1c29aa2c";
+const CONTENT_VERSION = "c1-c4fb35cb3dd749bc";
 const MEDICAL_VERSION = "m1-9c59aa54b9d7dc86";
 const AUDIO_VERSION = "a1-390c78b958c182b5";
-const SEARCH_VERSION = "q1-2e57efa7447e616b";
-const VISUAL_VERSION = "i1-5f5ae827835fe4ab";
+const SEARCH_VERSION = "q1-2981f9b56db1e6b0";
+const VISUAL_VERSION = "i1-ecb7b28a62901429";
 const AUDIO_MANIFEST_SHA256 = "35E652038EB1B805D51D7AC50A72F892B6F3451792D573940ECBF550AAB4C0EA";
 
 const CACHE_NAME = `${CACHE_PREFIX}${SHELL_VERSION}`;
@@ -57,6 +57,8 @@ const APP_SHELL = Object.freeze([
   "./public-config.js",
   "./privacy.html",
   "./sources-and-licenses.html",
+  "./LICENSE.txt",
+  "./NOTICE.txt",
   "./city-credits.html",
   "./city-credits.js",
   "./legal.css",
@@ -94,7 +96,7 @@ const APP_SHELL = Object.freeze([
   "./assets/icons/icon-512.png",
   "./catalog-data/manifest.js",
   "./catalog-data/manifest.json",
-  "./catalog-data/selection-data.d6e3cb1e495c.json",
+  "./catalog-data/selection-data.210160408be2.json",
   "./explore.js",
   "./search-worker.js",
   "./assets/medical/manifest.json",

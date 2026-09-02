@@ -34,7 +34,7 @@
     medical: { collection: "medical", label: "医学", short: "医", card: "medicalCard", swap: "换一条", known: "了解了", unit: "条" }
   });
   const TYPES = Object.freeze(Object.keys(TYPE_META));
-  const APP_VERSION = "2.4.4";
+  const APP_VERSION = "2.5.0";
   const RECORD_PAGE_SIZE = 100;
   const STORAGE_KEYS = Object.freeze({
     statePrefix: "dailyAtlas.state.v3.",
@@ -262,7 +262,7 @@
     renderTheme();
     renderAllCards();
     renderRecordCount();
-    elements.snapshotNote.textContent = `目录更新 ${Catalog.snapshotDate || "当前"}；评分日期见各条卡片`;
+    elements.snapshotNote.textContent = `目录更新 ${Catalog.snapshotDate || "当前"}；公开评分快照仅指图书，评分日期见各条图书卡片`;
     initializeSettings();
     initializeExplore();
     bindEvents();
@@ -941,8 +941,9 @@
     const genres = Engine.itemGenres(item).map((genre) => GENRE_LABELS[genre]).filter(Boolean);
     const tags = (item.tags || []).slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
     const creatorLabel = type === "book" ? "作者" : "导演";
-    const ratingValue = Number(item.rating.value).toFixed(1);
-    const ratingCount = Engine.formatCount(item.rating.count);
+    const hasPublicRating = item.rating && Number.isFinite(Number(item.rating.value)) && Number.isFinite(Number(item.rating.max));
+    const ratingValue = hasPublicRating ? Number(item.rating.value).toFixed(1) : "精选";
+    const ratingCount = hasPublicRating ? Engine.formatCount(item.rating.count) : "";
     const popularity = POPULARITY_LABELS[item.popularityTier] || "编辑精选";
     const yearLabel = displayYearLabel(item);
     const seriesContext = item.series
@@ -987,10 +988,10 @@
         ${seriesContext}
         ${contentNotes ? `<p class="curation-note content-warning"><strong>内容提示：</strong>${escapeHtml(contentNotes)}</p>` : ""}
         <div class="rating-row">
-          <span class="rating-score">${ratingValue}<small> / ${item.rating.max}</small></span>
+          <span class="rating-score">${ratingValue}${hasPublicRating ? `<small> / ${item.rating.max}</small>` : ""}</span>
           <span class="rating-detail">
-            <a href="${safeLink(item.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(item.rating.source)} 评分</a>
-            <span>${ratingCount}人评分 · 快照 ${Engine.formatSnapshot(item.rating.snapshot)}</span>
+            <a href="${safeLink(item.sourceUrl)}" target="_blank" rel="noreferrer">${hasPublicRating ? `${escapeHtml(item.rating.source)} 评分` : "查看作品资料"}</a>
+            <span>${hasPublicRating ? `${ratingCount}人评分 · 快照 ${Engine.formatSnapshot(item.rating.snapshot)}` : "口碑门槛已在构建时核验；公开包不再分发第三方数值"}</span>
           </span>
           <span class="popularity-badge">${escapeHtml(popularity)}</span>
         </div>
@@ -2211,7 +2212,7 @@
     elements.compactModeEnabled.checked = state.density === "compact";
     elements.dataSaverEnabled.checked = state.dataSaver === true;
     elements.dataSaverEnabled.disabled = false;
-    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "关闭远程书封、电影海报与城市风貌图，改用本地程序化视觉；医学图仍保留。";
+    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "公开 LTS 中书与电影始终使用本地编辑视觉；开启后会额外关闭同源城市风貌图，医学图仍保留。";
     elements.textSize.value = state.textSize || "default";
     elements.contrastMode.value = state.contrast || "default";
     elements.motionMode.value = state.motion || "system";
@@ -2892,7 +2893,7 @@
 
   async function repairApplicationCaches() {
     if (!PWA?.repairCaches) return;
-    const confirmed = window.confirm("修复今日万象应用缓存吗？这会清除应用管理的同源城市图缓存，并重新核对应用壳、内容、医学图、城市图与音频缓存；不会删除收藏、偏好、探索记录或备份，也不会清理浏览器自行管理的远程书封／海报 HTTP 缓存。完整离线包可能需要补下载缺项。");
+    const confirmed = window.confirm("修复今日万象应用缓存吗？这会清除应用管理的同源城市图缓存，并重新核对应用壳、内容、医学图、城市图与音频缓存；不会删除收藏、偏好、探索记录或备份。公开 LTS 不建立第三方书封／海报缓存。完整离线包可能需要补下载缺项。");
     if (!confirmed) return;
     elements.repairCacheButton.disabled = true;
     elements.storagePreflightStatus.textContent = "正在核对并修复应用缓存…";

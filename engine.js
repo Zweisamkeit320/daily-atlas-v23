@@ -98,14 +98,8 @@
     }
 
     if (item.type === "movie") {
-      const rating = item.rating;
       return Boolean(
-        rating &&
-        rating.source === "IMDb" &&
-        rating.max === 10 &&
-        Number(rating.value) >= 7.5 &&
-        Number(rating.count) >= 30000 &&
-        hasText(item.image) &&
+        item.qualityGate === "editorial-qualified" &&
         itemGenres(item).length
       );
     }
