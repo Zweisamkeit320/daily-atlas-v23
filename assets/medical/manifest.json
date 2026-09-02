@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "scope": "24 reusable conceptual illustrations for the 500-item general medical education pool; images do not depict a diagnosis or individual treatment advice.",
+  "items": [
+    {
+      "key": "movement-daily",
+      "file": "assets/medical/activity.webp",
+      "topicGroup": "运动、肌肉与骨骼",
+      "imageTheme": "activity",
+      "alt": "插画：步行者与心脏，象征日常活动和身体功能"
+    },
+    {
+      "key": "movement-musculoskeletal",
+      "file": "assets/medical/movement-musculoskeletal.webp",
+      "topicGroup": "运动、肌肉与骨骼",
+      "imageTheme": "activity",
+      "alt": "插画：进行弹力带训练的女性，周围有骨骼、关节和肌肉示意"
+    },
+    {
+      "key": "sleep-rhythm",
+      "file": "assets/medical/sleep.webp",
+      "topicGroup": "睡眠与昼夜节律",
+      "imageTheme": "sleep",
+      "alt": "插画：熟睡的人、月亮、太阳与昼夜时钟，象征睡眠和生物节律"
+    },
+    {
+      "key": "sleep-disorders",
+      "file": "assets/medical/sleep-disorders.webp",
+      "topicGroup": "睡眠与昼夜节律",
+      "imageTheme": "sleep",
+      "alt": "插画：人物拉开窗帘，太阳、月亮、床铺与体内时钟构成昼夜循环"
+    },
+    {
+      "key": "nutrition-hydration",
+      "file": "assets/medical/nutrition.webp",
+      "topicGroup": "营养、消化与口腔",
+      "imageTheme": "nutrition",
+      "alt": "插画：蔬菜谷物、肠道与微生物，象征营养和消化健康"
+    },
+    {
+      "key": "digestion-oral",
+      "file": "assets/medical/digestion-oral.webp",
+      "topicGroup": "营养、消化与口腔",
+      "imageTheme": "nutrition",
+      "alt": "插画：刷牙饮水的人、食物、口腔、胃和肠道，象征口腔与消化健康"
+    },
+    {
+      "key": "cardiovascular",
+      "file": "assets/medical/cardiovascular.webp",
+      "topicGroup": "心血管、代谢与肾脏",
+      "imageTheme": "cardiometabolic",
+      "alt": "插画：步行者、心脏、血压袖带和血压计，象征心血管健康监测"
+    },
+    {
+      "key": "metabolic-renal",
+      "file": "assets/medical/metabolic-renal.webp",
+      "topicGroup": "心血管、代谢与肾脏",
+      "imageTheme": "cardiometabolic",
+      "alt": "插画：饮水的人、肾脏、血糖、饮食与运动图示，象征代谢和肾脏健康"
+    },
+    {
+      "key": "vaccination-immunity",
+      "file": "assets/medical/immunity.webp",
+      "topicGroup": "感染预防与免疫",
+      "imageTheme": "immunity",
+      "alt": "插画：盾牌、疫苗瓶、注射器与抗体，象征免疫和疫苗保护"
+    },
+    {
+      "key": "infection-hygiene",
+      "file": "assets/medical/infection-hygiene.webp",
+      "topicGroup": "感染预防与免疫",
+      "imageTheme": "immunity",
+      "alt": "插画：在流动水下用肥皂清洗双手，旁有微生物图形，象征感染预防"
+    },
+    {
+      "key": "mental-wellbeing",
+      "file": "assets/medical/mental-wellbeing.webp",
+      "topicGroup": "心理、脑健康与成瘾",
+      "imageTheme": "brain",
+      "alt": "插画：两人面对面交谈，象征心理支持、倾听和社会连接"
+    },
+    {
+      "key": "brain-addiction",
+      "file": "assets/medical/brain.webp",
+      "topicGroup": "心理、脑健康与成瘾",
+      "imageTheme": "brain",
+      "alt": "插画：平静的人物侧脸与大脑，象征脑健康、心理状态和成瘾支持"
+    },
+    {
+      "key": "vision-hearing",
+      "file": "assets/medical/vision-hearing.webp",
+      "topicGroup": "感官与皮肤",
+      "imageTheme": "senses-skin",
+      "alt": "插画：人物侧脸、眼睛和耳朵，象征视觉与听觉健康"
+    },
+    {
+      "key": "skin-sun",
+      "file": "assets/medical/skin-sun.webp",
+      "topicGroup": "感官与皮肤",
+      "imageTheme": "senses-skin",
+      "alt": "插画：人物在阳光下涂防晒霜，旁有皮肤分层与紫外线反射示意"
+    },
+    {
+      "key": "medication-safety",
+      "file": "assets/medical/medication-safety.webp",
+      "topicGroup": "用药、检查与健康素养",
+      "imageTheme": "medicines-tests",
+      "alt": "插画：人物核对多种药瓶、服药时间和清单，并向药师咨询"
+    },
+    {
+      "key": "tests-literacy",
+      "file": "assets/medical/tests-literacy.webp",
+      "topicGroup": "用药、检查与健康素养",
+      "imageTheme": "medicines-tests",
+      "alt": "插画：患者与专业人员查看检验图表、试管和样本，象征检查解读与健康素养"
+    },
+    {
+      "key": "emergency-heart-brain",
+      "file": "assets/medical/emergency-heart-brain.webp",
+      "topicGroup": "急救与紧急警示",
+      "imageTheme": "emergency",
+      "alt": "插画：施救者在模拟人上进行胸外按压，旁有自动体外除颤器"
+    },
+    {
+      "key": "emergency-airway-trauma",
+      "file": "assets/medical/emergency.webp",
+      "topicGroup": "急救与紧急警示",
+      "imageTheme": "emergency",
+      "alt": "插画：急救箱、医疗十字、电话和警示人物，象征急救与紧急求助"
+    },
+    {
+      "key": "environment-climate-air",
+      "file": "assets/medical/environment-climate-air.webp",
+      "topicGroup": "环境、旅行与职业健康",
+      "imageTheme": "environment-travel",
+      "alt": "插画：旅行者在阳光下戴帽补水，远处有城市空气质量图景"
+    },
+    {
+      "key": "environment-travel-work",
+      "file": "assets/medical/environment-travel-work.webp",
+      "topicGroup": "环境、旅行与职业健康",
+      "imageTheme": "environment-travel",
+      "alt": "插画：人物调整电脑、座椅和身体姿势并伸展，象征职业工效与工作健康"
+    },
+    {
+      "key": "screening-cancer",
+      "file": "assets/medical/screening-cancer.webp",
+      "topicGroup": "预防、癌症与筛查",
+      "imageTheme": "prevention-screening",
+      "alt": "插画：患者与专业人员查看筛查日历，周围有乳房、肠道、肺和显微镜图标"
+    },
+    {
+      "key": "prevention-risk",
+      "file": "assets/medical/prevention-risk.webp",
+      "topicGroup": "预防、癌症与筛查",
+      "imageTheme": "prevention-screening",
+      "alt": "插画：防晒、戒烟、运动、均衡饮食和补水场景，象征综合风险预防"
+    },
+    {
+      "key": "lifespan-reproductive-child",
+      "file": "assets/medical/lifespan-reproductive-child.webp",
+      "topicGroup": "生命周期、生殖与老龄健康",
+      "imageTheme": "lifespan",
+      "alt": "插画：婴儿、父母、儿童和不同年龄人物组成生命阶段图景"
+    },
+    {
+      "key": "lifespan-ageing-falls",
+      "file": "assets/medical/lifespan-ageing-falls.webp",
+      "topicGroup": "生命周期、生殖与老龄健康",
+      "imageTheme": "lifespan",
+      "alt": "插画：老年人在扶手和椅子旁进行单脚平衡训练，象征防跌与健康老龄"
+    }
+  ]
+}

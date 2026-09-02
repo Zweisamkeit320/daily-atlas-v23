@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f2eee4" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta name="description" content="今日万象的图书、电影、德语、医学、音乐与图片来源和许可边界。" />
+    <title>今日万象｜来源与许可</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./legal.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#legalContent">跳到正文</a>
+    <header class="legal-header">
+      <a class="brand" href="./" aria-label="返回今日万象首页"><span aria-hidden="true">象</span><strong>今日万象</strong></a>
+      <nav class="header-links" aria-label="说明页面"><a href="./">首页</a><a href="./privacy.html">隐私说明</a><a href="./diagnostics.html">设备诊断</a></nav>
+    </header>
+    <main class="legal-main" id="legalContent">
+      <p class="kicker">SOURCES · RIGHTS · BOUNDARIES</p>
+      <h1>来源与许可边界</h1>
+      <p class="lead">本页把“内容经过筛选”与“获得商业再分发授权”分开。评分、书目、图片、音频和医学资料的来源并不具有同一许可条件。</p>
+
+      <aside class="notice">
+        <strong>这不是一份商业授权证明</strong>
+        <p>v2.5.0 LTS 的公开配置不请求或复制第三方书封和电影海报，书影使用本地编辑视觉；城市图只有在逐项确认开放许可、作者和文件页后才进入同源发布包。构建侧来源审计不等于商业授权，正式商业运营仍须逐项核对内容和元数据的适用权利。</p>
+      </aside>
+
+      <section class="legal-section">
+        <h2>图书</h2>
+        <p>图书使用 Open Library Work 稳定 ID、书目字段和冻结评分快照进行候选筛选。Open Library 不对数据库材料主张新增版权，但说明部分贡献在不同司法辖区仍可能存在既有权利问题；书封许可也应与书目数据分开判断。</p>
+        <ul class="source-list">
+          <li><a href="https://openlibrary.org/developers/licensing" target="_blank" rel="noreferrer">Open Library Licensing</a></li>
+          <li><a href="https://openlibrary.org/developers/api" target="_blank" rel="noreferrer">Open Library API 与使用规范</a></li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>电影</h2>
+        <p>电影候选在构建阶段使用冻结的来源证据完成编辑筛选，但公开运行目录、搜索分片和静态部署包不分发 IMDb 数值评分或票数。IMDb 官方帮助页把免费数据集限定在个人、非商业用途，并限制把它改造为在线或离线电影信息数据库；因此这些数值只留在不发布的构建审计输入，不能被公开页面或离线包调用。</p>
+        <ul class="source-list">
+          <li><a href="https://developer.imdb.com/non-commercial-datasets/" target="_blank" rel="noreferrer">IMDb Non-Commercial Datasets</a></li>
+          <li><a href="https://help.imdb.com/article/imdb/general-information/can-i-use-imdb-data-in-my-software/G5JTRESSHJBBHTGX" target="_blank" rel="noreferrer">IMDb 数据使用说明</a></li>
+        </ul>
+      </section>
+
+      <section class="legal-section" id="media-images">
+        <h2>封面与海报</h2>
+        <p>封面、海报与元数据具有不同的许可边界。以作品 ID 定位图片、通过代理压缩或从图片服务获取成功，都不自动授予展示、衍生或再分发权。MetaHub 的官方条款也明确说明，其服务许可并不授予图片或海报本身的权利。</p>
+        <p>因此 v2.5.0 的公开配置不会请求 <code>covers.openlibrary.org</code>、<code>images.metahub.space</code> 或 <code>images.weserv.nl</code> 的书影图片，也不把任何书封／海报图片字节放入应用壳、运行时缓存或完整离线包。500 本书和 500 部电影均使用由应用色彩、标题与版式生成的本地编辑视觉。为核对旧版同源 A→B 的条目身份和防止路由被静默改写，目录与视觉清单仍保留不执行的规范化图片地址；<code>remoteBookMovieImages: false</code> 是公开发布硬门禁，浏览器不会把这些地址放入图片元素或发出请求。</p>
+        <p><a href="https://www.metahub.space/terms" target="_blank" rel="noreferrer">MetaHub Terms of Use</a></p>
+        <p><strong>同源缩略图准入规则：</strong>只有逐项记录作品 ID、原始文件页、权利人或作者、明确允许再分发及必要衍生处理的许可、许可链接、检索日期、文件 SHA-256 和转换说明后，图片才可以进入同源包。v2.5.0 LTS 没有把任何书封或海报声明为已满足这套条件，因此不会擅自复制第三方图片。</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>卡片上的图片来源状态</h2>
+        <ul>
+          <li><strong>同源开放许可图片：</strong>文件随应用发布，已保留逐项署名、许可和哈希，当前用于城市风貌图。</li>
+          <li><strong>第三方渐进图片：</strong>旧版曾支持、当前公开配置已停用的能力；若未来恢复，必须先建立适用许可并重新通过发布审查。</li>
+          <li><strong>本地编辑视觉：</strong>由应用色彩、标题和版式生成，不是原书封、电影海报或城市实景；在图片关闭、失败或离线时使用。</li>
+        </ul>
+        <p>当前书影卡片、详情预览和探索结果显示“本地编辑视觉”，城市显示“同源开放许可图片”或失败后的本地回退；换项不会继续保留上一条目的图片或图源说明。</p>
+      </section>
+
+      <section class="legal-section" id="city-images">
+        <h2>城市风貌图</h2>
+        <p>城市图从 Wikimedia Commons 文件页发现，只有主题确实对应城市、作者署名完整，并使用 Public Domain、CC0、CC BY 或 CC BY-SA 的文件才会转换为同源 WebP。每项审计记录保留 Commons文件页、作者、许可名称和链接、检索时间、尺寸、文件 SHA-256；任何缺项都继续使用程序化城市视觉。</p>
+        <p>书影“图源”通向本页的本地编辑视觉与许可说明；城市卡片的“图源”会直达对应 Commons 文件页。<a href="./city-credits.html">查看 200 张城市图的可读署名与许可清单</a>；机器可读清单也随静态发布包提供。开放许可仅覆盖相应城市文件，不延伸到书封、电影海报、评分或其他内容。</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>豆瓣</h2>
+        <p>本版没有抓取、复制或显示豆瓣评分、评价人数或条目数据。只有获得书面许可和稳定接口后，才适合按来源、分数、人数和快照日期并列展示；不同平台评分不会混算成一个虚假综合分。</p>
+        <p><a href="https://www.douban.com/about/legal" target="_blank" rel="noreferrer">豆瓣法律声明</a></p>
+      </section>
+
+      <section class="legal-section">
+        <h2>德语朗读与音乐</h2>
+        <p>500 条德语朗读使用固定 Piper <code>de_DE-eva_k-x_low</code> 模型生成。模型、配置、文本与 MP3 哈希记录在随包 manifest，M-AILABS 许可通知随静态包提供。固定输入支持重建审计，但不保证两次编码得到字节完全相同的 MP3。</p>
+        <p><a href="./assets/audio/german/LICENSE-M-AILABS.txt">查看随包 M-AILABS 许可通知</a></p>
+        <p>背景轻音乐由浏览器实时合成；经典改编只使用公版作品并由项目重新编配，不包含商业录音或采样。</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>医学科普</h2>
+        <p>医学内容来源限定为 WHO、CDC、NHS、NIH 下属机构、FDA、MedlinePlus、USPSTF、政府公共卫生机构和具有明确急救教育职责的机构。内容只作一般健康教育，不诊断、不替代医生、药师、急救或毒物咨询服务。</p>
+        <p>500 条内容按风险分为一般、需谨慎和紧急警示；v2.5.0 对全部 500 条执行绑定当前内容文件与哈希的结构安全筛查，对其中 347 条 caution／urgent 高风险子集重点统计，并由独立内容审查核对紧急、用药、孕产与心理危机等主题的来源、警示措辞和行动边界。它仍是一般健康教育，不是医生签名、诊断或个体化治疗建议。</p>
+        <p><a href="https://www.who.int/health-topics" target="_blank" rel="noreferrer">WHO Health Topics</a></p>
+      </section>
+
+      <section class="legal-section">
+        <h2>版本、许可与联系</h2>
+        <p>v2.5.0 是最终功能基线，发布后进入仅维护修复状态，不再持续扩充功能或内容规模。项目自身内容的使用许可与第三方通知随包保存在 <a href="./LICENSE.txt">LICENSE.txt</a> 和 <a href="./NOTICE.txt">NOTICE.txt</a>；逐项城市图片权利仍以各自许可为准。</p>
+        <p>内容和评分不是实时数据；每张卡显示自身快照或访问日期。应用版本：v2.5.0 LTS；许可说明生效日期：2026-09-02。问题可通过公开仓库的 <a href="https://github.com/Zweisamkeit320/daily-atlas-v23/issues" target="_blank" rel="noreferrer">Issues 页面</a>反馈。</p>
+      </section>
+    </main>
+    <footer class="legal-footer"><span>今日万象 · 来源可见，边界清楚</span><span><a href="./privacy.html">隐私说明</a> · <a href="./">返回首页</a></span></footer>
+  </body>
+</html>
