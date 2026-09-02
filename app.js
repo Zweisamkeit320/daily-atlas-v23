@@ -262,7 +262,7 @@
     renderTheme();
     renderAllCards();
     renderRecordCount();
-    elements.snapshotNote.textContent = `目录更新 ${Catalog.snapshotDate || "当前"}；评分日期见各条卡片`;
+    elements.snapshotNote.textContent = `目录更新 ${Catalog.snapshotDate || "当前"}；公开评分快照仅指图书，评分日期见各条图书卡片`;
     initializeSettings();
     initializeExplore();
     bindEvents();

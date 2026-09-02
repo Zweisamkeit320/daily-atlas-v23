@@ -84,12 +84,25 @@ const CACHE_VERSION_PATTERN = /const CACHE_VERSION = "([^"]+)";/;
 const CACHE_VERSION_LINE_PATTERN = /const CACHE_VERSION = "[^"]+";/;
 const CACHE_VERSION_PLACEHOLDER = 'const CACHE_VERSION = "__CONTENT_HASH__";';
 const SERVICE_WORKER_SHELL_FILES = ServiceWorkerBuild.SHELL_FILES;
-const PUBLIC_MOVIE_FORBIDDEN_FIELDS = new Set([
-  "rating", "ratings", "ratingvalue", "ratingcount", "ratingpercent",
-  "votecount", "numvotes", "imdbrating", "imdbvotes", "score", "votes"
-]);
 const PUBLIC_MOVIE_RATING_TEXT = /(?:\bIMDb\s*(?:评分|rating|score)\s*[:：]?\s*\d(?:\.\d+)?(?:\s*\/\s*10)?|\bIMDb\s*(?:[:：]|\s)\s*\d(?:\.\d+)?(?:\s*\/\s*10)?|\d(?:\.\d+)?\s*\/\s*10|\d[\d,.]*\s*(?:票|人评分|人评价|votes?)|固定评分|固定口碑证据)/iu;
 const PUBLIC_MOVIE_NON_CONTENT_FIELDS = new Set(["id", "sourceUrl", "image", "visual"]);
+const PUBLIC_MOVIE_FIELDS = Object.freeze({
+  catalog: new Set([
+    "id", "type", "genre", "genres", "genreLabel", "title", "originalTitle", "year", "creator", "detail",
+    "summary", "reason", "sourceUrl", "visual", "tags", "audience", "popularityTier", "curationLevel",
+    "image", "qualityGate", "themeTags", "contentNotes", "installment", "language", "prerequisite", "region",
+    "series", "standaloneFriendly"
+  ]),
+  selection: new Set([
+    "id", "type", "title", "year", "genres", "genre", "tags", "themeTags", "popularityTier",
+    "curationLevel", "qualityGate", "sourceUrl", "image", "detailChunk", "selectionOnly"
+  ]),
+  search: new Set([
+    "key", "type", "typeOrder", "item", "title", "normalizedTitle", "text", "genres", "era", "region",
+    "ratingPercent", "level", "medicalTopic", "detailChunk"
+  ]),
+  searchItem: new Set(["id", "year"])
+});
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -255,8 +268,15 @@ function parseRuntimeModule(bytes, label) {
   return value;
 }
 
-function assertPublicMovieRecord(record, label, options = {}) {
+function assertAllowedFields(record, allowedFields, label) {
   assert(record && typeof record === "object", `${label} contains an invalid public movie record`);
+  for (const key of Object.keys(record)) {
+    assert(allowedFields.has(key), `${label} contains unexpected public movie field: ${key}`);
+  }
+}
+
+function assertPublicMovieRecord(record, allowedFields, label) {
+  assertAllowedFields(record, allowedFields, label);
   const seen = new Set();
   const visit = (value, key = "") => {
     if (typeof value === "string") {
@@ -268,12 +288,6 @@ function assertPublicMovieRecord(record, label, options = {}) {
     if (!value || typeof value !== "object" || seen.has(value)) return;
     seen.add(value);
     for (const [childKey, childValue] of Object.entries(value)) {
-      const normalized = childKey.toLowerCase();
-      if (normalized === "ratingpercent" && options.allowNullRatingPercent === true) {
-        assert(childValue == null, `${label} public movie ratingPercent must be null`);
-      } else {
-        assert(!PUBLIC_MOVIE_FORBIDDEN_FIELDS.has(normalized), `${label} contains forbidden public movie field: ${childKey}`);
-      }
       visit(childValue, childKey);
     }
   };
@@ -286,7 +300,7 @@ function validatePublicMoviePayload(fileMap, catalog = null) {
     "public catalog.js must contain exactly 500 movies");
   for (const movie of runtimeCatalog.movies) {
     assert(movie.qualityGate === "editorial-qualified", `public catalog.js movie ${movie.id || "unknown"} is not editorial-qualified`);
-    assertPublicMovieRecord(movie, `public catalog.js movie ${movie.id || "unknown"}`);
+    assertPublicMovieRecord(movie, PUBLIC_MOVIE_FIELDS.catalog, `public catalog.js movie ${movie.id || "unknown"}`);
   }
 
   const manifestEntry = fileMap.get("catalog-data/manifest.json");
@@ -311,7 +325,7 @@ function validatePublicMoviePayload(fileMap, catalog = null) {
     "public compact selection must contain exactly 500 movies");
   for (const movie of selection.movies) {
     assert(movie.qualityGate === "editorial-qualified", `public compact selection movie ${movie.id || "unknown"} is not editorial-qualified`);
-    assertPublicMovieRecord(movie, `public compact selection movie ${movie.id || "unknown"}`);
+    assertPublicMovieRecord(movie, PUBLIC_MOVIE_FIELDS.selection, `public compact selection movie ${movie.id || "unknown"}`);
   }
 
   const selectionDataEntry = publicAsset(manifest.selectionData, /^selection-data\.[a-f0-9]{12}\.json$/, "public selection-data manifest");
@@ -324,9 +338,18 @@ function validatePublicMoviePayload(fileMap, catalog = null) {
   assert(Array.isArray(selectionData?.rows?.movie) && selectionData.rows.movie.length === 500,
     "public selection data must contain exactly 500 movie rows");
   for (const row of selectionData.rows.movie) {
-    assert(Array.isArray(row) && row[8] == null && row[9] == null,
-      `public selection data movie ${Array.isArray(row) ? row[0] : "unknown"} contains numeric rating or vote data`);
-    assertPublicMovieRecord(row, `public selection data movie ${row[0] || "unknown"}`);
+    const rowId = Array.isArray(row) ? row[0] : "unknown";
+    assert(Array.isArray(row) && row.length === 12, `public selection data movie ${rowId} must use the exact 12-column schema`);
+    assert(typeof row[0] === "string" && typeof row[1] === "string" && Number.isSafeInteger(row[2]),
+      `public selection data movie ${rowId} has invalid identity, title, or year columns`);
+    assert([row[3], row[4], row[5]].every((value) => Array.isArray(value) && value.every((item) => typeof item === "string")),
+      `public selection data movie ${rowId} has invalid genre, tag, or theme columns`);
+    assert(typeof row[6] === "string" && typeof row[7] === "string" && typeof row[10] === "string" && row[11] == null,
+      `public selection data movie ${rowId} has invalid tier, curation, detail, or image columns`);
+    assert(row[8] == null && row[9] == null, `public selection data movie ${rowId} contains numeric rating or vote data`);
+    const textFields = [row[0], row[1], ...row[3], ...row[4], ...row[5], row[6], row[7], row[10]];
+    assert(!textFields.some((value) => PUBLIC_MOVIE_RATING_TEXT.test(value)),
+      `public selection data movie ${rowId} contains public movie numeric rating or vote text`);
   }
 
   assert(Array.isArray(manifest?.details?.chunks), "public detail manifest has no chunks");
@@ -342,7 +365,7 @@ function validatePublicMoviePayload(fileMap, catalog = null) {
   assert(detailMovies.length === 500, `public movie details must contain exactly 500 records; found ${detailMovies.length}`);
   for (const movie of detailMovies) {
     assert(movie.qualityGate === "editorial-qualified", `public movie detail ${movie.id || "unknown"} is not editorial-qualified`);
-    assertPublicMovieRecord(movie, `public movie detail ${movie.id || "unknown"}`);
+    assertPublicMovieRecord(movie, PUBLIC_MOVIE_FIELDS.catalog, `public movie detail ${movie.id || "unknown"}`);
   }
 
   const searchEntry = publicAsset(manifest.search, /^search\.[a-f0-9]{12}\.js$/, "public search manifest");
@@ -351,7 +374,8 @@ function validatePublicMoviePayload(fileMap, catalog = null) {
   assert(searchMovies.length === 500, `public search index must contain exactly 500 movies; found ${searchMovies.length}`);
   for (const movie of searchMovies) {
     assert(movie.ratingPercent == null, `public search movie ${movie.item?.id || "unknown"} ratingPercent must be null`);
-    assertPublicMovieRecord(movie, `public search movie ${movie.item?.id || "unknown"}`, { allowNullRatingPercent: true });
+    assertPublicMovieRecord(movie, PUBLIC_MOVIE_FIELDS.search, `public search movie ${movie.item?.id || "unknown"}`);
+    assertAllowedFields(movie.item, PUBLIC_MOVIE_FIELDS.searchItem, `public search movie ${movie.item?.id || "unknown"} item`);
   }
   return { catalog: 500, selection: 500, selectionData: 500, details: 500, search: 500 };
 }

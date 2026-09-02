@@ -384,6 +384,17 @@ async function installBrowserHarnesses(context) {
       assert.match(String(audit.appVersion || ""), /^2\./, "catalog declares app v2");
     });
 
+    await scenario("initialized data boundary limits public rating snapshots to books", async () => {
+      await page.locator("#dataNoteButton").click();
+      await page.locator("#dataDialog").waitFor({ state: "visible" });
+      const snapshotNote = await page.locator("#snapshotNote").textContent();
+      assert.match(snapshotNote || "", /公开评分快照仅指图书/);
+      assert.match(snapshotNote || "", /评分日期见各条图书卡片/);
+      assert.equal((snapshotNote || "").includes("评分日期见各条卡片"), false,
+        "initialized DOM must not imply that public movie cards carry rating dates");
+      await page.locator("#doneDataButton").click();
+    });
+
     await scenario("media editorial floor and unknown-year rendering", async () => {
       const audit = await page.evaluate(() => {
         const dateKey = DailyAtlasEngine.localDateKey(new Date());

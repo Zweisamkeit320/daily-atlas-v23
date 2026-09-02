@@ -267,16 +267,35 @@ test("static archive verification fails closed when movie numeric evidence enter
   const rejectsAsPublicMovieData = (entries, pattern) => {
     assert.throws(() => Deploy.validateArchiveEntries(entries), pattern);
   };
+  const sourceMap = new Map(source.map((entry) => [entry.path, {
+    path: entry.path,
+    bytes: entry.content.length,
+    content: Buffer.from(entry.content)
+  }]));
+  const mutatePayload = (relative, transform) => {
+    const mutated = new Map([...sourceMap].map(([key, entry]) => [key, { ...entry, content: Buffer.from(entry.content) }]));
+    const target = mutated.get(relative);
+    assert.ok(target, `semantic mutation target exists: ${relative}`);
+    const before = target.content.toString("utf8");
+    const after = transform(before);
+    assert.notEqual(after, before, `semantic mutation marker was not found in ${relative}`);
+    target.content = Buffer.from(after, "utf8");
+    target.bytes = target.content.length;
+    return mutated;
+  };
+  const rejectsSemanticMutation = (fileMap, pattern) => {
+    assert.throws(() => Deploy.validatePublicMoviePayload(fileMap), pattern);
+  };
 
   rejectsAsPublicMovieData(mutate("catalog.js", (text) => text.replace(
     '"qualityGate": "editorial-qualified"',
     '"qualityGate": "editorial-qualified",\n      "rating": { "source": "IMDb", "value": 8.8 }'
-  )), /public catalog\.js movie .*forbidden public movie field: rating/);
+  )), /public catalog\.js movie .*unexpected public movie field: rating/);
 
   rejectsAsPublicMovieData(mutate(ServiceWorkerBuild.CATALOG_SPLIT.selection, (text) => text.replace(
     '{ qualityGate: "editorial-qualified" }',
     '{ qualityGate: "editorial-qualified", rating: Object.freeze({ source: "IMDb", value: 8.8 }) }'
-  )), /public compact selection movie .*forbidden public movie field: rating/);
+  )), /public compact selection movie .*unexpected public movie field: rating/);
 
   rejectsAsPublicMovieData(mutate(ServiceWorkerBuild.CATALOG_SPLIT.selectionData, (text) => {
     const payload = JSON.parse(text);
@@ -288,12 +307,35 @@ test("static archive verification fails closed when movie numeric evidence enter
   rejectsAsPublicMovieData(mutate(firstMovieDetail, (text) => text.replace(
     '"qualityGate":"editorial-qualified"',
     '"qualityGate":"editorial-qualified","voteCount":123456'
-  )), /public movie detail .*forbidden public movie field: voteCount/);
+  )), /public movie detail .*unexpected public movie field: voteCount/);
 
   rejectsAsPublicMovieData(mutate(ServiceWorkerBuild.CATALOG_SPLIT.search, (text) => text.replace(
     "ratingPercent: row[7]",
     'ratingPercent: type === "movie" ? 0.88 : row[7]'
   )), /public search movie .*ratingPercent must be null/);
+
+  for (const injection of [
+    '"imdbScore": 8.8',
+    '"vote_count": 123456',
+    '"rating_value": 8.8',
+    '"imdb": { "score": 8.8 }'
+  ]) {
+    rejectsSemanticMutation(mutatePayload("catalog.js", (text) => text.replace(
+      '"qualityGate": "editorial-qualified"',
+      `"qualityGate": "editorial-qualified",\n      ${injection}`
+    )), /public catalog\.js movie .*unexpected public movie field/);
+  }
+
+  rejectsSemanticMutation(mutatePayload(ServiceWorkerBuild.CATALOG_SPLIT.search, (text) => text.replace(
+    "ratingPercent: row[7], level",
+    'ratingPercent: row[7], rating_percent: type === "movie" ? 0.88 : null, level'
+  )), /public search movie .*unexpected public movie field: rating_percent/);
+
+  rejectsSemanticMutation(mutatePayload(ServiceWorkerBuild.CATALOG_SPLIT.selectionData, (text) => {
+    const payload = JSON.parse(text);
+    payload.rows.movie[0].push(8.8);
+    return `${JSON.stringify(payload)}\n`;
+  }), /public selection data movie .*exact 12-column schema/);
 });
 
 test("static deploy output cannot use a dot-dot-prefixed in-tree directory or a junction back into the source", (t) => {
