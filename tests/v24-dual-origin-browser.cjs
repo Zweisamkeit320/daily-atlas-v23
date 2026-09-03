@@ -250,6 +250,7 @@ async function assertFiveCards(page, label) {
 }
 
 async function assertFallbackCredit(page, visualSelector, label) {
+  const isCity = /city/i.test(`${visualSelector} ${label}`);
   const state = await page.locator(`${visualSelector} [data-visual-status]`).evaluate((node) => {
     const href = new URL(node.getAttribute("href") || "", document.baseURI);
     const expected = new URL("./sources-and-licenses.html", document.baseURI);
@@ -266,11 +267,15 @@ async function assertFallbackCredit(page, visualSelector, label) {
   });
   assert.equal(state.visualState, "fallback", `${label}: source status is fallback`);
   assert.match(state.text, /^本地编辑视觉/, `${label}: source text names the local editorial fallback`);
+  if (!isCity) {
+    assert.match(state.text, /原创主题插画/, `${label}: media fallback identifies the original thematic art`);
+  }
   assert.equal(state.sameOrigin, true, `${label}: fallback source link stays on the application origin`);
   assert.equal(state.expectedPath, true, `${label}: fallback source link opens the source-boundary page`);
   assert.equal(state.target, null, `${label}: fallback source link is not marked as a new external tab`);
   assert.equal(state.rel, null, `${label}: fallback source link has no stale external rel attribute`);
-  assert.match(state.title, /本地编辑视觉/, `${label}: fallback title explains the local editorial visual`);
+  assert.match(state.title, isCity ? /城市图片边界/ : /原创本地主题插画/,
+    `${label}: fallback title explains the applicable local visual boundary`);
   return state;
 }
 
