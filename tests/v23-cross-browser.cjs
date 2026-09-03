@@ -175,9 +175,9 @@ async function runEngine(name, browserType, origin) {
   assert.notEqual(await diagnostics.locator("#overallStatus").getAttribute("data-status"), "fail", `${name} diagnostics reaches a non-failing result`);
   const environmentText = await diagnostics.locator("#environmentList").innerText();
   assert.match(environmentText, /显式安全模式[\s\S]*未启用/);
-  assert.match(environmentText, /公开安全素材模式[\s\S]*已启用/);
+  assert.match(environmentText, /公开安全素材模式[\s\S]*未启用/);
   assert.match(environmentText, /公开测试发布[\s\S]*是/);
-  assert.match(environmentText, /远程书封／海报[\s\S]*已禁用/);
+  assert.match(environmentText, /远程书封／海报[\s\S]*允许/);
   assert.match(environmentText, /同源城市图[\s\S]*允许/);
   const diagnosticAxe = await new AxeBuilder({ page: diagnostics }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
   const diagnosticViolations = importantAxeViolations(diagnosticAxe);
