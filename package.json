@@ -1,6 +1,6 @@
 {
   "name": "daily-atlas",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "private": true,
   "description": "今日万象静态每日五项精选应用",
   "engines": {
@@ -32,7 +32,7 @@
     "deploy:package": "node scripts/static-deploy-package.cjs create",
     "deploy:verify": "node scripts/static-deploy-package.cjs verify",
     "release:preflight": "npm test",
-    "test:unit": "node --test tests/engine.test.cjs tests/state.test.cjs tests/profile-backup.test.cjs tests/profile-generation.test.cjs tests/backup-journal.test.cjs tests/platform-modules.test.cjs tests/service-worker-install.test.cjs tests/appearance.test.cjs tests/asset-routing.test.cjs tests/visuals.test.cjs tests/runtime-bundles.test.cjs tests/visual-manifest.test.cjs tests/city-commons-pipeline.test.cjs tests/v24-city-visual-package-contract.test.cjs tests/v244-maintenance.test.cjs tests/v250-lts.test.cjs tests/pinned-assets.test.cjs tests/lock.test.cjs tests/media-curation.test.cjs tests/media500.test.cjs tests/catalog-audit.test.cjs tests/catalog-split.test.cjs tests/release-package.test.cjs tests/static-deploy-package.test.cjs tests/explore.test.cjs tests/weekly.test.cjs tests/backup-crypto.test.cjs tests/runtime-health.test.cjs tests/security-contract.test.cjs tests/medical-high-risk-review.test.cjs tests/medical-v24-content.test.cjs tests/verify-origin.test.cjs",
+    "test:unit": "node --test tests/engine.test.cjs tests/state.test.cjs tests/profile-backup.test.cjs tests/profile-generation.test.cjs tests/backup-journal.test.cjs tests/platform-modules.test.cjs tests/service-worker-install.test.cjs tests/appearance.test.cjs tests/asset-routing.test.cjs tests/visuals.test.cjs tests/editorial-art.test.cjs tests/runtime-bundles.test.cjs tests/visual-manifest.test.cjs tests/city-commons-pipeline.test.cjs tests/v24-city-visual-package-contract.test.cjs tests/v244-maintenance.test.cjs tests/v260-lts.test.cjs tests/pinned-assets.test.cjs tests/lock.test.cjs tests/media-curation.test.cjs tests/media500.test.cjs tests/catalog-audit.test.cjs tests/catalog-split.test.cjs tests/release-package.test.cjs tests/static-deploy-package.test.cjs tests/explore.test.cjs tests/weekly.test.cjs tests/backup-crypto.test.cjs tests/runtime-health.test.cjs tests/security-contract.test.cjs tests/medical-high-risk-review.test.cjs tests/medical-v24-content.test.cjs tests/verify-origin.test.cjs",
     "test:e2e": "node tests/browser-smoke.cjs",
     "test:e2e:catalog": "node tests/catalog-split-browser.cjs",
     "test:e2e:import": "node tests/import-concurrency-browser.cjs",
@@ -47,8 +47,9 @@
     "test:e2e:v24": "node tests/v24-dual-origin-browser.cjs",
     "test:e2e:v241": "node tests/v241-mobile-reliability-browser.cjs",
     "test:e2e:v243": "node tests/v243-weak-network-browser.cjs",
+    "test:e2e:v260": "node tests/v260-visual-browser.cjs",
     "test:e2e:diagnostics": "node tests/diagnostics-external-browser.cjs",
-    "test": "npm run check:media && npm run check:extras && npm run check:visuals && npm run check:visuals:mobile && npm run build:runtime && npm run check:runtime && npm run assemble && npm run build && npm run check && npm run review:medical && npm run build:pwa && npm run check:pwa && npm run test:unit && npm run test:e2e:diagnostics && npm run test:e2e:catalog && npm run test:e2e && npm run test:e2e:lock && npm run test:e2e:profile && npm run test:e2e:import && npm run test:e2e:exhaustion && npm run test:e2e:optional && npm run test:e2e:storage && npm run test:e2e:v2 && npm run test:e2e:v22 && npm run test:e2e:v23 && npm run test:e2e:v24 && npm run test:e2e:v241 && npm run test:e2e:v243"
+    "test": "npm run check:media && npm run check:extras && npm run check:visuals && npm run check:visuals:mobile && npm run build:runtime && npm run check:runtime && npm run assemble && npm run build && npm run check && npm run review:medical && npm run build:pwa && npm run check:pwa && npm run test:unit && npm run test:e2e:diagnostics && npm run test:e2e:catalog && npm run test:e2e && npm run test:e2e:lock && npm run test:e2e:profile && npm run test:e2e:import && npm run test:e2e:exhaustion && npm run test:e2e:optional && npm run test:e2e:storage && npm run test:e2e:v2 && npm run test:e2e:v22 && npm run test:e2e:v23 && npm run test:e2e:v24 && npm run test:e2e:v241 && npm run test:e2e:v243 && npm run test:e2e:v260"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

@@ -86,7 +86,7 @@ function createVisual() {
     dataset: {
       visualPendingLabel: "第三方渐进图片 · 正在加载",
       visualLoadedLabel: "第三方书封 · 在线加载",
-      visualFallbackLabel: "本地编辑视觉 · 非原书封",
+      visualFallbackLabel: "本地编辑视觉 · 原创主题插画 · 非原书封",
       visualState: "pending",
       visualPendingHref: "./sources-and-licenses.html#media-images",
       visualLoadedHref: "./sources-and-licenses.html#media-images",
@@ -96,7 +96,7 @@ function createVisual() {
       visualFallbackExternal: "false",
       visualPendingTitle: "查看第三方渐进图片说明",
       visualLoadedTitle: "查看当前图片来源策略",
-      visualFallbackTitle: "了解本地编辑视觉与图片来源边界"
+      visualFallbackTitle: "了解原创本地主题插画与图片来源边界"
     },
     getAttribute(name) { return attributes.get(name) ?? null; },
     setAttribute(name, value) { attributes.set(name, String(value)); },
@@ -115,7 +115,7 @@ test("book and movie routing uses an exact remote allow-list with a fallback", (
   assert.equal(book.sourceKind, "third-party-progressive");
   assert.equal(book.cachePolicy, "network-only");
   assert.equal(book.loadedLabel, "第三方书封 · 在线加载");
-  assert.equal(book.fallbackLabel, "本地编辑视觉 · 非原书封");
+  assert.equal(book.fallbackLabel, "本地编辑视觉 · 原创主题插画 · 非原书封");
   assert.match(book.candidates[0], /^https:\/\/images\.weserv\.nl\//);
   assert.equal(book.candidates[1], "https://covers.openlibrary.org/b/id/1-M.jpg?default=false");
   assert.equal(book.candidates[2], "https://covers.openlibrary.org/b/id/1-L.jpg?default=false");
@@ -124,7 +124,7 @@ test("book and movie routing uses an exact remote allow-list with a fallback", (
   assert.deepEqual(rejected.candidates, []);
   assert.equal(rejected.sourceKind, "local-editorial");
   assert.equal(rejected.cachePolicy, "same-origin-shell");
-  assert.equal(rejected.fallbackLabel, "本地编辑视觉 · 非原海报");
+  assert.equal(rejected.fallbackLabel, "本地编辑视觉 · 原创主题插画 · 非原海报");
 });
 
 test("data saver and safe mode never emit remote media or city image requests", () => {
@@ -132,7 +132,7 @@ test("data saver and safe mode never emit remote media or city image requests", 
   const savedMovie = Visuals.resolve(item, "movie", { dataSaver: true });
   assert.deepEqual(savedMovie.candidates, []);
   assert.equal(savedMovie.sourceKind, "local-editorial");
-  assert.equal(savedMovie.fallbackLabel, "本地编辑视觉 · 已关闭远程海报");
+  assert.equal(savedMovie.fallbackLabel, "本地编辑视觉 · 原创主题插画 · 非原海报");
   assert.equal(savedMovie.fallbackSourcePage, "./sources-and-licenses.html#media-images");
   assert.deepEqual(Visuals.resolve(item, "movie", { safeMode: true }).candidates, []);
   const savedCity = Visuals.resolve({ id: "city-chengdu", cityZh: "成都" }, "city", { dataSaver: true });
@@ -402,9 +402,9 @@ test("terminal image failure exposes an honest local editorial status", () => {
     assert.equal(visual.classList.contains("visual-image-failed"), true);
     assert.equal(visual.status.hidden, false);
     assert.equal(visual.status.dataset.visualState, "fallback");
-    assert.equal(visual.status.textContent, "本地编辑视觉 · 非原书封");
+    assert.equal(visual.status.textContent, "本地编辑视觉 · 原创主题插画 · 非原书封");
     assert.equal(visual.status.getAttribute("href"), "./sources-and-licenses.html#media-images");
-    assert.equal(visual.status.getAttribute("title"), "了解本地编辑视觉与图片来源边界");
+    assert.equal(visual.status.getAttribute("title"), "了解原创本地主题插画与图片来源边界");
     assert.equal(visual.status.getAttribute("target"), null);
     assert.equal(visual.status.getAttribute("rel"), null);
   } finally {

@@ -15,29 +15,29 @@ delete globalThis.DAILY_ATLAS_CATALOG;
 require("../catalog.js");
 const Catalog = globalThis.DAILY_ATLAS_CATALOG;
 
-test("v2.5.0 LTS version and maintenance policy are consistent across release surfaces", () => {
-  assert.equal(json("package.json").version, "2.5.0");
-  assert.equal(json("package-lock.json").version, "2.5.0");
-  assert.equal(json("package-lock.json").packages[""].version, "2.5.0");
-  assert.equal(json("data/catalog.source.json").appVersion, "2.5.0");
+test("v2.6.0 LTS Visual Edition version and maintenance policy are consistent across release surfaces", () => {
+  assert.equal(json("package.json").version, "2.6.0");
+  assert.equal(json("package-lock.json").version, "2.6.0");
+  assert.equal(json("package-lock.json").packages[""].version, "2.6.0");
+  assert.equal(json("data/catalog.source.json").appVersion, "2.6.0");
   assert.equal(json("manifest.webmanifest").start_url, "./");
-  assert.equal(Catalog.appVersion, "2.5.0");
-  assert.match(read("app.js"), /APP_VERSION = "2\.5\.0"/);
-  assert.match(read("diagnostics.html"), /content="2\.5\.0"/);
+  assert.equal(Catalog.appVersion, "2.6.0");
+  assert.match(read("app.js"), /APP_VERSION = "2\.6\.0"/);
+  assert.match(read("diagnostics.html"), /content="2\.6\.0"/);
   const config = read("public-config.js");
-  assert.match(config, /appVersion: "2\.5\.0"/);
+  assert.match(config, /appVersion: "2\.6\.0"/);
   assert.match(config, /releaseChannel: "lts"/);
   assert.match(config, /featureFreeze: true/);
   assert.match(config, /supportPolicy: "maintenance-only"/);
-  assert.match(read("docs/LTS_POLICY_v2.5.0.md"), /最终功能基线/);
-  assert.match(read("docs/LTS_POLICY_v2.5.0.md"), /不继续增加书、电影、城市、德语、医学或音乐数量/);
+  assert.match(read("docs/LTS_POLICY_v2.6.0.md"), /视觉功能基线/);
+  assert.match(read("docs/LTS_POLICY_v2.6.0.md"), /不继续增加书、电影、城市、德语、医学或音乐数量/);
 });
 
 test("public LTS media payload is safe by default and keeps the curated 500 plus 500 pools", () => {
   const config = read("public-config.js");
   assert.match(config, /publicSafeMode: true/);
   assert.match(config, /remoteBookMovieImages: false/);
-  assert.match(config, /visualPolicy: "public-local-editorial-media-with-open-license-city-images"/);
+  assert.match(config, /visualPolicy: "public-original-local-editorial-art-with-open-license-city-images"/);
   assert.match(config, /ratingUse: "public-book-rating-private-movie-curation-audit"/);
   assert.equal(Catalog.books.length, 500);
   assert.equal(Catalog.movies.length, 500);
@@ -49,15 +49,19 @@ test("public LTS media payload is safe by default and keeps the curated 500 plus
   assert.match(read("index.html"), /公开数值评分（图书）/);
 });
 
-test("public settings and data notes describe the frozen LTS visual and movie-rating boundary", () => {
+test("public settings and data notes describe original local art and the movie-rating boundary", () => {
   const index = read("index.html");
   const app = read("app.js");
-  assert.match(index, /v2\.5\.0 LTS 的图书与电影始终使用本地编辑视觉/);
+  assert.match(index, /v2\.6\.0 LTS Visual Edition/);
+  assert.match(index, /原创本地主题插画/);
   assert.match(index, /公开电影卡、搜索和离线包不分发这些数值/);
   assert.match(index, /公开评分快照仅指图书评分/);
   assert.match(index, /公开 LTS 不包含、也不联网请求第三方书封／海报/);
-  assert.match(app, /公开 LTS 中书与电影始终使用本地编辑视觉/);
+  assert.match(app, /公开 LTS 中书与电影始终使用原创本地主题插画/);
   assert.match(app, /公开 LTS 不建立第三方书封／海报缓存/);
+  assert.match(app, /detail-preview-visual[\s\S]{0,400}editorialArtHtml\(item, type\)/, "detail placeholders use the same local artwork generator");
+  assert.match(app, /visual-fallback[\s\S]{0,160}editorialArtHtml\(item, type\)/, "today cards use the local artwork generator");
+  assert.match(app, /editorialVisual = type === "book" \|\| type === "movie" \? editorialArtHtml\(item, type\)/, "explore cards use the local artwork generator");
   for (const stale of [
     "v2.4 默认按需显示有来源说明的远程书封／电影海报",
     "远程书封／海报仍需联网",
@@ -92,7 +96,7 @@ test("licence, privacy and source disclosures ship in both package contracts", (
   }
 });
 
-test("v2.5 medical screen and independent editorial review bind the current 500-item hash", () => {
+test("unchanged medical content inherits the v2.5 signed review bound to the current 500-item hash", () => {
   const expected = sha256("data/raw/medical500.json");
   const screen = json("data/medical-high-risk-screen.v2.5.0.json");
   const review = json("data/medical-high-risk-review.v2.5.0.json");
@@ -114,5 +118,5 @@ test("v2.4.4 user data and backup identifiers remain unchanged for the same-orig
   assert.match(read("app.js"), /statePrefix: "dailyAtlas\.state\.v3\."/);
   assert.match(read("backup.js"), /STATE_PREFIX = "dailyAtlas\.state\.v3\."/);
   assert.match(read("backup.js"), /const SCHEMA_VERSION = 1/);
-  assert.match(read("docs/RELEASE_v2.5.0.md"), /备份 JSON／加密备份格式不变/);
+  assert.match(read("docs/RELEASE_v2.6.0.md"), /备份 JSON／加密备份格式不变/);
 });

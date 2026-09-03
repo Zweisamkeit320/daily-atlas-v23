@@ -17,7 +17,7 @@ const CSP_IMAGE_HOSTS = Object.freeze([...EXTERNAL_HOSTS, "archive.org", "*.us.a
 const PUBLIC_CONFIG = `(function () {
   const config = {
     schemaVersion: 2,
-    appVersion: "2.5.0",
+    appVersion: "2.6.0",
     releaseChannel: "lts",
     featureFreeze: true,
     supportPolicy: "maintenance-only",
@@ -117,7 +117,7 @@ const SELECTION_DATA_VALUE = Object.freeze({
 });
 const CATALOG_MANIFEST_VALUE = Object.freeze({
   schemaVersion: 1,
-  appVersion: "2.5.0",
+  appVersion: "2.6.0",
   releaseChannel: "lts",
   featureFreeze: true,
   supportPolicy: "maintenance-only",

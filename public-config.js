@@ -3,7 +3,7 @@
 
   const config = Object.freeze({
     schemaVersion: 2,
-    appVersion: "2.5.0",
+    appVersion: "2.6.0",
     releaseChannel: "lts",
     featureFreeze: true,
     supportPolicy: "maintenance-only",
@@ -11,10 +11,10 @@
     publicSafeMode: true,
     remoteBookMovieImages: false,
     localCityImages: true,
-    visualPolicy: "public-local-editorial-media-with-open-license-city-images",
+    visualPolicy: "public-original-local-editorial-art-with-open-license-city-images",
     ratingUse: "public-book-rating-private-movie-curation-audit",
-    deploymentTier: "public-noncommercial-v2.5.0-lts",
-    effectiveDate: "2026-09-02",
+    deploymentTier: "public-noncommercial-v2.6.0-lts-visual-edition",
+    effectiveDate: "2026-09-03",
     operatorName: "今日万象维护者",
     contactUrl: "https://github.com/Zweisamkeit320/daily-atlas-v23/issues",
     origins: Object.freeze([
