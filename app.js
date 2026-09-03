@@ -1937,9 +1937,10 @@
     const resolvedVisual = ["book", "movie", "city"].includes(type) ? resolveVisual(item, type) : null;
     const renderedVisual = resolvedVisual ? visualImageHtml(resolvedVisual, "explore-image", { lazy: true }) : "";
     const editorialVisual = type === "book" || type === "movie" ? editorialArtHtml(item, type) : "";
-    const visual = renderedVisual || localMedicalImage
-      ? renderedVisual || `<img src="${safeImageUrl(item.image)}" alt="${escapeAttribute(item.alt)}" loading="lazy" decoding="async" />`
-      : editorialVisual || `<span class="explore-monogram" aria-hidden="true">${escapeHtml(meta.short)}</span>`;
+    let visual = `<span class="explore-monogram" aria-hidden="true">${escapeHtml(meta.short)}</span>`;
+    if (type === "book" || type === "movie") visual = `${editorialVisual}${renderedVisual}` || visual;
+    else if (renderedVisual) visual = renderedVisual;
+    else if (localMedicalImage) visual = `<img src="${safeImageUrl(item.image)}" alt="${escapeAttribute(item.alt)}" loading="lazy" decoding="async" />`;
     const series = item.series ? `<p class="explore-series">${escapeHtml(item.series)}${item.installment ? ` · ${escapeHtml(seriesInstallmentLabel(item.installment))}` : ""}${item.prerequisite ? `；${escapeHtml(item.prerequisite)}` : ""}</p>` : "";
     return `<article class="explore-card explore-${type}">
       <div class="explore-visual" style="--visual:${safeColor(Array.isArray(item.visual?.palette) ? item.visual.palette[0] : item.visual)}">${visual}${resolvedVisual ? visualCreditHtml(resolvedVisual) : ""}</div>
@@ -2214,7 +2215,7 @@
     elements.compactModeEnabled.checked = state.density === "compact";
     elements.dataSaverEnabled.checked = state.dataSaver === true;
     elements.dataSaverEnabled.disabled = false;
-    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "公开 LTS 中书与电影始终使用原创本地主题插画；开启后会额外关闭同源城市风貌图，医学图仍保留。";
+    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "默认优先在线加载原书封与电影海报，失败时自动显示原创本地主题插画；开启后会关闭这些第三方图片和日常同源城市图，医学图仍保留。";
     elements.textSize.value = state.textSize || "default";
     elements.contrastMode.value = state.contrast || "default";
     elements.motionMode.value = state.motion || "system";

@@ -116,8 +116,8 @@ async function assertInvalidConfig(browser, serverUrl, configScript, expectedCod
       featureFreeze: true,
       supportPolicy: "maintenance-only",
       publicReleaseMode: true,
-      publicSafeMode: true,
-      remoteBookMovieImages: false,
+      publicSafeMode: false,
+      remoteBookMovieImages: true,
       localCityImages: true
     };
     await assertInvalidConfig(browser, server.url, "/* deliberately missing DAILY_ATLAS_PUBLIC_CONFIG */\n", "CONFIG_UNAVAILABLE");

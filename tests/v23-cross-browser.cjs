@@ -130,11 +130,12 @@ async function runEngine(name, browserType, origin) {
   assert.equal(await page.locator(".known-button:not([disabled])").count(), 5, `${name} renders five actionable cards`);
   assert.equal(await page.evaluate(() => globalThis.DAILY_ATLAS_SAFE_MODE), false, `${name} uses normal split mode`);
   assert.equal(await page.evaluate(() => globalThis.DAILY_ATLAS_PUBLIC_CONFIG?.publicReleaseMode), true, `${name} exposes public release policy`);
-  assert.equal(await page.evaluate(() => globalThis.DAILY_ATLAS_PUBLIC_CONFIG?.publicSafeMode), true, `${name} enables the public LTS safe visual policy`);
+  assert.equal(await page.evaluate(() => globalThis.DAILY_ATLAS_PUBLIC_CONFIG?.publicSafeMode), false, `${name} keeps progressive original media enabled by default`);
   assert.equal(await page.locator("#originBanner").isVisible(), true, `${name} shows the dual-origin disclosure`);
-  assert.equal(await page.locator("#bookCard .cover-image, #movieCard .cover-image").count(), 0, `${name} emits no remote book or movie image elements in the public LTS mode`);
-  assert.equal(await page.locator("#bookCard [data-visual-status][data-visual-state='fallback'], #movieCard [data-visual-status][data-visual-state='fallback']").count(), 2,
-    `${name} labels both local editorial media visuals`);
+  assert.equal(await page.locator("#bookCard .cover-image, #movieCard .cover-image").count(), 2, `${name} emits one progressive original image element per media card`);
+  await page.waitForFunction(() => document.querySelectorAll("#bookCard [data-visual-status][data-visual-state='loaded'], #movieCard [data-visual-status][data-visual-state='loaded']").length === 2);
+  assert.equal(await page.locator("#bookCard .editorial-art, #movieCard .editorial-art").count(), 2,
+    `${name} keeps matching local thematic art underneath both original media images`);
   assert.equal(requested.some((pathname) => pathname.endsWith("/catalog.js")), false, `${name} normal startup never downloads legacy catalog.js`);
   assert.ok(requested.some((pathname) => /catalog-data\/selection-data\.[a-f0-9]{12}\.json$/.test(pathname)), `${name} requests the compact selection index`);
   assert.equal(requested.some((pathname) => /catalog-data\/search\.[a-f0-9]{12}\.js$/.test(pathname)), false, `${name} search index is delayed`);

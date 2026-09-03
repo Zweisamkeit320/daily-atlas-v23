@@ -280,10 +280,18 @@ async function assertFallbackCredit(page, visualSelector, label) {
 }
 
 async function assertVisualSuccess(page, label) {
-  assert.equal(await page.locator("#bookCard img.cover-image, #movieCard img.cover-image").count(), 0,
-    `${label}: public LTS mode makes no third-party book or movie image request`);
-  await assertFallbackCredit(page, "#bookCard .card-visual", `${label}/book-public-local`);
-  await assertFallbackCredit(page, "#movieCard .card-visual", `${label}/movie-public-local`);
+  assert.equal(await page.locator("#bookCard img.cover-image, #movieCard img.cover-image").count(), 2,
+    `${label}: book and movie expose progressive original media candidates`);
+  for (const [selector, expected] of [["#bookCard", /第三方书封/], ["#movieCard", /第三方海报/]]) {
+    await page.waitForFunction((candidate) => {
+      const image = document.querySelector(`${candidate} img.cover-image`);
+      return Boolean(image?.complete && image.naturalWidth > 0 && !image.hidden && document.querySelector(`${candidate} [data-visual-status]`)?.dataset.visualState === "loaded");
+    }, selector);
+    assert.match((await page.locator(`${selector} [data-visual-status]`).innerText()).trim(), expected,
+      `${label}: successful original media is labelled without hiding its source boundary`);
+    assert.equal(await page.locator(`${selector} .editorial-art`).count(), 1,
+      `${label}: local thematic art remains underneath as the immediate fallback`);
+  }
 
   const selector = "#cityCard img.city-image[data-visual-candidates]";
   const image = page.locator(selector);
@@ -535,8 +543,13 @@ async function runFailureScenario(browser, engine, origin, mode, fault) {
   try {
     await page.goto(pageUrl(origin, mode), { waitUntil: "domcontentloaded" });
     await waitForReady(page);
-    assert.equal(await page.locator("#bookCard img.cover-image, #movieCard img.cover-image").count(), 0,
-      `${label}: public media visuals do not emit remote image elements even during a visual fault`);
+    assert.equal(await page.locator("#bookCard img.cover-image, #movieCard img.cover-image").count(), 2,
+      `${label}: failed progressive media keeps one bound image element per media card`);
+    await page.waitForFunction(() => ["book", "movie"].every((type) => {
+      const card = document.querySelector(`#${type}Card`);
+      return card?.querySelector("img.cover-image")?.hidden === true
+        && card?.querySelector("[data-visual-status]")?.dataset.visualState === "fallback";
+    }));
     await assertFallbackCredit(page, "#bookCard .card-visual", `${label}/book-public-local`);
     await assertFallbackCredit(page, "#movieCard .card-visual", `${label}/movie-public-local`);
     const cityImage = page.locator("#cityCard img.city-image");
@@ -555,8 +568,13 @@ async function runFailureScenario(browser, engine, origin, mode, fault) {
     await page.locator("#bookCard .swap-button").click();
     await page.waitForFunction((originalId) => document.querySelector("#bookCard .swap-button")?.dataset.itemId !== originalId, original);
     await waitForReady(page);
-    assert.equal(await page.locator("#bookCard img.cover-image").count(), 0,
-      `${label}: replacement book remains on the public local visual path`);
+    assert.equal(await page.locator("#bookCard img.cover-image").count(), 1,
+      `${label}: replacement book receives its own progressive original-media candidate`);
+    await page.waitForFunction(() => {
+      const card = document.querySelector("#bookCard");
+      return card?.querySelector("img.cover-image")?.hidden === true
+        && card?.querySelector("[data-visual-status]")?.dataset.visualState === "fallback";
+    });
     await assertFallbackCredit(page, "#bookCard .card-visual", `${label}/rapid-next-book`);
     assert.equal(await page.locator("#bookCard .swap-button:not([disabled])").count(), 1, `${label}: fallback replacement button remains usable`);
     if (engine.name === "Chromium" && mode.id === "cloudflare-root" && fault === "http-404") {
@@ -568,7 +586,7 @@ async function runFailureScenario(browser, engine, origin, mode, fault) {
         await assertFallbackCredit(page, selector, `${label}/explore-${type}`);
       }
     }
-    for (const host of REMOTE_IMAGE_HOSTS) assert.equal(counts.get(host) || 0, 0, `${label}: ${host} receives no request in public LTS mode`);
+    assert.ok(remoteImageCount(counts) > 0, `${label}: the failure test must exercise remote original-media candidates`);
     assert.ok((counts.get("local-city") || 0) > 0, `${label}: local city image fault was injected`);
     assert.equal(serverState.escapes.length, escapesBefore, `${label}: fallback makes no same-origin base-path escape`);
     return { mode: mode.id, fault, fallback: true, buttonsUsable: true, fixtureRequests: Object.fromEntries(counts) };

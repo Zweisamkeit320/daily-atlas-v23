@@ -22,8 +22,8 @@ const PUBLIC_CONFIG = `(function () {
     featureFreeze: true,
     supportPolicy: "maintenance-only",
     publicReleaseMode: true,
-    publicSafeMode: true,
-    remoteBookMovieImages: false,
+    publicSafeMode: false,
+    remoteBookMovieImages: true,
     localCityImages: true
   };
   globalThis.DAILY_ATLAS_PUBLIC_CONFIG = config;

@@ -419,8 +419,8 @@ async function assertBackupTabLoop(page) {
         assert.equal(await page.locator("#compactModeEnabled").isChecked(), true);
         assert.equal(await page.locator("#dataSaverEnabled").isChecked(), true);
         assert.equal(await page.locator("#dataSaverEnabled").isDisabled(), false);
-        assert.equal(await page.evaluate(() => document.documentElement.dataset.publicSafeMode), "true");
-        assert.equal(await page.evaluate(() => document.documentElement.dataset.remoteBookMovieImages), "false");
+        assert.equal(await page.evaluate(() => document.documentElement.dataset.publicSafeMode), "false");
+        assert.equal(await page.evaluate(() => document.documentElement.dataset.remoteBookMovieImages), "true");
         assert.equal(await page.locator("#textSize").inputValue(), "large");
         assert.equal(await page.locator("#contrastMode").inputValue(), "high");
         assert.equal(await page.locator("#motionMode").inputValue(), "reduce");

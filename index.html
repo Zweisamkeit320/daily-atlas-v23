@@ -350,7 +350,7 @@
             <label class="select-row" for="motionMode"><span>动画</span><select id="motionMode"><option value="system">跟随系统</option><option value="reduce">减少动画</option></select></label>
           </div>
           <label class="switch-row"><input id="compactModeEnabled" type="checkbox" /> <span><strong>紧凑模式</strong><small>收紧手机卡片和页面间距，内容与操作仍完整保留。</small></span></label>
-          <label class="switch-row"><input id="dataSaverEnabled" type="checkbox" /> <span><strong>数据节省模式</strong><small id="dataSaverHelp">公开 LTS 中书与电影始终使用原创本地主题插画；开启后会额外关闭同源城市风貌图，医学图仍保留。主动下载完整离线包时仍会核验 200 张同源城市图。</small></span></label>
+          <label class="switch-row"><input id="dataSaverEnabled" type="checkbox" /> <span><strong>数据节省模式</strong><small id="dataSaverHelp">默认优先在线加载原书封与电影海报，失败时自动显示原创本地主题插画；开启后会关闭这些第三方图片和日常同源城市图，医学图仍保留。主动下载完整离线包时仍会核验 200 张同源城市图。</small></span></label>
           <div class="appearance-preview" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <p class="settings-status" id="appearanceStatus" role="status">当前使用原纸米白 · 杂志纸纹。</p>
           <details class="keyboard-help" id="keyboardHelp"><summary>键盘与辅助操作说明</summary><p>使用 Tab／Shift+Tab 移动，Enter 或空格激活按钮，Escape 关闭弹窗。页面顶部的跳过链接可直达今日精选或全库搜索；手机底部导航可快速跳到五张卡片。</p></details>
@@ -401,7 +401,7 @@
             </label>
             <label>
               <input id="offlineFullMode" type="radio" name="offlineMode" value="full" />
-              <span><strong>完整离线</strong><small>额外下载 44 个详情分片、搜索索引、500 条德语朗读和 200 张城市图，当前约 36 MB；预检会按本版清单显示实际空间。公开 LTS 不包含、也不联网请求第三方书封／海报。</small></span>
+              <span><strong>完整离线</strong><small>额外下载 44 个详情分片、搜索索引、500 条德语朗读和 200 张城市图，当前约 36 MB；预检会按本版清单显示实际空间。第三方书封／海报只在联网浏览时渐进显示，不进入离线包或应用缓存。</small></span>
             </label>
           </fieldset>
           <p class="boundary-note" id="offlineModeHelp">切换到完整离线后会校验并下载 500 条德语朗读、200 张开放许可城市图、完整详情与搜索索引；图书与电影继续使用随应用提供的原创本地主题插画。下载可暂停续传，失败或取消不会破坏轻量应用壳。</p>
@@ -429,7 +429,7 @@
             <p class="boundary-note">缓存修复只清理今日万象管理的应用壳、内容、医学图、同源城市图和音频缓存，不删除收藏、偏好、探索记录或备份。公开 LTS 不建立第三方书封／海报缓存；持久存储是否授予由浏览器决定。</p>
           </div>
           <p class="boundary-note">如果没有出现安装按钮：Android 或国产浏览器请在浏览器菜单中寻找“添加到桌面／主屏幕”；iPhone、iPad 请用 Safari 的“分享 → 添加到主屏幕”。浏览器未提供这些入口时，仍可把它当作普通网页使用。</p>
-          <p class="boundary-note">v2.6.0 LTS Visual Edition 的 500 本图书与 500 部电影均使用按稳定作品 ID 生成的原创本地主题插画，不复制、不模仿也不请求第三方书封／海报；城市使用逐项核对开放许可的同源图片，失败时自动露出本地编辑视觉。开启数据节省或显式安全模式后还会停止日常城市图片请求；用户明确启动完整离线下载时仍会核验 200 张同源城市图。豆瓣并列评分仍需书面许可和稳定接口。</p>
+          <p class="boundary-note">v2.6.0 LTS Visual Edition 默认优先在线加载现有条目所指向的原书封与电影海报；图片缺失、加载失败、离线、数据节省或显式安全模式下，自动显示按稳定作品 ID 生成的原创本地主题插画。第三方书影图片不复制进发布包或离线缓存；城市使用逐项核对开放许可的同源图片，失败时回到本地编辑视觉。用户明确启动完整离线下载时仍会核验 200 张同源城市图。豆瓣并列评分仍需书面许可和稳定接口。</p>
           <p class="boundary-note">GitHub Pages 与 Cloudflare Pages 是两个不同 Origin；夸克、vivo 和微信浏览器也各有独立存储。在另一入口或另一浏览器看不到收藏，不表示原数据被删除。迁移时请从原入口导出 JSON，再在新入口预览并选择合并或替换。</p>
         </section>
       </div>

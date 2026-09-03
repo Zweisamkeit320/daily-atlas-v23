@@ -400,8 +400,8 @@ foreach ($check in @(
   [PSCustomObject]@{ Label = 'featureFreeze: true'; Pattern = 'featureFreeze\s*:\s*true' },
   [PSCustomObject]@{ Label = 'supportPolicy: "maintenance-only"'; Pattern = 'supportPolicy\s*:\s*["'']maintenance-only["'']' },
   [PSCustomObject]@{ Label = "publicReleaseMode: true"; Pattern = 'publicReleaseMode\s*:\s*true(?:\s*[,}])' },
-  [PSCustomObject]@{ Label = "publicSafeMode: true"; Pattern = 'publicSafeMode\s*:\s*true(?:\s*[,}])' },
-  [PSCustomObject]@{ Label = "remoteBookMovieImages: false"; Pattern = 'remoteBookMovieImages\s*:\s*false(?:\s*[,}])' },
+  [PSCustomObject]@{ Label = "publicSafeMode: false"; Pattern = 'publicSafeMode\s*:\s*false(?:\s*[,}])' },
+  [PSCustomObject]@{ Label = "remoteBookMovieImages: true"; Pattern = 'remoteBookMovieImages\s*:\s*true(?:\s*[,}])' },
   [PSCustomObject]@{ Label = "localCityImages: true"; Pattern = 'localCityImages\s*:\s*true(?:\s*[,}])' }
 )) {
   if ($publicConfigBody -notmatch $check.Pattern) {

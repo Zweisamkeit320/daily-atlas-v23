@@ -91,8 +91,8 @@ test("v2.6 LTS public release, visual controls and standalone disclosures are ex
   const privacy = fs.readFileSync(path.join(root, "privacy.html"), "utf8");
   const sources = fs.readFileSync(path.join(root, "sources-and-licenses.html"), "utf8");
   assert.match(config, /publicReleaseMode: true/);
-  assert.match(config, /publicSafeMode: true/);
-  assert.match(config, /remoteBookMovieImages: false/);
+  assert.match(config, /publicSafeMode: false/);
+  assert.match(config, /remoteBookMovieImages: true/);
   assert.match(config, /localCityImages: true/);
   assert.match(config, /releaseChannel: "lts"/);
   assert.match(config, /featureFreeze: true/);
@@ -105,7 +105,8 @@ test("v2.6 LTS public release, visual controls and standalone disclosures are ex
   assert.doesNotMatch(app, /safeImageUrl\(item\.image\).*封面/, "book/movie image URLs must pass through the visual allow-list module");
   assert.match(index, /id="publicSafeBanner"/);
   assert.match(index, /id="originAlternate"/);
-  assert.match(privacy, /不会向 <code>images\.weserv\.nl<\/code>[\s\S]*?请求书封／海报/);
+  assert.match(privacy, /默认视觉模式[\s\S]*?images\.weserv\.nl[\s\S]*?请求书封／海报/);
+  assert.match(privacy, /不写入应用 Cache，也不进入轻量／完整离线包/);
   assert.match(sources, /公开运行目录、搜索分片和静态部署包不分发 IMDb 数值评分或票数/);
   assert.match(sources, /MetaHub Terms of Use/);
   assert.ok(fs.existsSync(path.join(root, ".nojekyll")), "GitHub Pages static build must disable Jekyll processing");
