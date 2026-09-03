@@ -34,7 +34,7 @@
     medical: { collection: "medical", label: "医学", short: "医", card: "medicalCard", swap: "换一条", known: "了解了", unit: "条" }
   });
   const TYPES = Object.freeze(Object.keys(TYPE_META));
-  const APP_VERSION = "2.5.0";
+  const APP_VERSION = "2.6.0";
   const RECORD_PAGE_SIZE = 100;
   const STORAGE_KEYS = Object.freeze({
     statePrefix: "dailyAtlas.state.v3.",
@@ -894,7 +894,7 @@
     const visual = resolveVisual(item, type);
     const visualMarkup = ["book", "movie", "city"].includes(type) ? `
       <div class="detail-preview-visual" style="--visual:${safeColor(Array.isArray(item.visual?.palette) ? item.visual.palette[0] : item.visual)}">
-        <div class="visual-fallback" aria-hidden="true"><small>${escapeHtml(TYPE_META[type].label)}</small><strong>${escapeHtml(item.title || TYPE_META[type].label)}</strong></div>
+        <div class="visual-fallback" aria-hidden="true">${editorialArtHtml(item, type)}<small>${escapeHtml(TYPE_META[type].label)}</small><strong>${escapeHtml(item.title || TYPE_META[type].label)}</strong></div>
         ${visualImageHtml(visual, `${type === "city" ? "city-image" : "cover-image"} detail-preview-image`)}
         ${visualCreditHtml(visual)}
         <span class="visual-topline" aria-hidden="true">${type === "book" ? "READ" : type === "movie" ? "WATCH" : "WORLD CITY"} · 正在补齐详情</span>
@@ -961,6 +961,7 @@
     return `
       <div class="card-visual" style="--visual:${safeColor(item.visual)}">
         <div class="visual-fallback" aria-hidden="true">
+          ${editorialArtHtml(item, type)}
           <small>${escapeHtml(genres.join(" · "))} · ${escapeHtml(yearLabel)}</small>
           <strong>${escapeHtml(item.title)}</strong>
         </div>
@@ -1935,9 +1936,11 @@
     const localMedicalImage = type === "medical";
     const resolvedVisual = ["book", "movie", "city"].includes(type) ? resolveVisual(item, type) : null;
     const renderedVisual = resolvedVisual ? visualImageHtml(resolvedVisual, "explore-image", { lazy: true }) : "";
-    const visual = renderedVisual || localMedicalImage
-      ? renderedVisual || `<img src="${safeImageUrl(item.image)}" alt="${escapeAttribute(item.alt)}" loading="lazy" decoding="async" />`
-      : `<span class="explore-monogram" aria-hidden="true">${escapeHtml(meta.short)}</span>`;
+    const editorialVisual = type === "book" || type === "movie" ? editorialArtHtml(item, type) : "";
+    let visual = `<span class="explore-monogram" aria-hidden="true">${escapeHtml(meta.short)}</span>`;
+    if (type === "book" || type === "movie") visual = `${editorialVisual}${renderedVisual}` || visual;
+    else if (renderedVisual) visual = renderedVisual;
+    else if (localMedicalImage) visual = `<img src="${safeImageUrl(item.image)}" alt="${escapeAttribute(item.alt)}" loading="lazy" decoding="async" />`;
     const series = item.series ? `<p class="explore-series">${escapeHtml(item.series)}${item.installment ? ` · ${escapeHtml(seriesInstallmentLabel(item.installment))}` : ""}${item.prerequisite ? `；${escapeHtml(item.prerequisite)}` : ""}</p>` : "";
     return `<article class="explore-card explore-${type}">
       <div class="explore-visual" style="--visual:${safeColor(Array.isArray(item.visual?.palette) ? item.visual.palette[0] : item.visual)}">${visual}${resolvedVisual ? visualCreditHtml(resolvedVisual) : ""}</div>
@@ -2212,7 +2215,7 @@
     elements.compactModeEnabled.checked = state.density === "compact";
     elements.dataSaverEnabled.checked = state.dataSaver === true;
     elements.dataSaverEnabled.disabled = false;
-    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "公开 LTS 中书与电影始终使用本地编辑视觉；开启后会额外关闭同源城市风貌图，医学图仍保留。";
+    if (elements.dataSaverHelp) elements.dataSaverHelp.textContent = "默认优先在线加载原书封与电影海报，失败时自动显示原创本地主题插画；开启后会关闭这些第三方图片和日常同源城市图，医学图仍保留。";
     elements.textSize.value = state.textSize || "default";
     elements.contrastMode.value = state.contrast || "default";
     elements.motionMode.value = state.motion || "system";
@@ -3045,12 +3048,17 @@
       candidates: Object.freeze([]),
       sourceKind: "local-editorial",
       cachePolicy: "same-origin-shell",
-      pendingLabel: "本地编辑视觉",
-      loadedLabel: "本地编辑视觉",
-      fallbackLabel: "本地编辑视觉",
+      pendingLabel: "本地编辑视觉 · 原创主题插画",
+      loadedLabel: "本地编辑视觉 · 原创主题插画",
+      fallbackLabel: "本地编辑视觉 · 原创主题插画",
       sourcePage: `./sources-and-licenses.html#${type === "city" ? "city-images" : "media-images"}`,
       fallbackSourcePage: `./sources-and-licenses.html#${type === "city" ? "city-images" : "media-images"}`
     });
+  }
+
+  function editorialArtHtml(item, type) {
+    const art = Visuals?.editorialArt?.(item, type);
+    return art && /^<svg class="editorial-art"(?:\s|>)/.test(String(art.markup || "")) ? art.markup : "";
   }
 
   function visualImageHtml(visual, className, options) {

@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f2eee4" />
     <meta name="referrer" content="no-referrer" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'" />
-    <meta name="description" content="今日万象 v2.5.0 LTS 的本地数据、视觉素材网络请求、备份与删除说明。" />
+    <meta name="description" content="今日万象 v2.6.0 LTS Visual Edition 的本地数据、原创视觉素材、网络请求、备份与删除说明。" />
     <title>今日万象｜隐私说明</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./legal.css" />
@@ -20,11 +20,11 @@
     <main class="legal-main" id="legalContent">
       <p class="kicker">PRIVACY · LOCAL FIRST</p>
       <h1>隐私说明</h1>
-      <p class="lead">今日万象 v2.5.0 LTS 是无账号、无后端的本地优先网页应用。本说明描述应用实际保存什么、何时会访问网络，以及用户如何导出或删除数据。</p>
+      <p class="lead">今日万象 v2.6.0 LTS Visual Edition 是无账号、无后端的本地优先网页应用。本说明描述应用实际保存什么、何时会访问网络，以及用户如何导出或删除数据。</p>
 
       <aside class="notice">
         <strong>视觉请求可以关闭</strong>
-        <p>v2.5.0 LTS 的公开安全素材模式默认以本地编辑视觉呈现书与电影，不向第三方图片服务请求书封或海报；城市使用已复核开放许可的同源图片。开启“数据节省模式”或安全模式后，城市也回到本地编辑视觉；只有用户随后明确选择“完整离线”时，才会批量请求并核验 200 张同源城市图。</p>
+        <p>v2.6.0 LTS Visual Edition 默认优先在线加载条目已有的原书封与电影海报，图片缺失、加载失败或离线时自动显示按稳定作品 ID 生成的原创本地主题插画。第三方书影图片不复制进发布包或离线缓存。开启“数据节省模式”或安全模式后，书影直接使用本地插画，城市也回到本地编辑视觉；只有用户随后明确选择“完整离线”时，才会批量请求并核验 200 张同源城市图。</p>
       </aside>
 
       <section class="legal-section">
@@ -55,11 +55,11 @@
           <li>应用首次打开、更新、搜索或安装离线包时，从当前 Origin 下载程序、内容分片、医学图和德语音频；已知 GitHub QA Origin 的首次未受控页面可能尝试固定 jsDelivr 内容锚点，失败后回到同源。</li>
           <li>只有用户点击城市实时信息时，才会访问 Open-Meteo；请求包含城市坐标和查询时间，不包含收藏或个人画像。</li>
           <li>用户主动打开“查看来源”或说明页中的外部链接时，会离开本站；目标网站会按其自身隐私政策处理网络信息。</li>
-          <li>当前公开配置不会向 <code>images.weserv.nl</code>、<code>covers.openlibrary.org</code> 或 <code>images.metahub.space</code> 请求书封／海报，因而不会通过图片 URL 泄露当前展示的书影作品 ID。用户点击作品资料或来源链接时会离开本应用并直接访问相应第三方站点，由该站点按自身隐私政策处理请求。</li>
+          <li>默认视觉模式会按当前条目的规范化图片地址，依次向白名单中的 <code>images.weserv.nl</code>、<code>covers.openlibrary.org</code> 或 <code>images.metahub.space</code> 请求书封／海报；服务方可能由图片 URL 得知相应作品 ID，并按自身隐私政策处理 IP、时间和请求头。本站不向这些请求附带收藏、偏好或探索记录，并设置 <code>Referrer-Policy: no-referrer</code>。</li>
           <li>城市风貌图只从当前 Origin 的 <code>./assets/visuals/cities/</code> 读取逐项核对开放许可的文件；不合格或缺失的城市继续显示程序化视觉。</li>
           <li>开启数据节省模式或安全模式后，日常卡片和探索页不请求远程书封、电影海报或城市风貌图；本地医学主题图仍保留。用户主动启动完整离线下载是明确例外，会请求 200 张同源城市图。</li>
         </ul>
-        <p>Service Worker 最多保留 180 项按需访问的同源城市图；公开版不建立书封或电影海报缓存。开启数据节省会停止日常浏览中的城市图片请求；“修复应用缓存”会清除应用管理的同源城市图缓存并重新校验离线包，但不会删除收藏、偏好或探索记录。</p>
+        <p>Service Worker 最多保留 180 项按需访问的同源城市图；第三方书封或电影海报始终采用仅联网加载，不写入应用 Cache，也不进入轻量／完整离线包。开启数据节省会停止书封、海报和日常城市图片请求；“修复应用缓存”会清除应用管理的同源城市图缓存并重新校验离线包，但不会删除收藏、偏好或探索记录。</p>
         <p>网络服务通常能够看到 IP 地址、时间、浏览器网络请求头等技术信息。本站设置 <code>Referrer-Policy: no-referrer</code>，尽量不把当前页面地址发送给外部站点。</p>
       </section>
 
@@ -83,7 +83,7 @@
       <section class="legal-section">
         <h2>六、运营与联系</h2>
         <p>当前版本定位为个人与非商业使用的 LTS 最终功能版，不提供医疗服务、账号服务或商业数据授权。发布后只处理可复现核心故障、安全／兼容性、来源许可、危险内容和可访问性阻断，不再持续扩充功能。维护者名称：今日万象维护者。问题与删除说明可通过公开仓库的 <a href="https://github.com/Zweisamkeit320/daily-atlas-v23/issues" target="_blank" rel="noreferrer">Issues 页面</a>反馈。</p>
-        <p>生效日期：2026-09-02。应用版本：v2.5.0 LTS。项目许可和第三方通知见 <a href="./LICENSE.txt">LICENSE.txt</a> 与 <a href="./NOTICE.txt">NOTICE.txt</a>。</p>
+        <p>生效日期：2026-09-03。应用版本：v2.6.0 LTS Visual Edition。项目许可和第三方通知见 <a href="./LICENSE.txt">LICENSE.txt</a> 与 <a href="./NOTICE.txt">NOTICE.txt</a>。</p>
       </section>
     </main>
     <footer class="legal-footer"><span>今日万象 · 本地优先</span><span><a href="./sources-and-licenses.html">来源与许可</a> · <a href="./">返回首页</a></span></footer>
