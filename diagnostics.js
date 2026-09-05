@@ -8,17 +8,17 @@
   ]);
   const EXTERNAL_IMAGE_TARGETS = Object.freeze([
     Object.freeze({
-      label: "images.weserv.nl 图片代理",
+      label: "书影图片代理主路径（480px）",
       host: "images.weserv.nl",
-      url: "https://images.weserv.nl/?url=https%3A%2F%2Fcovers.openlibrary.org%2Fb%2Fid%2F10521439-M.jpg%3Fdefault%3Dfalse&w=64&h=96&fit=cover&output=webp"
+      url: "https://images.weserv.nl/?url=https%3A%2F%2Fcovers.openlibrary.org%2Fb%2Fid%2F10521439-M.jpg%3Fdefault%3Dfalse&w=480&fit=cover&output=webp"
     }),
     Object.freeze({
-      label: "Open Library 书封",
+      label: "Open Library 书封直连（备用）",
       host: "covers.openlibrary.org",
       url: "https://covers.openlibrary.org/b/id/10521439-S.jpg?default=false"
     }),
     Object.freeze({
-      label: "MetaHub 电影海报",
+      label: "MetaHub 电影海报直连（备用）",
       host: "images.metahub.space",
       url: "https://images.metahub.space/poster/small/tt0086190/img"
     })

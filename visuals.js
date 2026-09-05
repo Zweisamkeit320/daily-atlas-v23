@@ -13,8 +13,9 @@
   const BOUND_ATTRIBUTE = "data-daily-atlas-visual-bound";
   const GENERATION_ATTRIBUTE = "data-daily-atlas-visual-generation";
   const IMAGE_ROUTE_TIMEOUT_MS = 3000;
-  const IMAGE_TOTAL_TIMEOUT_MS = 9000;
-  const IMAGE_MAX_CANDIDATES = Math.ceil(IMAGE_TOTAL_TIMEOUT_MS / IMAGE_ROUTE_TIMEOUT_MS);
+  const IMAGE_PROXY_TIMEOUT_MS = 8000;
+  const IMAGE_TOTAL_TIMEOUT_MS = IMAGE_PROXY_TIMEOUT_MS + (IMAGE_ROUTE_TIMEOUT_MS * 2);
+  const IMAGE_MAX_CANDIDATES = 3;
   const HOST_FAILURE_LIMIT = 2;
   const HOST_COOLDOWN_MS = 60000;
   const EDITORIAL_PALETTES = Object.freeze([
@@ -168,6 +169,10 @@
       const host = new URL(String(value || "")).hostname.toLowerCase();
       return REMOTE_HOSTS.has(host) ? host : null;
     } catch (_error) { return null; }
+  }
+
+  function routeTimeout(value) {
+    return remoteHost(value) === "images.weserv.nl" ? IMAGE_PROXY_TIMEOUT_MS : IMAGE_ROUTE_TIMEOUT_MS;
   }
 
   function hostAvailable(value, now = Date.now()) {
@@ -457,7 +462,7 @@
         tryNext();
         return;
       }
-      timer = root.setTimeout(() => tryNext(), Math.min(IMAGE_ROUTE_TIMEOUT_MS, remaining));
+      timer = root.setTimeout(() => tryNext(), Math.min(routeTimeout(candidates[index]), remaining));
     };
 
     function revealLoaded(loadedIndex, token) {
@@ -531,6 +536,7 @@
   return Object.freeze({
     REMOTE_HOSTS,
     IMAGE_ROUTE_TIMEOUT_MS,
+    IMAGE_PROXY_TIMEOUT_MS,
     IMAGE_TOTAL_TIMEOUT_MS,
     HOST_FAILURE_LIMIT,
     HOST_COOLDOWN_MS,
