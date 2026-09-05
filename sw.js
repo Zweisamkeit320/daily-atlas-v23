@@ -14,13 +14,13 @@ const VISUAL_PACK_CACHE_PREFIX = "daily-atlas-visual-pack-";
 
 // CACHE_VERSION remains as a release-integrity compatibility field for the
 // packaging tools. Runtime caches use independently generated pack versions.
-const CACHE_VERSION = "v3-0de00786433352da";
-const SHELL_VERSION = "s1-def19ab589da1bf3";
+const CACHE_VERSION = "v3-a893638470fce303";
+const SHELL_VERSION = "s1-2d72ef9b9b0d354e";
 const CONTENT_VERSION = "c1-c4fb35cb3dd749bc";
 const MEDICAL_VERSION = "m1-9c59aa54b9d7dc86";
 const AUDIO_VERSION = "a1-390c78b958c182b5";
 const SEARCH_VERSION = "q1-2981f9b56db1e6b0";
-const VISUAL_VERSION = "i1-26bc0e804ec8c268";
+const VISUAL_VERSION = "i1-fc27137a628cde89";
 const AUDIO_MANIFEST_SHA256 = "35E652038EB1B805D51D7AC50A72F892B6F3451792D573940ECBF550AAB4C0EA";
 
 const CACHE_NAME = `${CACHE_PREFIX}${SHELL_VERSION}`;

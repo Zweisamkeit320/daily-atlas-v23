@@ -185,9 +185,47 @@ test("jurisdiction-specific city licences keep their official display name", () 
 
 test("weserv proxy never accepts an arbitrary source host", () => {
   assert.equal(Visuals.IMAGE_ROUTE_TIMEOUT_MS, 3000);
-  assert.equal(Visuals.IMAGE_TOTAL_TIMEOUT_MS, 9000);
+  assert.equal(Visuals.IMAGE_PROXY_TIMEOUT_MS, 8000);
+  assert.equal(Visuals.IMAGE_TOTAL_TIMEOUT_MS, 14000);
   assert.equal(Visuals.weservUrl("https://evil.example/a.jpg", 480), null);
   assert.equal(Visuals.normalizedRemoteUrl("javascript:alert(1)"), null);
+});
+
+test("the primary 480px image proxy gets a weak-network window before fallback", () => {
+  const originalSetTimeout = global.setTimeout;
+  const originalClearTimeout = global.clearTimeout;
+  const timers = [];
+  global.setTimeout = (callback, delay) => {
+    const timer = { callback, delay, cleared: false };
+    timers.push(timer);
+    return timer;
+  };
+  global.clearTimeout = (timer) => { timer.cleared = true; };
+
+  try {
+    const visual = createVisual();
+    const candidates = [
+      "https://images.weserv.nl/?url=https%3A%2F%2Fcovers.openlibrary.org%2Fb%2Fid%2F1-M.jpg&w=480&fit=cover&output=webp",
+      "https://covers.openlibrary.org/b/id/1-M.jpg?default=false",
+      "https://covers.openlibrary.org/b/id/1-L.jpg?default=false"
+    ];
+    const image = createImage(candidates, visual);
+    image.setAttribute("src", candidates[0]);
+
+    Visuals.bind({ querySelectorAll: () => [image] });
+    assert.equal(timers.length, 1);
+    assert.equal(timers[0].delay, 8000);
+
+    image.dispatch("load");
+    assert.equal(timers[0].cleared, true);
+    assert.deepEqual(image.writes, []);
+    assert.equal(image.getAttribute("data-visual-index"), "0");
+    assert.equal(image.hidden, false);
+    assert.equal(visual.status.dataset.visualState, "loaded");
+  } finally {
+    global.setTimeout = originalSetTimeout;
+    global.clearTimeout = originalClearTimeout;
+  }
 });
 
 test("unbind detaches a card without canceling its current request or starting later candidates", () => {
@@ -214,7 +252,7 @@ test("unbind detaches a card without canceling its current request or starting l
 
     Visuals.bind(container);
     assert.equal(timers.length, 1);
-    assert.equal(timers[0].delay, 3000);
+    assert.equal(timers[0].delay, 8000);
 
     Visuals.unbind(container);
     image.isConnected = false;
